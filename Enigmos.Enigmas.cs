@@ -17,32 +17,12 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma("Démo 2", new Panel(), "1234", new string[] { "Démo" }));
         }
 
-        private Enigma NextEnigma()
-        {
-            #if DEBUG
-            // Pour tester, retournez votre énigme ici
+        private Enigma DebugEnigma(){
+            // Pour tester, retournez votre énigme ici. La valeur null lancera le jeu normalement.
 
-            // return new Enigma("Un titre", new PanelAAfficher(), "reponse");
+            return null;
 
             // ---
-            #endif
-
-            enigmas = ShuffleEnigmas(enigmas);
-            foreach (Enigma enigma in enigmas)
-            {
-                if (enigma.IsPlayable(solved))
-                {
-                    lblId.Text = enigma.Id;
-
-                    mainLayout.Controls.Remove(active);
-                    enigma.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                    enigma.AutoSize = true;
-                    enigma.BackColor = Color.White;
-                    mainLayout.Controls.Add(enigma, 0, 0);
-                    return enigma;
-                }
-            }
-            throw new Exception("Vous avez terminé le jeu !");
         }
     }
 }

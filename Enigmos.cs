@@ -15,7 +15,7 @@ namespace Cpln.Enigmos
     {
         private List<Enigma> enigmas = new List<Enigma>();
         private List<string> solved = new List<string>();
-        private Enigma active;
+        private Enigma active = null;
         public Enigmos()
         {
             InitializeComponent();
@@ -30,11 +30,12 @@ namespace Cpln.Enigmos
 
                 enigmas = new List<Enigma>();
                 ReferenceEnigmas();
+                ShuffleEnigmas();
                 solved = new List<string>();
 
                 CheckIntegrity();
 
-                active = NextEnigma();
+                NextEnigma();
 
                 ResumeLayout();
             }
@@ -57,7 +58,7 @@ namespace Cpln.Enigmos
                 solved.Add(active.Id);
                 enigmas.Remove(active);
                 try {
-                    active = NextEnigma();
+                    NextEnigma();
                 }
                 catch (Exception exception)
                 {
@@ -78,7 +79,7 @@ namespace Cpln.Enigmos
         {
             try
             {
-                active = NextEnigma();
+                NextEnigma();
             }
             catch
             {
@@ -100,17 +101,59 @@ namespace Cpln.Enigmos
             }
         }
 
-        private List<Enigma> ShuffleEnigmas(List<Enigma> input)
+        private void ShuffleEnigmas()
         {
             List<Enigma> shuffled = new List<Enigma>();
             Random random = new Random();
-            while (input.Count > 0)
+            while (enigmas.Count > 0)
             {
-                int i = random.Next(input.Count);
+                int i = random.Next(enigmas.Count);
                 shuffled.Add(enigmas[i]);
-                input.RemoveAt(i);
+                enigmas.RemoveAt(i);
             }
-            return shuffled;
+            enigmas = shuffled;
+        }
+
+        private void NextEnigma()
+        {
+            #if DEBUG
+            Enigma debug = DebugEnigma();
+            if (debug != null)
+            {
+                SetActive(debug);
+                return;
+            }
+            #endif
+
+            if (active == null)
+            {
+                SetActive(enigmas[enigmas.Count - 1]);
+            }
+            Enigma next = enigmas[(enigmas.IndexOf(active) + 1) % enigmas.Count];
+            while (next != active)
+            {
+                next = enigmas[(enigmas.IndexOf(next) + 1) % enigmas.Count];
+                if (next.IsPlayable(solved))
+                {
+                    lblId.Text = next.Id;
+
+                    SetActive(next);
+                    return;
+                }
+            }
+            throw new Exception("Vous avez terminé le jeu !");
+        }
+
+        private void SetActive(Enigma enigma)
+        {
+            mainLayout.Controls.Remove(active);
+            active = enigma;
+            active.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            active.AutoSize = true;
+            active.BackColor = Color.White;
+            mainLayout.Controls.Add(active, 0, 0);
+
+            lblId.Text = active.Id;
         }
     }
 }
