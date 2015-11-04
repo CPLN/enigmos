@@ -32,13 +32,14 @@
             this.lyAnswer = new System.Windows.Forms.TableLayoutPanel();
             this.btnValidate = new System.Windows.Forms.Button();
             this.btnSkip = new System.Windows.Forms.Button();
+            this.lblId = new System.Windows.Forms.Label();
             this.lyAnswer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbxAnswer
             // 
             this.tbxAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.tbxAnswer.Location = new System.Drawing.Point(0, 0);
+            this.tbxAnswer.Location = new System.Drawing.Point(300, 0);
             this.tbxAnswer.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.tbxAnswer.Name = "tbxAnswer";
             this.tbxAnswer.Size = new System.Drawing.Size(512, 44);
@@ -47,22 +48,24 @@
             // lyAnswer
             // 
             this.lyAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lyAnswer.ColumnCount = 2;
+            this.lyAnswer.ColumnCount = 3;
+            this.lyAnswer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.lyAnswer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.lyAnswer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.lyAnswer.Controls.Add(this.tbxAnswer, 0, 0);
-            this.lyAnswer.Controls.Add(this.btnValidate, 1, 0);
-            this.lyAnswer.Location = new System.Drawing.Point(372, 453);
+            this.lyAnswer.Controls.Add(this.tbxAnswer, 1, 0);
+            this.lyAnswer.Controls.Add(this.btnValidate, 2, 0);
+            this.lyAnswer.Controls.Add(this.lblId, 0, 0);
+            this.lyAnswer.Location = new System.Drawing.Point(69, 453);
             this.lyAnswer.Name = "lyAnswer";
             this.lyAnswer.RowCount = 1;
             this.lyAnswer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.lyAnswer.Size = new System.Drawing.Size(640, 44);
+            this.lyAnswer.Size = new System.Drawing.Size(943, 44);
             this.lyAnswer.TabIndex = 1;
             // 
             // btnValidate
             // 
             this.btnValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.btnValidate.Location = new System.Drawing.Point(515, 0);
+            this.btnValidate.Location = new System.Drawing.Point(815, 0);
             this.btnValidate.Margin = new System.Windows.Forms.Padding(0);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(125, 44);
@@ -82,6 +85,20 @@
             this.btnSkip.Text = "Passer";
             this.btnSkip.UseVisualStyleBackColor = true;
             this.btnSkip.Click += new System.EventHandler(this.Skip);
+            // 
+            // lblId
+            // 
+            this.lblId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.lblId.ForeColor = System.Drawing.Color.White;
+            this.lblId.Location = new System.Drawing.Point(40, 0);
+            this.lblId.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(257, 44);
+            this.lblId.TabIndex = 2;
+            this.lblId.Text = "[Aucune énigme]";
             // 
             // Enigmos
             // 
@@ -108,6 +125,7 @@
         private System.Windows.Forms.TableLayoutPanel lyAnswer;
         private System.Windows.Forms.Button btnValidate;
         private System.Windows.Forms.Button btnSkip;
+        private System.Windows.Forms.Label lblId;
 
     }
 }

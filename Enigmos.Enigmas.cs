@@ -11,7 +11,7 @@ namespace Cpln.Enigmos
     {
         private void ReferenceEnigmas()
         {
-            enigmas.Add(new Enigma("demo", new Panel(), "1234"));
+            enigmas.Add(new Enigma("Démo", new Panel(), "1234"));
         }
 
         private Enigma NextEnigma()
@@ -28,6 +28,7 @@ namespace Cpln.Enigmos
             {
                 if (enigma.IsPlayable(solved))
                 {
+                    lblId.Text = enigma.Id;
                     return enigma;
                 }
             }

@@ -23,12 +23,19 @@ namespace Cpln.Enigmos
             ReferenceEnigmas();
             try
             {
+                CheckIntegrity();
+
                 active = NextEnigma();
                 active.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
                 active.Location = new Point(12, 12);
                 active.Size = new Size(1000, 429);
                 active.BackColor = Color.White;
                 Controls.Add(active);
+            }
+            catch (IntegrityException e)
+            {
+                MessageBox.Show(e.Message);
+                Environment.Exit(1);
             }
             catch
             {
@@ -89,7 +96,7 @@ namespace Cpln.Enigmos
             {
                 if (ids.Contains(enigma.Id.ToLower()))
                 {
-                    throw new Exception("Erreur : deux enigmes ou plus ont le nom \"" + enigma.Id + "\".");
+                    throw new IntegrityException(enigma.Id);
                 }
                 ids.Add(enigma.Id.ToLower());
             }
