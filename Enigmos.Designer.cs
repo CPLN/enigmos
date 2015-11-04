@@ -83,9 +83,10 @@
             // 
             this.btnSkip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSkip.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.btnSkip.Location = new System.Drawing.Point(3, 3);
+            this.btnSkip.Location = new System.Drawing.Point(0, 0);
+            this.btnSkip.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.btnSkip.Name = "btnSkip";
-            this.btnSkip.Size = new System.Drawing.Size(125, 38);
+            this.btnSkip.Size = new System.Drawing.Size(125, 44);
             this.btnSkip.TabIndex = 2;
             this.btnSkip.Text = "Passer";
             this.btnSkip.UseVisualStyleBackColor = true;

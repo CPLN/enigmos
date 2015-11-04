@@ -31,6 +31,7 @@ namespace Cpln.Enigmos
                 enigmas = new List<Enigma>();
                 ReferenceEnigmas();
                 ShuffleEnigmas();
+
                 solved = new List<string>();
 
                 CheckIntegrity();
@@ -125,6 +126,11 @@ namespace Cpln.Enigmos
             }
             #endif
 
+            if (enigmas.Count == 0)
+            {
+                throw new Exception("Vous avez terminé le jeu !");
+            }
+
             if (active == null)
             {
                 SetActive(enigmas[enigmas.Count - 1]);
@@ -141,7 +147,6 @@ namespace Cpln.Enigmos
                     return;
                 }
             }
-            throw new Exception("Vous avez terminé le jeu !");
         }
 
         private void SetActive(Enigma enigma)
