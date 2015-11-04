@@ -81,6 +81,7 @@
             this.btnSkip.TabIndex = 2;
             this.btnSkip.Text = "Passer";
             this.btnSkip.UseVisualStyleBackColor = true;
+            this.btnSkip.Click += new System.EventHandler(this.Skip);
             // 
             // Enigmos
             // 

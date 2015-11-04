@@ -19,6 +19,7 @@ namespace Cpln.Enigmos
         public Enigmos()
         {
             InitializeComponent();
+            AcceptButton = btnValidate;
             ReferenceEnigmas();
             try
             {
@@ -66,6 +67,19 @@ namespace Cpln.Enigmos
                 }
             }
             tbxAnswer.Text = "";
+        }
+
+        private void Skip(object sender, EventArgs e)
+        {
+            try
+            {
+                active = NextEnigma();
+            }
+            catch
+            {
+                MessageBox.Show("Aucune énigme n'a été trouvée", "Erreur");
+                Environment.Exit(1);
+            }
         }
 
         private void CheckIntegrity()

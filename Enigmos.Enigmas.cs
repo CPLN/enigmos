@@ -11,6 +11,7 @@ namespace Cpln.Enigmos
     {
         private void ReferenceEnigmas()
         {
+            enigmas.Add(new Enigma("demo", new Panel(), "1234"));
         }
 
         private Enigma NextEnigma()
@@ -18,7 +19,9 @@ namespace Cpln.Enigmos
             #if DEBUG
             // Retournez votre enigme ici
 
+            // ---
             #endif
+
             Random random = new Random();
             enigmas.OrderBy(item => random.Next());
             foreach (Enigma enigma in enigmas)
