@@ -121,6 +121,11 @@ namespace Cpln.Enigmos
             Enigma debug = DebugEnigma();
             if (debug != null)
             {
+                if (active != null)
+                {
+                    MessageBox.Show("Fin du test", "Test réussi");
+                    Environment.Exit(0);
+                }
                 SetActive(debug);
                 return;
             }
@@ -155,7 +160,6 @@ namespace Cpln.Enigmos
             active = enigma;
             active.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             active.AutoSize = true;
-            active.BackColor = Color.White;
             mainLayout.Controls.Add(active, 0, 0);
 
             lblId.Text = active.Id;

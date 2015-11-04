@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Cpln.Enigmos.Enigmas;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +12,7 @@ namespace Cpln.Enigmos
     class Enigma : Panel
     {
         private string id;
-        private Panel pnlContent;
+        private EnigmaPanel enigmaPanel;
         private string strAnswer;
         private List<string> prerequisites = new List<string>();
 
@@ -21,16 +23,19 @@ namespace Cpln.Enigmos
             }
         }
 
-        public Enigma(string id, Panel content, string answer)
+        public Enigma(string id, EnigmaPanel enigmaPanel, string answer)
         {
             this.id = id;
-            this.pnlContent = content;
+            this.enigmaPanel = enigmaPanel;
             this.strAnswer = answer;
-            Controls.Add(pnlContent);
+            Controls.Add(enigmaPanel);
+
+            Dock = DockStyle.Fill;
+            Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
-        public Enigma(string id, Panel content, string answer, string[] prerequisites)
-            : this(id, content, answer)
+        public Enigma(string id, EnigmaPanel enigmaPanel, string answer, string[] prerequisites)
+            : this(id, enigmaPanel, answer)
         {
             foreach (string prerequisite in prerequisites)
             {

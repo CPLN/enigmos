@@ -30,8 +30,8 @@
         {
             this.tbxAnswer = new System.Windows.Forms.TextBox();
             this.bottomLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.btnValidate = new System.Windows.Forms.Button();
             this.btnSkip = new System.Windows.Forms.Button();
+            this.btnValidate = new System.Windows.Forms.Button();
             this.lblId = new System.Windows.Forms.Label();
             this.mainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.bottomLayout.SuspendLayout();
@@ -67,18 +67,6 @@
             this.bottomLayout.Size = new System.Drawing.Size(1065, 44);
             this.bottomLayout.TabIndex = 1;
             // 
-            // btnValidate
-            // 
-            this.btnValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.btnValidate.Location = new System.Drawing.Point(940, 0);
-            this.btnValidate.Margin = new System.Windows.Forms.Padding(0);
-            this.btnValidate.Name = "btnValidate";
-            this.btnValidate.Size = new System.Drawing.Size(125, 44);
-            this.btnValidate.TabIndex = 1;
-            this.btnValidate.Text = "Valider";
-            this.btnValidate.UseVisualStyleBackColor = true;
-            this.btnValidate.Click += new System.EventHandler(this.Validate);
-            // 
             // btnSkip
             // 
             this.btnSkip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -91,6 +79,18 @@
             this.btnSkip.Text = "Passer";
             this.btnSkip.UseVisualStyleBackColor = true;
             this.btnSkip.Click += new System.EventHandler(this.Skip);
+            // 
+            // btnValidate
+            // 
+            this.btnValidate.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.btnValidate.Location = new System.Drawing.Point(940, 0);
+            this.btnValidate.Margin = new System.Windows.Forms.Padding(0);
+            this.btnValidate.Name = "btnValidate";
+            this.btnValidate.Size = new System.Drawing.Size(125, 44);
+            this.btnValidate.TabIndex = 1;
+            this.btnValidate.Text = "Valider";
+            this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.Validate);
             // 
             // lblId
             // 

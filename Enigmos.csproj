@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\EnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmos.Enigmas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +58,9 @@
     </Compile>
     <Compile Include="Enigmos.Designer.cs">
       <DependentUpon>Enigmos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enigmas\SimpleEnigmaPanel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="IntegrityException.cs" />
     <Compile Include="Program.cs" />
