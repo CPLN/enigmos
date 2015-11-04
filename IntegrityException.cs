@@ -10,7 +10,7 @@ namespace Cpln.Enigmos
     {
         private string id;
 
-        public string Message
+        override public string Message
         {
             get
             {

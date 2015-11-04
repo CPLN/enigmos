@@ -28,7 +28,6 @@ namespace Cpln.Enigmos
             {
                 SuspendLayout();
 
-                mainLayout.Controls.Remove(active);
                 enigmas = new List<Enigma>();
                 ReferenceEnigmas();
                 solved = new List<string>();
@@ -36,10 +35,6 @@ namespace Cpln.Enigmos
                 CheckIntegrity();
 
                 active = NextEnigma();
-                active.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                active.AutoSize = true;
-                active.BackColor = Color.White;
-                mainLayout.Controls.Add(active, 0, 0);
 
                 ResumeLayout();
             }
@@ -62,9 +57,7 @@ namespace Cpln.Enigmos
                 solved.Add(active.Id);
                 enigmas.Remove(active);
                 try {
-                    Controls.Remove(active);
                     active = NextEnigma();
-                    Controls.Add(active);
                 }
                 catch (Exception exception)
                 {
@@ -105,6 +98,19 @@ namespace Cpln.Enigmos
                 }
                 ids.Add(enigma.Id.ToLower());
             }
+        }
+
+        private List<Enigma> ShuffleEnigmas(List<Enigma> input)
+        {
+            List<Enigma> shuffled = new List<Enigma>();
+            Random random = new Random();
+            while (input.Count > 0)
+            {
+                int i = random.Next(input.Count);
+                shuffled.Add(enigmas[i]);
+                input.RemoveAt(i);
+            }
+            return shuffled;
         }
     }
 }

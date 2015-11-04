@@ -29,6 +29,15 @@ namespace Cpln.Enigmos
             Controls.Add(pnlContent);
         }
 
+        public Enigma(string id, Panel content, string answer, string[] prerequisites)
+            : this(id, content, answer)
+        {
+            foreach (string prerequisite in prerequisites)
+            {
+                this.prerequisites.Add(prerequisite);
+            }
+        }
+
         public bool CheckAnswer(string answer)
         {
             return answer == strAnswer;

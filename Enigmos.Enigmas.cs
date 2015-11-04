@@ -14,6 +14,7 @@ namespace Cpln.Enigmos
         {
             // Pour ajouter votre énigme aux autres, ajoutez une ligne à la fin de la liste.
             enigmas.Add(new Enigma("Démo", new Panel(), "1234"));
+            enigmas.Add(new Enigma("Démo 2", new Panel(), "1234", new string[] { "Démo" }));
         }
 
         private Enigma NextEnigma()
@@ -26,13 +27,18 @@ namespace Cpln.Enigmos
             // ---
             #endif
 
-            Random random = new Random();
-            enigmas.OrderBy(item => random.Next());
+            enigmas = ShuffleEnigmas(enigmas);
             foreach (Enigma enigma in enigmas)
             {
                 if (enigma.IsPlayable(solved))
                 {
                     lblId.Text = enigma.Id;
+
+                    mainLayout.Controls.Remove(active);
+                    enigma.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                    enigma.AutoSize = true;
+                    enigma.BackColor = Color.White;
+                    mainLayout.Controls.Add(enigma, 0, 0);
                     return enigma;
                 }
             }
