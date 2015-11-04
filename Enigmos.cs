@@ -19,18 +19,29 @@ namespace Cpln.Enigmos
         public Enigmos()
         {
             InitializeComponent();
-            AcceptButton = btnValidate;
-            ReferenceEnigmas();
+            Init();
+        }
+
+        private void Init()
+        {
             try
             {
+                SuspendLayout();
+
+                mainLayout.Controls.Remove(active);
+                enigmas = new List<Enigma>();
+                ReferenceEnigmas();
+                solved = new List<string>();
+
                 CheckIntegrity();
 
                 active = NextEnigma();
                 active.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                active.Location = new Point(12, 12);
-                active.Size = new Size(1000, 429);
+                active.AutoSize = true;
                 active.BackColor = Color.White;
-                Controls.Add(active);
+                mainLayout.Controls.Add(active, 0, 0);
+
+                ResumeLayout();
             }
             catch (IntegrityException e)
             {
@@ -44,14 +55,6 @@ namespace Cpln.Enigmos
             }
         }
 
-        private void Init()
-        {
-            enigmas = new List<Enigma>();
-            ReferenceEnigmas();
-            solved = new List<string>();
-            active = NextEnigma();
-        }
-
         private void Validate(object sender, EventArgs e)
         {
             if (active.CheckAnswer(tbxAnswer.Text))
@@ -59,7 +62,9 @@ namespace Cpln.Enigmos
                 solved.Add(active.Id);
                 enigmas.Remove(active);
                 try {
+                    Controls.Remove(active);
                     active = NextEnigma();
+                    Controls.Add(active);
                 }
                 catch (Exception exception)
                 {

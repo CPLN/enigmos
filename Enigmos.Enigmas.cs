@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,16 @@ namespace Cpln.Enigmos
     {
         private void ReferenceEnigmas()
         {
+            // Pour ajouter votre énigme aux autres, ajoutez une ligne à la fin de la liste.
             enigmas.Add(new Enigma("Démo", new Panel(), "1234"));
         }
 
         private Enigma NextEnigma()
         {
             #if DEBUG
-            // Retournez votre enigme ici
+            // Pour tester, retournez votre énigme ici
+
+            // return new Enigma("Un titre", new PanelAAfficher(), "reponse");
 
             // ---
             #endif
