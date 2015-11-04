@@ -87,10 +87,11 @@ namespace Cpln.Enigmos
             List<string> ids = new List<string>();
             foreach (Enigma enigma in enigmas)
             {
-                if (ids.Contains(enigma.Id))
+                if (ids.Contains(enigma.Id.ToLower()))
                 {
                     throw new Exception("Erreur : deux enigmes ou plus ont le nom \"" + enigma.Id + "\".");
                 }
+                ids.Add(enigma.Id.ToLower());
             }
         }
     }
