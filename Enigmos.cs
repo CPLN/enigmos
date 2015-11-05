@@ -123,7 +123,6 @@ namespace Cpln.Enigmos
             {
                 if (active != null)
                 {
-                    MessageBox.Show("Fin du test", "Test réussi");
                     Environment.Exit(0);
                 }
                 SetActive(debug);
