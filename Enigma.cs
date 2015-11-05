@@ -12,7 +12,6 @@ namespace Cpln.Enigmos
     class Enigma : Panel
     {
         private string id;
-        private EnigmaPanel enigmaPanel;
         private string strAnswer;
         private List<string> prerequisites = new List<string>();
 
@@ -26,12 +25,23 @@ namespace Cpln.Enigmos
         public Enigma(string id, EnigmaPanel enigmaPanel, string answer)
         {
             this.id = id;
-            this.enigmaPanel = enigmaPanel;
             this.strAnswer = answer;
-            Controls.Add(enigmaPanel);
+
+            TableLayoutPanel centerLayout = new TableLayoutPanel();
+            centerLayout.ColumnCount = 3;
+            centerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.5f));
+            centerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+            centerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.5f));
+            centerLayout.RowCount = 3;
+            centerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 0.5f));
+            centerLayout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            centerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 0.5f));
+            centerLayout.Dock = DockStyle.Fill;
+
+            Controls.Add(centerLayout);
+            centerLayout.Controls.Add(enigmaPanel, 1, 1);
 
             Dock = DockStyle.Fill;
-            Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
         public Enigma(string id, EnigmaPanel enigmaPanel, string answer, string[] prerequisites)
