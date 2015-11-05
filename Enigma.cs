@@ -7,19 +7,30 @@ namespace Cpln.Enigmos
     class Enigma : Panel
     {
         private string id;
+        private string strHint;
         private string strAnswer;
         private List<string> prerequisites = new List<string>();
 
-        public string Id{
+        public string Id
+        {
             get
             {
                 return id;
             }
         }
 
-        public Enigma(string id, EnigmaPanel enigmaPanel, string answer)
+        public string Hint
+        {
+            get
+            {
+                return strHint;
+            }
+        }
+
+        public Enigma(EnigmaPanel enigmaPanel, string id, string hint, string answer)
         {
             this.id = id;
+            this.strHint = hint;
             this.strAnswer = answer;
 
             TableLayoutPanel centerLayout = new TableLayoutPanel();
@@ -39,8 +50,8 @@ namespace Cpln.Enigmos
             Dock = DockStyle.Fill;
         }
 
-        public Enigma(string id, EnigmaPanel enigmaPanel, string answer, string[] prerequisites)
-            : this(id, enigmaPanel, answer)
+        public Enigma(EnigmaPanel enigmaPanel, string id, string hint, string answer, string[] prerequisites)
+            : this(enigmaPanel, id, hint, answer)
         {
             foreach (string prerequisite in prerequisites)
             {

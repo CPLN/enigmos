@@ -82,6 +82,11 @@ namespace Cpln.Enigmos
             }
         }
 
+        private void Hint(object sender, EventArgs e)
+        {
+            MessageBox.Show(active.Hint, "Indice");
+        }
+
         private void CheckIntegrity()
         {
             List<string> ids = new List<string>();
