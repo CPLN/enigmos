@@ -6,16 +6,16 @@ namespace Cpln.Enigmos
 {
     class Enigma : Panel
     {
-        private string id;
+        private string strTitle;
         private string strHint;
         private string strAnswer;
         private List<string> prerequisites = new List<string>();
 
-        public string Id
+        public string Title
         {
             get
             {
-                return id;
+                return strTitle;
             }
         }
 
@@ -27,9 +27,9 @@ namespace Cpln.Enigmos
             }
         }
 
-        public Enigma(EnigmaPanel enigmaPanel, string id, string hint, string answer)
+        public Enigma(EnigmaPanel enigmaPanel, string title, string hint, string answer)
         {
-            this.id = id;
+            this.strTitle = title;
             this.strHint = hint;
             this.strAnswer = answer;
 
@@ -50,8 +50,8 @@ namespace Cpln.Enigmos
             Dock = DockStyle.Fill;
         }
 
-        public Enigma(EnigmaPanel enigmaPanel, string id, string hint, string answer, string[] prerequisites)
-            : this(enigmaPanel, id, hint, answer)
+        public Enigma(EnigmaPanel enigmaPanel, string title, string hint, string answer, string[] prerequisites)
+            : this(enigmaPanel, title, hint, answer)
         {
             foreach (string prerequisite in prerequisites)
             {
@@ -66,7 +66,7 @@ namespace Cpln.Enigmos
 
         public void AddPrerequisite(Enigma prerequisite)
         {
-            prerequisites.Add(prerequisite.Id);
+            prerequisites.Add(prerequisite.Title);
         }
 
         public bool IsPlayable(List<string> solved)

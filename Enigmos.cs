@@ -49,7 +49,7 @@ namespace Cpln.Enigmos
         {
             if (active.CheckAnswer(tbxAnswer.Text))
             {
-                solved.Add(active.Id);
+                solved.Add(active.Title);
                 enigmas.Remove(active);
                 try {
                     NextEnigma();
@@ -92,11 +92,11 @@ namespace Cpln.Enigmos
             List<string> ids = new List<string>();
             foreach (Enigma enigma in enigmas)
             {
-                if (ids.Contains(enigma.Id.ToLower()))
+                if (ids.Contains(enigma.Title.ToLower()))
                 {
-                    throw new IntegrityException(enigma.Id);
+                    throw new IntegrityException(enigma.Title);
                 }
-                ids.Add(enigma.Id.ToLower());
+                ids.Add(enigma.Title.ToLower());
             }
         }
 
@@ -143,7 +143,7 @@ namespace Cpln.Enigmos
                 next = enigmas[(enigmas.IndexOf(next) + 1) % enigmas.Count];
                 if (next.IsPlayable(solved))
                 {
-                    lblId.Text = next.Id;
+                    lblId.Text = next.Title;
 
                     SetActive(next);
                     return;
@@ -159,7 +159,7 @@ namespace Cpln.Enigmos
             active.AutoSize = true;
             mainLayout.Controls.Add(active, 0, 0);
 
-            lblId.Text = active.Id;
+            lblId.Text = active.Title;
         }
     }
 }
