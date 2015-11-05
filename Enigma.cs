@@ -9,6 +9,7 @@ namespace Cpln.Enigmos
         private string strTitle;
         private string strHint;
         private string strAnswer;
+        private bool bCaseSensitive = false;
         private List<string> prerequisites = new List<string>();
 
         public string Title
@@ -24,6 +25,18 @@ namespace Cpln.Enigmos
             get
             {
                 return strHint;
+            }
+        }
+
+        public bool IsCaseSensitive
+        {
+            get
+            {
+                return bCaseSensitive;
+            }
+            set
+            {
+                bCaseSensitive = value;
             }
         }
 
@@ -61,7 +74,7 @@ namespace Cpln.Enigmos
 
         public bool CheckAnswer(string answer)
         {
-            return answer.ToLower() == strAnswer.ToLower();
+            return IsCaseSensitive ? answer == strAnswer : answer.ToLower() == strAnswer.ToLower();
         }
 
         public void AddPrerequisite(Enigma prerequisite)
