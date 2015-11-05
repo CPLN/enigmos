@@ -61,7 +61,7 @@ namespace Cpln.Enigmos
 
         public bool CheckAnswer(string answer)
         {
-            return answer == strAnswer;
+            return answer.ToLower() == strAnswer.ToLower();
         }
 
         public void AddPrerequisite(Enigma prerequisite)
