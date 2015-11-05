@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
@@ -12,9 +8,12 @@ namespace Cpln.Enigmos.Enigmas
         public SimpleEnigmaPanel()
         {
             Label lblEnigme = new Label();
-            lblEnigme.Text = "La solution est simple";
-            lblEnigme.AutoSize = true;
-            Center(lblEnigme);
+
+            lblEnigme.Text = "La solution est simple.";
+            lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
+            lblEnigme.Dock = DockStyle.Fill;
+            lblEnigme.TextAlign = ContentAlignment.MiddleCenter;
+
             Controls.Add(lblEnigme);
         }
     }
