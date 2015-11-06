@@ -132,7 +132,6 @@ namespace Cpln.Enigmos
             Enigma next = enigmas[(enigmas.IndexOf(active) + 1) % enigmas.Count];
             while (next != active)
             {
-                next = enigmas[(enigmas.IndexOf(next) + 1) % enigmas.Count];
                 if (next.IsPlayable(solved))
                 {
                     lblId.Text = next.Title;
@@ -140,6 +139,7 @@ namespace Cpln.Enigmos
                     SetActive(next);
                     return;
                 }
+                next = enigmas[(enigmas.IndexOf(next) + 1) % enigmas.Count];
             }
             MessageBox.Show("C'est la dernière énigme disponible.", "Bientôt fini !");
         }
