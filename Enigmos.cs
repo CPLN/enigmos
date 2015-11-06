@@ -149,6 +149,7 @@ namespace Cpln.Enigmos
                     return;
                 }
             }
+            MessageBox.Show("C'est la dernière énigme disponible.", "Bientôt fini !");
         }
 
         private void SetActive(Enigma enigma)
