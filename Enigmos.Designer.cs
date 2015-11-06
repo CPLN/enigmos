@@ -33,8 +33,8 @@
             this.btnSkip = new System.Windows.Forms.Button();
             this.btnValidate = new System.Windows.Forms.Button();
             this.lblId = new System.Windows.Forms.Label();
-            this.mainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.btnHint = new System.Windows.Forms.Button();
+            this.mainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.bottomLayout.SuspendLayout();
             this.mainLayout.SuspendLayout();
             this.SuspendLayout();
@@ -113,6 +113,20 @@
             this.lblId.TabIndex = 2;
             this.lblId.Text = "[Aucune énigme]";
             // 
+            // btnHint
+            // 
+            this.btnHint.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnHint.AutoSize = true;
+            this.btnHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.btnHint.Location = new System.Drawing.Point(141, 27);
+            this.btnHint.Margin = new System.Windows.Forms.Padding(0, 0, 3, 12);
+            this.btnHint.Name = "btnHint";
+            this.btnHint.Size = new System.Drawing.Size(44, 47);
+            this.btnHint.TabIndex = 3;
+            this.btnHint.Text = "?";
+            this.btnHint.UseVisualStyleBackColor = true;
+            this.btnHint.Click += new System.EventHandler(this.Hint);
+            // 
             // mainLayout
             // 
             this.mainLayout.AutoSize = true;
@@ -128,20 +142,6 @@
             this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.mainLayout.Size = new System.Drawing.Size(1095, 512);
             this.mainLayout.TabIndex = 2;
-            // 
-            // btnHint
-            // 
-            this.btnHint.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnHint.AutoSize = true;
-            this.btnHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.btnHint.Location = new System.Drawing.Point(141, 27);
-            this.btnHint.Margin = new System.Windows.Forms.Padding(0, 0, 3, 12);
-            this.btnHint.Name = "btnHint";
-            this.btnHint.Size = new System.Drawing.Size(44, 47);
-            this.btnHint.TabIndex = 3;
-            this.btnHint.Text = "?";
-            this.btnHint.UseVisualStyleBackColor = true;
-            this.btnHint.Click += new System.EventHandler(this.Hint);
             // 
             // Enigmos
             // 

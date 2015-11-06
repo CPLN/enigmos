@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,6 +9,8 @@ namespace Cpln.Enigmos.Enigmas.Component
     {
         private Control element;
         private Point start;
+        private bool bMoving = false;
+        private Point moveStart;
 
         public PuzzlePiece(Control element, Point start)
         {
@@ -15,7 +18,13 @@ namespace Cpln.Enigmos.Enigmas.Component
             this.start = start;
             element.Location = start;
             Label l = (Label)element;
+            BackColor = Color.Turquoise;
+
             Controls.Add(element);
+
+            element.MouseDown += new MouseEventHandler(MoveStart);
+            element.MouseMove += new MouseEventHandler(MoveMove);
+            element.MouseUp += new MouseEventHandler(MoveStop);
         }
 
         public static List<PuzzlePiece> GeneratePieces(string text, int xCuts, int yCuts)
@@ -31,9 +40,9 @@ namespace Cpln.Enigmos.Enigmas.Component
             int width = referenceRealSize.Width / xCuts;
             int height = referenceRealSize.Height / yCuts;
 
-            for (int j = 0; j < referenceRealSize.Height; j += height)
+            for (int j = 0; j <= referenceRealSize.Height - height; j += height)
             {
-                for (int i = 0; i < referenceRealSize.Width; i += width)
+                for (int i = 0; i <= referenceRealSize.Width - width; i += width)
                 {
                     Label label = new Label();
                     label.Text = text;
@@ -45,6 +54,30 @@ namespace Cpln.Enigmos.Enigmas.Component
                 }
             }
             return pieces;
+        }
+
+        private void MoveStart(object sender, MouseEventArgs e)
+        {
+            bMoving = true;
+            moveStart = e.Location;
+        }
+
+        private void MoveMove(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.NoMove2D;
+            if (bMoving)
+            {
+                int newX = Left + e.X - moveStart.X;
+                int newY = Top + e.Y - moveStart.Y;
+
+                Left = Math.Max(Math.Min(newX, Parent.Width - Width), 0);
+                Top = Math.Max(Math.Min(newY, Parent.Height - Height), 0);
+            }
+        }
+
+        private void MoveStop(object sender, MouseEventArgs e)
+        {
+            bMoving = false;
         }
     }
 }

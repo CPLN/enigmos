@@ -12,7 +12,7 @@ namespace Cpln.Enigmos.Enigmas
 
         public SimplePuzzleEnigmaPanel()
         {
-            pieces = PuzzlePiece.GeneratePieces("JONGLEUR", 4, 1);
+            pieces = PuzzlePiece.GeneratePieces("JONGLEUR", 4, 2);
 
             Size size = pieces[0].Size;
             Random random = new Random();

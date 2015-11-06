@@ -12,6 +12,11 @@ namespace Cpln.Enigmos
         public Enigmos()
         {
             InitializeComponent();
+
+            #if DEBUG
+            TopMost = false;
+            #endif
+
             Init();
         }
 
