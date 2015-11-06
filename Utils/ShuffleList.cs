@@ -7,7 +7,11 @@ namespace Cpln.Enigmos.Utils
     {
         public void Shuffle()
         {
-            Random random = new Random();
+            Shuffle(new Random());
+        }
+
+        public void Shuffle(Random random)
+        {
             for (int count = Count; count > 0; count--)
             {
                 int i = random.Next(count);
