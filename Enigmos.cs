@@ -8,7 +8,7 @@ namespace Cpln.Enigmos
 {
     public partial class Enigmos : Form
     {
-        private ShuffleList<Enigma> enigmas = new ShuffleList<Enigma>();
+        private List<Enigma> enigmas = new List<Enigma>();
         private List<string> solved = new List<string>();
         private Enigma active = null;
         public Enigmos()
@@ -28,9 +28,7 @@ namespace Cpln.Enigmos
             {
                 SuspendLayout();
 
-                enigmas = new ShuffleList<Enigma>();
-                ReferenceEnigmas();
-                enigmas.Shuffle();
+                enigmas = EnigmaReferencer.ReferenceEnigmas();
 
                 solved = new List<string>();
 
@@ -115,7 +113,7 @@ namespace Cpln.Enigmos
         private void NextEnigma()
         {
             #if DEBUG
-            Enigma debug = DebugEnigma();
+            Enigma debug = EnigmaReferencer.DebugEnigma();
             if (debug != null)
             {
                 if (active != null)

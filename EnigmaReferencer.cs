@@ -1,10 +1,12 @@
 ﻿using Cpln.Enigmos.Enigmas;
+using Cpln.Enigmos.Utils;
+using System.Collections.Generic;
 
 namespace Cpln.Enigmos
 {
-    partial class Enigmos
+    class EnigmaReferencer
     {
-        private Enigma DebugEnigma()
+        public static Enigma DebugEnigma()
         {
             // Pour tester, retournez votre énigme ici. La valeur null lancera le jeu normalement.
 
@@ -14,11 +16,16 @@ namespace Cpln.Enigmos
             // ---
         }
 
-        private void ReferenceEnigmas()
+        public static List<Enigma> ReferenceEnigmas()
         {
+            ShuffleList<Enigma> enigmas = new ShuffleList<Enigma>();
+
             // Pour ajouter votre énigme aux autres, ajoutez une ligne à la fin de la liste.
             enigmas.Add(new Enigma(new SimpleEnigmaPanel(), "C'est simple", "Pas d'indice, la solution est simple !"));
-            enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle", "Remetez les pièces à leur place"));
+            enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle", "Remettez les pièces à leur place"));
+
+            enigmas.Shuffle();
+            return enigmas;
         }
     }
 }
