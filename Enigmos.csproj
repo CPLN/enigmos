@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enigmas\Component\PuzzlePiece.cs">
+    <Compile Include="Enigmas\Components\PuzzlePiece.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\EnigmaPanel.cs">
@@ -68,8 +68,8 @@
     <Compile Include="Enigmas\SimpleEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="IntegrityException.cs" />
-    <Compile Include="NoAnswerException.cs" />
+    <Compile Include="Exceptions\IntegrityException.cs" />
+    <Compile Include="Exceptions\NoAnswerException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reponses.Designer.cs">

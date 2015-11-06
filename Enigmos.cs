@@ -1,4 +1,5 @@
-﻿using Cpln.Enigmos.Utils;
+﻿using Cpln.Enigmos.Exceptions;
+using Cpln.Enigmos.Utils;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;

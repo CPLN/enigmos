@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cpln.Enigmos
+namespace Cpln.Enigmos.Exceptions
 {
     class IntegrityException : Exception
     {
