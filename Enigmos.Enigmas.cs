@@ -8,7 +8,7 @@ namespace Cpln.Enigmos
         {
             // Pour tester, retournez votre énigme ici. La valeur null lancera le jeu normalement.
 
-            return new Enigma(new SimpleEnigmaPanel(), "C'est simple", "Je vous donne la solution : c'est simple", "simple");
+            return new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle", "Remetez les pièces à leur place.", "jongleur");
 
             // ---
         }
