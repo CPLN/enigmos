@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cpln.Utils.Enigmos
+namespace Cpln.Enigmos.Utils
 {
     class ShuffleList<T> : List<T>
     {
