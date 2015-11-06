@@ -7,17 +7,12 @@ namespace Cpln.Utils.Enigmos
     {
         public void Shuffle()
         {
-            List<T> shuffled = new List<T>();
             Random random = new Random();
-            while (Count > 0)
+            for (int count = Count; count > 0; count--)
             {
-                int i = random.Next(Count);
-                shuffled.Add(this[i]);
+                int i = random.Next(count);
+                Add(this[i]);
                 RemoveAt(i);
-            }
-            foreach (T item in shuffled)
-            {
-                Add(item);
             }
         }
     }
