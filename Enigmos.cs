@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cpln.Utils.Enigmos;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
