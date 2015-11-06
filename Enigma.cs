@@ -1,4 +1,6 @@
 ﻿using Cpln.Enigmos.Enigmas;
+using Cpln.Enigmos.Utils;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -8,7 +10,6 @@ namespace Cpln.Enigmos
     {
         private string strTitle;
         private string strHint;
-        private string strAnswer;
         private bool bCaseSensitive = false;
         private List<string> prerequisites = new List<string>();
 
@@ -40,11 +41,14 @@ namespace Cpln.Enigmos
             }
         }
 
-        public Enigma(EnigmaPanel enigmaPanel, string title, string hint, string answer)
+        public Enigma(EnigmaPanel enigmaPanel, string title, string hint)
         {
+            if (Reponses.ResourceManager.GetString(StringUtils.PascalCase(title)) == null)
+            {
+                throw new NoAnswerException(title);
+            }
             this.strTitle = title;
             this.strHint = hint;
-            this.strAnswer = answer;
 
             TableLayoutPanel centerLayout = new TableLayoutPanel();
             centerLayout.ColumnCount = 3;
@@ -63,8 +67,8 @@ namespace Cpln.Enigmos
             Dock = DockStyle.Fill;
         }
 
-        public Enigma(EnigmaPanel enigmaPanel, string title, string hint, string answer, string[] prerequisites)
-            : this(enigmaPanel, title, hint, answer)
+        public Enigma(EnigmaPanel enigmaPanel, string title, string hint, string[] prerequisites)
+            : this(enigmaPanel, title, hint)
         {
             foreach (string prerequisite in prerequisites)
             {
@@ -74,7 +78,9 @@ namespace Cpln.Enigmos
 
         public bool CheckAnswer(string answer)
         {
-            return IsCaseSensitive ? answer == strAnswer : answer.ToLower() == strAnswer.ToLower();
+            string responseName = StringUtils.PascalCase(strTitle);
+            string goodAnswer = Reponses.ResourceManager.GetString(responseName);
+            return IsCaseSensitive ? answer == goodAnswer : answer.ToLower() == goodAnswer.ToLower();
         }
 
         public void AddPrerequisite(Enigma prerequisite)

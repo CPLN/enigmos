@@ -4,19 +4,19 @@ namespace Cpln.Enigmos
 {
     class IntegrityException : Exception
     {
-        private string id;
+        private string title;
 
         override public string Message
         {
             get
             {
-                return "Erreur : deux enigmes ou plus ont le nom \"" + id + "\".";
+                return "Erreur : deux enigmes ou plus ont l'identifiant \"" + title + "\".";
             }
         }
 
-        public IntegrityException(string id)
+        public IntegrityException(string title)
         {
-            this.id = id;
+            this.title = title;
         }
     }
 }

@@ -44,6 +44,11 @@ namespace Cpln.Enigmos
                 MessageBox.Show(e.Message);
                 Environment.Exit(1);
             }
+            catch (NoAnswerException e)
+            {
+                MessageBox.Show(e.Message);
+                Environment.Exit(1);
+            }
             catch
             {
                 MessageBox.Show("Aucune énigme n'a été trouvée", "Erreur");
@@ -98,11 +103,11 @@ namespace Cpln.Enigmos
             List<string> ids = new List<string>();
             foreach (Enigma enigma in enigmas)
             {
-                if (ids.Contains(enigma.Title.ToLower()))
+                if (ids.Contains(StringUtils.PascalCase(enigma.Title)))
                 {
-                    throw new IntegrityException(enigma.Title);
+                    throw new IntegrityException(StringUtils.PascalCase(enigma.Title));
                 }
-                ids.Add(enigma.Title.ToLower());
+                ids.Add(StringUtils.PascalCase(enigma.Title));
             }
         }
 
