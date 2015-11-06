@@ -6,7 +6,7 @@ namespace Cpln.Enigmos
 {
     public partial class Enigmos : Form
     {
-        private List<Enigma> enigmas = new List<Enigma>();
+        private ShuffleList<Enigma> enigmas = new ShuffleList<Enigma>();
         private List<string> solved = new List<string>();
         private Enigma active = null;
         public Enigmos()
@@ -26,9 +26,9 @@ namespace Cpln.Enigmos
             {
                 SuspendLayout();
 
-                enigmas = new List<Enigma>();
+                enigmas = new ShuffleList<Enigma>();
                 ReferenceEnigmas();
-                ShuffleEnigmas();
+                enigmas.Shuffle();
 
                 solved = new List<string>();
 
@@ -103,19 +103,6 @@ namespace Cpln.Enigmos
                 }
                 ids.Add(enigma.Title.ToLower());
             }
-        }
-
-        private void ShuffleEnigmas()
-        {
-            List<Enigma> shuffled = new List<Enigma>();
-            Random random = new Random();
-            while (enigmas.Count > 0)
-            {
-                int i = random.Next(enigmas.Count);
-                shuffled.Add(enigmas[i]);
-                enigmas.RemoveAt(i);
-            }
-            enigmas = shuffled;
         }
 
         private void NextEnigma()

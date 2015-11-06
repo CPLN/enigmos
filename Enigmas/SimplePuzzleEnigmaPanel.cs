@@ -8,7 +8,7 @@ namespace Cpln.Enigmos.Enigmas
 {
     class SimplePuzzleEnigmaPanel : EnigmaPanel
     {
-        private List<PuzzlePiece> pieces = new List<PuzzlePiece>();
+        private ShuffleList<PuzzlePiece> pieces = new ShuffleList<PuzzlePiece>();
 
         public SimplePuzzleEnigmaPanel()
         {

@@ -27,14 +27,14 @@ namespace Cpln.Enigmos.Enigmas.Component
             element.MouseUp += new MouseEventHandler(MoveStop);
         }
 
-        public static List<PuzzlePiece> GeneratePieces(string text, int xCuts, int yCuts)
+        public static ShuffleList<PuzzlePiece> GeneratePieces(string text, int xCuts, int yCuts)
         {
             Label reference = new Label();
             reference.Text = text;
             reference.Font = new Font(FontFamily.GenericMonospace, 72);
             reference.AutoSize = false;
 
-            List<PuzzlePiece> pieces = new List<PuzzlePiece>();
+            ShuffleList<PuzzlePiece> pieces = new ShuffleList<PuzzlePiece>();
 
             Size referenceRealSize = TextRenderer.MeasureText(reference.Text, reference.Font);
             int width = referenceRealSize.Width / xCuts;
@@ -53,6 +53,7 @@ namespace Cpln.Enigmos.Enigmas.Component
                     pieces.Add(piece);
                 }
             }
+            pieces.Shuffle();
             return pieces;
         }
 

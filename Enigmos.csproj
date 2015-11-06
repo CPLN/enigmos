@@ -71,6 +71,7 @@
     <Compile Include="IntegrityException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShuffleList.cs" />
     <EmbeddedResource Include="Enigmos.resx">
       <DependentUpon>Enigmos.cs</DependentUpon>
     </EmbeddedResource>
