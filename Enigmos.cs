@@ -61,10 +61,11 @@ namespace Cpln.Enigmos
             {
                 solved.Add(active.Title);
                 enigmas.Remove(active);
-                try {
+                try
+                {
                     NextEnigma();
                 }
-                catch (Exception exception)
+                catch (EndGameException exception)
                 {
                     if (MessageBox.Show(exception.Message, "Bravo !", MessageBoxButtons.RetryCancel) == DialogResult.Retry)
                     {
@@ -127,7 +128,7 @@ namespace Cpln.Enigmos
 
             if (enigmas.Count == 0)
             {
-                throw new Exception("Vous avez terminé le jeu !");
+                throw new EndGameException();
             }
 
             if (active == null)

@@ -66,6 +66,7 @@
     <Compile Include="Enigmas\SimpleEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Exceptions\EndGameException.cs" />
     <Compile Include="Exceptions\IntegrityException.cs" />
     <Compile Include="Exceptions\NoAnswerException.cs" />
     <Compile Include="Program.cs" />
