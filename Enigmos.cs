@@ -100,14 +100,15 @@ namespace Cpln.Enigmos
 
         private void CheckIntegrity()
         {
-            List<string> ids = new List<string>();
+            List<string> titles = new List<string>();
             foreach (Enigma enigma in enigmas)
             {
-                if (ids.Contains(StringUtils.PascalCase(enigma.Title)))
+                string title = StringUtils.PascalCase(enigma.Title);
+                if (titles.Contains(title))
                 {
                     throw new IntegrityException(StringUtils.PascalCase(enigma.Title));
                 }
-                ids.Add(StringUtils.PascalCase(enigma.Title));
+                titles.Add(title);
             }
         }
 

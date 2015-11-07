@@ -29,14 +29,9 @@ namespace Cpln.Enigmos.Enigmas.Components
 
         public static ShuffleList<PuzzlePiece> GeneratePieces(string text, int xCuts, int yCuts)
         {
-            Label reference = new Label();
-            reference.Text = text;
-            reference.Font = new Font(FontFamily.GenericMonospace, 72);
-            reference.AutoSize = false;
-
             ShuffleList<PuzzlePiece> pieces = new ShuffleList<PuzzlePiece>();
 
-            Size referenceRealSize = TextRenderer.MeasureText(reference.Text, reference.Font);
+            Size referenceRealSize = TextRenderer.MeasureText(text, new Font(FontFamily.GenericMonospace, 72));
             int width = referenceRealSize.Width / xCuts;
             int height = referenceRealSize.Height / yCuts;
 
