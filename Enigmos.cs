@@ -78,7 +78,7 @@ namespace Cpln.Enigmos
         /// Cette méthode teste si le contenu de la TextBox de réponse coïncide avec la réponse attendue. Si c'est le cas, l'énigme suivante est affichée.
         /// </summary>
         /// <param name="sender">Le bouton "Valider"</param>
-        /// <param name="e">Les énèvements liés au clic</param>
+        /// <param name="e">Les évènements liés au clic</param>
         private void Validate(object sender, EventArgs e)
         {
             if (active.CheckAnswer(tbxAnswer.Text))
