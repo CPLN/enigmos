@@ -3,13 +3,16 @@ using Cpln.Enigmos.Exceptions;
 using Cpln.Enigmos.Utils;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Cpln.Enigmos
 {
     class Enigma : Panel
     {
         private string strTitle;
+        private string strAnswer;
         private string strHint;
         private bool bCaseSensitive = false;
         private List<string> prerequisites = new List<string>();
@@ -42,14 +45,13 @@ namespace Cpln.Enigmos
             }
         }
 
-        public Enigma(EnigmaPanel enigmaPanel, string title, string hint)
+        public Enigma(EnigmaPanel enigmaPanel, string title)
         {
-            if (Reponses.ResourceManager.GetString(StringUtils.PascalCase(title)) == null)
-            {
-                throw new NoAnswerException(title);
-            }
+            XmlParser xmlParser = new XmlParser(title);
+
             this.strTitle = title;
-            this.strHint = hint;
+            this.strAnswer = xmlParser.Answer;
+            this.strHint = xmlParser.Hint;
 
             TableLayoutPanel centerLayout = new TableLayoutPanel();
             centerLayout.ColumnCount = 3;
@@ -69,7 +71,7 @@ namespace Cpln.Enigmos
         }
 
         public Enigma(EnigmaPanel enigmaPanel, string title, string hint, string[] prerequisites)
-            : this(enigmaPanel, title, hint)
+            : this(enigmaPanel, title)
         {
             foreach (string prerequisite in prerequisites)
             {
@@ -99,6 +101,63 @@ namespace Cpln.Enigmos
                 }
             }
             return true;
+        }
+
+        public class XmlParser
+        {
+            private string strTitle;
+            private string strAnswer;
+            private string strHint;
+
+            public string Title
+            {
+                get
+                {
+                    return strTitle;
+                }
+                set
+                {
+                    strTitle = value;
+                }
+            }
+
+            public string Answer
+            {
+                get
+                {
+                    return strAnswer;
+                }
+            }
+
+            public string Hint
+            {
+                get
+                {
+                    return strHint;
+                }
+            }
+
+            public XmlParser(string title)
+            {
+                this.strTitle = title;
+
+                using (XmlReader reader = XmlReader.Create(new StringReader(Properties.Resources.enigmas)))
+                {
+                    while (reader.ReadToFollowing("enigma"))
+                    {
+                        reader.MoveToFirstAttribute();
+                        if (reader.Value == title)
+                        {
+                            reader.ReadToDescendant("answer");
+                            this.strAnswer = reader.Value;
+                            reader.ReadToFollowing("hint");
+                            this.strHint = reader.Value;
+                            return;
+                        }
+                    }
+                    throw new NoAnswerException(title);
+                }
+            }
         }
     }
 }
