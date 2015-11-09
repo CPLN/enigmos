@@ -6,11 +6,27 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos
 {
+    /// <summary>
+    /// Cette classe est la classe contenant toute la vue de l'application.
+    /// </summary>
     public partial class Enigmos : Form
     {
+        /// <summary>
+        /// La liste des énigmes qui n'ont pas encore été résolues.
+        /// </summary>
         private List<Enigma> enigmas = new List<Enigma>();
+        /// <summary>
+        /// La liste des titres des énigmes déjà résolues.
+        /// </summary>
         private List<string> solved = new List<string>();
+        /// <summary>
+        /// L'énigme que l'utilisateur est en train de résoudre.
+        /// </summary>
         private Enigma active = null;
+
+        /// <summary>
+        /// Constructeur par défaut, instancie une nouvelle série d'énigme et affiche la première.
+        /// </summary>
         public Enigmos()
         {
             InitializeComponent();
@@ -22,6 +38,9 @@ namespace Cpln.Enigmos
             Init();
         }
 
+        /// <summary>
+        /// Méthode d'initialisation ou de réinitialisation, appelée au début et au redémarrage de l'application.
+        /// </summary>
         private void Init()
         {
             try
@@ -55,6 +74,11 @@ namespace Cpln.Enigmos
             }
         }
 
+        /// <summary>
+        /// Cette méthode teste si le contenu de la TextBox de réponse coïncide avec la réponse attendue. Si c'est le cas, l'énigme suivante est affichée.
+        /// </summary>
+        /// <param name="sender">Le bouton "Valider"</param>
+        /// <param name="e">Les énèvements liés au clic</param>
         private void Validate(object sender, EventArgs e)
         {
             if (active.CheckAnswer(tbxAnswer.Text))
@@ -80,6 +104,11 @@ namespace Cpln.Enigmos
             tbxAnswer.Text = "";
         }
 
+        /// <summary>
+        /// Cette méthode laisse momentanément de côté l'énigme courante pour afficher la suivante.
+        /// </summary>
+        /// <param name="sender">Le bouton "Passer"</param>
+        /// <param name="e">Les évènements liés au clic</param>
         private void Skip(object sender, EventArgs e)
         {
             try
@@ -93,11 +122,19 @@ namespace Cpln.Enigmos
             }
         }
 
+        /// <summary>
+        /// Cette méthode affiche un MessageBox contenant l'indice relatif à l'énigme.
+        /// </summary>
+        /// <param name="sender">Le bouton "?"</param>
+        /// <param name="e">Les évènements liés au clic</param>
         private void Hint(object sender, EventArgs e)
         {
             MessageBox.Show(active.Hint, "Indice");
         }
 
+        /// <summary>
+        /// Cette méthode vérifie l'intégrité de l'application : deux énigmes ne peuvent avoir le même nom.
+        /// </summary>
         private void CheckIntegrity()
         {
             List<string> titles = new List<string>();
@@ -111,6 +148,9 @@ namespace Cpln.Enigmos
             }
         }
 
+        /// <summary>
+        /// Cette méthode trouve et affiche l'énigme suivante celle qui se trouve actuellement à l'écran et effectue le remplacement.
+        /// </summary>
         private void NextEnigma()
         {
             #if DEBUG
@@ -150,6 +190,10 @@ namespace Cpln.Enigmos
             MessageBox.Show("C'est la dernière énigme disponible.", "Bientôt fini !");
         }
 
+        /// <summary>
+        /// Cette méthode effectue concrètement le changement d'énigme à l'écran.
+        /// </summary>
+        /// <param name="enigma">La nouvelle énigme</param>
         private void SetActive(Enigma enigma)
         {
             mainLayout.Controls.Remove(active);

@@ -3,8 +3,14 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
+    /// <summary>
+    /// Exemple d'énigme très simple. Seul un texte est affiché.
+    /// </summary>
     class SimpleEnigmaPanel : EnigmaPanel
     {
+        /// <summary>
+        /// Constructeur par défaut, génère un texte et l'affiche dans le Panel.
+        /// </summary>
         public SimpleEnigmaPanel()
         {
             Label lblEnigme = new Label();

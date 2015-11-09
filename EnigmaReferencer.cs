@@ -4,23 +4,33 @@ using System.Collections.Generic;
 
 namespace Cpln.Enigmos
 {
-    class EnigmaReferencer
+    /// <summary>
+    /// Cette classe permet de référencer toutes les énigmes, ainsi que de tester une énigme lors du débugging.
+    /// </summary>
+    public abstract class EnigmaReferencer
     {
+        /// <summary>
+        /// Cette méthode permet de n'afficher que l'énigme qu'on souhaite tester. Si null est renvoyé, alors l'application démarre normalement.
+        /// </summary>
+        /// 
+        /// <remarks>Lorsque le programme est en mode RELEASE, cette méthode n'est pas appelée.</remarks>
+        /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            // Pour tester, retournez votre énigme ici. La valeur null lancera le jeu normalement.
-
-            //return new Enigma(new SimpleEnigmaPanel(), "C'est simple", "Pas d'indice, la solution est simple !");
+            //return new Enigma(new SimpleEnigmaPanel(), "C'est simple");
             return null;
 
             // ---
         }
 
+        /// <summary>
+        /// Cette méthode crée une liste contenant les différentes énigmes et la mélange avant de la retourner.
+        /// </summary>
+        /// <returns>Une liste d'énigme mélangées</returns>
         public static List<Enigma> ReferenceEnigmas()
         {
             ShuffleList<Enigma> enigmas = new ShuffleList<Enigma>();
 
-            // Pour ajouter votre énigme aux autres, ajoutez une ligne à la fin de la liste.
             enigmas.Add(new Enigma(new SimpleEnigmaPanel(), "C'est simple"));
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
 
