@@ -81,9 +81,7 @@ namespace Cpln.Enigmos
 
         public bool CheckAnswer(string answer)
         {
-            string responseName = StringUtils.PascalCase(strTitle);
-            string goodAnswer = Reponses.ResourceManager.GetString(responseName);
-            return IsCaseSensitive ? answer == goodAnswer : answer.ToLower() == goodAnswer.ToLower();
+            return IsCaseSensitive ? answer == strAnswer : answer.ToLower() == strAnswer.ToLower();
         }
 
         public void AddPrerequisite(Enigma prerequisite)
@@ -145,13 +143,12 @@ namespace Cpln.Enigmos
                 {
                     while (reader.ReadToFollowing("enigma"))
                     {
-                        reader.MoveToFirstAttribute();
-                        if (reader.Value == title)
+                        if (reader.GetAttribute("title") == title)
                         {
                             reader.ReadToDescendant("answer");
-                            this.strAnswer = reader.Value;
+                            this.strAnswer = reader.ReadElementContentAsString();
                             reader.ReadToFollowing("hint");
-                            this.strHint = reader.Value;
+                            this.strHint = reader.ReadElementContentAsString();
                             return;
                         }
                     }
