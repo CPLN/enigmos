@@ -71,11 +71,6 @@
     <Compile Include="Exceptions\NoAnswerException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reponses.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reponses.resx</DependentUpon>
-    </Compile>
     <Compile Include="Utils\ShuffleList.cs" />
     <Compile Include="Utils\StringUtils.cs" />
     <EmbeddedResource Include="Enigmos.resx">
@@ -91,10 +86,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reponses.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Reponses.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,7 +100,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="enigmas.xml" />
+    <Content Include="enigmas.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
