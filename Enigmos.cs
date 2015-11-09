@@ -103,12 +103,11 @@ namespace Cpln.Enigmos
             List<string> titles = new List<string>();
             foreach (Enigma enigma in enigmas)
             {
-                string title = StringUtils.PascalCase(enigma.Title);
-                if (titles.Contains(title))
+                if (titles.Contains(enigma.Title))
                 {
-                    throw new IntegrityException(StringUtils.PascalCase(enigma.Title));
+                    throw new IntegrityException(enigma.Title);
                 }
-                titles.Add(title);
+                titles.Add(enigma.Title);
             }
         }
 

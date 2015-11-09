@@ -10,7 +10,7 @@ namespace Cpln.Enigmos.Exceptions
         {
             get
             {
-                return "Erreur : vous n'avez pas ajouté la réponse à \"" + resourceId + "\" dans Reponses.resx.";
+                return "Erreur : vous n'avez pas référencé l'énigme \"" + resourceId + "\" dans enigmas.xml.";
             }
         }
 

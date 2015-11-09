@@ -10,7 +10,7 @@ namespace Cpln.Enigmos.Exceptions
         {
             get
             {
-                return "Erreur : deux enigmes ou plus ont l'identifiant \"" + title + "\".";
+                return "Erreur : deux enigmes ou plus ont le titre \"" + title + "\".";
             }
         }
 
