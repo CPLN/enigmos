@@ -6,8 +6,4 @@ Il consiste en une série d'énigmes plus ou moins complexes, que le joueur doit
 
 ## Développement
 
-- Les idées concernant de nouvelles énigmes doivent être ajoutées aux [issues](https://github.com/SteeveDroz/enigmos/issues).
-- Lorsqu'une *issue* est validée, elle reçoit un label et peut être développée par la personne qui l'a proposée ou par quelqu'un d'autre.
-- Les nouvelles énigmes sont ensuite ajoutées par [pull request](https://github.com/SteeveDroz/enigmos/compare).
-
-**/!\ Attention /!\** Toute énigme ne suivant pas cette procédure se verra refusée d'office.
+Pour participer au développement, merci de vous référer au [guide de développement](doc/HOWTO.md).
