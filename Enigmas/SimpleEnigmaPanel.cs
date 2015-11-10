@@ -6,7 +6,7 @@ namespace Cpln.Enigmos.Enigmas
     /// <summary>
     /// Exemple d'énigme très simple. Seul un texte est affiché.
     /// </summary>
-    class SimpleEnigmaPanel : EnigmaPanel
+    public class SimpleEnigmaPanel : EnigmaPanel
     {
         /// <summary>
         /// Constructeur par défaut, génère un texte et l'affiche dans le Panel.

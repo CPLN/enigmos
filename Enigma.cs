@@ -12,7 +12,7 @@ namespace Cpln.Enigmos
     /// <summary>
     /// Cette classe contient les informations relatives à une énigme ainsi que l'énigme en tant que telle.
     /// </summary>
-    class Enigma : Panel
+    public class Enigma : Panel
     {
         /// <summary>
         /// Le titre de l'énigme.
@@ -79,7 +79,8 @@ namespace Cpln.Enigmos
         /// <param name="title">Le titre de l'énigme</param>
         public Enigma(EnigmaPanel enigmaPanel, string title)
         {
-            XmlParser.Parse(this);
+            this.strTitle = title;
+            Parse();
 
             TableLayoutPanel centerLayout = new TableLayoutPanel();
             centerLayout.ColumnCount = 3;
@@ -159,31 +160,25 @@ namespace Cpln.Enigmos
         }
 
         /// <summary>
-        /// Cette classe fille permet d'obtenir des informations relatives à cette énigme dans le fichier enigmas.xml.
+        /// Cette méthode cherche dans le fichier enigmas.xml les données relatives à l'énigme et hydrate l'objet Enigme en accord.
         /// </summary>
-        private abstract class XmlParser
+        /// <param name="enigma">L'énigme à hydrater</param>
+        public void Parse()
         {
-            /// <summary>
-            /// Cette méthode cherche dans le fichier enigmas.xml les données relatives à l'énigme et hydrate l'objet Enigme en accord.
-            /// </summary>
-            /// <param name="enigma">L'énigme à hydrater</param>
-            public static void Parse(Enigma enigma)
+            using (XmlReader reader = XmlReader.Create(new StringReader(Properties.Resources.enigmas)))
             {
-                using (XmlReader reader = XmlReader.Create(new StringReader(Properties.Resources.enigmas)))
+                while (reader.ReadToFollowing("enigma"))
                 {
-                    while (reader.ReadToFollowing("enigma"))
+                    if (reader.GetAttribute("title") == strTitle)
                     {
-                        if (reader.GetAttribute("title") == enigma.strTitle)
-                        {
-                            reader.ReadToDescendant("answer");
-                            enigma.strAnswer = reader.ReadElementContentAsString();
-                            reader.ReadToFollowing("hint");
-                            enigma.strHint = reader.ReadElementContentAsString();
-                            return;
-                        }
+                        reader.ReadToDescendant("answer");
+                        strAnswer = reader.ReadElementContentAsString();
+                        reader.ReadToFollowing("hint");
+                        strHint = reader.ReadElementContentAsString();
+                        return;
                     }
-                    throw new NoAnswerException(strTitle);
                 }
+                throw new NoAnswerException(strTitle);
             }
         }
     }

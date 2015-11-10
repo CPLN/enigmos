@@ -9,7 +9,7 @@ namespace Cpln.Enigmos.Enigmas.Components
     /// <summary>
     /// Représente une pièce de puzzle qui peut être déplacée sur l'écran.
     /// </summary>
-    class PuzzlePiece : Panel
+    public class PuzzlePiece : Panel
     {
         /// <summary>
         /// Élément représentant l'image complète.

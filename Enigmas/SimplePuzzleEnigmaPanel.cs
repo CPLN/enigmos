@@ -9,7 +9,7 @@ namespace Cpln.Enigmos.Enigmas
     /// <summary>
     /// Exemple d'énigme assez simple. Le Panel contient un puzzle qui, une fois résolu, indique la solution.
     /// </summary>
-    class SimplePuzzleEnigmaPanel : EnigmaPanel
+    public class SimplePuzzleEnigmaPanel : EnigmaPanel
     {
         /// <summary>
         /// Liste des pièces de puzzle
