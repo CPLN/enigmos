@@ -4,7 +4,7 @@
 
 Les étapes d'ajout d'une énigme sont les suivantes :
   1. Ajouter d'une [issue](https://github.com/SteeveDroz/enigmos/issues) proposant l'idée de nouvelle énigme.
-  2. Attendre que l'idée soit acceptée et reçoive un label **idée acceptée**. Alternativement, trouver une idée parmi celles proposées dans les [idées acceptées](https://github.com/SteeveDroz/enigmos/labels/idée acceptée) à condition qu'elle ne soit pas encore assignée.
+  2. Attendre que l'idée soit acceptée, reçoive un label **idée acceptée** et soit assignée.
   3. Développer l'énigme en ajoutant les éléments suivants au programme :
     1. Dans le sous-répertoire `/Enigmas`, ajouter un nouveau fichier portant le nom de la classe. La nouvelle classe doit avoir un nom se terminant par `EnigmaPanel` (Exemple : `SimpleEnigmaPanel`). Elle doit en outre hériter de `EnigmaPanel` (Avec la déclaration de classe `class SimpleEnigmaPanel : EnigmaPanel`).
     2. Si le développement d'un ou plusieurs composants est nécessaire, placer ceux-ci dans le sous-répertoire `/Enigmas/Components`.
