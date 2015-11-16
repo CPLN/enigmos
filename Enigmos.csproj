@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\Components\Graph.cs" />
     <Compile Include="Enigmas\Components\PuzzlePiece.cs">
       <SubType>Component</SubType>
     </Compile>
