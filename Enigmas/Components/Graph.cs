@@ -12,14 +12,28 @@ namespace Cpln.Enigmos.Enigmas.Components
 
         private class Node
         {
-            private T element;
-            private List<Connection> connections = new List<Connection>();
+            public T Element { get; set; }
+            public List<Connection> Connections { get; private set; }
+            public Dictionary<string, object> Tags { get; private set; }
+
+            public Node(T element)
+            {
+                this.Element = element;
+                Connections = new List<Connection>();
+                Tags = new Dictionary<string, object>();
+            }
         }
 
         private class Connection
         {
-            private Node neighbor;
-            private Dictionary<string, object> tags = new Dictionary<string, object>();
+            public Node Neighbor { get; set; }
+            public Dictionary<string, object> Tags { get; private set; }
+
+            public Connection(Node neighbor)
+            {
+                this.Neighbor = neighbor;
+                this.Tags = new Dictionary<string, object>();
+            }
         }
     }
 }
