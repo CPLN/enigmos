@@ -27,6 +27,42 @@ namespace Cpln.Enigmos.Enigmas.Components
             this.root = new Node(element);
         }
 
+        public Node Contains(T element)
+        {
+            string tagVisited = "__contains__visited__";
+            List<Node> visited = new List<Node>();
+            List<Node> toBeVisited = new List<Node>();
+
+            Node containingNode = null;
+            toBeVisited.Add(Root);
+            while (toBeVisited.Count > 0)
+            {
+                Node active = toBeVisited[0];
+                toBeVisited.RemoveAt(0);
+                if (active.Element.Equals(element))
+                {
+                    containingNode = active;
+                    break;
+                }
+                if (!active.Tags.ContainsKey(tagVisited))
+                {
+                    active.Tags[tagVisited] = true;
+                    visited.Add(active);
+                    foreach (Connection connection in active.Connections)
+                    {
+                        toBeVisited.Add(connection.Neighbor);
+                    }
+                }
+            }
+
+            foreach (Node node in visited)
+            {
+                node.Tags.Remove(tagVisited);
+            }
+
+            return containingNode;
+        }
+
         public class Node
         {
             public T Element { get; set; }
