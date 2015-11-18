@@ -8,4 +8,8 @@
     <answer>jongleur</answer>
     <hint>Remettez les pièces à leur place.</hint>
   </enigma>
+  <enigma title="Charade">
+    <answer>ornithorynque</answer>
+    <hint>Résolvez la charade</hint>
+  </enigma>
 </enigmas>

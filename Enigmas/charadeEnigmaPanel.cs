@@ -15,7 +15,12 @@ namespace Cpln.Enigmos.Enigmas
         {
             Label lblEnigme = new Label();
 
-            lblEnigme.Text = "La solution est simple.";
+            lblEnigme.Text = "Mon premier est un matériau précieux. \n" +
+            "Mon second est la maison des oiseaux. \n" + 
+            "Mon troisième est un Avenger. \n" +
+            "Mon quatrième est la fin de la fin. \n" +
+            "Mon cinquième est la 11ème lettre de l'alphabet. \n\n" +
+            "Mon tout est un mammifère.";
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
             lblEnigme.Dock = DockStyle.Fill;
             lblEnigme.TextAlign = ContentAlignment.MiddleCenter;
