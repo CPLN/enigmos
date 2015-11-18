@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <enigmas>
-  <enigma title="C'est simple">
-    <answer>simple</answer>
-    <hint>Pas d'indice, la solution est simple !</hint>
+  <enigma title="Le plus long mot">
+    <answer>oiseaux</answer>
+    <hint>C'est un mammifère.</hint>
   </enigma>
   <enigma title="Puzzle">
     <answer>jongleur</answer>
     <hint>Remettez les pièces à leur place.</hint>
   </enigma>
+  <enigma title="C'est simple">
+    <answer>simple</answer>
+    <hint>Pas d'indice, la solution est simple !</hint>
+  </enigma>
 </enigmas>
+
