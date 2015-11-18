@@ -61,19 +61,33 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap carre {
+            get {
+                object obj = ResourceManager.GetObject("carre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
-        ///&lt;!DOCTYPE enigmas SYSTEM &quot;enigmas.dtd&quot;&gt;
         ///&lt;enigmas&gt;
-        ///  &lt;enigma title=&quot;C&apos;est simple&quot;&gt;
-        ///    &lt;answer&gt;simple&lt;/answer&gt;
-        ///    &lt;hint&gt;Pas d&apos;indice, la solution est simple !&lt;/hint&gt;
-        ///  
-        ///&lt;/enigma&gt;
+        ///  &lt;enigma title=&quot;Le plus long mot&quot;&gt;
+        ///    &lt;answer&gt;oiseaux&lt;/answer&gt;
+        ///    &lt;hint&gt;C&apos;est un mammifère.&lt;/hint&gt;
+        ///  &lt;/enigma&gt;
         ///  &lt;enigma title=&quot;Puzzle&quot;&gt;
         ///    &lt;answer&gt;jongleur&lt;/answer&gt;
         ///    &lt;hint&gt;Remettez les pièces à leur place.&lt;/hint&gt;
         ///  &lt;/enigma&gt;
-        ///&lt;/enigmas&gt;.
+        ///  &lt;enigma title=&quot;C&apos;est simple&quot;&gt;
+        ///    &lt;answer&gt;simple&lt;/answer&gt;
+        ///    &lt;hint&gt;Pas d&apos;indice, la solution est simple !&lt;/hint&gt;
+        ///  &lt;/enigma&gt;
+        ///  &lt;enigma title=&quot;Nombre de carré&quot;&gt;
+        ///    &lt;answer&gt;vingt&lt;/answer&gt;
+        ///    &lt;hi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string enigmas {
             get {

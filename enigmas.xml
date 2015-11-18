@@ -12,5 +12,9 @@
     <answer>simple</answer>
     <hint>Pas d'indice, la solution est simple !</hint>
   </enigma>
+  <enigma title="Nombre de carré">
+    <answer>vingt</answer>
+    <hint>La réponse est un mot.</hint>
+  </enigma>
 </enigmas>
 
