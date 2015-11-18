@@ -16,5 +16,9 @@
     <answer>simple</answer>
     <hint>Pas d'indice, la solution est simple !</hint>
   </enigma>
+  <enigma title="Charade">
+    <answer>ornithorynque</answer>
+    <hint>Résolvez la charade</hint>
+  </enigma>
 </enigmas>
 
