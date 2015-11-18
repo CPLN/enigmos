@@ -33,6 +33,7 @@ namespace Cpln.Enigmos
 
             enigmas.Add(new Enigma(new SimpleEnigmaPanel(), "C'est simple"));
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
+            enigmas.Add(new Enigma(new NinePointsEnigmaPanel(), "9 Points"));
 
             enigmas.Shuffle();
             return enigmas;
