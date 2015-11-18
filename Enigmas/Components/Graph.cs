@@ -10,7 +10,24 @@ namespace Cpln.Enigmos.Enigmas.Components
     {
         private Node root;
 
-        private class Node
+        public Node Root
+        {
+            get
+            {
+                return root;
+            }
+            set
+            {
+                root = value;
+            }
+        }
+
+        public Graph(T element)
+        {
+            this.root = new Node(element);
+        }
+
+        public class Node
         {
             public T Element { get; set; }
             public List<Connection> Connections { get; private set; }
@@ -21,6 +38,29 @@ namespace Cpln.Enigmos.Enigmas.Components
                 this.Element = element;
                 Connections = new List<Connection>();
                 Tags = new Dictionary<string, object>();
+            }
+
+            public void AddNeighbor(Node neighbor)
+            {
+                this.Connections.Add(new Connection(neighbor));
+                neighbor.Connections.Add(new Connection(this));
+            }
+
+            public void AddNeighbor(T element)
+            {
+                AddNeighbor(new Node(element));
+            }
+
+            public Node FindNeighbor(T element)
+            {
+                foreach (Connection connection in Connections)
+                {
+                    if (connection.Neighbor.Element.Equals(element))
+                    {
+                        return connection.Neighbor;
+                    }
+                }
+                return null;
             }
 
             public int Distance(Node node)
@@ -34,8 +74,8 @@ namespace Cpln.Enigmos.Enigmas.Components
                 List<Node> nodesToVisit = new List<Node>();
                 List<Node> visitedNodes = new List<Node>();
 
-                this.Tags.Add(tagParent, null);
-                this.Tags.Add(tagDistance, 0);
+                this.Tags[tagParent] = null;
+                this.Tags[tagDistance] = 0;
                 nodesToVisit.Add(this);
 
                 while (nodesToVisit.Count > 0)
@@ -48,14 +88,14 @@ namespace Cpln.Enigmos.Enigmas.Components
                         continue;
                     }
 
-                    current.Tags.Add(tagVisited, true);
+                    current.Tags[tagVisited] = true;
 
                     foreach (Connection connection in current.Connections)
                     {
                         Node neighbor = connection.Neighbor;
                         if (neighbor.Tags.ContainsKey(tagParent))
                         {
-                            if ((int)neighbor.Tags[tagParent] - 1 > (int)current.Tags[tagParent])
+                            if (neighbor.Tags[tagParent] != null && (int)neighbor.Tags[tagDistance] - 1 > (int)current.Tags[tagDistance])
                             {
                                 neighbor.Tags.Add(tagParent, current);
                                 neighbor.Tags.Add(tagDistance, (int)current.Tags[tagDistance] + 1);
@@ -91,7 +131,7 @@ namespace Cpln.Enigmos.Enigmas.Components
             }
         }
 
-        private class Connection
+        public class Connection
         {
             public Node Neighbor { get; set; }
             public Dictionary<string, object> Tags { get; private set; }
@@ -101,6 +141,12 @@ namespace Cpln.Enigmos.Enigmas.Components
                 this.Neighbor = neighbor;
                 this.Tags = new Dictionary<string, object>();
             }
+
+            public Connection(T element)
+                : this(new Node(element))
+            {
+
+            }
         }
 
         public class NotConnectedException : Exception
@@ -108,9 +154,9 @@ namespace Cpln.Enigmos.Enigmas.Components
             private Node origin;
             private Node destination;
 
-            public string Message {
+            override public string Message {
                 get {
-                    return "Les noeuds " + origin + " et " + destination + " ne sont pas connectés";
+                    return "Les noeuds contenant " + origin.Element + " et " + destination.Element + " ne sont pas connectés";
                 }
             }
 
