@@ -27,6 +27,11 @@ namespace Cpln.Enigmos.Enigmas
             this.Width = (myScreen.WorkingArea.Width);
             this.Height = (myScreen.WorkingArea.Height) - 100;
 
+            //Création du batiment
+            pbxBatiment.Size = new Size(200, 300);
+            pbxBatiment.BackColor = Color.Red;
+            pbxBatiment.Location = new Point(this.Width / 2 - pbxBatiment.Width / 2, this.Bottom - pbxBatiment.Height);
+
             //Mise en place d'un timer
             Timer.Interval = 1; // 1 milisecondes
             Timer.Tick += new EventHandler(Timer_Tick);
@@ -34,6 +39,7 @@ namespace Cpln.Enigmos.Enigmas
 
             //ajout de l'image
             Controls.Add(pbxCible);
+            Controls.Add(pbxBatiment);
 
         }
         private void Timer_Tick(object sender, EventArgs e)
