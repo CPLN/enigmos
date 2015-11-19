@@ -20,5 +20,9 @@
     <answer>ornithorynque</answer>
     <hint>Résolvez la charade</hint>
   </enigma>
+  <enigma title="Hazard">
+    <answer>suivant</answer>
+    <hint>Cliquer sur un des boutons</hint>
+  </enigma>
 </enigmas>
 
