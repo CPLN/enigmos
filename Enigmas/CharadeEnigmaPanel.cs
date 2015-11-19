@@ -4,23 +4,23 @@ using System.Windows.Forms;
 namespace Cpln.Enigmos.Enigmas
 {
     /// <summary>
-    /// Exemple d'énigme très simple. Seul un texte est affiché.
+    /// Exemple d'Ã©nigme trÃ¨s simple. Seul un texte est affichÃ©.
     /// </summary>
     public class CharadeEnigmaPanel : EnigmaPanel
     {
         /// <summary>
-        /// Constructeur par défaut, génère un texte et l'affiche dans le Panel.
+        /// Constructeur par dÃ©faut, gÃ©nÃ¨re un texte et l'affiche dans le Panel.
         /// </summary>
         public CharadeEnigmaPanel()
         {
             Label lblEnigme = new Label();
 
-            lblEnigme.Text = "Mon premier est un matériau précieux. \n" +
+            lblEnigme.Text = "Mon premier est un matÃ©riau prÃ©cieux. \n" +
             "Mon second est la maison des oiseaux. \n" + 
-            "Mon troisième est un Avenger. \n" +
-            "Mon quatrième est la fin de la fin. \n" +
-            "Mon cinquième est la 11ème lettre de l'alphabet. \n\n" +
-            "Mon tout est un mammifère.";
+            "Mon troisiÃ¨me est un Avenger. \n" +
+            "Mon quatriÃ¨me est la fin de la fin. \n" +
+            "Mon cinquiÃ¨me est la 11Ã¨me lettre de l'alphabet. \n\n" +
+            "Mon tout est un mammifÃ¨re.";
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
             lblEnigme.Dock = DockStyle.Fill;
             lblEnigme.TextAlign = ContentAlignment.MiddleCenter;
