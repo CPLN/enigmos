@@ -8,5 +8,9 @@ namespace Cpln.Enigmos.Enigmas
 {
     public class HazardEnigmaPanel : EnigmaPanel
     {
+        public HazardEnigmaPanel()
+        {
+            
+        }
     }
 }
