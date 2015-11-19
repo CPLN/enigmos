@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
@@ -10,7 +7,14 @@ namespace Cpln.Enigmos.Enigmas
     {
         public PhoqueEnigmaPanel()
         {
+            //Création du Phoque
+            PictureBox pbxPhoque = new PictureBox();
+            pbxPhoque.Size = new Size(20, 40);
+            pbxPhoque.BackColor = Color.Blue;
+            pbxPhoque.Location = new Point(400 - (pbxPhoque.Width / 2), 550 - (pbxPhoque.Height));
 
+            //Ajout des composants
+            Controls.Add(pbxPhoque);
         }
     }
 }
