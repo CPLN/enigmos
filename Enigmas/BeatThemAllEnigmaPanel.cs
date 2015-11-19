@@ -19,7 +19,7 @@ namespace Cpln.Enigmos.Enigmas
         private PictureBox pbxPlayer = new PictureBox();
         private PictureBox pbxGround = new PictureBox();
 
-        bool bIsRight; 
+        bool bIsRight = true; 
 
         /// <summary>
         /// Constructeur par défaut, génère un texte et l'affiche dans le Panel.
@@ -54,19 +54,20 @@ namespace Cpln.Enigmos.Enigmas
             this.Focus();
         }
 
+
         private void OnKeyDown(object sender, KeyEventArgs e) 
         {
             if (e.KeyCode == Keys.Right)
             {
                 bIsRight = true;
-                pbxPlayer.Left += 10;
-                Frappe("right");
+                pbxPlayer.Left -= 10;
+                Punch();
             }
             if (e.KeyCode == Keys.Left)
             {
                 bIsRight = false;
-                pbxPlayer.Left -= 10;
-                Frappe("left");
+                pbxPlayer.Left += 10;
+                Punch();
             }
             if (e.KeyCode == Keys.Space)
             {
@@ -74,10 +75,22 @@ namespace Cpln.Enigmos.Enigmas
             }
         }
 
-        private void Frappe(string strSensDeLaFrappe)
+        //Fonction permettant d'ocasionner une frappe 
+        private void Punch()
         {
-
+            if(bIsRight==true)
+            {
+                pbxPlayer.Left -= 30;
+                //changer image
+            } 
+            else
+            {
+                pbxPlayer.Left += 30;
+                //changer image
+            }
         }
+
+        private void 
 
         private void Timer_Tick(object sender, EventArgs e)
         {
