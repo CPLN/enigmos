@@ -7,6 +7,9 @@ namespace Cpln.Enigmos.Enigmas
     {
         public RunEnigmaPanel()
         {
+            //Déclaration des variables
+            PictureBox[] tblObstacle = new PictureBox[2];
+            
             //Création du joueur
             PictureBox pbxHomme = new PictureBox();
             pbxHomme.Size = new Size(25, 50);
@@ -23,6 +26,9 @@ namespace Cpln.Enigmos.Enigmas
             pbxTronc.BackColor = Color.Green;
             pbxTronc.Location = new Point(400 - pbxTronc.Width, 100 - pbxTronc.Height);
 
+            tblObstacle[0] = pbxCaillou;
+            tblObstacle[1] = pbxTronc;
+            
             //Ajout des éléments
             Controls.Add(pbxHomme);
             Controls.Add(pbxCaillou);
