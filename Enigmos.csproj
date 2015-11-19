@@ -66,6 +66,9 @@
     <Compile Include="Enigma.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\ZombieInvasionEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmos.cs">
       <SubType>Form</SubType>
     </Compile>
