@@ -20,5 +20,8 @@
     <answer>ornithorynque</answer>
     <hint>Résolvez la charade</hint>
   </enigma>
+  <enigma title="Souviens toi">
+    <answer>8</answer>
+    <hint>Souvenez-vous c'est important</hint>
+  </enigma>
 </enigmas>
-
