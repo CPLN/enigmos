@@ -47,6 +47,9 @@
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\TrouverEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\PuzzlePiece.cs">
       <SubType>Component</SubType>
     </Compile>
