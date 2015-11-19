@@ -1,10 +1,12 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
     class RunEnigmaPanel : EnigmaPanel
     {
+        private Timer timer= new Timer();
         public RunEnigmaPanel()
         {
             //Déclaration des variables
@@ -16,6 +18,11 @@ namespace Cpln.Enigmos.Enigmas
             pbxHomme.BackColor = Color.Red;
             pbxHomme.Location = new Point(400 - pbxHomme.Width,575 - pbxHomme.Height);
 
+            //timer
+            timer.Interval = 1;
+            timer.Tick += new EventHandler(Timer_Tick);
+            timer.Start();
+
             //Création des obstacles
             PictureBox pbxCaillou = new PictureBox();
             pbxCaillou.Size = new Size(50, 50);
@@ -26,6 +33,7 @@ namespace Cpln.Enigmos.Enigmas
             pbxTronc.BackColor = Color.Green;
             pbxTronc.Location = new Point(400 - pbxTronc.Width, 100 - pbxTronc.Height);
 
+            //Tableau
             tblObstacle[0] = pbxCaillou;
             tblObstacle[1] = pbxTronc;
             
@@ -33,6 +41,11 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(pbxHomme);
             Controls.Add(pbxCaillou);
             Controls.Add(pbxTronc);
+
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
 
         }
     }
