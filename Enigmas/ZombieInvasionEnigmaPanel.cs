@@ -17,6 +17,8 @@ namespace Cpln.Enigmos.Enigmas
         PictureBox pbxCible = new PictureBox();
         PictureBox pbxZombie = new PictureBox();
 
+        //création d'un timer
+        private Timer Timer = new Timer();
 
         public ZombieInvasionEnigmaPanel()
         {
@@ -25,14 +27,18 @@ namespace Cpln.Enigmos.Enigmas
             this.Width = (myScreen.WorkingArea.Width);
             this.Height = (myScreen.WorkingArea.Height) - 100;
 
+            //Mise en place d'un timer
+            Timer.Interval = 1; // 1 milisecondes
+            Timer.Tick += new EventHandler(Timer_Tick);
+            Timer.Start();
 
-            //Test
-            pbxCible.Image = Properties.Resources.Cible;
-            pbxCible.Width = Properties.Resources.Cible.Width;
-            pbxCible.Height = Properties.Resources.Cible.Height;
-
+            //ajout de l'image
             Controls.Add(pbxCible);
 
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            this.Cursor = new Cursor(Properties.Resources.Cible.GetHicon());//changement de l'iamge du curseur
         }
     }
 }
