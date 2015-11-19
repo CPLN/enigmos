@@ -1,16 +1,18 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
-using System;
 
 namespace Cpln.Enigmos.Enigmas
 {
     class PhoqueEnigmaPanel : EnigmaPanel
     {
+        //Déclaration des variables et tableaux
+        PictureBox[] tblPoissons = new PictureBox[3];
+        Random RandomX = new Random();
+        private Timer timer = new Timer();
+
         public PhoqueEnigmaPanel()
         {
-            //Déclaration des variables et tableaux
-            PictureBox[] tblPoissons = new PictureBox[3];
-            Random RandomX = new Random();
 
             //Création du Phoque
             PictureBox pbxPhoque = new PictureBox();
@@ -31,6 +33,23 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(pbxPoisson);
             }
 
+            //Timer
+            timer.Interval = 1;
+            timer.Tick += new EventHandler(Timer_Tick);
+            timer.Start();
+
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < tblPoissons.Length; i++)
+            {
+                tblPoissons[i].Top += 1;
+
+                if(tblPoissons[i].Bottom >= 600)
+                {
+                     tblPoissons[i].Location = new Point(RandomX.Next(0, 800) - tblPoissons[i].Width, 0 - tblPoissons[i].Height); 
+                }
+            }
         }
     }
 }
