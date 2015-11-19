@@ -43,7 +43,7 @@ namespace Cpln.Enigmos.Enigmas
         {
             for (int i = 0; i < tblPoissons.Length; i++)
             {
-                tblPoissons[i].Top += 1;
+                tblPoissons[i].Top += 5;
 
                 if(tblPoissons[i].Top >= 600)
                 {
