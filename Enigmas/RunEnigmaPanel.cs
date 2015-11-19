@@ -13,15 +13,20 @@ namespace Cpln.Enigmos.Enigmas
             pbxHomme.BackColor = Color.Red;
             pbxHomme.Location = new Point(400 - pbxHomme.Width,575 - pbxHomme.Height);
 
-            //Création d'un obstacle
+            //Création des obstacles
             PictureBox pbxCaillou = new PictureBox();
             pbxCaillou.Size = new Size(50, 50);
             pbxCaillou.BackColor = Color.Gray;
             pbxCaillou.Location = new Point(400 - pbxCaillou.Width, 75 - pbxCaillou.Height);
+            PictureBox pbxTronc = new PictureBox();
+            pbxTronc.Size = new Size(75, 50);
+            pbxTronc.BackColor = Color.Green;
+            pbxTronc.Location = new Point(400 - pbxTronc.Width, 100 - pbxTronc.Height);
 
             //Ajout des éléments
             Controls.Add(pbxHomme);
             Controls.Add(pbxCaillou);
+            Controls.Add(pbxTronc);
 
         }
     }
