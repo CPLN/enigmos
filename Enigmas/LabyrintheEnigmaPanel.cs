@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Cpln.Enigmos.Enigmas
 {
-    class LabyrintheEnigmaPanel
+    /// <summary>
+    /// Panel affichant une énigme.
+    /// </summary>
+    public class LabyrintheEnigmaPanel : EnigmaPanel
     {
+
     }
 }
