@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enigmas\7DiffEnigmaPanel.cs" />
+    <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -112,6 +114,8 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="img\image2.PNG" />
+    <None Include="img\image1.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
