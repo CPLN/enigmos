@@ -8,18 +8,30 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
+
     class ZombieInvasionEnigmaPanel : EnigmaPanel
     {
+        //déclaration des pricipaux éléments de l'énigme
+        PictureBox pbxBackground = new PictureBox();
+        PictureBox pbxBatiment = new PictureBox();
+        PictureBox pbxCible = new PictureBox();
+        PictureBox pbxZombie = new PictureBox();
+
+
         public ZombieInvasionEnigmaPanel()
         {
-            Label lblEnigme = new Label();
+            //Modification des paramêtre du panel de base
+            Screen myScreen = Screen.PrimaryScreen;
+            this.Width = (myScreen.WorkingArea.Width);
+            this.Height = (myScreen.WorkingArea.Height) - 100;
 
-            lblEnigme.Text = "Test";
-            lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
-            lblEnigme.Dock = DockStyle.Fill;
-            lblEnigme.TextAlign = ContentAlignment.MiddleCenter;
 
-            Controls.Add(lblEnigme);
+            //Test
+            pbxCible.Image = Properties.Resources.Cible;
+            pbxCible.Width = Properties.Resources.Cible.Width;
+            pbxCible.Height = Properties.Resources.Cible.Height;
+
+            Controls.Add(pbxCible);
 
         }
     }
