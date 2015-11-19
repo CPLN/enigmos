@@ -18,14 +18,28 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         public BeatThemAllEnigmaPanel()
         {
-            /*Label lblEnigme = new Label();
+            //Modification des paramêtre du panel de base
+            Screen myScreen = Screen.PrimaryScreen;
+            this.Width = (myScreen.WorkingArea.Width);
+            this.Height = (myScreen.WorkingArea.Height)/2;
 
-            lblEnigme.Text = "Test";
-            lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
-            lblEnigme.Dock = DockStyle.Fill;
-            lblEnigme.TextAlign = ContentAlignment.MiddleCenter;
+            //Mise en place du sol
+            PictureBox pbxGround = new PictureBox();
+            pbxGround.Size = new Size(this.Width, this.Height/7);
+            pbxGround.Location = new Point(this.Width / 2 - pbxGround.Width / 2, this.Bottom - pbxGround.Height);
+            pbxGround.BackColor = Color.Red;
+            Controls.Add(pbxGround);
+ 
+      /*      //Mise en place d'un timer
+            Timer Timer = new Timer();
+            Timer.Interval = 1; // 1 milisecondes
+            Timer.Tick += new EventHandler(Timer_Tick);
+            Timer.Start();
 
-            Controls.Add(lblEnigme);*/
+            private void Timer_Tick(object sender, EventArgs e)
+            {
+ 
+            }*/
         }
     }
 }
