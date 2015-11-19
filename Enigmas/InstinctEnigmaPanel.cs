@@ -7,15 +7,43 @@ namespace Cpln.Enigmos.Enigmas
     {
         public InstinctEnigmaPanel()
         {
-            Label lblEnigme = new Label();
+           Label lblReponse = new Label();
+            Label lblTexte = new Label();
+
+            Panel pnlImage = new Panel();
 
 
-            lblEnigme.Text = "Réponse a : \n" + "Réponse B : \n" + "Réponse C : \n";
-            lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
-            lblEnigme.Dock = DockStyle.Fill;
-            lblEnigme.TextAlign = ContentAlignment.TopLeft;
 
-            Controls.Add(lblEnigme);
+            lblReponse.Text = "Réponse A : \n" + "Réponse B : \n" + "Réponse C : \n";
+            lblReponse.Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold);
+            lblReponse.Size = new Size(150, 70);
+            lblReponse.Location = new Point(0, 0);
+           
+           
+            
+
+
+            lblTexte.Text = "Vous vous réveillez dans une baignoire.";
+            lblTexte.Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold);
+            lblTexte.Size = new Size(400, 30);
+            lblTexte.Location = new Point(470, 0);
+         
+            
+            
+           
+      
+           Controls.Add(lblReponse);
+            Controls.Add(lblTexte);
+
+            pnlImage.Width = 800;
+            pnlImage.Height = 600;
+           //pnlImage.BackColor = Color.BlueViolet;
+
+            pnlImage.BackgroundImage = Properties.Resources.depart;
+            Controls.Add(pnlImage);
+            
+
+
 
             
         }
