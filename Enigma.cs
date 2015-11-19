@@ -34,6 +34,10 @@ namespace Cpln.Enigmos
         /// Une liste de noms d'énigmes qui doivent avoir été résolues afin de pouvoir afficher cette énigme.
         /// </summary>
         private List<string> prerequisites = new List<string>();
+        /// <summary>
+        /// Est-ce que l'énigme doit prendre le focus ?
+        /// </summary>
+        private bool bTakeFocus = false;
 
         /// <summary>
         /// Permet d'afficher le titre de l'énigme.
@@ -69,6 +73,18 @@ namespace Cpln.Enigmos
             set
             {
                 bCaseSensitive = value;
+            }
+        }
+
+        public bool TakeFocus
+        {
+            get
+            {
+                return bTakeFocus;
+            }
+            set
+            {
+                bTakeFocus = value;
             }
         }
 
