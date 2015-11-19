@@ -45,7 +45,7 @@ namespace Cpln.Enigmos.Enigmas
             {
                 tblPoissons[i].Top += 1;
 
-                if(tblPoissons[i].Bottom >= 600)
+                if(tblPoissons[i].Top >= 600)
                 {
                      tblPoissons[i].Location = new Point(RandomX.Next(0, 800) - tblPoissons[i].Width, 0 - tblPoissons[i].Height); 
                 }
