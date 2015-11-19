@@ -17,7 +17,8 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new CharadeEnigmaPanel(), "Charade");
+           // return new Enigma(new CharadeEnigmaPanel(), "Charade");
+            return new Enigma(new InstinctEnigmaPanel(), "Instinct");
             //return null;
 
             // ---

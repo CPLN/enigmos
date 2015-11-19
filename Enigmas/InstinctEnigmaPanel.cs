@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cpln.Enigmos.Enigmas
 {
-    class InstinctEnigmaPanel
+    public class InstinctEnigmaPanel : EnigmaPanel
     {
     }
 }
