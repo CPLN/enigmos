@@ -36,6 +36,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new OuEstLaReponseEnigmaPanel(), "Où est la réponse ?"));
             enigmas.Add(new Enigma(new OiseauxEnigmaPanel(), "Le plus long mot"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
+            enigmas.Add(new Enigma(new LabyrintheEnigmaPanel(), "Labyrinthe"));
 
             enigmas.Shuffle();
             return enigmas;
