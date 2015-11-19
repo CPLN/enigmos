@@ -20,12 +20,27 @@ namespace Cpln.Enigmos.Enigmas
             for (int i = 0; i < 4; i++)
             {
                 btnReponse[i] = new Button();
+            }
+            CreationBouton();
+
+            btnReponse[0].Location = new Point(0, 0);
+            btnReponse[1].Location = new Point(410, 0);
+            btnReponse[2].Location = new Point(0, 310);
+            btnReponse[3].Location = new Point(410, 310);
+
+        }
+
+        private void CreationBouton()
+        {
+            for (int i = 0; i < 4; i++)
+            {
                 btnReponse[i].Width = 390;
                 btnReponse[i].Height = 290;
                 btnReponse[i].Text = "Bonne réponse?";
+                btnReponse[i].Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
                 btnReponse[i].FlatStyle = FlatStyle.System;
                 Controls.Add(btnReponse[i]);
-                if(i == iBonBouton)
+                if (i == iBonBouton)
                 {
                     btnReponse[iBonBouton].Click += new EventHandler(BonneReponse);
                 }
@@ -34,13 +49,6 @@ namespace Cpln.Enigmos.Enigmas
                     btnReponse[i].Click += new EventHandler(MauvaiseReponse);
                 }
             }
-
-
-            btnReponse[0].Location = new Point(0, 0);
-            btnReponse[1].Location = new Point(410, 0);
-            btnReponse[2].Location = new Point(0, 310);
-            btnReponse[3].Location = new Point(410, 310);
-
         }
         private void BonneReponse(object sender, EventArgs e)
         {
@@ -56,7 +64,9 @@ namespace Cpln.Enigmos.Enigmas
         private void MauvaiseReponse(object sender, EventArgs e)
         {
             MessageBox.Show("Vous avez cliqué sur un mauvais bouton.", "Mauvais Bouton");
-
+            Random randoChoixDuBouton = new Random();
+            iBonBouton = randoChoixDuBouton.Next(0, 4);
+            CreationBouton();
         }
     }
 }
