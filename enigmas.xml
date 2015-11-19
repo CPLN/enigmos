@@ -20,5 +20,9 @@
     <answer>ornithorynque</answer>
     <hint>Résolvez la charade</hint>
   </enigma>
+  <enigma title="Le jeu des 7 différences">
+    <answer>hello</answer>
+    <hint>Trouvez les lettres différentes, c'est simple comme bonjour</hint>
+  </enigma>
 </enigmas>
 
