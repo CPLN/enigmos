@@ -9,12 +9,15 @@ namespace Cpln.Enigmos.Enigmas
         {
             Label lblEnigme = new Label();
 
-            lblEnigme.Text = "Coucou";
+
+            lblEnigme.Text = "Réponse a : \n" + "Réponse B : \n" + "Réponse C : \n";
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
             lblEnigme.Dock = DockStyle.Fill;
-            lblEnigme.TextAlign = ContentAlignment.MiddleCenter;
+            lblEnigme.TextAlign = ContentAlignment.TopLeft;
 
             Controls.Add(lblEnigme);
+
+            
         }
      
     }
