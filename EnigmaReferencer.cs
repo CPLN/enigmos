@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new OuEstLaReponseEnigmaPanel(), "Ou est la réponse ?");
+            return new Enigma(new CharadeEnigmaPanel(), "Charade");
             //return null;
 
             // ---
@@ -33,7 +33,9 @@ namespace Cpln.Enigmos
 
             enigmas.Add(new Enigma(new SimpleEnigmaPanel(), "C'est simple"));
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
-            enigmas.Add(new Enigma(new OuEstLaReponseEnigmaPanel(), "Ou est la réponse ?"));
+            enigmas.Add(new Enigma(new OuEstLaReponseEnigmaPanel(), "Où est la réponse ?"));
+            enigmas.Add(new Enigma(new OiseauxEnigmaPanel(), "Le plus long mot"));
+            enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
 
             enigmas.Shuffle();
             return enigmas;
