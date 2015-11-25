@@ -24,5 +24,9 @@
     <answer>vingt</answer>
     <hint>La réponse est un mot.</hint>
   </enigma>
+  <enigma title="Appuie sur la réponse">
+    <answer>Branche d'arbre</answer>
+    <hint>Utilise la souris</hint>
+  </enigma>
 </enigmas>
 
