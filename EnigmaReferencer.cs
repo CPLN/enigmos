@@ -38,6 +38,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
             enigmas.Add(new Enigma(new NbrCarresEnigmaPanel(), "Nombre de carrés"));
             enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
+            enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
 
             enigmas.Shuffle();
             return enigmas;
