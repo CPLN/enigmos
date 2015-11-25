@@ -35,7 +35,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new SimpleEnigmaPanel(), "C'est simple"));
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
             enigmas.Add(new Enigma(new OuEstLaReponseEnigmaPanel(), "Ou est la réponse ?"));
-            enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Apppuie sur la réponse"));
+            enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
 
             enigmas.Shuffle();
             return enigmas;
