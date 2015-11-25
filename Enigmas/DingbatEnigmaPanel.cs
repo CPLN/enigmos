@@ -11,14 +11,20 @@ namespace Cpln.Enigmos.Enigmas
     /// </summary>
     public class DingbatEnigmaPanel : EnigmaPanel
     {
-        /// <summary>
-        /// Constructeur par défaut, fixe la taille du Panel à 800x600 et la couleur de fond à blanc.
-        /// </summary>
         public DingbatEnigmaPanel()
         {
-            Label lblCitronVert = new Label();
+            for(int i = 0; i < 6; i++)
+            {
+                Label lblCitronVert = new Label();
 
-            lblCitronVert.Text = "Tronc";
+                lblCitronVert.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
+                lblCitronVert.ForeColor = Color.Green;
+                lblCitronVert.Dock = DockStyle.Fill;
+                lblCitronVert.Location = new Point(0, 0);
+                lblCitronVert.Text = "Tronc";
+                
+                Controls.Add(lblCitronVert);
+            }
         }
     }
 }
