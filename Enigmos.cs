@@ -67,10 +67,9 @@ namespace Cpln.Enigmos
                 MessageBox.Show(e.Message);
                 Environment.Exit(1);
             }
-            catch
+            catch (EndGameException e)
             {
-                MessageBox.Show("Aucune énigme n'a été trouvée", "Erreur");
-                Environment.Exit(1);
+                MessageBox.Show(e.Message);
             }
         }
 
