@@ -121,6 +121,15 @@
   <data name="bus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\image\bus.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Bus_Reponse1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\image\Bus_Reponse1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bus_Reponse2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\image\Bus_Reponse2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bus_Reponse3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\image\Bus_Reponse3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="carre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\image\carre.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

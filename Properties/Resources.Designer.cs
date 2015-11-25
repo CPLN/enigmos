@@ -73,6 +73,36 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bus_Reponse1 {
+            get {
+                object obj = ResourceManager.GetObject("Bus_Reponse1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bus_Reponse2 {
+            get {
+                object obj = ResourceManager.GetObject("Bus_Reponse2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bus_Reponse3 {
+            get {
+                object obj = ResourceManager.GetObject("Bus_Reponse3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap carre {
             get {
                 object obj = ResourceManager.GetObject("carre", resourceCulture);
@@ -91,13 +121,13 @@ namespace Cpln.Enigmos.Properties {
         ///    &lt;answer&gt;jongleur&lt;/answer&gt;
         ///    &lt;hint&gt;Remettez les pièces à leur place.&lt;/hint&gt;
         ///  &lt;/enigma&gt;
+        ///  &lt;enigma title=&quot;Où est la réponse ?&quot;&gt;
+        ///    &lt;answer&gt;là-bas&lt;/answer&gt;
+        ///    &lt;hint&gt;je t&apos;ai dis là-bas, enfin !&lt;/hint&gt;
+        ///  &lt;/enigma&gt;
         ///  &lt;enigma title=&quot;C&apos;est simple&quot;&gt;
         ///    &lt;answer&gt;simple&lt;/answer&gt;
-        ///    &lt;hint&gt;Pas d&apos;indice, la solution est simple !&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Nombre de carré&quot;&gt;
-        ///    &lt;answer&gt;vingt&lt;/answer&gt;
-        ///    &lt;hi [rest of string was truncated]&quot;;.
+        ///    &lt;hint&gt;Pas [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string enigmas {
             get {

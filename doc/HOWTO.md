@@ -19,3 +19,14 @@ Les étapes d'ajout d'une énigme sont les suivantes :
     5. Tester l'énigme afin d'éviter un maximum de bugs.
   4. Lorsque l'énigme est entièrement développée, effectuer un [pull request](https://github.com/SteeveDroz/enigmos/compare) afin de proposer l'implémentation de la nouvelle énigme.
   5. Si l'implémentation est refusée, suivre les instructions de modification et réitérer le pull request.
+
+## Mise en place de git pour Windows
+
+  1. Effectuer un [fork](https://github.com/CPLN/enigmos#fork-destination-box) du repository (si ça n'a pas encore été fait) afin d'avoir une copie de travail personnelle sur github.
+  2. Depuis son repository personnel, copier l'url de clonage situé dans la colonne de droite, sous _**HTTPS** clone url_.
+  3. En local, ouvrir l'application GIT-GUI, soit par le menu Windows, soit avec un clic-droit dans un dossier ou sur le bureau.
+  4. Choisir *Clone Existing Repository* et coller l'URL de clonage dans le premier champ.
+  5. **Ajouter son nom d'utilisateur entre https:// et github. Exemple : https://MonPseudo@github.com/MonPseudo/mon-depot.git.** Sans cette action, git vous demandera votre nom d'utilisateur en plus de votre mot de passe à chaque connexion à github.
+  6. Choisissez un emplacement local où stocker le projet.
+  7. Dans la fenêtre qui apparait après validation, chosissez le menu *Remote -> Add* et ajoutez le repository principal. Son nom est **upstream** et son adresse est **https://github.com/CPLN/enigmos.git**.
+  

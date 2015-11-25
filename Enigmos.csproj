@@ -44,13 +44,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\Components\Graph.cs" />
+    <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\PuzzlePiece.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\EnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\NbrCarreeEnigmaPanel.cs">
+    <Compile Include="Enigmas\OuEstLaReponseEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\NbrCarresEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\BusEnigmaPanel.cs">
@@ -111,6 +118,9 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="image\Bus_Reponse3.png" />
+    <None Include="image\Bus_Reponse2.png" />
+    <None Include="image\Bus_Reponse1.png" />
     <None Include="image\bus.jpg" />
     <None Include="image\carre.jpg" />
   </ItemGroup>

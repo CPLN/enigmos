@@ -8,11 +8,19 @@
     <answer>jongleur</answer>
     <hint>Remettez les pièces à leur place.</hint>
   </enigma>
+  <enigma title="Où est la réponse ?">
+    <answer>là-bas</answer>
+    <hint>je t'ai dis là-bas, enfin !</hint>
+  </enigma>
   <enigma title="C'est simple">
     <answer>simple</answer>
     <hint>Pas d'indice, la solution est simple !</hint>
   </enigma>
-  <enigma title="Nombre de carré">
+  <enigma title="Charade">
+    <answer>ornithorynque</answer>
+    <hint>Résolvez la charade</hint>
+  </enigma>
+  <enigma title="Nombre de carrés">
     <answer>vingt</answer>
     <hint>La réponse est un mot.</hint>
   </enigma>
