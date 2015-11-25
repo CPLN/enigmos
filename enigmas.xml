@@ -16,5 +16,9 @@
     <answer>vingt</answer>
     <hint>La réponse est un mot.</hint>
   </enigma>
+  <enigma title="Sens du bus">
+    <answer>jaune</answer>
+    <hint>La réponse ne s'écrit pas. Penser à utiliser le clavier !</hint>
+  </enigma>
 </enigmas>
 

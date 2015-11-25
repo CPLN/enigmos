@@ -17,7 +17,9 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new NbrCarreeEnigmaPanel(), "Nombre de carré");
+            Enigma enigma = new Enigma(new BusEnigmaPanel(), "Sens du bus");
+            
+            return enigma;
             //return null;
 
             // ---
@@ -35,6 +37,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
             enigmas.Add(new Enigma(new OiseauxEnigmaPanel(), "Le plus long mot"));
             enigmas.Add(new Enigma(new NbrCarreeEnigmaPanel(), "Nombre de carré"));
+            enigmas.Add(new Enigma(new BusEnigmaPanel(), "Sens du bus"));
 
             enigmas.Shuffle();
             return enigmas;
