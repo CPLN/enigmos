@@ -6,18 +6,18 @@ namespace Cpln.Enigmos.Enigmas
     /// <summary>
     /// Exemple d'énigme très simple. Seul un texte est affiché.
     /// </summary>
-    public class NbrCarreeEnigmaPanel : EnigmaPanel
+    public class NbrCarresEnigmaPanel : EnigmaPanel
     {
         /// <summary>
         /// Constructeur par défaut, génère un texte et l'affiche dans le Panel.
         /// </summary>
-        public NbrCarreeEnigmaPanel()
+        public NbrCarresEnigmaPanel()
         {
             Label lblEnigme = new Label();
 
             PictureBox pbxImage = new PictureBox();
 
-            lblEnigme.Text = "Combien y a t'il de carrée ?";
+            lblEnigme.Text = "Combien y a-t-il de carrés ?";
             pbxImage.BackgroundImage = Properties.Resources.carre;
 
             TableLayoutPanel centerQuestion = new TableLayoutPanel();
