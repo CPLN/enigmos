@@ -20,5 +20,9 @@
     <answer>ornithorynque</answer>
     <hint>Résolvez la charade</hint>
   </enigma>
+  <enigma title="Nombre de carré">
+    <answer>vingt</answer>
+    <hint>La réponse est un mot.</hint>
+  </enigma>
 </enigmas>
 

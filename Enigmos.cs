@@ -209,5 +209,10 @@ namespace Cpln.Enigmos
 
             lblId.Text = active.Title;
         }
+
+        private void mainLayout_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
