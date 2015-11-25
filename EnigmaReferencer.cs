@@ -17,9 +17,9 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            //return new Enigma(new AppuieReponseEnigmaPanel(), "Apppuie sur la réponse");
+            return new Enigma(new CaseVideEnigmaPanel(), "Et ben non");
             
-            return null;
+            //return null;
 
             // ---
         }
@@ -36,6 +36,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
             enigmas.Add(new Enigma(new OuEstLaReponseEnigmaPanel(), "Ou est la réponse ?"));
             enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
+            enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
 
             enigmas.Shuffle();
             return enigmas;
