@@ -17,8 +17,10 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            //return new Enigma(new SimpleEnigmaPanel(), "C'est simple");
-            return null;
+            Enigma enigma = new Enigma(new BusEnigmaPanel(), "Sens du bus");
+            enigma.TakeFocus = true;
+            return enigma;
+            //return null;
 
             // ---
         }
@@ -33,6 +35,11 @@ namespace Cpln.Enigmos
 
             enigmas.Add(new Enigma(new SimpleEnigmaPanel(), "C'est simple"));
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
+            enigmas.Add(new Enigma(new OuEstLaReponseEnigmaPanel(), "Où est la réponse ?"));
+            enigmas.Add(new Enigma(new OiseauxEnigmaPanel(), "Le plus long mot"));
+            enigmas.Add(new Enigma(new BusEnigmaPanel(), "Sens du bus"));
+            enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
+            enigmas.Add(new Enigma(new NbrCarresEnigmaPanel(), "Nombre de carrés"));
 
             enigmas.Shuffle();
             return enigmas;
