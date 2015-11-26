@@ -17,6 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
+
             return new Enigma(new RunEnigmaPanel(), "Roux run");
             //return null;
 
@@ -37,9 +38,13 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new OiseauxEnigmaPanel(), "Le plus long mot"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
             enigmas.Add(new Enigma(new RunEnigmaPanel(),"Roux run"));
+            enigmas.Add(new Enigma(new NbrCarresEnigmaPanel(), "Nombre de carrés"));
+            enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
+            enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
 
             enigmas.Shuffle();
             return enigmas;
         }
+        
     }
 }
