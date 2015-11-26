@@ -201,10 +201,8 @@ namespace Cpln.Enigmos
             active.AutoSize = true;
             mainLayout.Controls.Add(active, 0, 0);
 
-            if (enigma.TakeFocus)
-            {
-                ActiveControl = enigma;
-            }
+            ActiveControl = enigma;
+            enigma.HandleEvents();
 
             lblId.Text = active.Title;
         }
