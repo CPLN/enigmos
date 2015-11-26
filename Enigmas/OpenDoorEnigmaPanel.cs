@@ -14,13 +14,11 @@ namespace Cpln.Enigmos.Enigmas
 
         Panel pnlPictureLandscape = new Panel();
         Panel pnlPictureFlowers = new Panel();
-        Label lblResult = new Label();
 
-        bool bResult = false;
+        Label lblResult = new Label();
 
         public OpenDoorEnigmaPanel()
         {
-            #region Ajout des images 
             // Ajout d'une image et redimension
             this.BackgroundImage = Properties.Resources.OpenDoor;
             this.Width = Properties.Resources.OpenDoor.Width;
@@ -41,31 +39,23 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(pnlPictureLandscape);
             pnlPictureLandscape.Location = new Point(90, 20);
             pnlPictureLandscape.Click += new EventHandler(pnlPictureLandscape_Click); // on crée un événement click 
-            #endregion
         }
-
-        #region Événement click des images
         private void pnlPictureFlowers_Click(object sender, EventArgs e)
         {
             pnlPictureFlowers.Location = new Point(550, 80);
-            bResult = true;
             TestResult(OpenDoorImage.FLOWER);
             Timer_OpenDoor();
         }
         private void pnlPictureLandscape_Click(object sender, EventArgs e)
         {
             pnlPictureLandscape.Location = new Point(250, 20);
-            bResult = true;
             TestResult(OpenDoorImage.LANDSCAPE);
             Timer_OpenDoor();
         }
-        #endregion
-
-        #region Timer
         private void Timer_OpenDoor()
         {
             //Mise en place d'un timer
-            Timer.Interval = 5000; // 5 secondes
+            Timer.Interval = 3000; // 5 secondes
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Start();
         }
@@ -75,27 +65,25 @@ namespace Cpln.Enigmos.Enigmas
             pnlPictureLandscape.Location = new Point(90, 20);
             pnlPictureFlowers.Location = new Point(550, 175);
         }
-        #endregion
-
+        private void Result()
+        {
+            lblResult.Text = "Bien Joué";
+            lblResult.Font = new Font(FontFamily.GenericSansSerif, 10);
+            Controls.Add(lblResult);
+            this.BackColor = Color.FromArgb(153, 217, 234);
+        }
         private void TestResult(OpenDoorImage image)
         {
             if (image == OpenDoorImage.LANDSCAPE)
             {
                 Result();
-                lblResult.Location = new Point(90, 20);
+                lblResult.Location = new Point(150, 40);
             }
             else
             {
                 Result();
                 lblResult.Location = new Point(550, 175);
             }
-        }
-
-        private void Result()
-        {
-            lblResult.Text = "Bien Joué";
-            lblResult.Font = new Font(FontFamily.GenericSansSerif, 10);
-            Controls.Add(lblResult);
         }
     }
     enum OpenDoorImage
