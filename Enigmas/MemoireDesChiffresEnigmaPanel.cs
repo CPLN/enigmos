@@ -17,13 +17,14 @@ namespace Cpln.Enigmos.Enigmas
         int iCompteur = 0; //Variable d'incrémentation pour les cases du tableau
         Random random = new Random(); //Déclaration du générateur de random
         int iCaseDemandee; //Déclaration de la case demandée
+        bool bChiffreDifferent = true;
 
         public MemoireDesChiffresEnigmaPanel()
         {
-            iCaseDemandee = random.Next(2, 5); //Affectation de la case demandée
+            iCaseDemandee = 1;//random.Next(1, 4); //Affectation de la case demandée
 
             //Mise en place d'un timer
-            timer.Interval = 500; // 1 milisecondes
+            timer.Interval = 500; // 1 demi secondes
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
 
@@ -39,13 +40,6 @@ namespace Cpln.Enigmos.Enigmas
             lblChiffres.Size = new Size(160, 160);
             lblChiffres.Font = new Font("Verdana", 80);
             lblChiffres.Location = new Point(330, 220);
-
-
-
-
-            lblChiffres.Text = Convert.ToString(iCaseDemandee);
-
-            
         }
         void Timer_Tick(object sender, EventArgs e)
         {
@@ -53,9 +47,32 @@ namespace Cpln.Enigmos.Enigmas
             {
                 if (iCompteur != iCaseDemandee)
                 {
-                    tChiffresAleatoire[iCompteur] = random.Next(1, 10);
-                    lblChiffres.Text = Convert.ToString(tChiffresAleatoire[iCompteur]);
-                    iCompteur++;
+                    if (iCompteur == 0)
+                    {
+                        tChiffresAleatoire[iCompteur] = random.Next(1, 10);
+                        lblChiffres.Text = Convert.ToString(tChiffresAleatoire[iCompteur]);
+                        iCompteur++;
+                    }
+                    else
+                    {
+                        while (tChiffresAleatoire[iCompteur] != tChiffresAleatoire[iCompteur - 1]) //Vérification que le chiffre n'est pas identique au précedent
+                        {
+                            tChiffresAleatoire[iCompteur] = random.Next(1, 10);
+                            bChiffreDifferent = false;
+                        }
+
+                        if (bChiffreDifferent)
+                        {
+                            tChiffresAleatoire[iCompteur] = random.Next(1, 10);
+                        }
+                        else if (!bChiffreDifferent)
+                        {
+                            bChiffreDifferent = true;
+                        }
+
+                        lblChiffres.Text = Convert.ToString(tChiffresAleatoire[iCompteur]);
+                        iCompteur++;
+                    }
                 }
                 else
                 {
@@ -63,11 +80,11 @@ namespace Cpln.Enigmos.Enigmas
                     lblChiffres.Text = Convert.ToString(tChiffresAleatoire[iCompteur]);
                     iCompteur++;
                 }
-                
             }
             else if(iCompteur == 8)
             {
                 lblQuestion.Visible = true;
+                iCaseDemandee++; //Il faut l'incrémenter de un car il part à 1 alors que le tableau par a 0
                 lblQuestion.Text = String.Format("Quel est le {0}ème chiffre", iCaseDemandee);
                 iCompteur = 0;
                 timer.Stop();
