@@ -144,6 +144,11 @@ namespace Cpln.Enigmos
             enigmaPanel.Load();
         }
 
+        public void Unload()
+        {
+            enigmaPanel.Unload();
+        }
+
         /// <summary>
         /// Détecte les touches appuyées et les transmets au Panel.
         /// </summary>

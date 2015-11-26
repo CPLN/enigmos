@@ -44,5 +44,13 @@ namespace Cpln.Enigmos.Enigmas
         {
 
         }
+
+        /// <summary>
+        /// Appelé lors du passage à l'énigme suivante.
+        /// </summary>
+        public virtual void Unload()
+        {
+
+        }
     }
 }
