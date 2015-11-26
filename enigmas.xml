@@ -24,6 +24,10 @@
     <answer>suivant</answer>
     <hint>Cliquer sur un des boutons</hint>
   </enigma>
+  <enigma title="Souviens toi">
+    <answer>8</answer>
+    <hint>Souvenez-vous c'est important</hint>
+  </enigma>
   <enigma title="Nombre de carrés">
     <answer>vingt</answer>
     <hint>La réponse est un mot.</hint>
@@ -41,4 +45,3 @@
     <hint>Répond pas Morice</hint>
   </enigma>
 </enigmas>
-
