@@ -23,6 +23,16 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         public BusEnigmaPanel()
         {
+            lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);          
+            lblEnigme.AutoSize = true;
+            centerQuestion.Dock = DockStyle.Fill;
+            Controls.Add(centerQuestion);
+
+            Start();
+        }
+
+        private void Start()
+        {
             lblEnigme.Text = "De quel côté se dirige le bus ?";
             pbxImage.BackgroundImage = Properties.Resources.bus;
 
@@ -40,20 +50,13 @@ namespace Cpln.Enigmos.Enigmas
 
             centerQuestion.SetColumnSpan(lblEnigme, 3);
 
-            lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
-            
-            pbxImage.Size = new Size(550, 240);
-            lblEnigme.AutoSize = true;
-
             centerQuestion.Controls.Add(lblEnigme, 1, 1);
             centerQuestion.Controls.Add(pbxImage, 2, 2);
 
-            centerQuestion.Dock = DockStyle.Fill;
-
-            Controls.Add(centerQuestion);
+            pbxImage.Size = new Size(550, 240);
         }
 
-        public override void PressKey (object sender, KeyEventArgs e)
+        public override void ReleaseKey (object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -105,14 +108,14 @@ namespace Cpln.Enigmos.Enigmas
 
         private void ClickFaux(object sender, EventArgs e)
         {
-            MessageBox.Show("Faux !\nCe n'est pas la bonne réponse !");
+            DialogResult dlgError = MessageBox.Show("Faux !\nCe n'est pas la bonne réponse !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Start();
+            
         }
 
         private void ClickVrai(object sender, EventArgs e)
         {
-            MessageBox.Show("Bravo !\nVeuillez entrer la couleur du bus pour continuer !");
+            DialogResult dlgSuccess = MessageBox.Show("Bravo !\nVeuillez entrer la couleur du bus pour continuer !", "Correct", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
-
-        
     }
 }
