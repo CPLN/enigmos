@@ -13,12 +13,11 @@ namespace Cpln.Enigmos.Enigmas
         private Timer timer = new Timer(); //Création du timer
         Label lblQuestion = new Label(); //Création du label qui demande le chiffre qu'il faut entrer
         Label lblChiffres = new Label(); //Création du label qui affiche les chiffres aléatoires
+        Button btnRecommencer = new Button(); //Création du bouton pour recommencer
         int[] tChiffresAleatoire = new int[8]; //Déclaration du tableau de chiffre aléatoire
         int iCompteur = 0; //Variable d'incrémentation pour les cases du tableau
         Random random = new Random(); //Déclaration du générateur de random
         int iCaseDemandee; //Déclaration de la case demandée
-
-        Button btnRecommencer = new Button();
 
         public MemoireDesChiffresEnigmaPanel()
         {
@@ -51,6 +50,7 @@ namespace Cpln.Enigmos.Enigmas
             lblChiffres.Font = new Font("Verdana", 80);
             lblChiffres.Location = new Point(330, 220);
         }
+
         void Timer_Tick(object sender, EventArgs e)
         {
             lblChiffres.Visible = true;
@@ -88,9 +88,13 @@ namespace Cpln.Enigmos.Enigmas
             }
         }
 
+        /// <summary>
+        /// Remise a zero des variables et cache des labels
+        /// </summary>
+        /// <param name="sender">La source</param>
+        /// <param name="e">L'évènement</param>
         void btnRecommencer_click(object sender, EventArgs e)
         {
-            //Remise a zero des variables et cache des labels
             iCompteur = 0;
             btnRecommencer.Visible = false;
             iCaseDemandee = random.Next(1, 4);
