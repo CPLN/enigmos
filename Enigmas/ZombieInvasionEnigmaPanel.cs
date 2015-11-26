@@ -24,6 +24,9 @@ namespace Cpln.Enigmos.Enigmas
         //création d'un timer
         private Timer Timer = new Timer();
 
+        //création des zombies
+        //Zombie zombie = new Zombie(); 
+
         public ZombieInvasionEnigmaPanel()
         {
             //Modification des parametre du panel de base
