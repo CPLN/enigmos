@@ -67,10 +67,9 @@ namespace Cpln.Enigmos
                 MessageBox.Show(e.Message);
                 Environment.Exit(1);
             }
-            catch
+            catch (EndGameException e)
             {
-                MessageBox.Show("Aucune énigme n'a été trouvée", "Erreur");
-                Environment.Exit(1);
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -201,6 +200,11 @@ namespace Cpln.Enigmos
             active.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             active.AutoSize = true;
             mainLayout.Controls.Add(active, 0, 0);
+
+            if (enigma.TakeFocus)
+            {
+                ActiveControl = enigma;
+            }
 
             lblId.Text = active.Title;
         }
