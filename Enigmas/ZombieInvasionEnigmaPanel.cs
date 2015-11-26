@@ -14,6 +14,7 @@ namespace Cpln.Enigmos.Enigmas
     {
         //déclaration des variables
         bool bViseurRouge = true;
+        bool bSpawn = true;
         int iTimer = 0;//variable qui permet de compter les ticks dans le Timer
 
         //déclaration des pricipaux éléments de l'énigme
@@ -25,15 +26,23 @@ namespace Cpln.Enigmos.Enigmas
         //création d'un timer
         private Timer Timer = new Timer();
 
+        //création d'une liste
+        //List<Zombie> zombies = new List<Zombie>();
+
         //création des zombies
-        Zombie zombie = new Zombie(Properties.Resources.Zombie); 
+        Zombie zombie;
 
         public ZombieInvasionEnigmaPanel()
         {
+            
+
             //Modification des parametre du panel de base
             Screen myScreen = Screen.PrimaryScreen;
             this.Width = (myScreen.WorkingArea.Width);
             this.Height = (myScreen.WorkingArea.Height) - 100;
+
+            //on créé les ennemis
+            zombie = new Zombie(Properties.Resources.Zombie, this);
 
             //Création du batiment
             pbxBatiment.Size = new Size(294, 290);
@@ -41,7 +50,7 @@ namespace Cpln.Enigmos.Enigmas
             pbxBatiment.Location = new Point(this.Width / 2 - pbxBatiment.Width / 2, this.Bottom - pbxBatiment.Height);
 
             //Mise en place d'un timer
-            Timer.Interval = 1; // 1 milisecondes
+            Timer.Interval = 100; // 10 milisecondes
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Start();
 
@@ -51,13 +60,20 @@ namespace Cpln.Enigmos.Enigmas
             //création d'un evenement de click
             MouseClick += new MouseEventHandler(PanelClick);
 
-            zombie.Avancer();
-
             //ajout de l'image
             Controls.Add(pbxCible);
             Controls.Add(pbxBatiment);
             Controls.Add(zombie);
+
+            //provisoir
+            /*while(bSpawn)
+            {
+
+            }*/
+            //provisoir
+
         }
+
         //evenements
         private void PanelClick(object sender, MouseEventArgs e)//quand on click sur le panel
         {
@@ -70,10 +86,12 @@ namespace Cpln.Enigmos.Enigmas
         {
             iTimer++;//incrementation de la variable de timer
 
-            if(!bViseurRouge && iTimer > 10)//si le curseur n'est pas en rouge et que 10 seconde ce sont écoulées
+            if(!bViseurRouge && iTimer > 2)//si le curseur n'est pas en rouge et que 10 seconde ce sont écoulées
             {
                 this.Cursor = new Cursor(Properties.Resources.CibleRouge.GetHicon());//changement de l'image du curseur
-            }         
+            }
+
+            zombie.Avancer();
         }     
     }
 }

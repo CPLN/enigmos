@@ -10,18 +10,16 @@ namespace Cpln.Enigmos.Enigmas.Components
 {
     class Zombie : PictureBox
     {
-        Image ImageZombie;
-        Point PositionZombie = new Point(100, 100);
-        Size TailleZombie = new Size(110, 204);
-
-        public Zombie(Image image)
+        public Zombie(Image image, EnigmaPanel parent)
         {
-            ImageZombie = image;
+            this.Image = image;//on définit l'image de l'objet  
+            this.Size = Properties.Resources.Zombie.Size; //on définit la taille de l'image
+            this.Location = new Point(parent.Right - this.Width, parent.Bottom - this.Height);
         }
 
         public void Avancer()
         {
-            this.Left -= 20;
+            this.Left -= 1;//on fais avvancer l'objet
         }
     }
 }

@@ -127,8 +127,8 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Resources\Batiment.png" />
     <None Include="Resources\Zombie.png" />
+    <None Include="Resources\Batiment.png" />
     <None Include="Resources\CibleNoir.png" />
     <None Include="Resources\Cible.png" />
     <None Include="image\carre.jpg" />
