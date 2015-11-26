@@ -20,6 +20,10 @@
     <answer>ornithorynque</answer>
     <hint>Résolvez la charade</hint>
   </enigma>
+  <enigma title="Le jeu des 7 différences">
+    <answer>bonjour</answer>
+    <hint>Trouvez le mot caché dans la grille</hint>
+  </enigma>
   <enigma title="Nombre de carrés">
     <answer>vingt</answer>
     <hint>La réponse est un mot.</hint>
