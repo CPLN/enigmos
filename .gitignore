@@ -231,3 +231,6 @@ _Pvt_Extensions
 
 # Class diagrams
 *.cd
+
+# Solution
+*.sln

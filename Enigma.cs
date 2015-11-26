@@ -15,25 +15,44 @@ namespace Cpln.Enigmos
     public class Enigma : Panel
     {
         /// <summary>
+        /// Le Panel contenant l'énigme.
+        /// </summary>
+        private EnigmaPanel enigmaPanel;
+
+        /// <summary>
+        /// Layout d'alignement de l'énigme.
+        /// </summary>
+        TableLayoutPanel centerLayout = new TableLayoutPanel();
+
+        /// <summary>
         /// Le titre de l'énigme.
         /// </summary>
         private string strTitle;
+
         /// <summary>
         /// La réponse à l'énigme.
         /// </summary>
         private string strAnswer;
+
         /// <summary>
         /// L'indice relatif à l'énigme.
         /// </summary>
         private string strHint;
+
         /// <summary>
         /// Si la réponse est sensible à la casse.
         /// </summary>
         private bool bCaseSensitive = false;
+
         /// <summary>
         /// Une liste de noms d'énigmes qui doivent avoir été résolues afin de pouvoir afficher cette énigme.
         /// </summary>
         private List<string> prerequisites = new List<string>();
+
+        /// <summary>
+        /// Est-ce que l'énigme doit prendre le focus ?
+        /// </summary>
+        private bool bTakeFocus = false;
 
         /// <summary>
         /// Permet d'afficher le titre de l'énigme.
@@ -72,6 +91,19 @@ namespace Cpln.Enigmos
             }
         }
 
+        [Obsolete("Cette option est activée par défaut et est donc inutile.")]
+        public bool TakeFocus
+        {
+            get
+            {
+                return bTakeFocus;
+            }
+            set
+            {
+                bTakeFocus = value;
+            }
+        }
+
         /// <summary>
         /// Constructeur permettant de créer une nouvelle énigme.
         /// </summary>
@@ -79,10 +111,11 @@ namespace Cpln.Enigmos
         /// <param name="title">Le titre de l'énigme</param>
         public Enigma(EnigmaPanel enigmaPanel, string title)
         {
+            this.enigmaPanel = enigmaPanel;
             this.strTitle = title;
             Parse();
+            SetSelectable();
 
-            TableLayoutPanel centerLayout = new TableLayoutPanel();
             centerLayout.ColumnCount = 3;
             centerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.5f));
             centerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
@@ -97,6 +130,36 @@ namespace Cpln.Enigmos
             centerLayout.Controls.Add(enigmaPanel, 1, 1);
 
             Dock = DockStyle.Fill;
+        }
+
+        public void HandleEvents()
+        {
+            KeyDown += new KeyEventHandler(PressKey);
+            KeyUp += new KeyEventHandler(ReleaseKey);
+            MouseDown += new MouseEventHandler(PressMouse);
+            MouseClick += new MouseEventHandler(PressMouse);
+            centerLayout.MouseClick += new MouseEventHandler(PressMouse);
+            enigmaPanel.MouseClick += new MouseEventHandler(PressMouse);
+        }
+
+        /// <summary>
+        /// Détecte les touches appuyées et les transmets au Panel.
+        /// </summary>
+        /// <param name="sender">L'envoyeur</param>
+        /// <param name="e">L'évènement</param>
+        private void PressKey(object sender, KeyEventArgs e)
+        {
+            enigmaPanel.PressKey(sender, e);
+        }
+
+        /// <summary>
+        /// Détecte les touches relâchées et les transmets au Panel.
+        /// </summary>
+        /// <param name="sender">L'envoyeur</param>
+        /// <param name="e">L'évènement</param>
+        private void ReleaseKey(object sender, KeyEventArgs e)
+        {
+            enigmaPanel.ReleaseKey(sender, e);
         }
 
         /// <summary>
@@ -159,11 +222,16 @@ namespace Cpln.Enigmos
             return true;
         }
 
+        private void PressMouse(object sender, MouseEventArgs e)
+        {
+            this.Focus();
+        }
+
         /// <summary>
         /// Cette méthode cherche dans le fichier enigmas.xml les données relatives à l'énigme et hydrate l'objet Enigme en accord.
         /// </summary>
         /// <param name="enigma">L'énigme à hydrater</param>
-        public void Parse()
+        private void Parse()
         {
             using (XmlReader reader = XmlReader.Create(new StringReader(Properties.Resources.enigmas)))
             {
@@ -180,6 +248,15 @@ namespace Cpln.Enigmos
                 }
                 throw new NoAnswerException(strTitle);
             }
+        }
+
+        /// <summary>
+        /// Rend l'énigme sélectionnable et accessible lors de l'appui sur <code>tab</code>.
+        /// </summary>
+        private void SetSelectable()
+        {
+            this.SetStyle(ControlStyles.Selectable, true);
+            this.TabStop = true;
         }
     }
 }

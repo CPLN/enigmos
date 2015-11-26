@@ -16,6 +16,8 @@ namespace Cpln.Enigmos.Enigmas
         public LabyrintheEnigmaPanel()
         {
             Graph<Panel> graph = new Graph<Panel>(new Panel());
+
+            graph.Root.Element.Size = new Size (50, 50);
         }
     }
 }
