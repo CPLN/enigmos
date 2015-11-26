@@ -19,6 +19,7 @@ namespace Cpln.Enigmos
         {
             return new Enigma(new SeptDifferencesEnigmaPanel(), "Le jeu des 7 différences");
             //return null;
+            //return new Enigma(new AppuieReponseEnigmaPanel(), "Apppuie sur la réponse");
 
             // ---
         }
@@ -37,9 +38,13 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new OiseauxEnigmaPanel(), "Le plus long mot"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
             enigmas.Add(new Enigma(new SeptDifferencesEnigmaPanel(), "Le jeu des 7 différences"));
+            enigmas.Add(new Enigma(new NbrCarresEnigmaPanel(), "Nombre de carrés"));
+            enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
+            enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
 
             enigmas.Shuffle();
             return enigmas;
         }
+        
     }
 }

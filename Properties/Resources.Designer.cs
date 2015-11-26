@@ -61,7 +61,18 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap carre {
+            get {
+                object obj = ResourceManager.GetObject("carre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
+<<<<<<< HEAD
         ///&lt;enigmas&gt;
         ///  &lt;enigma title=&quot;Le plus long mot&quot;&gt;
         ///    &lt;answer&gt;oiseaux&lt;/answer&gt;
@@ -78,6 +89,8 @@ namespace Cpln.Enigmos.Properties {
         ///  &lt;enigma title=&quot;C&apos;est simple&quot;&gt;
         ///    &lt;answer&gt;simple&lt;/answer&gt;
         ///    &lt;hint&gt;Pas [rest of string was truncated]&quot;;.
+=======
+>>>>>>> upstream/master
         /// </summary>
         internal static string enigmas {
             get {
