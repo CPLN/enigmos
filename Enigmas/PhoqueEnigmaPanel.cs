@@ -17,7 +17,7 @@ namespace Cpln.Enigmos.Enigmas
         {
 
             //Création du Phoque
-            pbxPhoque.Size = new Size(20, 40);
+            pbxPhoque.Size = new Size(85, 129);
             pbxPhoque.BackColor = Color.Blue;
             pbxPhoque.Location = new Point(400 - (pbxPhoque.Width / 2), 550 - (pbxPhoque.Height));
             Controls.Add(pbxPhoque);
@@ -26,9 +26,9 @@ namespace Cpln.Enigmos.Enigmas
             for (int i = 0; i < tblPoissons.Length; i++)
             {
                 PictureBox pbxPoisson = new PictureBox();
-                pbxPoisson.Size = new Size(20, 40);
+                pbxPoisson.Size = new Size(34, 55);
                 pbxPoisson.BackColor = Color.Gray;
-                pbxPoisson.Location = new Point(RandomX.Next(0, 800) - pbxPoisson.Width, 0 - pbxPoisson.Height);
+                pbxPoisson.Location = new Point(RandomX.Next(0, 800 + pbxPoisson.Width), 0 - pbxPoisson.Height);
                 pbxPoisson.Name = "Poisson_" + i;
                 tblPoissons[i] = pbxPoisson;
                 Controls.Add(pbxPoisson);
@@ -58,7 +58,19 @@ namespace Cpln.Enigmos.Enigmas
                     tblPoissons[i].Visible = false;
                 }
             }
-
         }
+
+        public override void PressKey(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.D && pbxPhoque.Right <= 800)
+            {
+                    pbxPhoque.Left += 10;
+            }
+            if (e.KeyCode == Keys.A && pbxPhoque.Left >= 0)
+            {
+                    pbxPhoque.Left -= 10;
+            }
+        }
+
     }
 }
