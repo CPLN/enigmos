@@ -10,7 +10,7 @@ namespace Cpln.Enigmos.Enigmas
 {
 
     /// <summary>
-    /// Exemple d'énigme très simple. Seul un texte est affiché.
+    /// 
     /// </summary>
     public class BeatThemAllEnigmaPanel : EnigmaPanel
     {
@@ -19,10 +19,14 @@ namespace Cpln.Enigmos.Enigmas
         private PictureBox pbxPlayer = new PictureBox();
         private PictureBox pbxGround = new PictureBox();
 
-        bool bIsRight = true; 
+        List<PictureBox> listEnnemi;
+
+        bool bIsRight = true, bSpawnEnnemiRight = true;
+
+        int iTimer, iNbrEnnemi;
 
         /// <summary>
-        /// Constructeur par défaut, génère un texte et l'affiche dans le Panel.
+        /// Constructeur par défaut, génère les picturesBox de base (le sol, le personnage du joueur).
         /// </summary>
         public BeatThemAllEnigmaPanel()
         {
@@ -30,9 +34,6 @@ namespace Cpln.Enigmos.Enigmas
             Screen myScreen = Screen.PrimaryScreen;
             this.Width = (myScreen.WorkingArea.Width);
             this.Height = (myScreen.WorkingArea.Height)/2;
-
-            //Généréation d'un event keyDown
-            KeyDown += new KeyEventHandler(OnKeyDown);
 
             //Mise en place du sol
             pbxGround.Size = new Size(this.Width, this.Height/7);
@@ -51,50 +52,91 @@ namespace Cpln.Enigmos.Enigmas
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Start();
 
+            //Affecte la liste "listEnnemi"
+            listEnnemi = new List<PictureBox>();
+
             this.Focus();
         }
 
-
-        private void OnKeyDown(object sender, KeyEventArgs e) 
+        //Fonction permettant de gèrer les déplacments 
+        public override void PressKey(object sender, KeyEventArgs e) 
         {
-            if (e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.D)
             {
-                bIsRight = true;
-                pbxPlayer.Left -= 10;
-                Punch();
+                if (pbxPlayer.Left >= this.Left)
+                {
+                    bIsRight = false;
+                    pbxPlayer.Left += 10;
+                }
             }
-            if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.A)
             {
-                bIsRight = false;
-                pbxPlayer.Left += 10;
-                Punch();
+                if (pbxPlayer.Right <= this.Right)
+                {
+                    bIsRight = true;
+                    pbxPlayer.Left -= 10;
+                }
             }
             if (e.KeyCode == Keys.Space)
             {
-
+                Punch();
             }
         }
 
         //Fonction permettant d'ocasionner une frappe 
         private void Punch()
         {
+            //punch a droit
             if(bIsRight==true)
             {
-                pbxPlayer.Left -= 30;
+                pbxPlayer.Left -= 90;
+                pbxPlayer.Width += 90;
                 //changer image
-            } 
+            }
+            //punch a gauche
             else
             {
-                pbxPlayer.Left += 30;
+                pbxPlayer.Width += 90;
                 //changer image
             }
         }
 
-        private void 
-
+        //Timer gérant les spawns 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            iTimer++;
+            if (iTimer == 140)
+            {
+                //inverse le point de spawn
+                bSpawnEnnemiRight = !bSpawnEnnemiRight;
 
+                PictureBox pbxEnnemi = new PictureBox();
+                pbxEnnemi.Size = new Size(60, 60);
+                if (bSpawnEnnemiRight == true)
+                {
+                    pbxEnnemi.Location = new Point(pbxGround.Left - pbxEnnemi.Width, pbxGround.Top - pbxEnnemi.Height);
+                }
+                else
+                {
+                    pbxEnnemi.Location = new Point(pbxGround.Right, pbxGround.Top - pbxEnnemi.Height);
+                }
+                pbxEnnemi.BackColor = Color.DarkRed;
+                this.Controls.Add(pbxEnnemi);
+
+                listEnnemi.Add(pbxEnnemi);
+                iTimer = 0;
+            }
+            for (int i = 0; i < listEnnemi.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    listEnnemi[i].Left -= 2;
+                }
+                else
+                {
+                    listEnnemi[i].Left += 2;
+                }
+            }
         }
     }
 }

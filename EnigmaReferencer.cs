@@ -18,9 +18,7 @@ namespace Cpln.Enigmos
         public static Enigma DebugEnigma()
         {
 
-            Enigma enigma = new Enigma(new BeatThemAllEnigmaPanel(), "Beat them all");
-            enigma.TakeFocus = true;
-            return enigma;
+            return new Enigma(new BeatThemAllEnigmaPanel(), "Beat them all");
         }
 
         /// <summary>
