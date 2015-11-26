@@ -54,6 +54,9 @@
     <Compile Include="Enigmas\EnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\HazardEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\OuEstLaReponseEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -67,6 +70,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\CaseVideEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\ReflexeEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\SimplePuzzleEnigmaPanel.cs">

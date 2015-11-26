@@ -20,6 +20,10 @@
     <answer>ornithorynque</answer>
     <hint>Résolvez la charade</hint>
   </enigma>
+  <enigma title="Hazard">
+    <answer>suivant</answer>
+    <hint>Cliquer sur un des boutons</hint>
+  </enigma>
   <enigma title="Nombre de carrés">
     <answer>vingt</answer>
     <hint>La réponse est un mot.</hint>
@@ -31,6 +35,10 @@
   <enigma title="Et ben non">
     <answer></answer>
     <hint>Répond pas Morice</hint>
+  </enigma>
+  <enigma title="Reflexe">
+    <answer>Bon reflexe</answer>
+    <hint>Cliquer sur le barre espace au dernier moment</hint>
   </enigma>
 </enigmas>
 
