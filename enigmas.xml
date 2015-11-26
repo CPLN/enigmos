@@ -24,5 +24,17 @@
     <answer>Dru</answer>
     <hint>Attrapez 10 poissons</hint>
   </enigma>
+  <enigma title="Nombre de carrés">
+    <answer>vingt</answer>
+    <hint>La réponse est un mot.</hint>
+  </enigma>
+  <enigma title="Appuie sur la réponse">
+    <answer>Branche d'arbre</answer>
+    <hint>Utilise la souris</hint>
+  </enigma>
+  <enigma title="Et ben non">
+    <answer></answer>
+    <hint>Répond pas Morice</hint>
+  </enigma>
 </enigmas>
 
