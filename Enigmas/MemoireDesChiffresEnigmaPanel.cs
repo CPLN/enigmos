@@ -17,7 +17,6 @@ namespace Cpln.Enigmos.Enigmas
         int iCompteur = 0; //Variable d'incrémentation pour les cases du tableau
         Random random = new Random(); //Déclaration du générateur de random
         int iCaseDemandee; //Déclaration de la case demandée
-        bool bChiffreDifferent = true;
 
         public MemoireDesChiffresEnigmaPanel()
         {
@@ -43,43 +42,28 @@ namespace Cpln.Enigmos.Enigmas
         }
         void Timer_Tick(object sender, EventArgs e)
         {
-            if (iCompteur <= 7)
+            if (iCompteur <= 7) //Si le tableau n'est pas rempli
             {
-                if (iCompteur != iCaseDemandee)
+                if (iCompteur != iCaseDemandee) //S'il ne s'agit pas de la case qui sera demandée
                 {
-                    if (iCompteur == 0)
+                    tChiffresAleatoire[iCompteur] = random.Next(1, 10); //Mise d'un random dans la case
+
+                    if (iCompteur != 0) //Il ne faut pas faire le prochain test si c'est la première case du tableau
                     {
-                        tChiffresAleatoire[iCompteur] = random.Next(1, 10);
-                        lblChiffres.Text = Convert.ToString(tChiffresAleatoire[iCompteur]);
-                        iCompteur++;
-                    }
-                    else
-                    {
-                        while (tChiffresAleatoire[iCompteur] != tChiffresAleatoire[iCompteur - 1]) //Vérification que le chiffre n'est pas identique au précedent
+                        while (tChiffresAleatoire[iCompteur] == tChiffresAleatoire[iCompteur - 1]) //Vérification que le chiffre n'est pas identique au précedent
                         {
-                            tChiffresAleatoire[iCompteur] = random.Next(1, 10);
-                            bChiffreDifferent = false;
+                            tChiffresAleatoire[iCompteur] = random.Next(1, 10); //Mise d'un random dans la case
                         }
 
-                        if (bChiffreDifferent)
-                        {
-                            tChiffresAleatoire[iCompteur] = random.Next(1, 10);
-                        }
-                        else if (!bChiffreDifferent)
-                        {
-                            bChiffreDifferent = true;
-                        }
-
-                        lblChiffres.Text = Convert.ToString(tChiffresAleatoire[iCompteur]);
-                        iCompteur++;
                     }
                 }
                 else
                 {
-                    tChiffresAleatoire[iCompteur] = 8;
-                    lblChiffres.Text = Convert.ToString(tChiffresAleatoire[iCompteur]);
-                    iCompteur++;
+                    tChiffresAleatoire[iCompteur] = 8; //La case demandée sera forcément 8
                 }
+
+                lblChiffres.Text = Convert.ToString(tChiffresAleatoire[iCompteur]);
+                iCompteur++;
             }
             else if(iCompteur == 8)
             {
