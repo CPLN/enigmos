@@ -142,6 +142,7 @@
             this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.mainLayout.Size = new System.Drawing.Size(1095, 512);
             this.mainLayout.TabIndex = 2;
+            this.mainLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.mainLayout_Paint);
             // 
             // Enigmos
             // 
