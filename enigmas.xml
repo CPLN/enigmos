@@ -28,5 +28,13 @@
     <answer>jaune</answer>
     <hint>La réponse ne s'écrit pas. Penser à utiliser le clavier !</hint>
   </enigma>
+  <enigma title="Appuie sur la réponse">
+    <answer>Branche d'arbre</answer>
+    <hint>Utilise la souris</hint>
+  </enigma>
+  <enigma title="Et ben non">
+    <answer></answer>
+    <hint>Répond pas Morice</hint>
+  </enigma>
 </enigmas>
 
