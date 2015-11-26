@@ -14,8 +14,11 @@ namespace Cpln.Enigmos.Enigmas
 
         Panel pnlPictureLandscape = new Panel();
         Panel pnlPictureFlowers = new Panel();
+        Panel pnlPictureSolution = new Panel();
 
         Label lblResult = new Label();
+
+        bool bFin = false;
 
         public OpenDoorEnigmaPanel()
         {
@@ -42,32 +45,38 @@ namespace Cpln.Enigmos.Enigmas
         }
         private void pnlPictureFlowers_Click(object sender, EventArgs e)
         {
-            pnlPictureFlowers.Location = new Point(550, 80);
-            TestResult(OpenDoorImage.FLOWER);
-            Timer_OpenDoor();
+            if (bFin == false)
+            {
+                pnlPictureFlowers.Location = new Point(550, 80);
+                TestResult(OpenDoorImage.FLOWER);
+                Timer_OpenDoor();
+                bFin = true;
+            }
         }
         private void pnlPictureLandscape_Click(object sender, EventArgs e)
         {
-            pnlPictureLandscape.Location = new Point(250, 20);
-            TestResult(OpenDoorImage.LANDSCAPE);
-            Timer_OpenDoor();
+            if (bFin == false)
+            {
+                pnlPictureLandscape.Location = new Point(250, 20);
+                TestResult(OpenDoorImage.LANDSCAPE);
+                Timer_OpenDoor();
+                bFin = true;
+            }
         }
         private void Timer_OpenDoor()
         {
-            //Mise en place d'un timer
-            Timer.Interval = 3000; // 5 secondes
+            Timer.Interval = 3000; // 3 secondes
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Start();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            /*pnlPictureLandscape.BackgroundImage = null;
-            pnlPictureFlowers.BackgroundImage = null;
-            this.BackgroundImage = null;
-            lblResult.Text = null;*/
-            this.BackgroundImage = Properties.Resources.OpenDoor_Solution;
-            this.Width = Properties.Resources.OpenDoor.Width;
-            this.Height = Properties.Resources.OpenDoor.Height;
+            // Ajout de la porte avec la réponse
+            pnlPictureSolution.BackgroundImage = Properties.Resources.OpenDoor_Solution;
+            pnlPictureSolution.Width = Properties.Resources.OpenDoor_Solution.Width;
+            pnlPictureSolution.Height = Properties.Resources.OpenDoor_Solution.Height;
+            Controls.Add(pnlPictureSolution);
+            pnlPictureSolution.Location = new Point(222, 160);
         }
         private void Result()
         {
