@@ -14,7 +14,6 @@ namespace Cpln.Enigmos.Enigmas
     {
         //déclaration des variables
         bool bViseurRouge = true;
-        bool bSpawn = true;
         int iTimer = 0;//variable qui permet de compter les ticks dans le Timer
 
         //déclaration des pricipaux éléments de l'énigme
@@ -27,7 +26,7 @@ namespace Cpln.Enigmos.Enigmas
         private Timer Timer = new Timer();
 
         //création d'une liste
-        //List<Zombie> zombies = new List<Zombie>();
+        List<Zombie> zombies = new List<Zombie>();
 
         //création des zombies
         Zombie zombie;
@@ -45,7 +44,7 @@ namespace Cpln.Enigmos.Enigmas
             zombie = new Zombie(Properties.Resources.Zombie, this);
 
             //Création du batiment
-            pbxBatiment.Size = new Size(294, 290);
+            pbxBatiment.Size = Properties.Resources.Batiment.Size;
             pbxBatiment.Image = Properties.Resources.Batiment;
             pbxBatiment.Location = new Point(this.Width / 2 - pbxBatiment.Width / 2, this.Bottom - pbxBatiment.Height);
 
@@ -65,12 +64,14 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(pbxBatiment);
             Controls.Add(zombie);
 
-            //provisoir
-            /*while(bSpawn)
+            /*provisoir
+            for (int i = 0; i < 4; i++)
             {
+                Zombie zombie = new Zombie(Properties.Resources.Zombie, this);
 
-            }*/
-            //provisoir
+                zombies.Add(zombie);
+            }
+            provisoir*/
 
         }
 

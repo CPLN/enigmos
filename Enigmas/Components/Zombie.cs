@@ -19,7 +19,7 @@ namespace Cpln.Enigmos.Enigmas.Components
 
         public void Avancer()
         {
-            this.Left -= 1;//on fais avvancer l'objet
+            this.Left -= 1;//on fais avancer l'objet
         }
     }
 }
