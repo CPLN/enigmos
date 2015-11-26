@@ -20,11 +20,10 @@
     <answer>ornithorynque</answer>
     <hint>Résolvez la charade</hint>
   </enigma>
-<<<<<<< HEAD
   <enigma title="Le jeu des 7 différences">
-    <answer>hello</answer>
-    <hint>Trouvez le mot caché dans la grille, c'est simple comme bonjour</hint>
-=======
+    <answer>bonjour</answer>
+    <hint>Trouvez le mot caché dans la grille</hint>
+  </enigma>
   <enigma title="Nombre de carrés">
     <answer>vingt</answer>
     <hint>La réponse est un mot.</hint>
@@ -36,7 +35,6 @@
   <enigma title="Et ben non">
     <answer></answer>
     <hint>Répond pas Morice</hint>
->>>>>>> upstream/master
   </enigma>
 </enigmas>
 
