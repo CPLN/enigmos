@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cpln.Enigmos.Enigmas.Components;
 
 namespace Cpln.Enigmos.Enigmas
 {
@@ -25,7 +26,7 @@ namespace Cpln.Enigmos.Enigmas
         private Timer Timer = new Timer();
 
         //création des zombies
-        //Zombie zombie = new Zombie(); 
+        Zombie zombie = new Zombie(Properties.Resources.Zombie); 
 
         public ZombieInvasionEnigmaPanel()
         {
@@ -35,8 +36,8 @@ namespace Cpln.Enigmos.Enigmas
             this.Height = (myScreen.WorkingArea.Height) - 100;
 
             //Création du batiment
-            pbxBatiment.Size = new Size(200, 300);
-            pbxBatiment.BackColor = Color.Red;
+            pbxBatiment.Size = new Size(294, 290);
+            pbxBatiment.Image = Properties.Resources.Batiment;
             pbxBatiment.Location = new Point(this.Width / 2 - pbxBatiment.Width / 2, this.Bottom - pbxBatiment.Height);
 
             //Mise en place d'un timer
@@ -50,9 +51,12 @@ namespace Cpln.Enigmos.Enigmas
             //création d'un evenement de click
             MouseClick += new MouseEventHandler(PanelClick);
 
+            zombie.Avancer();
+
             //ajout de l'image
             Controls.Add(pbxCible);
             Controls.Add(pbxBatiment);
+            Controls.Add(zombie);
         }
         //evenements
         private void PanelClick(object sender, MouseEventArgs e)//quand on click sur le panel

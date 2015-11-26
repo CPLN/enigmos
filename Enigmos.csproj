@@ -51,6 +51,9 @@
     <Compile Include="Enigmas\Components\PuzzlePiece.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\Components\Zombie.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\EnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -124,6 +127,7 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\Batiment.png" />
     <None Include="Resources\Zombie.png" />
     <None Include="Resources\CibleNoir.png" />
     <None Include="Resources\Cible.png" />

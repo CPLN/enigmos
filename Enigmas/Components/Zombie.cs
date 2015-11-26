@@ -12,8 +12,9 @@ namespace Cpln.Enigmos.Enigmas.Components
     {
         Image ImageZombie;
         Point PositionZombie = new Point(100, 100);
+        Size TailleZombie = new Size(110, 204);
 
-        Zombie(Image image)
+        public Zombie(Image image)
         {
             ImageZombie = image;
         }
@@ -21,10 +22,6 @@ namespace Cpln.Enigmos.Enigmas.Components
         public void Avancer()
         {
             this.Left -= 20;
-        }
-
-        public void Mourir()
-        {
         }
     }
 }
