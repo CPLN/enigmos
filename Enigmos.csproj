@@ -72,6 +72,9 @@
     <Compile Include="Enigmas\CaseVideEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\ReflexeEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\SimplePuzzleEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
