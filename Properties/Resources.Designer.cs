@@ -72,10 +72,36 @@ namespace Cpln.Enigmos.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
+        ///&lt;enigmas&gt;
+        ///  &lt;enigma title=&quot;Le plus long mot&quot;&gt;
+        ///    &lt;answer&gt;oiseaux&lt;/answer&gt;
+        ///    &lt;hint&gt;C&apos;est un mammifère.&lt;/hint&gt;
+        ///  &lt;/enigma&gt;
+        ///  &lt;enigma title=&quot;Puzzle&quot;&gt;
+        ///    &lt;answer&gt;jongleur&lt;/answer&gt;
+        ///    &lt;hint&gt;Remettez les pièces à leur place.&lt;/hint&gt;
+        ///  &lt;/enigma&gt;
+        ///  &lt;enigma title=&quot;Où est la réponse ?&quot;&gt;
+        ///    &lt;answer&gt;là-bas&lt;/answer&gt;
+        ///    &lt;hint&gt;je t&apos;ai dis là-bas, enfin !&lt;/hint&gt;
+        ///  &lt;/enigma&gt;
+        ///  &lt;enigma title=&quot;C&apos;est simple&quot;&gt;
+        ///    &lt;answer&gt;simple&lt;/answer&gt;
+        ///    &lt;hint&gt;Pas [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string enigmas {
             get {
                 return ResourceManager.GetString("enigmas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fond {
+            get {
+                object obj = ResourceManager.GetObject("Fond", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
