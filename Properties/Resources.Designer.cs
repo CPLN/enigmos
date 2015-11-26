@@ -63,9 +63,18 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Cible {
-            get {
+        internal static System.Drawing.Bitmap Cible
+        {
+            get
+            {
                 object obj = ResourceManager.GetObject("Cible", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap carre {
+            get {
+                object obj = ResourceManager.GetObject("carre", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

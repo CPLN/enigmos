@@ -16,5 +16,25 @@ namespace Cpln.Enigmos.Enigmas
             BackColor = Color.White;
             Size = new Size(800, 600);
         }
+
+        /// <summary>
+        /// Appelé lorsqu'une touche du clavier est appuyée.
+        /// </summary>
+        /// <param name="sender">L'envoyeur</param>
+        /// <param name="e">L'évènement</param>
+        public virtual void PressKey(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Appelé lorsqu'une touche du clavier est relâchée.
+        /// </summary>
+        /// <param name="sender">L'envoyeur</param>
+        /// <param name="e">L'évènement</param>
+        public virtual void ReleaseKey(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
