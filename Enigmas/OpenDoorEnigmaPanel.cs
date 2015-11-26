@@ -61,9 +61,13 @@ namespace Cpln.Enigmos.Enigmas
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            // replacement initial des différents panels
-            pnlPictureLandscape.Location = new Point(90, 20);
-            pnlPictureFlowers.Location = new Point(550, 175);
+            /*pnlPictureLandscape.BackgroundImage = null;
+            pnlPictureFlowers.BackgroundImage = null;
+            this.BackgroundImage = null;
+            lblResult.Text = null;*/
+            this.BackgroundImage = Properties.Resources.OpenDoor_Solution;
+            this.Width = Properties.Resources.OpenDoor.Width;
+            this.Height = Properties.Resources.OpenDoor.Height;
         }
         private void Result()
         {
@@ -71,6 +75,7 @@ namespace Cpln.Enigmos.Enigmas
             lblResult.Font = new Font(FontFamily.GenericSansSerif, 10);
             Controls.Add(lblResult);
             this.BackColor = Color.FromArgb(153, 217, 234);
+
         }
         private void TestResult(OpenDoorImage image)
         {
@@ -82,7 +87,7 @@ namespace Cpln.Enigmos.Enigmas
             else
             {
                 Result();
-                lblResult.Location = new Point(550, 175);
+                lblResult.Location = new Point(570, 370);
             }
         }
     }
