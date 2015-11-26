@@ -132,7 +132,7 @@ namespace Cpln.Enigmos
             Dock = DockStyle.Fill;
         }
 
-        public void HandleEvents()
+        public void Load()
         {
             KeyDown += new KeyEventHandler(PressKey);
             KeyUp += new KeyEventHandler(ReleaseKey);
@@ -140,6 +140,8 @@ namespace Cpln.Enigmos
             MouseClick += new MouseEventHandler(PressMouse);
             centerLayout.MouseClick += new MouseEventHandler(PressMouse);
             enigmaPanel.MouseClick += new MouseEventHandler(PressMouse);
+
+            enigmaPanel.Load();
         }
 
         /// <summary>

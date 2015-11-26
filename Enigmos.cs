@@ -202,7 +202,7 @@ namespace Cpln.Enigmos
             mainLayout.Controls.Add(active, 0, 0);
 
             ActiveControl = enigma;
-            enigma.HandleEvents();
+            enigma.Load();
 
             lblId.Text = active.Title;
         }
