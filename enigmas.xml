@@ -36,5 +36,9 @@
     <answer></answer>
     <hint>Répond pas Morice</hint>
   </enigma>
+  <enigma title="Jeu du pendu">
+	<answer>oxygene</answer>
+	<hint>La corde, ça fait mal au cou</hint>
+  </enigma>
 </enigmas>
 

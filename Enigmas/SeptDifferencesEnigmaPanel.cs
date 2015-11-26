@@ -47,6 +47,7 @@ namespace Cpln.Enigmos.Enigmas
 
             Controls.Add(lblEnigme);
 
+        #region différences
             //Première différence
             int iX1 = 195, iY1 = 6;
             PictureBox(pbx1, Img2, iX1, iY1);
@@ -81,7 +82,7 @@ namespace Cpln.Enigmos.Enigmas
             int iX7 = 122, iY7 = 201;
             PictureBox(pbx7, Img2, iX7, iY7);
             pbx7.Click += new EventHandler(ClickOnDiff7);
-            
+            #endregion
         }
         public void PictureBox(PictureBox pbx, PictureBox img, int iX, int iY)
         {
@@ -93,8 +94,10 @@ namespace Cpln.Enigmos.Enigmas
         public void CreatePbx(PictureBox Pbx)
         {
             Pbx.Size = new Size(17,20);
-            Pbx.BackColor = Color.Red;
+            Pbx.BackColor = Color.Transparent;
         }
+
+        #region Clic sur différences
         private void ClickOnDiff1(object sender, EventArgs e)
         {
             pbx1.BackColor = Color.FromArgb(100, Color.Red);
@@ -123,5 +126,6 @@ namespace Cpln.Enigmos.Enigmas
         {
             pbx7.BackColor = Color.FromArgb(100, Color.Red);
         }
+#endregion
     }
 }
