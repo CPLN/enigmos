@@ -15,6 +15,10 @@ namespace Cpln.Enigmos
     public class Enigma : Panel
     {
         /// <summary>
+        /// Le Panel contenant l'énigme.
+        /// </summary>
+        private EnigmaPanel enigmaPanel;
+        /// <summary>
         /// Le titre de l'énigme.
         /// </summary>
         private string strTitle;
@@ -95,6 +99,7 @@ namespace Cpln.Enigmos
         /// <param name="title">Le titre de l'énigme</param>
         public Enigma(EnigmaPanel enigmaPanel, string title)
         {
+            this.enigmaPanel = enigmaPanel;
             this.strTitle = title;
             Parse();
 
@@ -113,6 +118,29 @@ namespace Cpln.Enigmos
             centerLayout.Controls.Add(enigmaPanel, 1, 1);
 
             Dock = DockStyle.Fill;
+
+            KeyDown += new KeyEventHandler(PressKey);
+            KeyUp += new KeyEventHandler(ReleaseKey);
+        }
+
+        /// <summary>
+        /// Détecte les touches appuyées et les transmets au Panel.
+        /// </summary>
+        /// <param name="sender">L'envoyeur</param>
+        /// <param name="e">L'évènement</param>
+        private void PressKey(object sender, KeyEventArgs e)
+        {
+            enigmaPanel.PressKey(sender, e);
+        }
+
+        /// <summary>
+        /// Détecte les touches relâchées et les transmets au Panel.
+        /// </summary>
+        /// <param name="sender">L'envoyeur</param>
+        /// <param name="e">L'évènement</param>
+        private void ReleaseKey(object sender, KeyEventArgs e)
+        {
+            enigmaPanel.ReleaseKey(sender, e);
         }
 
         /// <summary>
