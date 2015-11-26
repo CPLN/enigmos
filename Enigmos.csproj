@@ -45,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
+	<SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Graph.cs" />
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
