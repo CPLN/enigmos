@@ -63,18 +63,29 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Cible
-        {
-            get
-            {
-                object obj = ResourceManager.GetObject("Cible", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-
         internal static System.Drawing.Bitmap carre {
             get {
                 object obj = ResourceManager.GetObject("carre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CibleNoir {
+            get {
+                object obj = ResourceManager.GetObject("CibleNoir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CibleRouge {
+            get {
+                object obj = ResourceManager.GetObject("CibleRouge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -101,6 +112,16 @@ namespace Cpln.Enigmos.Properties {
         internal static string enigmas {
             get {
                 return ResourceManager.GetString("enigmas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Zombie {
+            get {
+                object obj = ResourceManager.GetObject("Zombie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
