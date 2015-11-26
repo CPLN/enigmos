@@ -124,12 +124,9 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
-<<<<<<< HEAD
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
-=======
     <None Include="image\carre.jpg" />
->>>>>>> upstream/master
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
