@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\Components\CaseVide.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Jeton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\NinePointsEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
