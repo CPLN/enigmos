@@ -19,7 +19,6 @@ namespace Cpln.Enigmos
         {
             //return new Enigma(new SimpleEnigmaPanel(), "C'est simple");
             return null;
-
             // ---
         }
 
@@ -33,9 +32,19 @@ namespace Cpln.Enigmos
 
             enigmas.Add(new Enigma(new SimpleEnigmaPanel(), "C'est simple"));
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
+            enigmas.Add(new Enigma(new OuEstLaReponseEnigmaPanel(), "Où est la réponse ?"));
+            enigmas.Add(new Enigma(new OiseauxEnigmaPanel(), "Le plus long mot"));
+            enigmas.Add(new Enigma(new BusEnigmaPanel(), "Sens du bus"));
+            enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
+            enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));
+            enigmas.Add(new Enigma(new MemoireDesChiffresEnigmaPanel(), "Souviens toi"));
+            enigmas.Add(new Enigma(new NbrCarresEnigmaPanel(), "Nombre de carrés"));
+            enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
+            enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
 
             enigmas.Shuffle();
             return enigmas;
         }
+        
     }
 }

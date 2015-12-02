@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <enigmas>
-  <enigma title="C'est simple">
-    <answer>simple</answer>
-    <hint>Pas d'indice, la solution est simple !</hint>
+  <enigma title="Le plus long mot">
+    <answer>oiseaux</answer>
+    <hint>C'est un animal.</hint>
   </enigma>
   <enigma title="Puzzle">
     <answer>jongleur</answer>
@@ -10,5 +10,41 @@
   </enigma>
   <enigma title = "Mais où est le 42 ?">
     <hint> Cliquez sur le bon 42 </hint>
+  </enigma>
+  <enigma title="Où est la réponse ?">
+    <answer>là-bas</answer>
+    <hint>je t'ai dis là-bas, enfin !</hint>
+  </enigma>
+  <enigma title="C'est simple">
+    <answer>simple</answer>
+    <hint>Pas d'indice, la solution est simple !</hint>
+  </enigma>
+  <enigma title="Charade">
+    <answer>ornithorynque</answer>
+    <hint>Résolvez la charade</hint>
+  </enigma>
+  <enigma title="Hazard">
+    <answer>suivant</answer>
+    <hint>Cliquer sur un des boutons</hint>
+  </enigma>
+  <enigma title="Souviens toi">
+    <answer>8</answer>
+    <hint>Souvenez-vous c'est important</hint>
+  </enigma>
+  <enigma title="Nombre de carrés">
+    <answer>vingt</answer>
+    <hint>La réponse est un mot.</hint>
+  </enigma>
+  <enigma title="Sens du bus">
+    <answer>jaune</answer>
+    <hint>La réponse ne s'écrit pas. Penser à utiliser le clavier !</hint>
+  </enigma>
+  <enigma title="Appuie sur la réponse">
+    <answer>Branche d'arbre</answer>
+    <hint>Utilise la souris</hint>
+  </enigma>
+  <enigma title="Et ben non">
+    <answer></answer>
+    <hint>Répond pas Morice</hint>
   </enigma>
 </enigmas>
