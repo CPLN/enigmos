@@ -111,6 +111,7 @@ namespace Cpln.Enigmos
             foreach (string prerequisite in prerequisites)
             {
                 this.prerequisites.Add(prerequisite);
+               
             }
         }
 

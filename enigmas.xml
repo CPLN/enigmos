@@ -8,4 +8,7 @@
     <answer>jongleur</answer>
     <hint>Remettez les pièces à leur place.</hint>
   </enigma>
+  <enigma title = "Mais où est le 42 ?">
+    <hint> Cliquez sur le bon 42 </hint>
+  </enigma>
 </enigmas>
