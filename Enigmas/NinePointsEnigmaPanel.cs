@@ -14,6 +14,7 @@ namespace Cpln.Enigmos.Enigmas
         private Jeton[] tJeton = new Jeton[9];
         private CaseVide[] tCaseVide = new CaseVide[16];
         private TableLayoutPanel TlpCase9Points;
+        private int[,] tSaveMouseClickPosition = new int[5, 2];
 
         /// <summary>
         /// Charge l'énigme des 9 points.
@@ -58,7 +59,40 @@ namespace Cpln.Enigmos.Enigmas
                 for (int iY = 1; iY < 4; iY++, i++)
                     tCaseVide[i] = new CaseVide(iX, iY, this, TlpCase9Points);
         }
-        
 
+        private void AfficheTrait(object sender, int iX, int iY)
+        {
+            int iChoix = 0, iFirstCaseEmpty = -1, iDirectionX, iDirectionY;
+            
+            /*Regarde la position(0 à 4) de la dernière position sauvegardé*/
+            for (int i = 0; i < tSaveMouseClickPosition.Length; i++)
+                if (tSaveMouseClickPosition[i, 0] >= 0)
+                {
+                    iFirstCaseEmpty = i;
+                    i += 10;
+                }
+
+            /*Ajoute les dernières positions connues*/
+            tSaveMouseClickPosition[iFirstCaseEmpty, 0] = iX;
+            tSaveMouseClickPosition[iFirstCaseEmpty, 1] = iY;
+
+            /*Définit la direction dans laquel le trait va aller dans au axe x, y*/
+            if (tSaveMouseClickPosition[iFirstCaseEmpty - 1, 0] > tSaveMouseClickPosition[iFirstCaseEmpty, 0])
+                iDirectionX = -1;
+            else if (tSaveMouseClickPosition[iFirstCaseEmpty - 1, 0] == tSaveMouseClickPosition[iFirstCaseEmpty, 0])
+                iDirectionX = 0;
+            else if (tSaveMouseClickPosition[iFirstCaseEmpty - 1, 0] < tSaveMouseClickPosition[iFirstCaseEmpty, 0])
+                iDirectionX = 1;
+
+            if (tSaveMouseClickPosition[iFirstCaseEmpty - 1, 1] > tSaveMouseClickPosition[iFirstCaseEmpty, 1])
+                iDirectionY = -1;
+            else if (tSaveMouseClickPosition[iFirstCaseEmpty - 1, 1] == tSaveMouseClickPosition[iFirstCaseEmpty, 1])
+                iDirectionY = 0;
+            else if (tSaveMouseClickPosition[iFirstCaseEmpty - 1, 1] < tSaveMouseClickPosition[iFirstCaseEmpty, 1])
+                iDirectionY = 1;
+
+                
+            
+        }
     }
 }

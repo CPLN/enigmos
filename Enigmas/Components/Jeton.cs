@@ -32,18 +32,10 @@ namespace Cpln.Enigmos.Enigmas.Components
             this.Height = parent.Height / 5;
 
             this.BackColor = Color.Green;
+
         }
 
         // Méthodes
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        public void MouseClick_Jeton(object sender)
-        {
-            
-        }
 
         // Accesseurs
 
