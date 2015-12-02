@@ -8,4 +8,10 @@
     <answer>jongleur</answer>
     <hint>Remettez les pièces à leur place.</hint>
   </enigma>
+  <enigma title="Caractère caché">
+    <answer>Cpln</answer>
+    <hint>"Le dessin est la base de tout"
+    - Alberto Giacometti
+    </hint>
+  </enigma>
 </enigmas>
