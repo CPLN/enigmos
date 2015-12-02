@@ -13,19 +13,21 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         public CinqEgalEnigmaPanel()
         {
+            //Crée des labels
             Label lblDonnee1 = new Label();
             Label lblDonnee2 = new Label();
             Label lblDonnee3 = new Label();
             Label lblDonnee4 = new Label();
             Label lblDonnee5 = new Label();
 
-
+            //ajoute du texte dans les labels
             lblDonnee1.Text = "1 = 5";
             lblDonnee2.Text = "2 = 25";
             lblDonnee3.Text = "3 = 235";
             lblDonnee4.Text = "4 = 4325";
             lblDonnee5.Text = "5 = ?";
 
+            //permet de paramètrer les labels au niveau de la taille, du texte, de la couleur et de la position
             lblDonnee1.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
             lblDonnee1.ForeColor = Color.Green;
             lblDonnee1.Location = new Point(200, 100);
@@ -61,6 +63,7 @@ namespace Cpln.Enigmos.Enigmas
             lblDonnee5.AutoSize = false;
             lblDonnee5.Size = TextRenderer.MeasureText(lblDonnee5.Text, lblDonnee5.Font);
 
+            //Affiche les labels 
             Controls.Add(lblDonnee1);
             Controls.Add(lblDonnee2);
             Controls.Add(lblDonnee3);
