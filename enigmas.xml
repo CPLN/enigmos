@@ -44,4 +44,8 @@
     <answer></answer>
     <hint>Répond pas Morice</hint>
   </enigma>
+  <enigma title="Jeu de mot">
+    <answer>citron vert</answer>
+    <hint>Combien de troncs ? Quelle couleur ?</hint>
+  </enigma>
 </enigmas>
