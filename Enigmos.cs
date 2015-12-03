@@ -195,6 +195,10 @@ namespace Cpln.Enigmos
         /// <param name="enigma">La nouvelle énigme</param>
         private void SetActive(Enigma enigma)
         {
+            if (active != null)
+            {
+                active.Unload();
+            }
             mainLayout.Controls.Remove(active);
             active = enigma;
             active.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -202,7 +206,7 @@ namespace Cpln.Enigmos
             mainLayout.Controls.Add(active, 0, 0);
 
             ActiveControl = enigma;
-            enigma.HandleEvents();
+            enigma.Load();
 
             lblId.Text = active.Title;
         }
