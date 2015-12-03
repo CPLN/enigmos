@@ -69,6 +69,7 @@ namespace Cpln.Enigmos.Properties {
             get
             {
                 object obj = ResourceManager.GetObject("depart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         internal static System.Drawing.Bitmap bus {

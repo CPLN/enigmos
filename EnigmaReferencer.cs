@@ -24,7 +24,7 @@ namespace Cpln.Enigmos
 
 
             //return new Enigma(new SimpleEnigmaPanel(), "C'est simple");
-            return null;
+            
 
             // ---
         }
