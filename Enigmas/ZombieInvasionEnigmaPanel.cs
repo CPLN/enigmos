@@ -69,7 +69,7 @@ namespace Cpln.Enigmos.Enigmas
         private void Timer_Tick(object sender, EventArgs e)
         {
             //permt d'ajouter un zombie si 80 tick se sont écoulés
-            if (iTimerZombie % 80 == 0)
+            if (iTimerZombie % 100 == 0)
             {
                 AjouterZombie();//ajoute un zombie sur le panel
             }
@@ -78,8 +78,8 @@ namespace Cpln.Enigmos.Enigmas
             iTimerZombie++;
             iTimerCible++;
 
-
-            if(!bViseurRouge && iTimerCible > 2)//si le curseur n'est pas en rouge et que 10 seconde ce sont écoulées
+            //si le curseur n'est pas en rouge et que 10 seconde ce sont écoulées
+            if(!bViseurRouge && iTimerCible > 2)
             {
                 this.Cursor = new Cursor(Properties.Resources.CibleRouge.GetHicon());//changement de l'image du curseur
             }
@@ -88,6 +88,12 @@ namespace Cpln.Enigmos.Enigmas
             foreach (Zombie zombie in zombies)
             {
                 zombie.AvancerGauche();//fait avncer le zombie contre la gauche
+
+                //si les zombies arrivent à la hauteur du batiment
+                if(zombie.Left <= pbxBatiment.Right)
+                {
+                    zombie.Arreter();
+                }
             }
         }
 
@@ -99,7 +105,6 @@ namespace Cpln.Enigmos.Enigmas
             Zombie zombie = new Zombie(this);
             Controls.Add(zombie);
             zombies.Add(zombie);
-
         }
     }
 }

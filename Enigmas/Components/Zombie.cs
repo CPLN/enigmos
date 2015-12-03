@@ -10,6 +10,7 @@ namespace Cpln.Enigmos.Enigmas.Components
 {
     class Zombie : PictureBox
     {
+        private bool bZombieStop = false;//definit si le zombie est arreter
 
         /// <summary>
         /// C'est le constructeur par défaut de la classe zombie
@@ -27,7 +28,11 @@ namespace Cpln.Enigmos.Enigmas.Components
         /// </summary>
         public void AvancerGauche()
         {
-            this.Left -= 2;//on fais avancer l'objet
+            //teste que le zombie ne soit pas stopper
+            if(!bZombieStop)
+            {
+                this.Left -= 2;//on fais avancer l'objet
+            }
         }
 
         /// <summary>
@@ -35,7 +40,19 @@ namespace Cpln.Enigmos.Enigmas.Components
         /// </summary>
         public void AvancerDroite()
         {
-            this.Left += 2;//on fais avancer l'objet
+            //teste que le zombie ne soit pas stopper
+            if(!bZombieStop)
+            {
+                this.Left += 2;//on fais avancer l'objet
+            }
+        }
+
+        /// <summary>
+        /// permet de stopper le zombie
+        /// </summary>
+        public void Arreter()
+        {
+            bZombieStop = true;
         }
 
         /// <summary>
