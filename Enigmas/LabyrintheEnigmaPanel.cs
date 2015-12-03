@@ -28,8 +28,11 @@ namespace Cpln.Enigmos.Enigmas
             this.Controls.Add(test);
         }*/
         
+        //déclaration des listes
         List<Panel> zonelaby;
         List<Panel> Mur;
+
+        //déclaration des variables
         int iDepart, iNombreZone;
 
         public LabyrintheEnigmaPanel()
@@ -46,6 +49,7 @@ namespace Cpln.Enigmos.Enigmas
             }
             graph.Contains(Case[0]).AddNeighbor(Case[1]);*/
 
+            //initialisation des listes et du graph
             Graph<Panel> graph = new Graph<Panel>(new Panel());
             zonelaby = new List<Panel>();
             Mur = new List<Panel>();            
@@ -53,9 +57,11 @@ namespace Cpln.Enigmos.Enigmas
 
         public override void Load()
         {
+            //déclaration et utilisation du random
             Random random = new Random();
             iDepart = random.Next(1, 4);
 
+            //création du premir panel
             iNombreZone += 1;
             Panel mur = new Panel();
             mur.Name = "mur" + iNombreZone;
