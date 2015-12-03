@@ -8,12 +8,14 @@ namespace Cpln.Enigmos.Enigmas
     {
         //Déclaration de variable
         private Timer timer= new Timer();
-        PictureBox[] tblObstacle = new PictureBox[2];
-        int iCompteur = 0;
-        Random random = new Random();
-        PictureBox pbxHomme = new PictureBox();
-        PictureBox pbxCaillou = new PictureBox();
-        PictureBox pbxTronc = new PictureBox();
+        private PictureBox[] tblObstacle = new PictureBox[2];
+        private int iCompteur = 0;
+        private Random random = new Random();
+        private PictureBox pbxHomme = new PictureBox();
+        private PictureBox pbxCaillou = new PictureBox();
+        private PictureBox pbxTronc = new PictureBox();
+        private bool bInversion = false;
+
         public RunEnigmaPanel()
         {
             //Création du joueur
@@ -52,6 +54,12 @@ namespace Cpln.Enigmos.Enigmas
 
         }
 
+        public RunEnigmaPanel(bool bInversion)
+            : this()
+        {
+            this.bInversion = bInversion;
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             iCompteur += 1;
@@ -79,10 +87,11 @@ namespace Cpln.Enigmos.Enigmas
             // Condition qui vérifie quand est-ce que le joueur gagne la partie
             if(iCompteur==500)
             {
-                timer.Stop();
                 DialogResult coucou = MessageBox.Show("Réponse : C'est pas trop tôt","Gagner",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 iCompteur = 0;
+                
             }
+
 
         }
 
@@ -121,22 +130,36 @@ namespace Cpln.Enigmos.Enigmas
         //Déplacement du personnage
         public override void PressKey(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.A)
+            if (e.KeyCode == Keys.D)
             {
                 pbxHomme.BackgroundImage = Properties.Resources.kirby2;
 
                 //Condition qui empêche le joueur de sortir des pistes
                 if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
                 {
-                    pbxHomme.Left += 200;
+                    if (bInversion)
+                    {
+                        pbxHomme.Left -= 200;
+                    }
+                    else
+                    {
+                        pbxHomme.Left += 200;
+                    }
                 }
             }
-            if (e.KeyCode == Keys.D)
+            else if (e.KeyCode == Keys.A)
             {
                 pbxHomme.BackgroundImage = Properties.Resources.kirby3;
                 if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
                 {
-                    pbxHomme.Left -= 200;
+                    if (bInversion)
+                    {
+                        pbxHomme.Left += 200;
+                    }
+                    else
+                    {
+                        pbxHomme.Left -= 200;
+                    }
                 }
             }
         }
