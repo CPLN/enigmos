@@ -19,7 +19,7 @@ namespace Cpln.Enigmos.Enigmas
         List<Panel> Mur;
 
         //déclaration des variables
-        int iDepart, iNombreZone;
+        int iDepart, iNombreZone = 0, iNombreMur = 0;
 
         public LabyrintheEnigmaPanel()
         {
@@ -48,7 +48,6 @@ namespace Cpln.Enigmos.Enigmas
             iDepart = random.Next(1, 4);
 
             //création du premir panel
-            iNombreZone += 1;
             Panel zone = new Panel();
             zone.Name = "zone" + iNombreZone;
             zone.Size = new Size(100, 100);
@@ -71,6 +70,8 @@ namespace Cpln.Enigmos.Enigmas
             {
                 zone.Location = new Point(0, 500);
             }
+            CréationMurs(Zonelaby);
+            iNombreZone += 1;
 
             //création du personnage
             Panel personnage = new Panel();
@@ -79,8 +80,47 @@ namespace Cpln.Enigmos.Enigmas
             personnage.Top = zone.Top;
             personnage.BackColor = Color.Black;
             Controls.Add(personnage);
+        }
 
-
+        private void CréationMurs (List<Panel> Zonelaby)
+        {
+            for (int i=0; i < 5; i++)
+            {               
+                Panel mur = new Panel();
+                mur.Name = "mur" + iNombreMur;
+                Mur.Add(mur);
+                Controls.Add(mur);
+                mur.BackColor = Color.Blue;
+                if (i < 3 && i > 0)
+                {
+                    mur.Size = new Size(100, 20);
+                    if (i == 1)
+                    {
+                        mur.Top = Zonelaby[iNombreZone].Top;
+                        mur.Left = Zonelaby[iNombreZone].Left;
+                    }
+                    else if (i == 2)
+                    {
+                        mur.Left = Zonelaby[iNombreZone].Left;
+                        mur.Top = Zonelaby[iNombreZone].Bottom;
+                    }
+                }
+                else if (i < 5 && i > 2)
+                {
+                    mur.Size = new Size(20, 100);
+                    if (i == 3)
+                    {
+                        mur.Top = Zonelaby[iNombreZone].Top;
+                        mur.Left = Zonelaby[iNombreZone].Left;
+                    } 
+                    else if (i == 4)
+                    {
+                        mur.Top = Zonelaby[iNombreZone].Top;
+                        mur.Left = Zonelaby[iNombreZone].Right;
+                    }
+                }
+                iNombreMur += 1;
+            }
         }
     }
 }
