@@ -57,13 +57,8 @@ namespace Cpln.Enigmos.Enigmas
         }
         private void BonneReponse(object sender, EventArgs e)
         {
-            MessageBox.Show("La reponse est suivant.", "Reponse");//Affichage de la reponse.
-            for (int i = 0; i < 4; i++)
-            {
-                btnReponse[i].Enabled = false;
-            }
-            
-
+            MessageBox.Show("La reponse est \"suivant\".", "Reponse");//Affichage de la reponse.
+            CreationBouton();
         }
 
         private void MauvaiseReponse(object sender, EventArgs e)

@@ -2,7 +2,7 @@
 <enigmas>
   <enigma title="Le plus long mot">
     <answer>oiseaux</answer>
-    <hint>C'est un mammifère.</hint>
+    <hint>C'est un animal.</hint>
   </enigma>
   <enigma title="Puzzle">
     <answer>jongleur</answer>
@@ -24,9 +24,17 @@
     <answer>suivant</answer>
     <hint>Cliquer sur un des boutons</hint>
   </enigma>
+  <enigma title="Souviens toi">
+    <answer>8</answer>
+    <hint>Souvenez-vous c'est important</hint>
+  </enigma>
   <enigma title="Nombre de carrés">
     <answer>vingt</answer>
     <hint>La réponse est un mot.</hint>
+  </enigma>
+  <enigma title="Sens du bus">
+    <answer>jaune</answer>
+    <hint>La réponse ne s'écrit pas. Penser à utiliser le clavier !</hint>
   </enigma>
   <enigma title="Appuie sur la réponse">
     <answer>Branche d'arbre</answer>
@@ -40,5 +48,8 @@
     <answer>Bon reflexe</answer>
     <hint>Cliquer sur le barre espace au dernier moment</hint>
   </enigma>
+  <enigma title="Jeu de mot">
+    <answer>citron vert</answer>
+    <hint>Combien de troncs ? Quelle couleur ?</hint>
+  </enigma>
 </enigmas>
-
