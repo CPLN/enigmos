@@ -25,6 +25,9 @@ namespace Cpln.Enigmos.Enigmas
         //création d'un timer
         private Timer Timer = new Timer();
 
+        //création des coeurs
+        Coeur coeur1 = new Coeur();
+
         //création d'une liste
         List<Zombie> zombies = new List<Zombie>();
 
@@ -68,10 +71,12 @@ namespace Cpln.Enigmos.Enigmas
  
         private void Timer_Tick(object sender, EventArgs e)
         {
-            //permt d'ajouter un zombie si 80 tick se sont écoulés
+            //permt d'ajouter un zombie si 100 tick se sont écoulés
             if (iTimerZombie % 100 == 0)
             {
-                AjouterZombie();//ajoute un zombie sur le panel
+                //ajout des zombies sur le panel
+                AjouterZombie(Direction.GAUCHE);
+                AjouterZombie(Direction.DROITE);
             }
 
             //incrementation les variables de timer
@@ -84,25 +89,19 @@ namespace Cpln.Enigmos.Enigmas
                 this.Cursor = new Cursor(Properties.Resources.CibleRouge.GetHicon());//changement de l'image du curseur
             }
 
-            //fait avancer chaque zombie se trouvsnt dans la liste de zombie
+            //fait avancer chaque zombie se trouvant dans la liste de zombie
             foreach (Zombie zombie in zombies)
             {
-                zombie.AvancerGauche();//fait avancer le zombie contre la gauche
-
-                //si les zombies arrivent à la hauteur du batiment
-                if(zombie.Left <= pbxBatiment.Right)
-                {
-                    zombie.Arreter();
-                }
+                zombie.Avancer();//fait avancer le zombie contre la gauche
             }
         }
 
         /// <summary>
         /// Procédure permettant de créer et d'ajouter les zombies dans les 'controls' et dans la liste
         /// </summary>
-        private void AjouterZombie()
+        private void AjouterZombie(Direction direction)
         {
-            Zombie zombie = new Zombie(this, "Droite");
+            Zombie zombie = new Zombie(this, direction, pbxBatiment);
             Controls.Add(zombie);
             zombies.Add(zombie);
         }
