@@ -142,4 +142,25 @@
   <data name="SeptDifference2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\image2.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="imageA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageA.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageB.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageC.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageD.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageE.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageF.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageG.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

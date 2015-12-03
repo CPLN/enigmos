@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new SeptDifferencesEnigmaPanel(), "Le jeu des 7 différences");
+            return new Enigma(new PenduEnigmaPanel(), "Le jeu du pendu");
             //return null;
         }
 

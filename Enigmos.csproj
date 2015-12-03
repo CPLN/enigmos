@@ -44,8 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\PenduEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
-	<SubType>Component</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\Graph.cs" />
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
@@ -136,6 +139,13 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="img\imageA.PNG" />
+    <Content Include="img\imageB.PNG" />
+    <Content Include="img\imageC.PNG" />
+    <Content Include="img\imageD.PNG" />
+    <Content Include="img\imageE.PNG" />
+    <Content Include="img\imageF.PNG" />
+    <Content Include="img\imageG.PNG" />
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
     <None Include="image\Bus_Reponse3.png" />

@@ -48,9 +48,9 @@
     <answer></answer>
     <hint>Répond pas Morice</hint>
   </enigma>
-  <enigma title="Jeu du pendu">
-	<answer>oxygene</answer>
-	<hint>La corde, ça fait mal au cou</hint>
+  <enigma title="Le jeu du pendu">
+	  <answer>oxygene</answer>
+	  <hint>La corde, ça fait mal au cou</hint>
 	</enigma>
   <enigma title="Jeu de mot">
     <answer>citron vert</answer>
