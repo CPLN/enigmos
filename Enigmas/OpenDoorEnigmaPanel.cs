@@ -71,6 +71,8 @@ namespace Cpln.Enigmos.Enigmas
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
+            Timer.Stop();
+
             // Ajout de la porte avec la réponse
             pnlPictureSolution.BackgroundImage = Properties.Resources.OpenDoor_Solution;
             pnlPictureSolution.Width = Properties.Resources.OpenDoor_Solution.Width;
