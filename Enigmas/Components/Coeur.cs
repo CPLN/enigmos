@@ -10,9 +10,10 @@ namespace Cpln.Enigmos.Enigmas.Components
 {
     class Coeur : PictureBox
     {
-        public Coeur()
+        public Coeur(Point position)
         {
             this.Image = Properties.Resources.CoeurRouge;
+            this.Location = position;
         }
 
         public void EnleverCoeur()

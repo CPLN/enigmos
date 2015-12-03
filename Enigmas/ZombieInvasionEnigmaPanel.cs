@@ -25,20 +25,24 @@ namespace Cpln.Enigmos.Enigmas
         //création d'un timer
         private Timer Timer = new Timer();
 
-        //création des coeurs
-        Coeur coeur1 = new Coeur();
-
         //création d'une liste
         List<Zombie> zombies = new List<Zombie>();
+        List<Coeur> coeurs = new List<Coeur>();
 
         public ZombieInvasionEnigmaPanel()
-        {
-            
-
+        {            
             //Modification des parametre du panel de base
             Screen myScreen = Screen.PrimaryScreen;
             this.Width = (myScreen.WorkingArea.Width);
             this.Height = (myScreen.WorkingArea.Height) - 100;
+
+            /*//création des coeurs
+            Coeur coeur1 = new Coeur(new Point(this.Right - 50, 0));
+            Coeur coeur2 = new Coeur(new Point(this.Right - 100, 0));
+            Coeur coeur3 = new Coeur(new Point(this.Right - 150, 0));
+            coeurs.Add(coeur1);
+            coeurs.Add(coeur2);
+            coeurs.Add(coeur3);*/
 
             //Création du batiment
             pbxBatiment.Size = Properties.Resources.Batiment.Size;
@@ -59,6 +63,9 @@ namespace Cpln.Enigmos.Enigmas
             //ajout de l'image
             Controls.Add(pbxCible);
             Controls.Add(pbxBatiment);
+            /*Controls.Add(coeur1);
+            Controls.Add(coeur2);
+            Controls.Add(coeur3);3/
         }
 
         //evenements
@@ -105,5 +112,7 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(zombie);
             zombies.Add(zombie);
         }
+
+        private void 
     }
 }
