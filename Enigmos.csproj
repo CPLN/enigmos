@@ -136,6 +136,9 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\PartiJuste.png" />
+    <None Include="Resources\Table.png" />
+    <None Include="Resources\Verre.png" />
     <None Include="image\Bus_Reponse3.png" />
     <None Include="image\Bus_Reponse2.png" />
     <None Include="image\Bus_Reponse1.png" />
