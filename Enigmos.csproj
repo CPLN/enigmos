@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\BeerShotEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\Graph.cs" />
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
       <SubType>Component</SubType>
@@ -136,6 +139,8 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\BeerShot_Curseur.png" />
+    <None Include="Resources\BeetShot_Bar.png" />
     <None Include="Resources\OpenDoor - Solution.png" />
     <None Include="Resources\OpenDoor_Landscape.png" />
     <None Include="Resources\OpenDoor.png" />

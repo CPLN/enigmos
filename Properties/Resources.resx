@@ -148,4 +148,10 @@
   <data name="OpenDoor_Solution" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OpenDoor - Solution.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BeerShot_Bar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BeetShot_Bar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BeerShot_Curseur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BeerShot_Curseur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

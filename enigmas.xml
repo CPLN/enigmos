@@ -52,4 +52,8 @@
     <answer>citron vert</answer>
     <hint>Combien de troncs ? Quelle couleur ?</hint>
   </enigma>
+  <enigma title="Bar les amis !">
+    <answer>Brasseur</answer>
+    <hint>Les vertes foncées sont les meilleurs !</hint>
+  </enigma>
 </enigmas>
