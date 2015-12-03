@@ -67,10 +67,9 @@ namespace Cpln.Enigmos
                 MessageBox.Show(e.Message);
                 Environment.Exit(1);
             }
-            catch
+            catch (EndGameException e)
             {
-                MessageBox.Show("Aucune énigme n'a été trouvée", "Erreur");
-                Environment.Exit(1);
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -196,18 +195,25 @@ namespace Cpln.Enigmos
         /// <param name="enigma">La nouvelle énigme</param>
         private void SetActive(Enigma enigma)
         {
+            if (active != null)
+            {
+                active.Unload();
+            }
             mainLayout.Controls.Remove(active);
             active = enigma;
             active.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             active.AutoSize = true;
             mainLayout.Controls.Add(active, 0, 0);
 
-            if (enigma.TakeFocus)
-            {
-                ActiveControl = enigma;
-            }
+            ActiveControl = enigma;
+            enigma.Load();
 
             lblId.Text = active.Title;
+        }
+
+        private void mainLayout_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

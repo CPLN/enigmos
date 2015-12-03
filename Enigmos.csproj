@@ -44,9 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enigmas\Components\Graph.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Enigmas\Components\Graph.cs" />
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -56,13 +54,33 @@
     <Compile Include="Enigmas\EnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+
     <Compile Include="Enigmas\InstinctEnigmaPanel.cs">
+	</Compile>
+
+    <Compile Include="Enigmas\HazardEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\MemoireDesChiffresEnigmaPanel.cs">
+
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\OuEstLaReponseEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\NbrCarresEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\BusEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\OiseauxEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\AppuieReponseEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\CaseVideEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\SimplePuzzleEnigmaPanel.cs">
@@ -117,8 +135,16 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\map1.png" />
+
+    <Content Include="Resources\map1.png">
     <None Include="Resources\depart.png" />
+
+    <None Include="image\Bus_Reponse3.png" />
+    <None Include="image\Bus_Reponse2.png" />
+    <None Include="image\Bus_Reponse1.png" />
+    <None Include="image\bus.jpg" />
+    <None Include="image\carre.jpg" />
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
