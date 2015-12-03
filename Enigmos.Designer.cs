@@ -153,6 +153,7 @@
             this.ClientSize = new System.Drawing.Size(1095, 512);
             this.Controls.Add(this.mainLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(1095, 512);
             this.Name = "Enigmos";
             this.Text = "Enigmos";
