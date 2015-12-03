@@ -53,7 +53,7 @@
     </Compile>
     <Compile Include="Enigmas\Components\Zombie.cs">
       <SubType>Component</SubType>
-    </Compile
+    </Compile>
     <Compile Include="Enigmas\DingbatEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>

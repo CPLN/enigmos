@@ -28,9 +28,6 @@ namespace Cpln.Enigmos.Enigmas
         //création d'une liste
         List<Zombie> zombies = new List<Zombie>();
 
-        //création des zombies
-        Zombie zombie;
-
         public ZombieInvasionEnigmaPanel()
         {
             
@@ -40,16 +37,13 @@ namespace Cpln.Enigmos.Enigmas
             this.Width = (myScreen.WorkingArea.Width);
             this.Height = (myScreen.WorkingArea.Height) - 100;
 
-            //on créé les ennemis
-            zombie = new Zombie(Properties.Resources.Zombie, this);
-
             //Création du batiment
             pbxBatiment.Size = Properties.Resources.Batiment.Size;
             pbxBatiment.Image = Properties.Resources.Batiment;
             pbxBatiment.Location = new Point(this.Width / 2 - pbxBatiment.Width / 2, this.Bottom - pbxBatiment.Height);
 
             //Mise en place d'un timer
-            Timer.Interval = 100; // 10 milisecondes
+            Timer.Interval = 100; // 10 millisecondes
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Start();
 
@@ -62,17 +56,6 @@ namespace Cpln.Enigmos.Enigmas
             //ajout de l'image
             Controls.Add(pbxCible);
             Controls.Add(pbxBatiment);
-            Controls.Add(zombie);
-
-            /*provisoir
-            for (int i = 0; i < 4; i++)
-            {
-                Zombie zombie = new Zombie(Properties.Resources.Zombie, this);
-
-                zombies.Add(zombie);
-            }
-            provisoir*/
-
         }
 
         //evenements
@@ -85,6 +68,11 @@ namespace Cpln.Enigmos.Enigmas
  
         private void Timer_Tick(object sender, EventArgs e)
         {
+            if (iTimer % 100 == 0)
+            {
+                AjouterZombie();
+            }
+
             iTimer++;//incrementation de la variable de timer
 
             if(!bViseurRouge && iTimer > 2)//si le curseur n'est pas en rouge et que 10 seconde ce sont écoulées
@@ -92,7 +80,18 @@ namespace Cpln.Enigmos.Enigmas
                 this.Cursor = new Cursor(Properties.Resources.CibleRouge.GetHicon());//changement de l'image du curseur
             }
 
-            zombie.Avancer();
-        }     
+            foreach (Zombie zombie in zombies)
+            {
+                zombie.AvancerGauche();
+            }
+        }
+
+        private void AjouterZombie()
+        {
+            Zombie zombie = new Zombie(this);
+            Controls.Add(zombie);
+            zombies.Add(zombie);
+
+        }
     }
 }
