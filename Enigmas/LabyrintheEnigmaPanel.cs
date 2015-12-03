@@ -27,14 +27,13 @@ namespace Cpln.Enigmos.Enigmas
             test.BackColor = Color.Red;
             this.Controls.Add(test);
         }*/
-
+        
         List<Panel> zonelaby;
-        List<Panel> mur;
+        List<Panel> Mur;
+        int iDepart, iNombreZone;
 
         public LabyrintheEnigmaPanel()
         {
-            Graph<Panel> graph = new Graph<Panel>(new Panel());
-
             /* test
             Case = new List<Panel>();
             test();
@@ -47,10 +46,39 @@ namespace Cpln.Enigmos.Enigmas
             }
             graph.Contains(Case[0]).AddNeighbor(Case[1]);*/
 
+            Graph<Panel> graph = new Graph<Panel>(new Panel());
             zonelaby = new List<Panel>();
-            mur = new List<Panel>();
+            Mur = new List<Panel>();            
+        }
 
+        public override void Load()
+        {
+            Random random = new Random();
+            iDepart = random.Next(1, 4);
 
+            iNombreZone += 1;
+            Panel mur = new Panel();
+            mur.Name = "mur" + iNombreZone;
+            mur.Size = new Size(100, 100);
+            mur.BackColor = Color.Red;
+            Mur.Add(mur);
+            Controls.Add(mur);
+            if (iDepart == 1)
+            {
+                mur.Location = new Point(0, 0);
+            }
+            else if (iDepart == 2)
+            {
+                mur.Location = new Point(700, 500);
+            }
+            else if (iDepart == 3)
+            {
+                mur.Location = new Point(700, 0);
+            }
+            else if (iDepart == 4)
+            {
+                mur.Location = new Point(0, 500);
+            }
         }
     }
 }
