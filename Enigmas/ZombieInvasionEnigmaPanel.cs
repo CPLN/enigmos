@@ -87,7 +87,7 @@ namespace Cpln.Enigmos.Enigmas
             //fait avancer chaque zombie se trouvsnt dans la liste de zombie
             foreach (Zombie zombie in zombies)
             {
-                zombie.AvancerGauche();//fait avncer le zombie contre la gauche
+                zombie.AvancerGauche();//fait avancer le zombie contre la gauche
 
                 //si les zombies arrivent à la hauteur du batiment
                 if(zombie.Left <= pbxBatiment.Right)
@@ -102,7 +102,7 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         private void AjouterZombie()
         {
-            Zombie zombie = new Zombie(this);
+            Zombie zombie = new Zombie(this, "Droite");
             Controls.Add(zombie);
             zombies.Add(zombie);
         }
