@@ -60,6 +60,9 @@
     <Compile Include="Enigmas\EnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\OpenDoorEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\HazardEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -138,6 +141,11 @@
     </Content>
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
+    <None Include="Resources\OpenDoor - Solution.png" />
+    <None Include="Resources\OpenDoor_Landscape.png" />
+    <None Include="Resources\OpenDoor.png" />
+    <None Include="Resources\OpenDoor - Flowers.png" />
+    <None Include="Resources\Enigmas.png" />
     <None Include="image\Bus_Reponse3.png" />
     <None Include="image\Bus_Reponse2.png" />
     <None Include="image\Bus_Reponse1.png" />
