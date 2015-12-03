@@ -69,7 +69,7 @@ namespace Cpln.Enigmos.Enigmas
                 iVitesse = 1;
                 if(pnlTonneaux.Bottom <= pnlTable.Top && pnlTonneaux.Bottom >= pnlTable.Top - 25)
                 {
-                    MessageBox.Show("Bravo, vous avez réussi voici la reponse. \n \n Bon reflexe", "Bravo");
+                    MessageBox.Show("Bravo, vous avez réussi voici la reponse. \n \n Bon réflexe", "Bravo");
                     bStop = false;
                     btnStart.Text = "Commencer";
                     pnlTonneaux.Location = new Point(370, 0);
