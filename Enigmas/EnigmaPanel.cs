@@ -36,5 +36,21 @@ namespace Cpln.Enigmos.Enigmas
         {
 
         }
+
+        /// <summary>
+        /// Appelé lors de l'affichage de l'énigme à l'écran.
+        /// </summary>
+        public virtual void Load()
+        {
+
+        }
+
+        /// <summary>
+        /// Appelé lors du passage à l'énigme suivante.
+        /// </summary>
+        public virtual void Unload()
+        {
+
+        }
     }
 }
