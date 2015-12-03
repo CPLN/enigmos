@@ -8,7 +8,9 @@ namespace Cpln.Enigmos.Enigmas
     {
         //Déclaration des variables et tableaux
         PictureBox pbxPhoque = new PictureBox();
-        PictureBox[] tblPoissons = new PictureBox[3];
+        PictureBox pbxHarpon = new PictureBox();
+        PictureBox[] tblObjet = new PictureBox[3];
+        PictureBox[] tblPoissons = new PictureBox[2];
         Label lblPoint = new Label();
         int iPoint = 0;
         Random RandomX = new Random();
@@ -29,10 +31,18 @@ namespace Cpln.Enigmos.Enigmas
                 PictureBox pbxPoisson = new PictureBox();
                 pbxPoisson.Size = new Size(34, 55);
                 pbxPoisson.BackColor = Color.Gray;
-                pbxPoisson.Location = new Point(RandomX.Next(0, 800 + pbxPoisson.Width), i * -200 - pbxPoisson.Height);
+                pbxPoisson.Location = new Point(RandomX.Next(0, 800 + pbxPoisson.Width), (i + 1) * -200 - pbxPoisson.Height);
                 tblPoissons[i] = pbxPoisson;
+                tblObjet[i] = pbxPoisson;
                 Controls.Add(pbxPoisson);
             }
+
+            //Création du Harpon
+            pbxHarpon.Size = new Size(34, 55);
+            pbxHarpon.BackColor = Color.Red;
+            pbxHarpon.Location = new Point(RandomX.Next(0, 800 + pbxHarpon.Width), 0 - pbxHarpon.Height);
+            tblObjet[tblPoissons.Length] = pbxHarpon;
+            Controls.Add(pbxHarpon);
 
             //Création label des point
             lblPoint.Location = new Point(0, 0);
@@ -49,23 +59,37 @@ namespace Cpln.Enigmos.Enigmas
         {
             for (int i = 0; i < tblPoissons.Length; i++)
             {
-                tblPoissons[i].Top += 5;
-
-                if(tblPoissons[i].Top >= 600)
-                {
-                     tblPoissons[i].Location = new Point(RandomX.Next(0, 800) - tblPoissons[i].Width, 0 - tblPoissons[i].Height);
-                     tblPoissons[i].Visible = true;
-                }
-
-                if (tblPoissons[i].Bottom >= pbxPhoque.Top && tblPoissons[i].Right >= pbxPhoque.Left && tblPoissons[i].Left <= pbxPhoque.Right && tblPoissons[i].Bottom <= pbxPhoque.Top + (pbxPhoque.Height / 2))
-                {
-                    tblPoissons[i].Visible = false;
-                }
-
+                //Ajout d'un point lorsque le Phoque attrape un Poissons
                 if (tblPoissons[i].Top == 450 && tblPoissons[i].Visible == false)
                 {
-                    iPoint = iPoint + 1;
+                    iPoint += 1;
                     lblPoint.Text = "Points : " + iPoint;
+                }
+            }
+
+            //Penalisation lorsque le Phoque attrape le Harpon
+            if (pbxHarpon.Top == 450 && pbxHarpon.Visible == false && iPoint >= 2)
+            {
+                iPoint -= 2;
+                lblPoint.Text = "Points : " + iPoint;
+            }
+
+            for (int i = 0; i < tblObjet.Length; i++)
+            {
+                //Déplacement des Poissons et du Harpon
+                tblObjet[i].Top += 5;
+
+                //Reinitialisation des Poissons et du Harpon lorsqu'il est en dehors de la form
+                if (tblObjet[i].Top >= 600)
+                {
+                    tblObjet[i].Location = new Point(RandomX.Next(0, 800) - tblObjet[i].Width, 0 - tblObjet[i].Height);
+                    tblObjet[i].Visible = true;
+                }
+
+                //Disparition des Poissons et du Harpon lorsqu'ils sont dans la zone du phoque
+                if (tblObjet[i].Bottom >= pbxPhoque.Top && tblObjet[i].Right >= pbxPhoque.Left && tblObjet[i].Left <= pbxPhoque.Right && tblObjet[i].Bottom <= pbxPhoque.Top + (pbxPhoque.Height / 2))
+                {
+                    tblObjet[i].Visible = false;
                 }
             }
         }
