@@ -136,7 +136,7 @@
       <SubType>Designer</SubType>
     </Content>
 
-    <Content Include="Resources\map1.png">
+    <Content Include="Resources\map1.png"/>
     <None Include="Resources\depart.png" />
 
     <None Include="image\Bus_Reponse3.png" />
@@ -144,7 +144,7 @@
     <None Include="image\Bus_Reponse1.png" />
     <None Include="image\bus.jpg" />
     <None Include="image\carre.jpg" />
-    </Content>
+    
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
