@@ -87,6 +87,9 @@
     <Compile Include="Enigmas\CaseVideEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\ReflexeEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\SimplePuzzleEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -146,6 +149,9 @@
     <None Include="Resources\OpenDoor.png" />
     <None Include="Resources\OpenDoor - Flowers.png" />
     <None Include="Resources\Enigmas.png" />
+    <None Include="Resources\PartiJuste.png" />
+    <None Include="Resources\Table.png" />
+    <None Include="Resources\Verre.png" />
     <None Include="image\Bus_Reponse3.png" />
     <None Include="image\Bus_Reponse2.png" />
     <None Include="image\Bus_Reponse1.png" />
