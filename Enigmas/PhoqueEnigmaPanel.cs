@@ -9,6 +9,7 @@ namespace Cpln.Enigmos.Enigmas
         //Déclaration des variables et tableaux
         PictureBox pbxPhoque = new PictureBox();
         PictureBox[] tblPoissons = new PictureBox[3];
+        Label lblPoint = new Label();
         int iPoint = 0;
         Random RandomX = new Random();
         private Timer timer = new Timer();
@@ -19,8 +20,7 @@ namespace Cpln.Enigmos.Enigmas
             //Création du Phoque
             pbxPhoque.Size = new Size(85, 129);
             pbxPhoque.BackColor = Color.Blue;
-            pbxPhoque.Location = new Point(400 - (pbxPhoque.Width / 2), 550 - (pbxPhoque.Height));
-            //pbxPhoque.Image = 
+            pbxPhoque.Location = new Point(400 - (pbxPhoque.Width / 2), 550 - (pbxPhoque.Height)); 
             Controls.Add(pbxPhoque);
 
             //Création des poissons
@@ -34,6 +34,10 @@ namespace Cpln.Enigmos.Enigmas
                 tblPoissons[i] = pbxPoisson;
                 Controls.Add(pbxPoisson);
             }
+
+            //Création label des point
+            lblPoint.Location = new Point(0, 0);
+            Controls.Add(lblPoint);
 
             //Timer
             timer.Interval = 1;
@@ -53,12 +57,13 @@ namespace Cpln.Enigmos.Enigmas
                      tblPoissons[i].Visible = true;
                 }
 
-                if (tblPoissons[i].Bottom >= pbxPhoque.Top && tblPoissons[i].Right >= pbxPhoque.Left && tblPoissons[i].Left <= pbxPhoque.Right && tblPoissons[i].Bottom <= pbxPhoque.Top + (pbxPhoque.Height / 2)) 
+                if (tblPoissons[i].Bottom >= pbxPhoque.Top && tblPoissons[i].Right >= pbxPhoque.Left && tblPoissons[i].Left <= pbxPhoque.Right && tblPoissons[i].Bottom <= pbxPhoque.Top + (pbxPhoque.Height / 2))
                 {
                     iPoint = iPoint + 1;
                     tblPoissons[i].Visible = false;
                 }
             }
+            lblPoint.Text = "Points : " + iPoint;
         }
 
         public override void PressKey(object sender, KeyEventArgs e)
