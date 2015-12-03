@@ -7,21 +7,23 @@ namespace Cpln.Enigmos.Enigmas
     class PhoqueEnigmaPanel : EnigmaPanel
     {
         //Déclaration des variables et tableaux
-        PictureBox pbxPhoque = new PictureBox();
-        PictureBox pbxHarpon = new PictureBox();
-        PictureBox[] tblObjet = new PictureBox[3];
-        PictureBox[] tblPoissons = new PictureBox[2];
-        Label lblPoint = new Label();
-        int iPoint = 0;
-        Random RandomX = new Random();
+        private PictureBox pbxPhoque = new PictureBox();
+        private PictureBox pbxHarpon = new PictureBox();
+        private PictureBox[] tblObjet = new PictureBox[3];
+        private PictureBox[] tblPoissons = new PictureBox[2];
+        private Label lblPoint = new Label();
+        private int iPoint = 0;
+        private Random RandomX = new Random();
         private Timer timer = new Timer();
 
         public PhoqueEnigmaPanel()
         {
+            //Changement de l'image de fond
+            this.BackgroundImage = Properties.Resources.Montagne;
 
             //Création du Phoque
             pbxPhoque.Size = new Size(85, 129);
-            pbxPhoque.BackColor = Color.Blue;
+            pbxPhoque.Image = Properties.Resources.Phoque1;
             pbxPhoque.Location = new Point(400 - (pbxPhoque.Width / 2), 550 - pbxPhoque.Height); 
             Controls.Add(pbxPhoque);
 
@@ -30,7 +32,7 @@ namespace Cpln.Enigmos.Enigmas
             {
                 PictureBox pbxPoisson = new PictureBox();
                 pbxPoisson.Size = new Size(34, 55);
-                pbxPoisson.BackColor = Color.Gray;
+                pbxPoisson.Image = Properties.Resources.Poisson;
                 pbxPoisson.Location = new Point(RandomX.Next(0, 800 + pbxPoisson.Width), (i + 1) * -200 - pbxPoisson.Height);
                 tblPoissons[i] = pbxPoisson;
                 tblObjet[i] = pbxPoisson;
@@ -73,6 +75,8 @@ namespace Cpln.Enigmos.Enigmas
                 iPoint -= 2;
                 lblPoint.Text = "Points : " + iPoint;
             }
+
+            //if ()
 
             for (int i = 0; i < tblObjet.Length; i++)
             {
