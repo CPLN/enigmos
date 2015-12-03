@@ -18,7 +18,7 @@ namespace Cpln.Enigmos
         public static Enigma DebugEnigma()
         {
 
-
+            return new Enigma(new InstinctEnigmaPanel(), "Instinct");
             return null;
 
 

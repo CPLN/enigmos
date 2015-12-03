@@ -12,20 +12,29 @@ namespace Cpln.Enigmos.Enigmas
        
     public class InstinctEnigmaPanel : EnigmaPanel
     {
-                private void btnChoix1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Le mot à valider est cristiano", "Yo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
+        Label lblReponse = new Label();
+        Label lblTexte = new Label();
+        Panel pnlImage = new Panel();
+        Button btnChoix1 = new Button();
+        Button btnChoix2 = new Button();
+        Button btnChoix3 = new Button();
+       private void btnChoix1_Click(object sender, EventArgs e)
+       {
+          // pnlImage.BackgroundImage = Properties.Resources.;
+       }
+       private void btnChoix2_Click(object sender, EventArgs e)
+       {
+           
+       }
+       private void btnChoix3_Click(object sender, EventArgs e)
+       {
+           
+       }
        
      
         public InstinctEnigmaPanel()
         {
-           Label lblReponse = new Label();
-            Label lblTexte = new Label();
-            Panel pnlImage = new Panel();
-            Button btnChoix1 = new Button();
-            Button btnChoix2 = new Button();
-            Button btnChoix3 = new Button();
+         
             bool bFindeJeu = false;
             lblTexte.Text = "Vous vous réveillez dans une baignoire.";
             lblTexte.Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold);
@@ -47,6 +56,8 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(pnlImage);
 
             btnChoix1.Click += new EventHandler(btnChoix1_Click);
+            btnChoix2.Click += new EventHandler(btnChoix2_Click);
+            btnChoix3.Click += new EventHandler(btnChoix3_Click);
         
   
     

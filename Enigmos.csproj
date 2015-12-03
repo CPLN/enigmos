@@ -54,15 +54,13 @@
     <Compile Include="Enigmas\EnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-
     <Compile Include="Enigmas\InstinctEnigmaPanel.cs">
-	</Compile>
-
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\HazardEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\MemoireDesChiffresEnigmaPanel.cs">
-
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\OuEstLaReponseEnigmaPanel.cs">
@@ -135,16 +133,15 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
-
-    <Content Include="Resources\map1.png"/>
+    <Content Include="Resources\cuisine.png" />
+    <Content Include="Resources\salon.png" />
+    <Content Include="Resources\toilette.png" />
     <None Include="Resources\depart.png" />
-
     <None Include="image\Bus_Reponse3.png" />
     <None Include="image\Bus_Reponse2.png" />
     <None Include="image\Bus_Reponse1.png" />
     <None Include="image\bus.jpg" />
     <None Include="image\carre.jpg" />
-    
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
