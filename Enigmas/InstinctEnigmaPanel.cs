@@ -12,8 +12,10 @@ namespace Cpln.Enigmos.Enigmas
        
     public class InstinctEnigmaPanel : EnigmaPanel
     {
+
         private int random;
         private int iEtape;
+        //création des buttons et des panels
         Label lblReponse = new Label();
         Label lblTexte = new Label();
         Panel pnlImage = new Panel();
@@ -22,6 +24,7 @@ namespace Cpln.Enigmos.Enigmas
         Button btnChoix3 = new Button();
         Random randomNombre = new Random();
         
+        //Evenement des clicks de boutons 
        private void Random_Click(object sender, EventArgs e)
        {
            pnlImage.BackgroundImage = CliqueRandom(random);
@@ -36,7 +39,7 @@ namespace Cpln.Enigmos.Enigmas
            pnlImage.BackgroundImage = CliqueRandom(random);
        }
        
-     
+        //Constructeur par défaut qui initiliase les proprieté de la première fenêtre.
         public InstinctEnigmaPanel()
         {
            
@@ -64,7 +67,10 @@ namespace Cpln.Enigmos.Enigmas
             Image imageDepart2 = Properties.Resources.salon;
             Image imageDepart3 = Properties.Resources.toilette;
             Image[] aImageDeBase = new Image []{imageDepart1, imageDepart2, imageDepart3};
-
+            btnChoix1.FlatStyle = FlatStyle.Flat;
+            btnChoix2.FlatStyle = FlatStyle.Flat;
+            btnChoix3.FlatStyle = FlatStyle.Flat;
+            btnChoix1.FlatAppearance.BorderColor = Color.White;
            
            
         
@@ -118,16 +124,27 @@ namespace Cpln.Enigmos.Enigmas
 
             
         }
+
+        //fonction qui permet de générer alétoirement une image du tableau d'image.
         private Image CliqueRandom(int random)
         {
            
             Image imageDepart1 = Properties.Resources.cuisine;
             Image imageDepart2 = Properties.Resources.salon;
             Image imageDepart3 = Properties.Resources.toilette;
-            Image[] aImageDeBase = new Image[] { imageDepart1, imageDepart2, imageDepart3 };
+            //Image imageDepart4 = Properties.Resources.assassinat;
+            //Image imageDepart5 = Properties.Resources.buanderie;
+            //Image imageDepart6 = Properties.Resources.grenier;
+            //Image imageDepart7 = Properties.Resources.maxresdefault;
+            //Image imageDepart8 = Properties.Resources.piscine;
+            //Image imageDepart9 = Properties.Resources.sortie;
+
+            Image[] aImageDeBase = new Image[] { imageDepart1, imageDepart2, imageDepart3};
             Image imgFinaleDepart;
+            // on test si le premier affichage a été fait.
             if (iEtape == 0)
             {
+                iEtape++;
                 random = randomNombre.Next(1, 4);
                 if (random == 1)
                 {
@@ -149,7 +166,7 @@ namespace Cpln.Enigmos.Enigmas
 
             return null;
 
-            iEtape++;
+            
         }
 
         
