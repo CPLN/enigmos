@@ -13,23 +13,9 @@ namespace Cpln.Enigmos.Enigmas
     /// Panel affichant une énigme.
     /// </summary>
     public class LabyrintheEnigmaPanel : EnigmaPanel
-    {
-        /* test
-        List<Panel> Case;
-
-        private void test()
-        {
-            Panel test = new Panel();
-            test.Name = "test1";
-            Case.Add(test);
-            test.Width = 50;
-            test.Height = 50;
-            test.BackColor = Color.Red;
-            this.Controls.Add(test);
-        }*/
-        
+    {       
         //déclaration des listes
-        List<Panel> zonelaby;
+        List<Panel> Zonelaby;
         List<Panel> Mur;
 
         //déclaration des variables
@@ -51,7 +37,7 @@ namespace Cpln.Enigmos.Enigmas
 
             //initialisation des listes et du graph
             Graph<Panel> graph = new Graph<Panel>(new Panel());
-            zonelaby = new List<Panel>();
+            Zonelaby = new List<Panel>();
             Mur = new List<Panel>();            
         }
 
@@ -63,28 +49,38 @@ namespace Cpln.Enigmos.Enigmas
 
             //création du premir panel
             iNombreZone += 1;
-            Panel mur = new Panel();
-            mur.Name = "mur" + iNombreZone;
-            mur.Size = new Size(100, 100);
-            mur.BackColor = Color.Red;
-            Mur.Add(mur);
-            Controls.Add(mur);
+            Panel zone = new Panel();
+            zone.Name = "zone" + iNombreZone;
+            zone.Size = new Size(100, 100);
+            zone.BackColor = Color.Red;
+            Zonelaby.Add(zone);
+            Controls.Add(zone);
             if (iDepart == 1)
             {
-                mur.Location = new Point(0, 0);
+                zone.Location = new Point(0, 0);
             }
             else if (iDepart == 2)
             {
-                mur.Location = new Point(700, 500);
+                zone.Location = new Point(700, 500);
             }
             else if (iDepart == 3)
             {
-                mur.Location = new Point(700, 0);
+                zone.Location = new Point(700, 0);
             }
             else if (iDepart == 4)
             {
-                mur.Location = new Point(0, 500);
+                zone.Location = new Point(0, 500);
             }
+
+            //création du personnage
+            Panel personnage = new Panel();
+            personnage.Size = new Size(25, 50);
+            personnage.Left = zone.Left;
+            personnage.Top = zone.Top;
+            personnage.BackColor = Color.Black;
+            Controls.Add(personnage);
+
+
         }
     }
 }
