@@ -14,13 +14,13 @@ namespace Cpln.Enigmos.Enigmas
     {
         //déclaration des variables
         bool bViseurRouge = true;
-        int iTimer = 0;//variable qui permet de compter les ticks dans le Timer
+        int iTimerCible = 0;//permet de compter les ticks du viseur
+        int iTimerZombie = 0;//permt de faire spwaner les zombies a interval régulier
 
         //déclaration des pricipaux éléments de l'énigme
         PictureBox pbxBackground = new PictureBox();
         PictureBox pbxBatiment = new PictureBox();
         PictureBox pbxCible = new PictureBox();
-        PictureBox pbxZombie = new PictureBox();
 
         //création d'un timer
         private Timer Timer = new Timer();
@@ -63,29 +63,37 @@ namespace Cpln.Enigmos.Enigmas
         {
             this.Cursor = new Cursor(Properties.Resources.CibleNoir.GetHicon());//changement de l'image du curseur
             bViseurRouge = false;//on inverse la variable une fois que l'utilisateur à cliquer
-            iTimer = 0;//on remet la varaible à zero
+            iTimerCible = 0;//on remet la varaible à zero
         }
  
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (iTimer % 100 == 0)
+            //permt d'ajouter un zombie si 80 tick se sont écoulés
+            if (iTimerZombie % 80 == 0)
             {
-                AjouterZombie();
+                AjouterZombie();//ajoute un zombie sur le panel
             }
 
-            iTimer++;//incrementation de la variable de timer
+            //incrementation les variables de timer
+            iTimerZombie++;
+            iTimerCible++;
 
-            if(!bViseurRouge && iTimer > 2)//si le curseur n'est pas en rouge et que 10 seconde ce sont écoulées
+
+            if(!bViseurRouge && iTimerCible > 2)//si le curseur n'est pas en rouge et que 10 seconde ce sont écoulées
             {
                 this.Cursor = new Cursor(Properties.Resources.CibleRouge.GetHicon());//changement de l'image du curseur
             }
 
+            //fait avancer chaque zombie se trouvsnt dans la liste de zombie
             foreach (Zombie zombie in zombies)
             {
-                zombie.AvancerGauche();
+                zombie.AvancerGauche();//fait avncer le zombie contre la gauche
             }
         }
 
+        /// <summary>
+        /// Procédure permettant de créer et d'ajouter les zombies dans les 'controls' et dans la liste
+        /// </summary>
         private void AjouterZombie()
         {
             Zombie zombie = new Zombie(this);
