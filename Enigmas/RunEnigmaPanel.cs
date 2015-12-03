@@ -6,10 +6,9 @@ namespace Cpln.Enigmos.Enigmas
 {
     class RunEnigmaPanel : EnigmaPanel
     {
-        private Timer timer= new Timer();
         //Déclaration de variable
+        private Timer timer= new Timer();
         PictureBox[] tblObstacle = new PictureBox[2];
-        Label lblCompteur = new Label();
         int iCompteur = 0;
         Random random = new Random();
         PictureBox pbxHomme = new PictureBox();
@@ -17,11 +16,10 @@ namespace Cpln.Enigmos.Enigmas
         PictureBox pbxTronc = new PictureBox();
         public RunEnigmaPanel()
         {
-            
-            
             //Création du joueur
-            pbxHomme.Size = new Size(25, 50);
-            pbxHomme.BackColor = Color.Red;
+            pbxHomme.Size = new Size(57, 56);
+            pbxHomme.BackgroundImage = Properties.Resources.kirby2;
+            pbxHomme.BackColor = Color.Transparent;
             pbxHomme.Location = new Point(400 - pbxHomme.Width / 2,575 - pbxHomme.Height);
 
             //Appel de l'image de fond
@@ -33,13 +31,14 @@ namespace Cpln.Enigmos.Enigmas
             timer.Start();
 
             //Création des obstacles
-            
-            pbxCaillou.Size = new Size(50, 50);
-            pbxCaillou.BackColor = Color.Gray;
+            pbxCaillou.Size = new Size(116, 65);
+            pbxCaillou.BackgroundImage = Properties.Resources.Caillou;
+            pbxCaillou.BackColor = Color.Transparent;
             tblObstacle[0] = pbxCaillou;
             
-            pbxTronc.Size = new Size(50, 50);
-            pbxTronc.BackColor = Color.Green;
+            pbxTronc.Size = new Size(100, 112);
+            pbxTronc.BackgroundImage = Properties.Resources.Arbre;
+            pbxTronc.BackColor = Color.Transparent;
             tblObstacle[1] = pbxTronc;
 
             //Appel de la fonction pour le placement de l'obstacle
@@ -50,16 +49,15 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(pbxHomme);
             Controls.Add(pbxCaillou);
             Controls.Add(pbxTronc);
-            Controls.Add(lblCompteur);
 
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
             iCompteur += 1;
-            tblObstacle[0].Top += 10;
-            tblObstacle[1].Top += 10;
-            lblCompteur.Text = Convert.ToString(iCompteur);
+            tblObstacle[0].Top += 20;
+            tblObstacle[1].Top += 20;
+
             //Condition pour que les obstacles tombent en boucle
             if(tblObstacle[0].Top >= 600 && tblObstacle[1].Top >= 600)
             {
@@ -67,26 +65,23 @@ namespace Cpln.Enigmos.Enigmas
                 PlacementObstacle(tblObstacle[1]);
             }
 
-            if(pbxHomme.Top == pbxCaillou.Bottom && pbxHomme.Left == pbxCaillou.Left)
+            //Vérifie si le joueur ne touche pas un obstacle
+            if(pbxHomme.Top <= pbxCaillou.Bottom && pbxHomme.Bottom >= pbxCaillou.Top && pbxHomme.Left >= pbxCaillou.Left && pbxHomme.Right <= pbxCaillou.Right)
             {
                 iCompteur = 0;
             }
 
-            else if (pbxHomme.Top == pbxTronc.Bottom && pbxHomme.Left == pbxTronc.Left)
+            else if (pbxHomme.Top <= pbxTronc.Bottom && pbxHomme.Bottom >= pbxTronc.Top && pbxHomme.Left >= pbxTronc.Left && pbxHomme.Right <= pbxTronc.Right)
             {
                 iCompteur = 0;
             }
-
+            
+            // Condition qui vérifie quand est-ce que le joueur gagne la partie
             if(iCompteur==500)
             {
-                DialogResult coucou = MessageBox.Show("C'est pas trop tôt","Gagner",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
-                iCompteur = 0;
                 timer.Stop();
-
-                if(coucou==DialogResult.OK)
-                {
-                     timer.Start();
-                }
+                DialogResult coucou = MessageBox.Show("Réponse : C'est pas trop tôt","Gagner",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                iCompteur = 0;
             }
 
         }
@@ -99,19 +94,19 @@ namespace Cpln.Enigmos.Enigmas
             {
                 case 0:
                     {
-                        pbxObstacle.Left = 188;
+                        pbxObstacle.Left = 145;
                         pbxObstacle.Top = 0 - pbxObstacle.Height;
                     }
                     break;
                 case 1:
                     {
-                        pbxObstacle.Left = 388;
+                        pbxObstacle.Left = 345;
                         pbxObstacle.Top = 0 - pbxObstacle.Height;
                     }
                     break;
                 case 2:
                     {
-                        pbxObstacle.Left = 588;
+                        pbxObstacle.Left = 545;
                         pbxObstacle.Top = 0 - pbxObstacle.Height;
                     }
                     break;
@@ -126,15 +121,19 @@ namespace Cpln.Enigmos.Enigmas
         //Déplacement du personnage
         public override void PressKey(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.D)
+            if (e.KeyCode == Keys.A)
             {
+                pbxHomme.BackgroundImage = Properties.Resources.kirby2;
+
+                //Condition qui empêche le joueur de sortir des pistes
                 if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
                 {
                     pbxHomme.Left += 200;
                 }
             }
-            if (e.KeyCode == Keys.A)
+            if (e.KeyCode == Keys.D)
             {
+                pbxHomme.BackgroundImage = Properties.Resources.kirby3;
                 if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
                 {
                     pbxHomme.Left -= 200;
