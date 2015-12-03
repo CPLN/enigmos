@@ -12,28 +12,34 @@ namespace Cpln.Enigmos.Enigmas
        
     public class InstinctEnigmaPanel : EnigmaPanel
     {
+        private int random;
+        private int iEtape;
         Label lblReponse = new Label();
         Label lblTexte = new Label();
         Panel pnlImage = new Panel();
         Button btnChoix1 = new Button();
         Button btnChoix2 = new Button();
         Button btnChoix3 = new Button();
-       private void btnChoix1_Click(object sender, EventArgs e)
+        Random randomNombre = new Random();
+        
+       private void Random_Click(object sender, EventArgs e)
        {
-          // pnlImage.BackgroundImage = Properties.Resources.;
-       }
-       private void btnChoix2_Click(object sender, EventArgs e)
-       {
+           pnlImage.BackgroundImage = CliqueRandom(random);
            
        }
-       private void btnChoix3_Click(object sender, EventArgs e)
+       private void Random2_Click(object sender, EventArgs e)
        {
-           
+           pnlImage.BackgroundImage = CliqueRandom(random);
+       }
+       private void Random3_Click(object sender, EventArgs e)
+       {
+           pnlImage.BackgroundImage = CliqueRandom(random);
        }
        
      
         public InstinctEnigmaPanel()
         {
+           
          
             bool bFindeJeu = false;
             lblTexte.Text = "Vous vous réveillez dans une baignoire.";
@@ -54,10 +60,13 @@ namespace Cpln.Enigmos.Enigmas
 
             pnlImage.BackgroundImage = Properties.Resources.depart;
             Controls.Add(pnlImage);
+            Image imageDepart1 = Properties.Resources.cuisine;
+            Image imageDepart2 = Properties.Resources.salon;
+            Image imageDepart3 = Properties.Resources.toilette;
+            Image[] aImageDeBase = new Image []{imageDepart1, imageDepart2, imageDepart3};
 
-            btnChoix1.Click += new EventHandler(btnChoix1_Click);
-            btnChoix2.Click += new EventHandler(btnChoix2_Click);
-            btnChoix3.Click += new EventHandler(btnChoix3_Click);
+           
+           
         
   
     
@@ -75,11 +84,13 @@ namespace Cpln.Enigmos.Enigmas
 
 
            }*/
-            
 
 
 
-         
+
+            btnChoix1.Click += new EventHandler(Random_Click);
+            btnChoix2.Click += new EventHandler(Random2_Click);
+            btnChoix3.Click += new EventHandler(Random3_Click);
             
             
            
@@ -107,6 +118,42 @@ namespace Cpln.Enigmos.Enigmas
 
             
         }
-     
+        private Image CliqueRandom(int random)
+        {
+           
+            Image imageDepart1 = Properties.Resources.cuisine;
+            Image imageDepart2 = Properties.Resources.salon;
+            Image imageDepart3 = Properties.Resources.toilette;
+            Image[] aImageDeBase = new Image[] { imageDepart1, imageDepart2, imageDepart3 };
+            Image imgFinaleDepart;
+            if (iEtape == 0)
+            {
+                random = randomNombre.Next(1, 4);
+                if (random == 1)
+                {
+                    return imgFinaleDepart = aImageDeBase[0];
+                }
+                if (random == 2)
+                {
+                    return imgFinaleDepart = aImageDeBase[1];
+                }
+                if (random == 3)
+                {
+                    return imgFinaleDepart = aImageDeBase[2];
+                }
+            }
+            else
+            {
+
+            }
+
+            return null;
+
+            iEtape++;
+        }
+
+        
+           
+        
     }
 }

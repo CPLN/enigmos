@@ -118,7 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-
   <data name="depart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\depart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,8 +135,20 @@
   </data>
   <data name="carre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\image\carre.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-</data>
+  </data>
   <data name="enigmas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\enigmas.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="cuisine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cuisine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="depart1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\depart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="salon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="toilette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\toilette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
