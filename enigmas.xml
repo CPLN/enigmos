@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <enigmas>
-  <enigma title="C'est simple">
-    <answer>simple</answer>
-    <hint>Pas d'indice, la solution est simple !</hint>
+  <enigma title="Le plus long mot">
+    <answer>oiseaux</answer>
+    <hint>C'est un animal.</hint>
   </enigma>
   <enigma title="Puzzle">
     <answer>jongleur</answer>
@@ -13,5 +13,61 @@
     <hint>"Le dessin est la base de tout"
     - Alberto Giacometti
     </hint>
+	</enigma>
+  <enigma title="Où est la réponse ?">
+    <answer>là-bas</answer>
+    <hint>je t'ai dis là-bas, enfin !</hint>
+  </enigma>
+  <enigma title="C'est simple">
+    <answer>simple</answer>
+    <hint>Pas d'indice, la solution est simple !</hint>
+  </enigma>
+  <enigma title="Charade">
+    <answer>ornithorynque</answer>
+    <hint>Résolvez la charade</hint>
+  </enigma>
+  <enigma title="Le jeu des 7 différences">
+    <answer>bonjour</answer>
+    <hint>Trouvez le mot caché dans la grille</hint>
+	</enigma>
+  <enigma title="Ouvrez la porte !">
+    <answer>Porte d'entrée</answer>
+    <hint>Cherchez comment ouvrir la porte :)</hint>
+  </enigma>
+  <enigma title="Hazard">
+    <answer>suivant</answer>
+    <hint>Cliquer sur un des boutons</hint>
+  </enigma>
+  <enigma title="Souviens toi">
+    <answer>8</answer>
+    <hint>Souvenez-vous c'est important</hint>
+  </enigma>
+  <enigma title="Nombre de carrés">
+    <answer>vingt</answer>
+    <hint>La réponse est un mot.</hint>
+  </enigma>
+  <enigma title="Sens du bus">
+    <answer>jaune</answer>
+    <hint>La réponse ne s'écrit pas. Penser à utiliser le clavier !</hint>
+  </enigma>
+  <enigma title="Appuie sur la réponse">
+    <answer>Branche d'arbre</answer>
+    <hint>Utilise la souris</hint>
+  </enigma>
+  <enigma title="Et ben non">
+    <answer></answer>
+    <hint>Répond pas Morice</hint>
+  </enigma>
+  <enigma title="Jeu du pendu">
+	<answer>oxygene</answer>
+	<hint>La corde, ça fait mal au cou</hint>
+	</enigma>
+  <enigma title="Reflexe">
+    <answer>Bon réflexe</answer>
+    <hint>Recliquer sur le bouton commencer au dernier moment</hint>
+  </enigma>
+  <enigma title="Jeu de mot">
+    <answer>citron vert</answer>
+    <hint>Combien de troncs ? Quelle couleur ?</hint>
   </enigma>
 </enigmas>
