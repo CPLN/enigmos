@@ -142,6 +142,7 @@
             this.mainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.mainLayout.Size = new System.Drawing.Size(1095, 512);
             this.mainLayout.TabIndex = 2;
+            this.mainLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.mainLayout_Paint);
             // 
             // Enigmos
             // 
@@ -152,6 +153,7 @@
             this.ClientSize = new System.Drawing.Size(1095, 512);
             this.Controls.Add(this.mainLayout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(1095, 512);
             this.Name = "Enigmos";
             this.Text = "Enigmos";
