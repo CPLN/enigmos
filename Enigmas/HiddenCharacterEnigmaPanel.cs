@@ -64,11 +64,9 @@ namespace Cpln.Enigmos.Enigmas
         private void PaintBlue(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.TranslateTransform(0, 0);
-            g.ScaleTransform(1.0f, 1.0f);
+            g.TranslateTransform(0,0);
+            g.ScaleTransform(5.0f, 5.0f);
             g.DrawPath(new Pen(Color.Blue), P);
-            Brush brP = new SolidBrush(Color.Blue);
-            g.FillPath(brP, P);
             g.Flush();
         }
     }
