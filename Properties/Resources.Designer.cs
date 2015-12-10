@@ -168,9 +168,17 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap salon {
             get {
                 object obj = ResourceManager.GetObject("salon", resourceCulture);
+            }
+        }
+
+        internal static System.Drawing.Bitmap OpenDoor {
+            get {
+                object obj = ResourceManager.GetObject("OpenDoor", resourceCulture);
+
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -178,9 +186,88 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap toilette {
-            get {
+
+        internal static System.Drawing.Bitmap toilette
+        {
+            get
+            {
                 object obj = ResourceManager.GetObject("toilette", resourceCulture);
+            }
+        }
+        internal static System.Drawing.Bitmap OpenDoor_Flowers {
+            get {
+                object obj = ResourceManager.GetObject("OpenDoor_Flowers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OpenDoor_Landscape {
+            get {
+                object obj = ResourceManager.GetObject("OpenDoor_Landscape", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OpenDoor_Solution {
+            get {
+                object obj = ResourceManager.GetObject("OpenDoor_Solution", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PartiJuste {
+            get {
+                object obj = ResourceManager.GetObject("PartiJuste", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SeptDifference1 {
+            get {
+                object obj = ResourceManager.GetObject("SeptDifference1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SeptDifference2 {
+            get {
+                object obj = ResourceManager.GetObject("SeptDifference2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Table {
+            get {
+                object obj = ResourceManager.GetObject("Table", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Verre {
+            get {
+                object obj = ResourceManager.GetObject("Verre", resourceCulture);
+
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
