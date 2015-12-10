@@ -56,8 +56,8 @@ namespace Cpln.Enigmos.Enigmas
             pbxBatiment.Location = new Point(this.Width / 2 - pbxBatiment.Width / 2, this.Bottom - pbxBatiment.Height);
 
             //déclaration de deux nombres Random
-            iTickRandomGauche = random.Next(90, 150);
-            iTickRandomDroite = random.Next(90, 150);
+            iTickRandomGauche = NextRandom();
+            iTickRandomDroite = NextRandom();
 
             //Mise en place d'un timer
             Timer.Interval = 100; // 10 millisecondes
@@ -93,12 +93,14 @@ namespace Cpln.Enigmos.Enigmas
             {
                 //ajout les zombies de gauche sur le panel
                 AjouterZombie(Direction.GAUCHE);
+                iTickRandomGauche = NextRandom();
             }
 
             if (iTimerZombie % iTickRandomDroite == 0)
             {
                 //ajout les zombies de droite sur le panel
                 AjouterZombie(Direction.DROITE);
+                iTickRandomGauche = NextRandom();
             }
 
             //incrementation les variables de timer
@@ -115,6 +117,11 @@ namespace Cpln.Enigmos.Enigmas
             foreach (Zombie zombie in zombies)
             {
                 zombie.Avancer();//fait avancer le zombie contre la gauche
+
+                if(zombie.Collison())
+                {
+
+                }
             }
         }
 
@@ -126,6 +133,15 @@ namespace Cpln.Enigmos.Enigmas
             Zombie zombie = new Zombie(this, direction, pbxBatiment);
             Controls.Add(zombie);
             zombies.Add(zombie);
+        }
+
+        /// <summary>
+        /// Permet de retourner un nombre aléatoire
+        /// </summary>
+        /// <returns>Retourne un nombre aléatoire entre 60 et 120</returns>
+        private int NextRandom()
+        {
+            return random.Next(60, 120);
         }
     }
 }

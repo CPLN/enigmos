@@ -75,7 +75,7 @@ namespace Cpln.Enigmos.Enigmas.Components
         /// permet de tester s'il y a une collision entre le zombie et le batiment
         /// </summary>
         /// <returns>retorune 'false' s'il n'y a pas de collision retourne 'true' dans le cas contraire</returns>
-        private bool Collision()
+        public bool Collision()
         {
             if(this.Right < pbxBatiment.Left)
             {
@@ -99,5 +99,7 @@ namespace Cpln.Enigmos.Enigmas.Components
 
             return true;
         }
+
+        
     }
 }

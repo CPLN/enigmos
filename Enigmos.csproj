@@ -48,6 +48,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\Direction.cs" />
+    <Compile Include="Enigmas\Components\Etat.cs" />
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
