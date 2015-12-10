@@ -16,23 +16,45 @@ namespace Cpln.Enigmos.Enigmas
         /// <summary>
         /// Génération des boutons avec les lettres de l'alphabet.
         /// </summary>
-        List<Button> boutons = new List<Button>(); 
+        List<Button> boutons = new List<Button>();
         string strMot = "OXYGENE";
         int iFautes = 0, k = 200, j = 65, iCompteur = 0, iAscii = 65;
-        Label guess = new Label();
+        Label Reponse = new Label();
         PictureBox pbx = new PictureBox();
+        Label lblEnigme = new Label();
 
         public PenduEnigmaPanel()
         {
+            //Image de base
             pbx.BackgroundImage = Properties.Resources.imageA;
             pbx.Size = Properties.Resources.imageA.Size;
             ImagePendu();
 
+            for (int i = 0; i < strMot.Length; i++)
+            {
+                Reponse.Text += "*";
+            }
+            Reponse.Font = new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold);
+            Reponse.Dock = DockStyle.Bottom;
+            Reponse.TextAlign = ContentAlignment.BottomCenter;
+
+            this.Controls.Add(Reponse);
+
+            //Génération du titre
+            lblEnigme.Text = "Jeu du pendu";
+            lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold);
+            lblEnigme.Dock = DockStyle.Top;
+            lblEnigme.TextAlign = ContentAlignment.TopCenter;
+
+            this.Controls.Add(lblEnigme);
+            
+            //Boucle qui crée les boutons pour chaque lettre de l'alphabet
             for (int i = 0; i <= 25; i++)
             {
                 j += 35;
                 Button bouton = new Button();
-                bouton.Size = new Size(30, 30);
+                bouton.Size = new Size(30, 30); 
+                bouton.Click += new EventHandler(bouton_Click);
                 if (j >= 310)
                 {
                     j = 100;
@@ -44,46 +66,44 @@ namespace Cpln.Enigmos.Enigmas
                     }
                 }
                 bouton.Location = new Point(j, k);
-                Controls.Add(bouton);
+                this.Controls.Add(bouton);
                 boutons.Add(bouton);
             }
 
+            //Foreach qui ajoute toutes les lettres de l'alphabet sur les boutons créés précédemment
             foreach(Button bouton in boutons)
             {
                 bouton.Text = Convert.ToString(Convert.ToChar(iAscii));
                 iAscii++;
             }
+        }
 
-            Label lblEnigme = new Label();
-
-            lblEnigme.Text = "Jeu du pendu";
-            lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
-            lblEnigme.Dock = DockStyle.Fill;
-            lblEnigme.TextAlign = ContentAlignment.TopCenter;
-
-            Controls.Add(lblEnigme);
+        void bouton_Click(Object sender, EventArgs e)
+        {
+            ((Button)sender).Enabled = false;
+            test_lettre(Convert.ToChar(((Button)sender).Text));
         }
 
          private void test_lettre(char Lettre)
          {
             string text = null;
-            bool test = true;
+            bool faute = true;
             for (int i = 0; i < strMot.Length; i++)
             {
                 if (strMot[i] == Lettre)
                 {
                     text += Lettre;
-                    test = false;
+                    faute = false;
                 }
                 else
                 {
-                    if (guess.Text[i] != '*')
-                        text += guess.Text[i];
+                    if (Reponse.Text[i] != '*')
+                        text += Reponse.Text[i];
                     else
                         text += "*";
                 }
             }
-            if (test)
+            if (faute)
             {
                 iFautes++;
                 switch (iFautes)
@@ -94,26 +114,33 @@ namespace Cpln.Enigmos.Enigmas
                     ImagePendu();
                     break;
                 case 2:
-                        
+                    pbx.BackgroundImage = Properties.Resources.imageC;
+                    pbx.Size = Properties.Resources.imageC.Size;
+                    ImagePendu();
                     break;
                 case 3:
-                        
+                    pbx.BackgroundImage = Properties.Resources.imageD;
+                    pbx.Size = Properties.Resources.imageD.Size;
+                    ImagePendu();
                     break;
                 case 4:
-                        
+                    pbx.BackgroundImage = Properties.Resources.imageE;
+                    pbx.Size = Properties.Resources.imageE.Size;
+                    ImagePendu();
                     break;
                 case 5:
-                        
+                    pbx.BackgroundImage = Properties.Resources.imageF;
+                    pbx.Size = Properties.Resources.imageF.Size;
+                    ImagePendu();
                     break;
                 case 6:
-                        
-                    break;
-                case 7:
-                        
+                    pbx.BackgroundImage = Properties.Resources.imageG;
+                    pbx.Size = Properties.Resources.imageG.Size;
+                    ImagePendu();
                     MessageBox.Show("Dommage, vous n'avez pas réussis cete enigme,\n il vous faut donc la passer", "Fin");
                     break;
                 }   
-                guess.Text = text;
+                Reponse.Text = text;
             }
         }
         private void ImagePendu()
