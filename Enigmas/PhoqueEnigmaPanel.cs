@@ -13,6 +13,7 @@ namespace Cpln.Enigmos.Enigmas
         private PictureBox[] tblPoissons = new PictureBox[2];
         private Label lblPoint = new Label();
         private int iPoint = 0;
+        private bool bGauche = false, bDroite = false;
         private Random RandomX = new Random();
         private Timer timer = new Timer();
 
@@ -96,19 +97,41 @@ namespace Cpln.Enigmos.Enigmas
                     tblObjet[i].Visible = false;
                 }
             }
+
+            if (bGauche == true && pbxPhoque.Left >= 0)
+            {
+                pbxPhoque.Left -= 10;
+            }
+
+            if (bDroite == true && pbxPhoque.Right <= 800)
+            {
+                pbxPhoque.Left += 10;
+            }
         }
 
         public override void PressKey(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.D && pbxPhoque.Right <= 800)
+            if (e.KeyCode == Keys.D)
             {
-                    pbxPhoque.Left += 10;
+                bDroite = true;   
             }
-            if (e.KeyCode == Keys.A && pbxPhoque.Left >= 0)
+
+            if (e.KeyCode == Keys.A)
             {
-                    pbxPhoque.Left -= 10;
+                bGauche = true;
             }
         }
+        public override void ReleaseKey(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.D)
+            {
+                bDroite = false;
+            }
 
+            if (e.KeyCode == Keys.A)
+            {
+                bGauche = false;
+            }
+        }
     }
 }
