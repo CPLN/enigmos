@@ -12,7 +12,7 @@ namespace Cpln.Enigmos.Enigmas
        
     public class InstinctEnigmaPanel : EnigmaPanel
     {
-
+        private int iNumeroImage;
         private int random;
         private int iEtape;
         //création des buttons et des panels
@@ -45,10 +45,10 @@ namespace Cpln.Enigmos.Enigmas
            
          
             bool bFindeJeu = false;
-            lblTexte.Text = "Vous vous réveillez dans une baignoire.";
+            lblTexte.Text = "Vous êtes retrouvez dans une maison inconnue en vous réveillant";
             lblTexte.Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold);
-            lblTexte.Size = new Size(400, 30);
-            lblTexte.Location = new Point(470, 0);
+            lblTexte.Size = new Size(800, 30);
+            lblTexte.Location = new Point(100, 0);
             btnChoix1.Location = new Point(200, 200);
             btnChoix2.Location = new Point(320, 100);
             btnChoix3.Location = new Point(400, 200);
@@ -60,7 +60,8 @@ namespace Cpln.Enigmos.Enigmas
             pnlImage.Width = 800;
             pnlImage.Height = 600;
             //pnlImage.BackColor = Color.BlueViolet;
-
+            pnlImage.BackgroundImageLayout = ImageLayout.Center;
+            pnlImage.BackgroundImageLayout = ImageLayout.Zoom;
             pnlImage.BackgroundImage = Properties.Resources.depart;
             Controls.Add(pnlImage);
             Image imageDepart1 = Properties.Resources.cuisine;
@@ -128,10 +129,17 @@ namespace Cpln.Enigmos.Enigmas
         //fonction qui permet de générer alétoirement une image du tableau d'image.
         private Image CliqueRandom(int random)
         {
-           
+            
+            
+            Image depart = Properties.Resources.depart;
+            Image imageDefaite = Properties.Resources.bluescreen;
             Image imageDepart1 = Properties.Resources.cuisine;
             Image imageDepart2 = Properties.Resources.salon;
             Image imageDepart3 = Properties.Resources.toilette;
+            Image imageMilieu4 = Properties.Resources.jardin;
+            Image imageMilieu5 = Properties.Resources.cave;
+            Image imageMilieu6 = Properties.Resources.escalier;
+            Image imageFin = Properties.Resources.sortie;
             //Image imageDepart4 = Properties.Resources.assassinat;
             //Image imageDepart5 = Properties.Resources.buanderie;
             //Image imageDepart6 = Properties.Resources.grenier;
@@ -139,29 +147,142 @@ namespace Cpln.Enigmos.Enigmas
             //Image imageDepart8 = Properties.Resources.piscine;
             //Image imageDepart9 = Properties.Resources.sortie;
 
-            Image[] aImageDeBase = new Image[] { imageDepart1, imageDepart2, imageDepart3};
+            Image[] aImageDeBase = new Image[] {depart, imageDefaite,imageDepart1, imageDepart2, imageDepart3, imageMilieu4, imageMilieu5, imageMilieu6, imageFin};
             Image imgFinaleDepart;
             // on test si le premier affichage a été fait.
             if (iEtape == 0)
             {
-                iEtape++;
+       
+                iEtape = 1;
                 random = randomNombre.Next(1, 4);
                 if (random == 1)
                 {
-                    return imgFinaleDepart = aImageDeBase[0];
+                    lblTexte.Text = "Vous arrivez dans la cuisine";
+                    iNumeroImage = 1;
+                    return imgFinaleDepart = aImageDeBase[2];
+
                 }
                 if (random == 2)
                 {
-                    return imgFinaleDepart = aImageDeBase[1];
+                    lblTexte.Text = "Vous arrivez dans le salon";
+                     iNumeroImage = 2;
+                    return imgFinaleDepart = aImageDeBase[3];
                 }
                 if (random == 3)
                 {
-                    return imgFinaleDepart = aImageDeBase[2];
+                    lblTexte.Text = "Vous sentez une flatulence : vous êtes au WC !";
+                     iNumeroImage = 3;
+                    return imgFinaleDepart = aImageDeBase[4];
                 }
             }
-            else
+            if(iEtape == 1)
             {
+               
+                switch(iNumeroImage)
+                {
+                    case 1 :
+                        iNumeroImage = 4;
+                        random = randomNombre.Next(1, 4);
+                            if (random == 1)
+                                 {
+                                iEtape = 0;
+                                return imgFinaleDepart = aImageDeBase[0];
 
+                                 }
+                            if (random == 2)
+                                {
+                                    iEtape = 2;
+                                 return imgFinaleDepart = aImageDeBase[5];
+                                }
+                            if (random == 3)
+                                {
+                                    
+                               
+                                DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                                {
+                                    Application.Exit();
+                                }
+                                return imgFinaleDepart = aImageDeBase[1];
+                                }
+                     break;
+                    case 2:
+                     iNumeroImage = 5;
+                               random = randomNombre.Next(1, 4);
+                            if (random == 1)
+                                 {
+                                iEtape = 0;
+                                return imgFinaleDepart = aImageDeBase[0];
+
+                                 }
+                            if (random == 2)
+                                {
+                                    iEtape = 2;
+                                 return imgFinaleDepart = aImageDeBase[6];
+                                }
+                            if (random == 3)
+                                {
+                                    DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                                    if (perdu == DialogResult.OK)
+                                    {
+                                        Application.Exit();
+                                    }
+                                return imgFinaleDepart = aImageDeBase[1];
+                                }
+                     break;
+                    case 3:
+                     iNumeroImage = 6;
+                               random = randomNombre.Next(1, 4);
+                            if (random == 1)
+                                 {
+                                iEtape = 0;
+                                return imgFinaleDepart = aImageDeBase[0];
+
+                                 }
+                            if (random == 2)
+                                {
+                                    iEtape = 2;
+                                 return imgFinaleDepart = aImageDeBase[7];
+                                }
+                            if (random == 3)
+                                {
+                                    DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+
+                                  if(perdu == DialogResult.OK)
+                                  {
+                                      Application.Exit();
+                                  }
+                                return imgFinaleDepart = aImageDeBase[1];
+                                }
+                     break;
+
+                }
+            }
+            if(iEtape == 2)
+            {
+                
+                random = randomNombre.Next(1, 4);
+                if (random == 1)
+                {
+                    lblTexte.Text = "Vous avez gagné !";
+                    return imgFinaleDepart = aImageDeBase[8];
+
+                }
+                if (random == 2)
+                {
+                    lblTexte.Text = "Vous arrivez dans le salon";
+                    iNumeroImage = 2;
+                    return imgFinaleDepart = aImageDeBase[3];
+                }
+                if (random == 3)
+                {
+                    DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+
+                    if (perdu == DialogResult.OK)
+                    {
+                        Application.Exit();
+                    }
+                    return imgFinaleDepart = aImageDeBase[1];
+                }
             }
 
             return null;
