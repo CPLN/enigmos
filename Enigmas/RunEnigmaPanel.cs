@@ -15,7 +15,12 @@ namespace Cpln.Enigmos.Enigmas
         private PictureBox pbxCaillou = new PictureBox();
         private PictureBox pbxTronc = new PictureBox();
         private bool bInversion = false;
+        private bool bDroite = false;
+        private bool bGauche = false;
 
+        /// <summary>
+        /// Déclaration des éléments de mon énigme
+        /// </summary>
         public RunEnigmaPanel()
         {
             //Création du joueur
@@ -53,16 +58,23 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(pbxTronc);
 
         }
-
-        //Ceci inverse mon programme avec mon deuxième
+        
+        /// <summary>
+        /// Crée le prérequis de mon égnime
+        /// </summary>
+        /// <param name="bInversion">Variable pour inverser les touches dans le prérequis</param>
         public RunEnigmaPanel(bool bInversion)
             : this()
         {
             this.bInversion = bInversion;
         }
 
+        /// <summary>
+        /// Timer pour tout le programme
+        /// </summary>
         private void Timer_Tick(object sender, EventArgs e)
         {
+            //Assignation des variables
             iCompteur += 1;
             tblObstacle[0].Top += 20;
             tblObstacle[1].Top += 20;
@@ -91,10 +103,70 @@ namespace Cpln.Enigmos.Enigmas
                 DialogResult coucou = MessageBox.Show("Réponse : C'est pas trop tôt","Gagner",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 iCompteur = 0;
             }
-
+            //Vérifie quel méthode est appelé
+            if(bDroite == true)
+            {
+                DeplacementD(pbxHomme);
+            }
+            else if(bGauche == true)
+            {
+                DeplacementG(pbxHomme);
+            }
         }
-
-        //Fonction pour placer les obstacles sur les différents chemin 
+        /// <summary>
+        /// Méthode qui gère le déplacement droite ou inverser du joueur
+        /// </summary>
+        /// <param name="pbxHomme"></param>
+        public void DeplacementD(PictureBox pbxHomme)
+        {
+            if (bInversion == false)
+            {
+                pbxHomme.BackgroundImage = Properties.Resources.kirby2;
+                if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
+                {
+                    pbxHomme.Left += 200;
+                    bDroite = false;
+                }
+            }
+            else
+            {
+                pbxHomme.BackgroundImage = Properties.Resources.kirby3;
+                if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
+                {
+                    pbxHomme.Left -= 200;
+                    bDroite = false;
+                }
+            }
+        }
+        /// <summary>
+        /// Méthode qui gère le déplacement gauche ou inverser
+        /// </summary>
+        /// <param name="pbxHomme"></param>
+        public void DeplacementG(PictureBox pbxHomme)
+        {
+            if (bInversion == false)
+            {
+                pbxHomme.BackgroundImage = Properties.Resources.kirby3;
+                if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
+                {
+                    pbxHomme.Left -= 200;
+                    bGauche = false;
+                }
+            }
+            else
+            {
+                pbxHomme.BackgroundImage = Properties.Resources.kirby2;
+                if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
+                {
+                    pbxHomme.Left += 200;
+                    bGauche = false;
+                }
+            }
+        }
+        /// <summary>
+        /// Cette méthode met en place les obstacles
+        /// </summary>
+        /// <param name="pbxObstacle">Ceci est l'image de mon obstacle</param>
         private void PlacementObstacle(PictureBox pbxObstacle)
         {
             //random pour qu'il choisisse le chemin aléatoirement
@@ -126,49 +198,19 @@ namespace Cpln.Enigmos.Enigmas
             }
         }
 
-        //Déplacement du personnage
+        /// <summary>
+        /// Méthode du déplacement du joueur avec les touches "A" et "D"
+        /// </summary>
         public override void PressKey(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.D)
             {
-                if (bInversion == false)
-                {
-                    //Condition qui empêche le joueur de sortir des pistes
-                    pbxHomme.BackgroundImage = Properties.Resources.kirby2;
-                    if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
-                    {
-                        pbxHomme.Left += 200;
-                    }
-                }
-                else if (bInversion)
-                {
-                    pbxHomme.BackgroundImage = Properties.Resources.kirby3;
-                    if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
-                    {
-                        pbxHomme.Left -= 200;
-                    }
-                }
+                bDroite = true;
             }
             else if (e.KeyCode == Keys.A)
             {
-                if (bInversion == false)
-                {
-                    pbxHomme.BackgroundImage = Properties.Resources.kirby3;
-                    if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
-                    {
-                        pbxHomme.Left -= 200;
-                    }
-                }
-                else if (bInversion)
-                {
-                    pbxHomme.BackgroundImage = Properties.Resources.kirby2;
-                    if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
-                    {
-                        pbxHomme.Left += 200;
-                    }
-                }
+                bGauche = true;
             }
         }
-
     }
 }
