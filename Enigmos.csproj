@@ -62,7 +62,8 @@
     </Compile>
 
     <Compile Include="Enigmas\InstinctEnigmaPanel.cs">
-
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\OpenDoorEnigmaPanel.cs">
 
       <SubType>Component</SubType>
