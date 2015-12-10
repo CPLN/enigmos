@@ -73,6 +73,16 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BeerShot_Croix {
+            get {
+                object obj = ResourceManager.GetObject("BeerShot_Croix", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BeerShot_Curseur {
             get {
                 object obj = ResourceManager.GetObject("BeerShot_Curseur", resourceCulture);
@@ -83,9 +93,9 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BeerShot_Foncé {
+        internal static System.Drawing.Bitmap BeerShot_SansCroix {
             get {
-                object obj = ResourceManager.GetObject("BeerShot_Foncé", resourceCulture);
+                object obj = ResourceManager.GetObject("BeerShot_SansCroix", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

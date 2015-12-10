@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cpln.Enigmos.Enigmas.Components;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,9 +11,9 @@ namespace Cpln.Enigmos.Enigmas
 {
     class BeerShotEnigmaPanel : EnigmaPanel
     {
-        Button boutonStart = new Button();
+        private Button boutonStart = new Button();
         private Timer Timer = new Timer();
-        Panel panelBeer = new Panel();
+        private List<Beer> beers = new List<Beer>();
 
         public BeerShotEnigmaPanel()
         {
@@ -28,22 +29,22 @@ namespace Cpln.Enigmos.Enigmas
             boutonStart.Location = new Point(400, 200);
             Controls.Add(boutonStart);
             boutonStart.Click += new EventHandler(boutonStart_Click);
-
-            // Panel de la bière
-            panelBeer.BackgroundImage = Properties.Resources.BeerShot_Foncé;
-            panelBeer.Width = Properties.Resources.BeerShot_Foncé.Width;
-            panelBeer.Height = Properties.Resources.BeerShot_Foncé.Height;
-            Controls.Add(panelBeer);
-
-            panelBeer.Location = new Point(200, 200);
         }
-
         private void boutonStart_Click(object sender, EventArgs e)
         {
             this.Cursor = new Cursor(Properties.Resources.BeerShot_Curseur.GetHicon()); // initialisation du curseur
             boutonStart.Visible = false;
+            Timer_BeerShot();
         }
-
-
+        private void Timer_BeerShot()
+        {
+            Timer.Interval = 1; 
+            Timer.Tick += new EventHandler(Timer_Tick);
+            Timer.Start();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
