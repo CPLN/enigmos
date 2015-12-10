@@ -20,6 +20,42 @@ Les étapes d'ajout d'une énigme sont les suivantes :
   4. Lorsque l'énigme est entièrement développée, effectuer un [pull request](https://github.com/SteeveDroz/enigmos/compare) afin de proposer l'implémentation de la nouvelle énigme.
   5. Si l'implémentation est refusée, suivre les instructions de modification et réitérer le pull request.
 
+## Méthodes d'`EnigmaPanel`
+
+Les méthodes ci-dessous peuvent être réimplémentées dans les classes dérivées, par exemple comme ceci :
+
+```csharp
+class OtherEnigmaPanel : EnigmaPanel
+{
+    // ...
+    
+    public override void Load()
+    {
+        // ...
+    }
+}
+```
+
+### `EnigmaPanel()`
+
+Constructeur par défaut, fixe la taille de l'énigme à 800x600 et la couleur de fond à blanc. Il est possible de modifier ces deux valeurs.
+
+### `void PressKey(object sender, KeyEventArgs e)`
+
+Appelé lorsque l'utilisateur appuie sur une touche du clavier.
+
+### `void ReleaseKey(object sender, KeyEventArgs e)`
+
+Appelé lorsque l'utilisateur relâche une touche du clavier.
+
+### `void Load()`
+
+Appelé lorsque l'application affiche l'énigme à l'écran.
+
+### `void Unload()`
+
+Appelé lorsque l'application affiche une autre énigme.
+
 ## Mise en place de git pour Windows
 
   1. Effectuer un [fork](https://github.com/CPLN/enigmos#fork-destination-box) du repository (si ça n'a pas encore été fait) afin d'avoir une copie de travail personnelle sur github.

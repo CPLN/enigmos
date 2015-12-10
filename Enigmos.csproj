@@ -45,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enigmas\BeatThemAllEnigmaPanel.cs">
+		<SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\Graph.cs" />
@@ -54,13 +57,28 @@
     <Compile Include="Enigmas\Components\PuzzlePiece.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\DingbatEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\EnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\OpenDoorEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\HazardEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\MemoireDesChiffresEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\OuEstLaReponseEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\NbrCarresEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\BusEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\OiseauxEnigmaPanel.cs">
@@ -70,6 +88,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\CaseVideEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\ReflexeEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\SimplePuzzleEnigmaPanel.cs">
@@ -93,20 +114,20 @@
     <Compile Include="Exceptions\NoAnswerException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utils\ShuffleList.cs" />
     <EmbeddedResource Include="Enigmos.resx">
       <DependentUpon>Enigmos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -124,6 +145,20 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="img\image2.PNG" />
+    <None Include="img\image1.PNG" />
+    <None Include="Resources\OpenDoor - Solution.png" />
+    <None Include="Resources\OpenDoor_Landscape.png" />
+    <None Include="Resources\OpenDoor.png" />
+    <None Include="Resources\OpenDoor - Flowers.png" />
+    <None Include="Resources\Enigmas.png" />
+    <None Include="Resources\PartiJuste.png" />
+    <None Include="Resources\Table.png" />
+    <None Include="Resources\Verre.png" />
+    <None Include="image\Bus_Reponse3.png" />
+    <None Include="image\Bus_Reponse2.png" />
+    <None Include="image\Bus_Reponse1.png" />
+    <None Include="image\bus.jpg" />
     <None Include="image\carre.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
