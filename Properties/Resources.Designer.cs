@@ -115,7 +115,7 @@ namespace Cpln.Enigmos.Properties {
         ///&lt;enigmas&gt;
         ///  &lt;enigma title=&quot;Le plus long mot&quot;&gt;
         ///    &lt;answer&gt;oiseaux&lt;/answer&gt;
-        ///    &lt;hint&gt;C&apos;est un mammifère.&lt;/hint&gt;
+        ///    &lt;hint&gt;C&apos;est un animal.&lt;/hint&gt;
         ///  &lt;/enigma&gt;
         ///  &lt;enigma title=&quot;Puzzle&quot;&gt;
         ///    &lt;answer&gt;jongleur&lt;/answer&gt;
@@ -127,11 +127,21 @@ namespace Cpln.Enigmos.Properties {
         ///  &lt;/enigma&gt;
         ///  &lt;enigma title=&quot;C&apos;est simple&quot;&gt;
         ///    &lt;answer&gt;simple&lt;/answer&gt;
-        ///    &lt;hint&gt;Pas [rest of string was truncated]&quot;;.
+        ///    &lt;hint&gt;Pas d&apos; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string enigmas {
             get {
                 return ResourceManager.GetString("enigmas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fesse {
+            get {
+                object obj = ResourceManager.GetObject("Fesse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

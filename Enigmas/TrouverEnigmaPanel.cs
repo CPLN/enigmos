@@ -8,23 +8,29 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
+    public class Boutton : EnigmaPanel
+    {
+
+    }
     public class TrouverEnigmaPanel : EnigmaPanel
     {
         /// <summary>
         /// Constructeur par défaut, génère un texte et l'affiche dans le Panel.
         /// </summary>
-        bool bGo = false, bRebondX = true, bRebondY = true, bRebondXC = true, bRebondYC = true;
+        bool bGo = false /*bRebondX = true, bRebondY = true*/, bRebondXC = true, bRebondYC = true;
         int iAxeX = 4, iAxeY = 2;
         private Timer Timer = new Timer();
         Button bCristiano = new Button();
         List<Button> buttons = new List<Button>();
+        bool[] brebondYA;
+        bool[] brebondXA;
         public TrouverEnigmaPanel()
         {
             //bGo = true;
             Label lblEnigme = new Label();
             int i = 0;
             Random random = new Random();
-            for (i = 0; i < 5; i++)
+            for (i = 0; i < 11; i++)
             {
 
                 Button b = new Button();
@@ -35,12 +41,13 @@ namespace Cpln.Enigmos.Enigmas
                 b.Location = new Point(random.Next(800), random.Next(600));
                 b.Name = "Cristiano" + i;
                 Controls.Add(b);
-                
+                brebondYA = new bool[i];
+                brebondXA = new bool[i];
             }
 
             bCristiano.Text = "" + 666;
             bCristiano.Size = new Size(100, 100);
-            bCristiano.Location = new Point(random.Next(800), random.Next(600));
+            bCristiano.Location = new Point(random.Next(700), random.Next(500));
             bCristiano.BackColor = Color.Red;
             bCristiano.Click += new EventHandler(bCristiano_Click);
             Controls.Add(bCristiano);
@@ -71,7 +78,14 @@ namespace Cpln.Enigmos.Enigmas
         {
             foreach (Button b in buttons)
             {
+                
+                b.FlatStyle = FlatStyle.Flat;
+                b.FlatAppearance.BorderColor = Color.White;
+                b.BackColor = System.Drawing.Color.Transparent;
+                b.ForeColor = System.Drawing.Color.Transparent;
+                b.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Fesse));
                 Deplacement(b);
+          
             }
             
             if (bGo == true)
@@ -106,32 +120,34 @@ namespace Cpln.Enigmos.Enigmas
         {
             if (bGo == true)
             {
+                for (int i = 0; i < 10; i++ )
+                {
 
-                if (b.Left <= 0 || b.Right >= this.Width)
-                {
-                    bRebondX = !bRebondX;
+                    if (b.Left <= 0 || b.Right >= this.Width)
+                    {
+                        brebondXA[i] = !brebondXA[i];
+                    }
+                    if (b.Top <= 0 || b.Bottom >= this.Height)
+                    {
+                        brebondYA[i] = !brebondYA[i];
+                    }
+                    if (brebondYA[i] == true)
+                    {
+                        b.Top += iAxeY;
+                    }
+                    else
+                    {
+                        b.Top -= iAxeY;
+                    }
+                    if (brebondXA[i] == true)
+                    {
+                        b.Left += iAxeX;
+                    }
+                    else
+                    {
+                        b.Left -= iAxeX;
+                    }
                 }
-                if (b.Top <= 0 || b.Bottom >= this.Height)
-                {
-                    bRebondY = !bRebondY;
-                }
-                if (bRebondY == true)
-                {
-                    b.Top += iAxeY;
-                }
-                else
-                {
-                    b.Top -= iAxeY;
-                }
-                if (bRebondX == true)
-                {
-                    b.Left += iAxeX;
-                }
-                else
-                {
-                    b.Left -= iAxeX;
-                }
-
             }
         }
      }
