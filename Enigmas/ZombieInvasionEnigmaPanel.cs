@@ -22,6 +22,12 @@ namespace Cpln.Enigmos.Enigmas
         PictureBox pbxBatiment = new PictureBox();
         PictureBox pbxCible = new PictureBox();
 
+        //Création d'un objet Random
+        Random random = new Random();
+
+        int iTickRandomGauche;
+        int iTickRandomDroite;
+
         //création d'un timer
         private Timer Timer = new Timer();
 
@@ -36,18 +42,22 @@ namespace Cpln.Enigmos.Enigmas
             this.Width = (myScreen.WorkingArea.Width);
             this.Height = (myScreen.WorkingArea.Height) - 100;
 
-            /*//création des coeurs
+            //création des coeurs
             Coeur coeur1 = new Coeur(new Point(this.Right - 50, 0));
             Coeur coeur2 = new Coeur(new Point(this.Right - 100, 0));
             Coeur coeur3 = new Coeur(new Point(this.Right - 150, 0));
             coeurs.Add(coeur1);
             coeurs.Add(coeur2);
-            coeurs.Add(coeur3);*/
+            coeurs.Add(coeur3);
 
             //Création du batiment
             pbxBatiment.Size = Properties.Resources.Batiment.Size;
             pbxBatiment.Image = Properties.Resources.Batiment;
             pbxBatiment.Location = new Point(this.Width / 2 - pbxBatiment.Width / 2, this.Bottom - pbxBatiment.Height);
+
+            //déclaration de deux nombres Random
+            iTickRandomGauche = random.Next(90, 150);
+            iTickRandomDroite = random.Next(90, 150);
 
             //Mise en place d'un timer
             Timer.Interval = 100; // 10 millisecondes
@@ -63,9 +73,9 @@ namespace Cpln.Enigmos.Enigmas
             //ajout de l'image
             Controls.Add(pbxCible);
             Controls.Add(pbxBatiment);
-            /*Controls.Add(coeur1);
+            Controls.Add(coeur1);
             Controls.Add(coeur2);
-            Controls.Add(coeur3);3/
+            Controls.Add(coeur3);
         }
 
         //evenements
@@ -78,11 +88,16 @@ namespace Cpln.Enigmos.Enigmas
  
         private void Timer_Tick(object sender, EventArgs e)
         {
-            //permt d'ajouter un zombie si 100 tick se sont écoulés
-            if (iTimerZombie % 100 == 0)
+            //permet d'ajouter un zombie si 100 tick se sont écoulés
+            if (iTimerZombie %  iTickRandomGauche == 0)
             {
-                //ajout des zombies sur le panel
+                //ajout les zombies de gauche sur le panel
                 AjouterZombie(Direction.GAUCHE);
+            }
+
+            if (iTimerZombie % iTickRandomDroite == 0)
+            {
+                //ajout les zombies de droite sur le panel
                 AjouterZombie(Direction.DROITE);
             }
 
@@ -112,7 +127,5 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(zombie);
             zombies.Add(zombie);
         }
-
-        private void 
     }
 }
