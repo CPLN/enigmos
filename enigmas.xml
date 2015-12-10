@@ -24,6 +24,14 @@
     <answer>Dru</answer>
     <hint>Aider le phoque a attraper 10 poissons, mais attention au harpons !</hint>
   </enigma>
+  <enigma title="Le jeu des 7 différences">
+    <answer>bonjour</answer>
+    <hint>Trouvez le mot caché dans la grille</hint>
+	</enigma>
+  <enigma title="Ouvrez la porte !">
+    <answer>Porte d'entrée</answer>
+    <hint>Cherchez comment ouvrir la porte :)</hint>
+  </enigma>
   <enigma title="Hazard">
     <answer>suivant</answer>
     <hint>Cliquer sur un des boutons</hint>
@@ -47,6 +55,14 @@
   <enigma title="Et ben non">
     <answer></answer>
     <hint>Répond pas Morice</hint>
+  </enigma>
+  <enigma title="Jeu du pendu">
+	<answer>oxygene</answer>
+	<hint>La corde, ça fait mal au cou</hint>
+	</enigma>
+  <enigma title="Reflexe">
+    <answer>Bon réflexe</answer>
+    <hint>Recliquer sur le bouton commencer au dernier moment</hint>
   </enigma>
   <enigma title="Jeu de mot">
     <answer>citron vert</answer>
