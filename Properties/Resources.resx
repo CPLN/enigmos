@@ -136,4 +136,31 @@
   <data name="enigmas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\enigmas.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="SeptDifference1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\image1.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeptDifference2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\image2.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenDoor_Flowers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpenDoor - Flowers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpenDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenDoor_Landscape" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpenDoor_Landscape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenDoor_Solution" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpenDoor - Solution.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Table" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartiJuste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PartiJuste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Verre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Verre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
