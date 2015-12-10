@@ -16,6 +16,8 @@ namespace Cpln.Enigmos.Enigmas.Components
         public Beer(bool bCroix)
         {
             this.bCroix = bCroix;
+            this.Location = new Point(100, 100);
+
             if (bCroix)
             {
                 beer = Properties.Resources.BeerShot_Croix;

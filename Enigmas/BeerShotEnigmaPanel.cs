@@ -29,6 +29,9 @@ namespace Cpln.Enigmos.Enigmas
             boutonStart.Location = new Point(400, 200);
             Controls.Add(boutonStart);
             boutonStart.Click += new EventHandler(boutonStart_Click);
+
+            Beer beer = new Beer(true);
+            Controls.Add(beer);
         }
         private void boutonStart_Click(object sender, EventArgs e)
         {
@@ -38,13 +41,17 @@ namespace Cpln.Enigmos.Enigmas
         }
         private void Timer_BeerShot()
         {
-            Timer.Interval = 1; 
+            Timer.Interval = 100;
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Start();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            
+            foreach (Beer beer in beers)
+            {
+                beer.Left -= 1;
+                beers.Add(beer);
+            }
         }
     }
 }
