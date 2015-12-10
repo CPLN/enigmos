@@ -11,7 +11,7 @@ namespace Cpln.Enigmos.Enigmas
     public class BeatThemAllEnigmaPanel : EnigmaPanel
     {
         //constante permettant de gérer les caractéristique rapidement
-        const int WIDTH_PUNCH = 70, CARACTER_SPEED = 20;
+        const int WIDTH_PUNCH = 70, CARACTER_SPEED = 25;
 
         private Timer Timer = new Timer();
 
@@ -64,20 +64,14 @@ namespace Cpln.Enigmos.Enigmas
             //droite
             if (e.KeyCode == Keys.D)
             {
-                if (pbxPlayer.Left >= this.Left)
-                {
                     bIsLeft = false;
                     pbxPlayer.Left += CARACTER_SPEED;
-                }
             }
             //gauche
             if (e.KeyCode == Keys.A)
             {
-                if (pbxPlayer.Right <= this.Right)
-                {
                     bIsLeft = true;
                     pbxPlayer.Left -= CARACTER_SPEED;
-                }
             }
             //saut
             if (e.KeyCode == Keys.W)
