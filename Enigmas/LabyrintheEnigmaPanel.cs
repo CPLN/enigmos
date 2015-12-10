@@ -19,7 +19,8 @@ namespace Cpln.Enigmos.Enigmas
         List<Panel> Mur;
 
         //déclaration des variables
-        int iDepart, iNombreZone = 0, iNombreMur = 0;
+        int iDepart, iNombreZone = 0, iNombreMur = 0, iSeconde, iSense;
+        private Timer tJeu = new Timer();
 
         public LabyrintheEnigmaPanel()
         {
@@ -38,7 +39,10 @@ namespace Cpln.Enigmos.Enigmas
             //initialisation des listes et du graph
             Graph<Panel> graph = new Graph<Panel>(new Panel());
             Zonelaby = new List<Panel>();
-            Mur = new List<Panel>();            
+            Mur = new List<Panel>();
+
+            tJeu.Interval = 1;
+            tJeu.Tick += new EventHandler(timer_tJeu);
         }
 
         public override void Load()
@@ -120,6 +124,18 @@ namespace Cpln.Enigmos.Enigmas
                 }
                 Controls.Add(mur);
                 iNombreMur += 1;
+            }
+        }
+
+        private void timer_tJeu(object sender, EventArgs e)
+        {
+            iSeconde += 1;
+            if (iSeconde == 1000)
+            {
+                iSeconde = 0;
+
+                Random random = new Random();
+                iSense = random.Next(1, 5);
             }
         }
     }
