@@ -107,6 +107,13 @@ namespace Cpln.Enigmos.Enigmas
             {
                 pbxPhoque.Left += 10;
             }
+
+            if(iPoint == 10)
+            {
+                timer.Stop();
+                MessageBox.Show("Bravo, vous avez attrapé 10 poissons !\nLa réponse est <Dru !>", "Bravo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                lblPoint.Text = "La réponse est <Dru !>";
+            }
         }
 
         public override void PressKey(object sender, KeyEventArgs e)
