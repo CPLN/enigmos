@@ -45,7 +45,8 @@ namespace Cpln.Enigmos.Enigmas.Components
             //teste s'il n'y a pas de collison
             if (Collision())
             {
-                Arreter();//s'il y a collision on arrete le zombie
+                throw new ArreterException();
+                //Arreter();//s'il y a collision on arrete le zombie
             }
 
             //teste que le zombie ne soit pas stopper
@@ -77,6 +78,11 @@ namespace Cpln.Enigmos.Enigmas.Components
         /// <returns>retorune 'false' s'il n'y a pas de collision retourne 'true' dans le cas contraire</returns>
         public bool Collision()
         {
+            if(bZombieStop)
+            {
+                return false;
+            }
+
             if(this.Right < pbxBatiment.Left)
             {
                 return false;
@@ -101,5 +107,13 @@ namespace Cpln.Enigmos.Enigmas.Components
         }
 
         
+    }
+
+    /// <summary>
+    /// Lancement d'un exeption
+    /// </summary>
+    class ArreterException : Exception
+    {
+
     }
 }

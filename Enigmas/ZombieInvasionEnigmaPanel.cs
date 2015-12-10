@@ -15,7 +15,8 @@ namespace Cpln.Enigmos.Enigmas
         //déclaration des variables
         bool bViseurRouge = true;
         int iTimerCible = 0;//permet de compter les ticks du viseur
-        int iTimerZombie = 0;//permt de faire spwaner les zombies a interval régulier
+        int iTimerZombie = 0;//permet de faire spwaner les zombies a interval régulier
+        int iNombresDeCoeurs = 0;//indique le nombre de coeur restant
 
         //déclaration des pricipaux éléments de l'énigme
         PictureBox pbxBackground = new PictureBox();
@@ -32,8 +33,9 @@ namespace Cpln.Enigmos.Enigmas
         private Timer Timer = new Timer();
 
         //création d'une liste
-        List<Zombie> zombies = new List<Zombie>();
-        List<Coeur> coeurs = new List<Coeur>();
+        List<Zombie> zombies = new List<Zombie>();//Liste de zombies
+        List<Zombie> zombiesATuer = new List<Zombie>();//Liste des zombies morts
+        List<Coeur> coeurs = new List<Coeur>();//Liste des coeurs
 
         public ZombieInvasionEnigmaPanel()
         {            
@@ -113,14 +115,46 @@ namespace Cpln.Enigmos.Enigmas
                 this.Cursor = new Cursor(Properties.Resources.CibleRouge.GetHicon());//changement de l'image du curseur
             }
 
+
             //fait avancer chaque zombie se trouvant dans la liste de zombie
             foreach (Zombie zombie in zombies)
             {
-                zombie.Avancer();//fait avancer le zombie contre la gauche
 
-                if(zombie.Collison())
+                try
                 {
+                    zombie.Avancer();//fait avancer le zombie contre la gauche
+                    if(zombie.Collision())
+                    {
+                        if(iNombresDeCoeurs < 3)
+                        {
+                            coeurs[iNombresDeCoeurs].Enabled = false;
+                            iNombresDeCoeurs++;
+                        }
+                        else
+                        {
+                            Timer.Stop();
+                            MessageBox.Show("Vous avez perdu !");
+                        }
 
+                    }
+                }
+                catch (ArreterException exception)//si le zombie est arreter on lance une exeption 
+                {
+                    zombiesATuer.Add(zombie);//quand le zombie est tué
+                }
+            }
+
+            foreach (Zombie zombie in zombiesATuer)
+            {
+                zombies.Remove(zombie);
+                Controls.Remove(zombie);
+            }
+
+            foreach(Coeur coeur in coeurs)
+            {
+                if(coeur.Enabled == false)
+                {
+                    coeur.EnleverCoeur();
                 }
             }
         }
