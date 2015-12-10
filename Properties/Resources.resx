@@ -163,4 +163,19 @@
   <data name="Verre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Verre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ennemi1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ennemi1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pj1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pj1.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pj2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pj2.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pj3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pj3.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pj4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pj4.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
