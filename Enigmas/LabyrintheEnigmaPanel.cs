@@ -88,7 +88,7 @@ namespace Cpln.Enigmos.Enigmas
 
         private void CréationMurs (List<Panel> Zonelaby)
         {
-            for (int i=0; i < 4; i++)
+            for (int i = 1; i < 5; i++)
             {               
                 Panel mur = new Panel();
                 mur.Name = "mur" + iNombreMur;
@@ -101,11 +101,13 @@ namespace Cpln.Enigmos.Enigmas
                     {
                         Mur[iNombreMur].Top = Zonelaby[iNombreZone].Top;
                         Mur[iNombreMur].Left = Zonelaby[iNombreZone].Left;
+                        Mur[iNombreMur].Top -= Mur[iNombreMur].Height / 2;
                     }
                     else if (i == 2)
                     {
                         Mur[iNombreMur].Left = Zonelaby[iNombreZone].Left;
                         Mur[iNombreMur].Top = Zonelaby[iNombreZone].Bottom;
+                        Mur[iNombreMur].Top -= Mur[iNombreMur].Height / 2;
                     }
                 }
                 else if (i < 5 && i > 2)
@@ -115,13 +117,16 @@ namespace Cpln.Enigmos.Enigmas
                     {
                         Mur[iNombreMur].Top = Zonelaby[iNombreZone].Top;
                         Mur[iNombreMur].Left = Zonelaby[iNombreZone].Left;
+                        Mur[iNombreMur].Left -= Mur[iNombreMur].Width / 2; 
                     } 
                     else if (i == 4)
                     {
                         Mur[iNombreMur].Top = Zonelaby[iNombreZone].Top;
                         Mur[iNombreMur].Left = Zonelaby[iNombreZone].Right;
+                        Mur[iNombreMur].Left -= Mur[iNombreMur].Width / 2;
                     }
                 }
+                Zonelaby[iNombreZone].SendToBack();
                 Controls.Add(mur);
                 iNombreMur += 1;
             }
@@ -136,6 +141,8 @@ namespace Cpln.Enigmos.Enigmas
 
                 Random random = new Random();
                 iSense = random.Next(1, 5);
+
+
             }
         }
     }
