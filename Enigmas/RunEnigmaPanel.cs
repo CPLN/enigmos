@@ -90,9 +90,7 @@ namespace Cpln.Enigmos.Enigmas
             {
                 DialogResult coucou = MessageBox.Show("Réponse : C'est pas trop tôt","Gagner",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 iCompteur = 0;
-                
             }
-
 
         }
 
@@ -135,7 +133,6 @@ namespace Cpln.Enigmos.Enigmas
             {
                 if (bInversion == false)
                 {
-
                     //Condition qui empêche le joueur de sortir des pistes
                     pbxHomme.BackgroundImage = Properties.Resources.kirby2;
                     if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
