@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\Graph.cs" />
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
       <SubType>Component</SubType>
@@ -55,6 +58,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\EnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\OpenDoorEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\HazardEnigmaPanel.cs">
@@ -82,6 +88,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\CaseVideEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\ReflexeEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\SimplePuzzleEnigmaPanel.cs">
@@ -142,6 +151,16 @@
     <None Include="Resources\Caillou.png" />
     <None Include="Resources\Arbre.png" />
     <None Include="Resources\Fond.png" />
+    <None Include="img\image2.PNG" />
+    <None Include="img\image1.PNG" />
+    <None Include="Resources\OpenDoor - Solution.png" />
+    <None Include="Resources\OpenDoor_Landscape.png" />
+    <None Include="Resources\OpenDoor.png" />
+    <None Include="Resources\OpenDoor - Flowers.png" />
+    <None Include="Resources\Enigmas.png" />
+    <None Include="Resources\PartiJuste.png" />
+    <None Include="Resources\Table.png" />
+    <None Include="Resources\Verre.png" />
     <None Include="image\Bus_Reponse3.png" />
     <None Include="image\Bus_Reponse2.png" />
     <None Include="image\Bus_Reponse1.png" />
