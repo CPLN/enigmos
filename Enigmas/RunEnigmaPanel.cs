@@ -54,6 +54,7 @@ namespace Cpln.Enigmos.Enigmas
 
         }
 
+        //Ceci inverse mon programme avec mon deuxième
         public RunEnigmaPanel(bool bInversion)
             : this()
         {
@@ -132,33 +133,41 @@ namespace Cpln.Enigmos.Enigmas
         {
             if (e.KeyCode == Keys.D)
             {
-                pbxHomme.BackgroundImage = Properties.Resources.kirby2;
-
-                //Condition qui empêche le joueur de sortir des pistes
-                if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
+                if (bInversion == false)
                 {
-                    if (bInversion)
-                    {
-                        pbxHomme.Left -= 200;
-                    }
-                    else
+
+                    //Condition qui empêche le joueur de sortir des pistes
+                    pbxHomme.BackgroundImage = Properties.Resources.kirby2;
+                    if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
                     {
                         pbxHomme.Left += 200;
+                    }
+                }
+                else if (bInversion)
+                {
+                    pbxHomme.BackgroundImage = Properties.Resources.kirby3;
+                    if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
+                    {
+                        pbxHomme.Left -= 200;
                     }
                 }
             }
             else if (e.KeyCode == Keys.A)
             {
-                pbxHomme.BackgroundImage = Properties.Resources.kirby3;
-                if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
+                if (bInversion == false)
                 {
-                    if (bInversion)
-                    {
-                        pbxHomme.Left += 200;
-                    }
-                    else
+                    pbxHomme.BackgroundImage = Properties.Resources.kirby3;
+                    if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
                     {
                         pbxHomme.Left -= 200;
+                    }
+                }
+                else if (bInversion)
+                {
+                    pbxHomme.BackgroundImage = Properties.Resources.kirby2;
+                    if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
+                    {
+                        pbxHomme.Left += 200;
                     }
                 }
             }
