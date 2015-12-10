@@ -11,6 +11,7 @@ namespace Cpln.Enigmos.Enigmas
         private PictureBox pbxHarpon = new PictureBox();
         private PictureBox[] tblObjet = new PictureBox[3];
         private PictureBox[] tblPoissons = new PictureBox[2];
+        private Boolean[] tblPointAttribue = new Boolean[2]{true, true};
         private Label lblPoint = new Label();
         private int iPoint = 0;
         private bool bGauche = false, bDroite = false;
@@ -19,6 +20,8 @@ namespace Cpln.Enigmos.Enigmas
 
         public PhoqueEnigmaPanel()
         {
+            //Initialisation des tableaux
+
             //Changement de l'image de fond
             this.BackgroundImage = Properties.Resources.Montagne;
 
@@ -52,8 +55,10 @@ namespace Cpln.Enigmos.Enigmas
 
             //Création label des point
             lblPoint.Location = new Point(0, 0);
-            lblPoint.Size = new Size(110, 15);
+            lblPoint.Size = new Size(200, 20);
             lblPoint.Text = "Points : 0";
+            FontFamily fontFamily = new FontFamily("Arial");
+            lblPoint.Font = new Font(fontFamily, 12); 
             Controls.Add(lblPoint);
 
             //Timer
@@ -64,44 +69,43 @@ namespace Cpln.Enigmos.Enigmas
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            for (int i = 0; i < tblPoissons.Length; i++)
-            {
-                //Ajout d'un point lorsque le Phoque attrape un Poissons
-                if (tblPoissons[i].Top == 450 && tblPoissons[i].Visible == false)
-                {
-                    iPoint += 1;
-                    lblPoint.Text = "Points : " + iPoint;
-                }
-            }
-
             //Penalisation lorsque le Phoque attrape le Harpon
-            if (pbxHarpon.Top == 450 && pbxHarpon.Visible == false && iPoint >= 2)
+            if (pbxHarpon.Top == 450 && pbxHarpon.Visible == false)
             {
-                iPoint -= 2;
-                lblPoint.Text = "Points : " + iPoint;
+                iPoint = 0;
             }
-
-            //if ()
 
             for (int i = 0; i < tblObjet.Length; i++)
             {
                 //Déplacement des Poissons et du Harpon
-                tblObjet[i].Top += 5;
+                tblObjet[i].Top += 10;
 
                 //Reinitialisation des Poissons et du Harpon lorsqu'il est en dehors de la form
                 if (tblObjet[i].Top >= 600)
                 {
                     tblObjet[i].Location = new Point(RandomX.Next(0, 800) - tblObjet[i].Width, 0 - tblObjet[i].Height);
                     tblObjet[i].Visible = true;
+                    if(i <= 1)
+                    {
+                        tblPointAttribue[i] = true;
+                    }
                 }
 
                 //Disparition des Poissons et du Harpon lorsqu'ils sont dans la zone du phoque
                 if (tblObjet[i].Bottom >= pbxPhoque.Top && tblObjet[i].Right >= pbxPhoque.Left && tblObjet[i].Left <= pbxPhoque.Right && tblObjet[i].Bottom <= pbxPhoque.Top + (pbxPhoque.Height / 2))
                 {
                     tblObjet[i].Visible = false;
+                    if (tblObjet[i] != tblObjet[tblPoissons.Length] && tblPointAttribue[i] == true)
+                    {
+                        iPoint += 1;
+                        tblPointAttribue[i] = false;
+                    }
                 }
-            }
 
+                lblPoint.Text = "Points : " + iPoint;
+            }
+            
+            //Déplacement du Phoque
             if (bGauche == true && pbxPhoque.Left >= 0)
             {
                 pbxPhoque.Left -= 10;
@@ -112,28 +116,35 @@ namespace Cpln.Enigmos.Enigmas
                 pbxPhoque.Left += 10;
             }
 
+            //Affichage du message finale
             if(iPoint == 10)
             {
                 timer.Stop();
                 MessageBox.Show("Bravo, vous avez attrapé 10 poissons !\nLa réponse est Dru !", "Bravo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblPoint.Text = "La réponse est Dru";
+                foreach(PictureBox pbxObjet in tblObjet)
+                {
+                    Controls.Remove(pbxObjet);
+                }
             }
         }
 
         public override void PressKey(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.D)
+            //Verification si les touches de déplacement sont appuyer
+            if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
             {
                 bDroite = true;   
             }
 
-            if (e.KeyCode == Keys.A)
+            if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
             {
                 bGauche = true;
             }
         }
         public override void ReleaseKey(object sender, KeyEventArgs e)
         {
+            //Verification si les touches de déplacement sont relachée
             if(e.KeyCode == Keys.D)
             {
                 bDroite = false;
