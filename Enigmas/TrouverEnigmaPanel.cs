@@ -30,7 +30,7 @@ namespace Cpln.Enigmos.Enigmas
             Label lblEnigme = new Label();
             int i = 0;
             Random random = new Random();
-            for (i = 0; i < 11; i++)
+            for (i = 0; i < 200; i++)
             {
 
                 Button b = new Button();
@@ -45,11 +45,19 @@ namespace Cpln.Enigmos.Enigmas
                 brebondXA = new bool[i];
             }
 
+            this.BackColor = Color.FromArgb(174, 0, 1);
+
             bCristiano.Text = "" + 666;
             bCristiano.Size = new Size(100, 100);
-            bCristiano.Location = new Point(random.Next(700), random.Next(500));
+            //bCristiano.Location = new Point(random.Next(700), random.Next(500));
+            bCristiano.Location = new Point(400, 300);
             bCristiano.BackColor = Color.Red;
             bCristiano.Click += new EventHandler(bCristiano_Click);
+            bCristiano.FlatStyle = FlatStyle.Flat;
+            bCristiano.FlatAppearance.BorderColor = Color.FromArgb(174, 0, 1);
+            bCristiano.BackColor = System.Drawing.Color.Transparent;
+            bCristiano.ForeColor = System.Drawing.Color.Transparent;
+            bCristiano.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.cristiano));
             Controls.Add(bCristiano);
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
             lblEnigme.Dock = DockStyle.Fill;
@@ -80,10 +88,10 @@ namespace Cpln.Enigmos.Enigmas
             {
                 
                 b.FlatStyle = FlatStyle.Flat;
-                b.FlatAppearance.BorderColor = Color.White;
+                b.FlatAppearance.BorderColor = Color.FromArgb(174, 0, 1); 
                 b.BackColor = System.Drawing.Color.Transparent;
                 b.ForeColor = System.Drawing.Color.Transparent;
-                b.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Fesse));
+                b.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.supermeat));
                 Deplacement(b);
           
             }
