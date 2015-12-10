@@ -20,7 +20,7 @@ namespace Cpln.Enigmos.Enigmas
         public SeptDifferencesEnigmaPanel()
         { 
             //Elargissement de la form
-            this.Width = this.Width + 100;
+            this.Width = 900;
 
             //Création de la première PictureBox contenant la première image
             PictureBox Img1 = new PictureBox();
@@ -38,16 +38,7 @@ namespace Cpln.Enigmos.Enigmas
             Img2.Location = new Point(485,200);
             Controls.Add(Img2);
 
-            //Création du titre(donnée)
-            Label lblEnigme = new Label();
-            lblEnigme.Text = "Cherchez les 7 différences dans l'image de droite";
-            lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
-            lblEnigme.Dock = DockStyle.Fill;
-            lblEnigme.TextAlign = ContentAlignment.TopCenter;
-
-            Controls.Add(lblEnigme);
-
-        #region différences
+            #region différences
             //Première différence
             int iX1 = 195, iY1 = 6;
             PictureBox(pbx1, Img2, iX1, iY1);

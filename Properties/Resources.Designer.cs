@@ -141,6 +141,9 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap imageA {
             get {
                 object obj = ResourceManager.GetObject("imageA", resourceCulture);
+        internal static System.Drawing.Bitmap OpenDoor {
+            get {
+                object obj = ResourceManager.GetObject("OpenDoor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -151,6 +154,9 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap imageB {
             get {
                 object obj = ResourceManager.GetObject("imageB", resourceCulture);
+        internal static System.Drawing.Bitmap OpenDoor_Flowers {
+            get {
+                object obj = ResourceManager.GetObject("OpenDoor_Flowers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -161,6 +167,9 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap imageC {
             get {
                 object obj = ResourceManager.GetObject("imageC", resourceCulture);
+        internal static System.Drawing.Bitmap OpenDoor_Landscape {
+            get {
+                object obj = ResourceManager.GetObject("OpenDoor_Landscape", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -171,6 +180,9 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap imageD {
             get {
                 object obj = ResourceManager.GetObject("imageD", resourceCulture);
+        internal static System.Drawing.Bitmap OpenDoor_Solution {
+            get {
+                object obj = ResourceManager.GetObject("OpenDoor_Solution", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -201,6 +213,9 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap imageG {
             get {
                 object obj = ResourceManager.GetObject("imageG", resourceCulture);
+        internal static System.Drawing.Bitmap PartiJuste {
+            get {
+                object obj = ResourceManager.GetObject("PartiJuste", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -221,6 +236,26 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap SeptDifference2 {
             get {
                 object obj = ResourceManager.GetObject("SeptDifference2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Table {
+            get {
+                object obj = ResourceManager.GetObject("Table", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Verre {
+            get {
+                object obj = ResourceManager.GetObject("Verre", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
