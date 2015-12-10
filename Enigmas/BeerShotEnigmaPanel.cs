@@ -31,9 +31,11 @@ namespace Cpln.Enigmos.Enigmas
 
             // Panel de la bière
             panelBeer.BackgroundImage = Properties.Resources.BeerShot_Foncé;
-            panelBeer.Width = 100;
-            panelBeer.Width = 100;
+            panelBeer.Width = Properties.Resources.BeerShot_Foncé.Width;
+            panelBeer.Height = Properties.Resources.BeerShot_Foncé.Height;
             Controls.Add(panelBeer);
+
+            panelBeer.Location = new Point(200, 200);
         }
 
         private void boutonStart_Click(object sender, EventArgs e)

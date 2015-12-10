@@ -145,6 +145,7 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\beer_628x436.jpg" />
     <None Include="Resources\BeerShot_Foncé.png" />
     <None Include="Resources\bière jaune clair.jpg" />
     <None Include="Resources\BeerShot_Curseur.png" />
