@@ -34,7 +34,7 @@ namespace Cpln.Enigmos.Enigmas
 
         //création d'une liste
         List<Zombie> zombies = new List<Zombie>();//Liste de zombies
-        List<Zombie> zombiesATuer = new List<Zombie>();//Liste des zombies morts
+        List<Zombie> zombiesMort = new List<Zombie>();//Liste des zombies morts
         List<Coeur> coeurs = new List<Coeur>();//Liste des coeurs
 
         public ZombieInvasionEnigmaPanel()
@@ -132,29 +132,29 @@ namespace Cpln.Enigmos.Enigmas
                         }
                         else
                         {
-                            Timer.Stop();
-                            MessageBox.Show("Vous avez perdu !");
+                            Timer.Stop();//on stoppe le timer
+                            MessageBox.Show("Vous avez perdu !");//on affiche un message
                         }
 
                     }
                 }
                 catch (ArreterException exception)//si le zombie est arreter on lance une exeption 
                 {
-                    zombiesATuer.Add(zombie);//quand le zombie est tué
+                    zombiesMort.Add(zombie);//quand le zombie est tué
                 }
             }
 
-            foreach (Zombie zombie in zombiesATuer)
+            foreach (Zombie zombie in zombiesMort)//on parcours la liste de zombie mort
             {
-                zombies.Remove(zombie);
-                Controls.Remove(zombie);
+                zombies.Remove(zombie);//on enleve le zombie de liste de base de zombie
+                Controls.Remove(zombie);//on l'enleve de l'interface graphique
             }
 
-            foreach(Coeur coeur in coeurs)
+            foreach(Coeur coeur in coeurs)//on parcours la liste de coeur
             {
-                if(coeur.Enabled == false)
+                if(coeur.Enabled == false)//si le coeur est desactivé
                 {
-                    coeur.EnleverCoeur();
+                    coeur.EnleverCoeur();//on met le coeur en blanc
                 }
             }
         }
