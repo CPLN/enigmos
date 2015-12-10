@@ -34,7 +34,7 @@ namespace Cpln.Enigmos.Enigmas
                 PictureBox pbxPoisson = new PictureBox();
                 pbxPoisson.Size = new Size(34, 55);
                 pbxPoisson.Image = Properties.Resources.Poisson;
-                pbxPoisson.Location = new Point(RandomX.Next(0, 800 + pbxPoisson.Width), (i + 1) * -200 - pbxPoisson.Height);
+                pbxPoisson.Location = new Point(RandomX.Next(0, 800), (i + 1) * -200 - pbxPoisson.Height);
                 tblPoissons[i] = pbxPoisson;
                 tblObjet[i] = pbxPoisson;
                 Controls.Add(pbxPoisson);
@@ -49,6 +49,7 @@ namespace Cpln.Enigmos.Enigmas
 
             //Création label des point
             lblPoint.Location = new Point(0, 0);
+            lblPoint.Size = new Size(110, 15);
             lblPoint.Text = "Points : 0";
             Controls.Add(lblPoint);
 
@@ -111,8 +112,8 @@ namespace Cpln.Enigmos.Enigmas
             if(iPoint == 10)
             {
                 timer.Stop();
-                MessageBox.Show("Bravo, vous avez attrapé 10 poissons !\nLa réponse est <Dru !>", "Bravo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                lblPoint.Text = "La réponse est <Dru !>";
+                MessageBox.Show("Bravo, vous avez attrapé 10 poissons !\nLa réponse est Dru !", "Bravo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                lblPoint.Text = "La réponse est Dru";
             }
         }
 
