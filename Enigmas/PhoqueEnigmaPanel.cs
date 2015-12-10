@@ -25,7 +25,8 @@ namespace Cpln.Enigmos.Enigmas
             //Création du Phoque
             pbxPhoque.Size = new Size(85, 129);
             pbxPhoque.Image = Properties.Resources.Phoque1;
-            pbxPhoque.Location = new Point(400 - (pbxPhoque.Width / 2), 550 - pbxPhoque.Height); 
+            pbxPhoque.Location = new Point(400 - (pbxPhoque.Width / 2), 550 - pbxPhoque.Height);
+            pbxPhoque.BackColor = Color.Transparent;
             Controls.Add(pbxPhoque);
 
             //Création des poissons
@@ -35,15 +36,17 @@ namespace Cpln.Enigmos.Enigmas
                 pbxPoisson.Size = new Size(34, 55);
                 pbxPoisson.Image = Properties.Resources.Poisson;
                 pbxPoisson.Location = new Point(RandomX.Next(0, 800), (i + 1) * -200 - pbxPoisson.Height);
+                pbxPoisson.BackColor = Color.Transparent;
                 tblPoissons[i] = pbxPoisson;
                 tblObjet[i] = pbxPoisson;
                 Controls.Add(pbxPoisson);
             }
 
             //Création du Harpon
-            pbxHarpon.Size = new Size(34, 55);
-            pbxHarpon.BackColor = Color.Red;
-            pbxHarpon.Location = new Point(RandomX.Next(0, 800 + pbxHarpon.Width), 0 - pbxHarpon.Height);
+            pbxHarpon.Size = new Size(7, 45);
+            pbxHarpon.Location = new Point(RandomX.Next(0, 800), 0 - pbxHarpon.Height);
+            pbxHarpon.Image = Properties.Resources.Harpon;
+            pbxHarpon.BackColor = Color.Transparent;
             tblObjet[tblPoissons.Length] = pbxHarpon;
             Controls.Add(pbxHarpon);
 
@@ -112,7 +115,7 @@ namespace Cpln.Enigmos.Enigmas
             if(iPoint == 10)
             {
                 timer.Stop();
-                MessageBox.Show("Bravo, vous avez attrapé 10 poissons !\nLa réponse est Dru !", "Bravo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Bravo, vous avez attrapé 10 poissons !\nLa réponse est Dru !", "Bravo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblPoint.Text = "La réponse est Dru";
             }
         }

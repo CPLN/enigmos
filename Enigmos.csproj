@@ -145,6 +145,7 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\Harpon.png" />
     <None Include="Resources\Poisson.png" />
     <None Include="Resources\Phoque1.png" />
     <None Include="Resources\Montagne.png" />
