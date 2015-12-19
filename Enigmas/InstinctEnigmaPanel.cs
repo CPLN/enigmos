@@ -27,16 +27,16 @@ namespace Cpln.Enigmos.Enigmas
         //Evenement des clicks de boutons 
        private void Random_Click(object sender, EventArgs e)
        {
-           pnlImage.BackgroundImage = CliqueRandom(random);
+           pnlImage.BackgroundImage = CliqueRandom();
            
        }
        private void Random2_Click(object sender, EventArgs e)
        {
-           pnlImage.BackgroundImage = CliqueRandom(random);
+           pnlImage.BackgroundImage = CliqueRandom();
        }
        private void Random3_Click(object sender, EventArgs e)
        {
-           pnlImage.BackgroundImage = CliqueRandom(random);
+           pnlImage.BackgroundImage = CliqueRandom();
        }
        
         //Constructeur par défaut qui initiliase les proprieté de la première fenêtre.
@@ -49,9 +49,7 @@ namespace Cpln.Enigmos.Enigmas
             lblTexte.Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold);
             lblTexte.Size = new Size(800, 30);
             lblTexte.Location = new Point(100, 0);
-            btnChoix1.Location = new Point(200, 200);
-            btnChoix2.Location = new Point(320, 100);
-            btnChoix3.Location = new Point(400, 200);
+            
             Controls.Add(lblReponse);
             Controls.Add(lblTexte);
             Controls.Add(btnChoix1);
@@ -72,25 +70,27 @@ namespace Cpln.Enigmos.Enigmas
             btnChoix2.FlatStyle = FlatStyle.Flat;
             btnChoix3.FlatStyle = FlatStyle.Flat;
             btnChoix1.FlatAppearance.BorderColor = Color.White;
-           
-           
-        
-  
-    
+
+            btnChoix1.Location = new Point(200, 200);
+            btnChoix2.Location = new Point(320, 100);
+            btnChoix3.Location = new Point(400, 200);
+
+
+
 
 
             /*lblReponse.Text = "Réponse A : \n" + "Réponse B : \n" + "Réponse C : \n";
             lblReponse.Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold);
             lblReponse.Size = new Size(150, 70);
             lblReponse.Location = new Point(0, 0);*/
-           
-           /*while (!bFindeJeu)
-           {
-           
+
+            /*while (!bFindeJeu)
+            {
 
 
 
-           }*/
+
+            }*/
 
 
 
@@ -127,7 +127,7 @@ namespace Cpln.Enigmos.Enigmas
         }
 
         //fonction qui permet de générer alétoirement une image du tableau d'image.
-        private Image CliqueRandom(int random)
+        private Image CliqueRandom()
         {
             
             
@@ -152,27 +152,42 @@ namespace Cpln.Enigmos.Enigmas
             // on test si le premier affichage a été fait.
             if (iEtape == 0)
             {
-       
+                
                 iEtape = 1;
                 random = randomNombre.Next(1, 4);
                 if (random == 1)
                 {
+                    GenerationButton(iEtape);
+                    btnChoix1.Location = new Point(10, 200);
+                    btnChoix2.Location = new Point(100, 100);
+                    btnChoix3.Location = new Point(400, 200);
                     lblTexte.Text = "Vous arrivez dans la cuisine";
                     iNumeroImage = 1;
                     return imgFinaleDepart = aImageDeBase[2];
+                    
 
                 }
                 if (random == 2)
                 {
+                    GenerationButton(iEtape);
+                    btnChoix1.Location = new Point(150, 200);
+                    btnChoix2.Location = new Point(100, 100);
+                    btnChoix3.Location = new Point(400, 200);
                     lblTexte.Text = "Vous arrivez dans le salon";
                      iNumeroImage = 2;
                     return imgFinaleDepart = aImageDeBase[3];
+         
                 }
                 if (random == 3)
                 {
+                    GenerationButton(iEtape);
+                    btnChoix1.Location = new Point(100, 200);
+                    btnChoix2.Location = new Point(10, 100);
+                    btnChoix3.Location = new Point(40, 200);
                     lblTexte.Text = "Vous sentez une flatulence : vous êtes au WC !";
                      iNumeroImage = 3;
                     return imgFinaleDepart = aImageDeBase[4];
+         
                 }
             }
             if(iEtape == 1)
@@ -224,6 +239,7 @@ namespace Cpln.Enigmos.Enigmas
                                     DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
                                     if (perdu == DialogResult.OK)
                                     {
+                                        
                                         Application.Exit();
                                     }
                                 return imgFinaleDepart = aImageDeBase[1];
@@ -290,6 +306,88 @@ namespace Cpln.Enigmos.Enigmas
             
         }
 
+        // Fonction permettant de générer une couleur de fond pour chaque aléatoirement à chaque affichage
+        private void GenerationButton(int etape)
+        {
+            int i;
+            int randomCouleur;
+            int iButton1 = 0;
+            int iButton2 = 0;
+            int iButton3 = 0;
+            
+            if(etape == 1)
+            {
+                
+                for(i = 0; i < 3; i++)
+                {
+                  if(i == 0)
+                    {
+                        randomCouleur = randomNombre.Next(0, 3);
+                        iButton1 = randomCouleur;
+                        switch(iButton1)
+                        {
+                                case 0:
+                                btnChoix1.BackColor = Color.Red;
+                                break;
+                                case 1:
+                                btnChoix2.BackColor = Color.Yellow;
+                                break;
+                                case 2:
+                                btnChoix3.BackColor = Color.Green;
+                                break;
+                        }
+                    }
+                  if(i == 1)
+                    {
+                        randomCouleur = randomNombre.Next(0, 3);
+                        iButton2 = randomCouleur;
+                        while (iButton2 == iButton1)
+                        {
+                            randomCouleur = randomNombre.Next(0, 3);
+                            iButton2 = randomCouleur;
+                        }
+                        switch (iButton2)
+                        {
+                            case 0:
+                                btnChoix1.BackColor = Color.Red;
+                                break;
+                            case 1:
+                                btnChoix2.BackColor = Color.Yellow;
+                                break;
+                            case 2:
+                                btnChoix3.BackColor = Color.Green;
+                                break;
+                        }
+
+                    }
+                  if(i == 2)
+                    {
+                        randomCouleur = randomNombre.Next(0, 3);
+                        iButton3 = randomCouleur;
+                        while(iButton3 == iButton1 || iButton3 == iButton2)
+                        {
+                            randomCouleur = randomNombre.Next(0, 3);
+                            iButton3 = randomCouleur;
+                        }
+                        switch (iButton3)
+                        {
+                            case 0:
+                                btnChoix1.BackColor = Color.Red;
+                                break;
+                            case 1:
+                                btnChoix2.BackColor = Color.Yellow;
+                                break;
+                            case 2:
+                                btnChoix3.BackColor = Color.Green;
+                                break;
+                        }
+                    }
+
+                }
+              
+            }
+           
+        }
         
            
         
