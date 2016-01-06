@@ -18,7 +18,7 @@ namespace Cpln.Enigmos
         public static Enigma DebugEnigma()
         {
             //return new Enigma(new MorpionEnigmaPanel(), "Morpion");
-            return null;
+            return new Enigma(new MorpionEnigmaPanel(), "Morpion");
         }
 
         /// <summary>
