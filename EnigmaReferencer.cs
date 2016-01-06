@@ -45,6 +45,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new ReflexeEnigmaPanel(), "Reflexe"));
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
             enigmas.Add(new Enigma(new MorpionEnigmaPanel(), "Morpion"));
+
             enigmas.Shuffle();
             return enigmas;
         }
