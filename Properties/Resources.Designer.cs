@@ -61,6 +61,25 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream _2jzCarSound {
+            get {
+                return ResourceManager.GetStream("_2jzCarSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap car {
+            get {
+                object obj = ResourceManager.GetObject("car", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
         ///&lt;enigmas&gt;
         ///  &lt;enigma title=&quot;C&apos;est simple&quot;&gt;
@@ -75,8 +94,8 @@ namespace Cpln.Enigmos.Properties {
         ///    &lt;answer&gt;là-bas&lt;/answer&gt;
         ///    &lt;hint&gt;je t&apos;ai dis là-bas di diou&lt;/hint&gt;
         ///  &lt;/enigma&gt;
-        ///&lt;/enigmas&gt;
-        ///.
+        ///  &lt;enigma title=&quot;Appuie sur la réponse&quot;&gt;
+        ///    &lt;answer&gt;Branche  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string enigmas {
             get {
