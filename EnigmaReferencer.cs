@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new NfsEnigmaPanel(), "Need For Speed");
+            return new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle");
             
             //return null;
 
@@ -38,6 +38,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new NfsEnigmaPanel(), "Need For Speed"));
+            enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
 
             enigmas.Shuffle();
             return enigmas;
