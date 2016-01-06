@@ -111,7 +111,7 @@ namespace Cpln.Enigmos.Enigmas
 
             // Joueur qui commence
             //iPlayer = Convert.ToInt32(rBegin.Next(1, 3));
-            iPlayer = 2;
+            iPlayer = 1;
 
             if(iPlayer == 2)
             {
@@ -134,7 +134,7 @@ namespace Cpln.Enigmos.Enigmas
 
                 for(int iCpt = 0; iCpt < tIA1.Length; iCpt++)
                 {
-                    if(tPbx1[iCpt].BackColor == null)
+                    if(tPbx1[iCpt].BackColor == Color.White)
                     {
                         tPbx1[iCpt].BackColor = Color.Blue;
                         tIA1[iCpt] = 2;
@@ -271,7 +271,10 @@ namespace Cpln.Enigmos.Enigmas
                 }
             }
 
-            else if(iPlayer == 2)
+            // Changement de joueur (UNIQUEMENT POUR LES TESTS)
+            iPlayer = 1;
+
+            /*else if(iPlayer == 2)
             {
                 PictureBox[] tPbx2 = new PictureBox[] { pbxCase1, pbxCase2, pbxCase3, pbxCase4, pbxCase5, pbxCase6, pbxCase7, pbxCase8, pbxCase9 };
                 Random r = new Random();
@@ -287,7 +290,7 @@ namespace Cpln.Enigmos.Enigmas
                         iPlayer = 1;
                     }
                 }
-            }
+            }*/
         }
 
         private void ClickOnCase1(object sender, EventArgs e)
@@ -567,5 +570,10 @@ namespace Cpln.Enigmos.Enigmas
         {
             DialogResult dlgError = MessageBox.Show("Cette case a déjà été utilislée.\n\nMerci d'en utiliser une autre.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+    }
+
+    enum Couleur
+    {
+        VIDE, ROUGE, BLEU
     }
 }
