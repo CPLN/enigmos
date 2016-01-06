@@ -64,4 +64,8 @@
     <answer>citron vert</answer>
     <hint>Combien de troncs ? Quelle couleur ?</hint>
   </enigma>
+  <enigma title="Quelle est la lettre la plus haute ?">
+    <answer>Babtou</answer>
+    <hint>C'est pas ce que tu penses</hint>
+  </enigma>
 </enigmas>
