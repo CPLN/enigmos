@@ -17,7 +17,8 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new ReflexeEnigmaPanel(), "Reflexe");
+            //return new Enigma(new ReflexeEnigmaPanel(), "Reflexe");
+            return null;
         }
 
         /// <summary>
@@ -43,6 +44,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new ReflexeEnigmaPanel(), "Reflexe"));
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
+            enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
             enigmas.Shuffle();
             return enigmas;
         }

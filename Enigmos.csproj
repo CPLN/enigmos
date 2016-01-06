@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\FruitsEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -142,6 +145,10 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Resources\3bananes.png" />
+    <Content Include="Resources\banane_enigme.png" />
+    <Content Include="Resources\pomme.png" />
+    <Content Include="Resources\raisins.png" />
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
     <None Include="Resources\OpenDoor - Solution.png" />
