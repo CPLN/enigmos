@@ -99,6 +99,51 @@ namespace Cpln.Enigmos.Enigmas.Components
                 return null;
             }
 
+            public Node FindInGraph(T element)
+            {
+                string tagVisited = "__findInGraph__visited__";
+                List<Node> nodesToVisit = new List<Node>();
+                List<Node> visitedNodes = new List<Node>();
+
+                Node node = null;
+
+                nodesToVisit.Add(this);
+                while (nodesToVisit.Count > 0)
+                {
+                    Node current = nodesToVisit[0];
+                    nodesToVisit.RemoveAt(0);
+
+                    if (current.Tags.ContainsKey(tagVisited))
+                    {
+                        continue;
+                    }
+
+                    current.Tags[tagVisited] = true;
+                    visitedNodes.Add(current);
+
+                    foreach (Connection connection in current.Connections)
+                    {
+                        Node neighbor = connection.Neighbor;
+                        if (neighbor.Element.Equals(element))
+                        {
+                            node = neighbor;
+                            break;
+                        }
+                    }
+                }
+
+                foreach (Node nodeToClean in visitedNodes)
+                {
+                    nodeToClean.Tags.Remove(tagVisited);
+                }
+
+                if (node == null)
+                {
+                    throw new NotConnectedException(this, new Node(element));
+                }
+                return node;
+            }
+
             public int Distance(Node node)
             {
                 string tagVisited = "__distance__visited__";

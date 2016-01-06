@@ -139,6 +139,12 @@ namespace Cpln.Enigmos.Enigmas
 
             t1.Tick += new EventHandler(Timer_Tick);
 
+            pbxReponse1.Click += new EventHandler(ClickVrai);
+            pbxReponse2.Click += new EventHandler(ClickFaux);
+            pbxReponse3.Click += new EventHandler(ClickFaux);
+
+            // Démarrage du Timer pour écrire la réponse finale
+
             t1.Enabled = true;
             t1.Interval = 30000;
         }
@@ -158,8 +164,6 @@ namespace Cpln.Enigmos.Enigmas
             pbxReponse3.Enabled = false;
 
             DialogResult dlgSuccess = MessageBox.Show("Bravo !\nVeuillez entrer la couleur du bus pour continuer !\n\nVous avez 30 secondes pour écrire votre réponse...", "Correct", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-            // Démarrage du Timer pour écrire la réponse finale
         }
 
         private void Timer_Tick(object sender, EventArgs e)
