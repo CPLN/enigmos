@@ -15,7 +15,7 @@ namespace Cpln.Enigmos.Enigmas
         {
             Label lblEnigme = new Label();
 
-            lblEnigme.Text = "Quel est le mot le plus long dont aucune lettre ne se prononce ?";
+            lblEnigme.Text = "Quel est le nom de l'animal dont aucune lettre se prononce ?";
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
             lblEnigme.Dock = DockStyle.Fill;
             lblEnigme.TextAlign = ContentAlignment.MiddleCenter;
