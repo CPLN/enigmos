@@ -18,6 +18,9 @@ namespace Cpln.Enigmos.Enigmas
         private Random RandomX = new Random();
         private Timer timer = new Timer();
 
+         /// <summary>
+         /// Initialisation de tout les objets présent dans le jeu
+         /// </summary>
         public PhoqueEnigmaPanel()
         {
             //Initialisation des tableaux
@@ -67,6 +70,12 @@ namespace Cpln.Enigmos.Enigmas
             timer.Start();
 
         }
+
+        /// <summary>
+        /// Timer pour faire bouger les objets
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             //Penalisation lorsque le Phoque attrape le Harpon
@@ -116,7 +125,6 @@ namespace Cpln.Enigmos.Enigmas
                 pbxPhoque.Left += 10;
             }
 
-            //Affichage du message finale
             if(iPoint == 10)
             {
                 timer.Stop();
@@ -129,6 +137,11 @@ namespace Cpln.Enigmos.Enigmas
             }
         }
 
+        /// <summary>
+        /// Détecte si l'utilisateur appuie sur la touche D ou A
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public override void PressKey(object sender, KeyEventArgs e)
         {
             //Verification si les touches de déplacement sont appuyer
@@ -142,9 +155,15 @@ namespace Cpln.Enigmos.Enigmas
                 bGauche = true;
             }
         }
+
+        /// <summary>
+        /// Détecte si l'utilisateur relache sur la touche D ou A
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public override void ReleaseKey(object sender, KeyEventArgs e)
         {
-            //Verification si les touches de déplacement sont relachée
+            
             if(e.KeyCode == Keys.D)
             {
                 bDroite = false;
