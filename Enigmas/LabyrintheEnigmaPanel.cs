@@ -19,7 +19,8 @@ namespace Cpln.Enigmos.Enigmas
         List<Panel> Mur;
 
         //déclaration des variables
-        int iDepart, iNombreZone = 0, iNombreMur = 0, iSeconde, iSense;
+        int iDepart, iNombreZone = 0, iNombreMur = 0, iSeconde, iSense, iColonne, iLigne;
+        bool bGeneration = true, bColonne = false;
         private Timer tJeu = new Timer();
 
         public LabyrintheEnigmaPanel()
@@ -38,6 +39,7 @@ namespace Cpln.Enigmos.Enigmas
 
             //initialisation des listes et du graph
             Graph<Panel> graph = new Graph<Panel>(new Panel());
+            Graph<Label> lab = new Graph<Label>(new Label());
             Zonelaby = new List<Panel>();
             Mur = new List<Panel>();
 
@@ -47,14 +49,22 @@ namespace Cpln.Enigmos.Enigmas
 
         public override void Load()
         {
+            Label nbMur = new Label();
+            nbMur.Location = new Point(250, 250);
+            nbMur.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
+            nbMur.ForeColor = Color.Black;
+            nbMur.AutoSize = true;
+            Controls.Add(nbMur);
+
             //déclaration et utilisation du random
             Random random = new Random();
             iDepart = random.Next(1, 5);
 
+            /*
             //création du premir panel
             Panel zone = new Panel();
             zone.Name = "zone" + iNombreZone;
-            zone.Size = new Size(100, 100);
+            zone.Size = new Size(50, 50);
             zone.BackColor = Color.Red;
             Zonelaby.Add(zone);
             Controls.Add(zone);
@@ -77,17 +87,17 @@ namespace Cpln.Enigmos.Enigmas
             CréationMurs(Zonelaby);
             iNombreZone += 1;
 
+             */
+
             //création du personnage
             Panel personnage = new Panel();
             personnage.Size = new Size(25, 50);
-            personnage.Left = zone.Left;
-            personnage.Top = zone.Top;
             personnage.BackColor = Color.Black;
             Controls.Add(personnage);
         }
 
         private void CréationMurs (List<Panel> Zonelaby)
-        {
+        {/*
             for (int i = 1; i < 5; i++)
             {               
                 Panel mur = new Panel();
@@ -129,7 +139,9 @@ namespace Cpln.Enigmos.Enigmas
                 Zonelaby[iNombreZone].SendToBack();
                 Controls.Add(mur);
                 iNombreMur += 1;
-            }
+
+                
+            }*/           
         }
 
         private void timer_tJeu(object sender, EventArgs e)
@@ -143,6 +155,39 @@ namespace Cpln.Enigmos.Enigmas
                 iSense = random.Next(1, 5);
 
 
+            }
+
+           // nbMur.Text = Convert.ToString(iSeconde);
+            
+            if (bGeneration == true)
+            {
+                if (bColonne == false)
+                {
+                    Panel zone = new Panel();
+                    zone.Name = "zone" + iNombreZone;
+                    zone.Location = new Point(0 + iLigne, 0 + iColonne);
+                    zone.Size = new Size(50, 50);
+                    zone.BackColor = Color.Red;
+                    Zonelaby.Add(zone);
+                    Controls.Add(zone);
+                    iNombreZone += 1;
+                    iLigne += 50;
+
+                    if (iLigne >= Width)
+                    {
+                        bColonne = true;
+                    }
+                }
+                else
+                {
+                    iLigne = 0;
+                    iColonne += 50;
+                    bColonne = false;
+                    if (iColonne >= Height)
+                    {
+                        bGeneration = false;
+                    }
+                }
             }
         }
     }
