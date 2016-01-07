@@ -24,6 +24,7 @@ namespace Cpln.Enigmos.Enigmas
         List<Button> buttons = new List<Button>();
         bool[] brebondYA;
         bool[] brebondXA;
+        private static int clickCounter = 0;
         public TrouverEnigmaPanel()
         {
             //bGo = true;
@@ -41,6 +42,7 @@ namespace Cpln.Enigmos.Enigmas
                 b.Location = new Point(random.Next(800), random.Next(600));
                 b.Name = "Cristiano" + i;
                 Controls.Add(b);
+                b.Click += new EventHandler(b_Click);
                 brebondYA = new bool[i];
                 brebondXA = new bool[i];
             }
@@ -73,8 +75,16 @@ namespace Cpln.Enigmos.Enigmas
             //lblEnigme.Text = "fesse ?";
 
 
-
         }
+        private void b_Click(object sender, EventArgs e)
+        {
+            clickCounter++;
+            if (clickCounter > 10) // arbitrary number
+            {
+                Application.Exit();
+            }
+        }
+
         private void bCristiano_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Le mot à valider est cristiano", "Yo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
