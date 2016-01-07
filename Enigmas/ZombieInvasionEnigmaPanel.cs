@@ -17,7 +17,7 @@ namespace Cpln.Enigmos.Enigmas
         int iTimerCible = 0;//permet de compter les ticks du viseur
         int iTimerZombie = 0;//permet de faire spwaner les zombies a interval régulier
         int iNombresDeCoeurs = 0;//indique le nombre de coeur restant
-        int iChronometre = 500;//valeur du chronometre en haut a gauche
+        int iChronometre = 300;//valeur du chronometre en haut a gauche
 
         //déclaration des pricipaux éléments de l'énigme
         PictureBox pbxBackground = new PictureBox();
@@ -34,12 +34,22 @@ namespace Cpln.Enigmos.Enigmas
         int iTickRandomDroite;
 
         //création d'un timer
-        private Timer Timer = new Timer();
+        private Timer timer = new Timer();
 
         //création d'une liste
         List<Zombie> zombies = new List<Zombie>();//Liste de zombies
         List<Zombie> zombiesMort = new List<Zombie>();//Liste des zombies morts
         List<Coeur> coeurs = new List<Coeur>();//Liste des coeurs
+
+        public override void Load()
+        {
+            timer.Start();
+        }
+
+        public override void Unload()
+        {
+            timer.Stop();
+        }
 
         public ZombieInvasionEnigmaPanel()
         {            
@@ -66,15 +76,14 @@ namespace Cpln.Enigmos.Enigmas
             iTickRandomDroite = NextRandom();
 
             //placement du label
-            lblChronometre.Text = Convert.ToString(500);
+            lblChronometre.Text = Convert.ToString(300);
             lblChronometre.Font = new Font("Arial", 24, FontStyle.Bold);
             lblChronometre.Size = new Size(90, 30);
             lblChronometre.Location = new Point(30, 0);
 
             //Mise en place d'un timer
-            Timer.Interval = 100; // 10 millisecondes
-            Timer.Tick += new EventHandler(Timer_Tick);
-            Timer.Start();
+            timer.Interval = 100; // 10 millisecondes
+            timer.Tick += new EventHandler(Timer_Tick);
 
             //changement du curseur
             this.Cursor = new Cursor(Properties.Resources.CibleRouge.GetHicon());//de base on met le curseur en rouge
@@ -144,7 +153,7 @@ namespace Cpln.Enigmos.Enigmas
                         else
                         {
                             MessageBox.Show("Vous avez perdu !");//on affiche un message
-                            Timer.Stop();//on stoppe le timer                            
+                            Unload();                           
                         }
 
                     }
@@ -174,7 +183,7 @@ namespace Cpln.Enigmos.Enigmas
 
             if(iChronometre == 0)
             {
-                Timer.Stop();
+                Unload();
                 MessageBox.Show("La réponse est \'Cancun\' !");
             }
 
@@ -196,9 +205,13 @@ namespace Cpln.Enigmos.Enigmas
         /// <returns>Retourne un nombre aléatoire entre 60 et 120</returns>
         private int NextRandom()
         {
-            return random.Next(60, 120);
+            return random.Next(30, 70);
         }
 
+        /// <summary>
+        /// Permet de tuer un zombie
+        /// </summary>
+        /// <param name="zombie">Il faut préciser le zombie en question</param>
         public void TuerZombie(Zombie zombie)
         {
             zombies.Remove(zombie);
