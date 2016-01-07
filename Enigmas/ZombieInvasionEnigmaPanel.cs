@@ -17,11 +17,15 @@ namespace Cpln.Enigmos.Enigmas
         int iTimerCible = 0;//permet de compter les ticks du viseur
         int iTimerZombie = 0;//permet de faire spwaner les zombies a interval régulier
         int iNombresDeCoeurs = 0;//indique le nombre de coeur restant
+        int iChronometre = 500;//valeur du chronometre en haut a gauche
 
         //déclaration des pricipaux éléments de l'énigme
         PictureBox pbxBackground = new PictureBox();
         PictureBox pbxBatiment = new PictureBox();
         PictureBox pbxCible = new PictureBox();
+
+        //déclaration des labels
+        Label lblChronometre = new Label();
 
         //Création d'un objet Random
         Random random = new Random();
@@ -61,6 +65,12 @@ namespace Cpln.Enigmos.Enigmas
             iTickRandomGauche = NextRandom();
             iTickRandomDroite = NextRandom();
 
+            //placement du label
+            lblChronometre.Text = Convert.ToString(500);
+            lblChronometre.Font = new Font("Arial", 24, FontStyle.Bold);
+            lblChronometre.Size = new Size(90, 30);
+            lblChronometre.Location = new Point(30, 0);
+
             //Mise en place d'un timer
             Timer.Interval = 100; // 10 millisecondes
             Timer.Tick += new EventHandler(Timer_Tick);
@@ -73,6 +83,7 @@ namespace Cpln.Enigmos.Enigmas
             MouseClick += new MouseEventHandler(PanelClick);
 
             //ajout de l'image
+            Controls.Add(lblChronometre);
             Controls.Add(pbxCible);
             Controls.Add(pbxBatiment);
             Controls.Add(coeur1);
@@ -81,13 +92,13 @@ namespace Cpln.Enigmos.Enigmas
         }
 
         //evenements
-        private void PanelClick(object sender, MouseEventArgs e)//quand on click sur le panel
+        public void PanelClick(object sender, MouseEventArgs e)//quand on click sur le panel
         {
             this.Cursor = new Cursor(Properties.Resources.CibleNoir.GetHicon());//changement de l'image du curseur
             bViseurRouge = false;//on inverse la variable une fois que l'utilisateur à cliquer
             iTimerCible = 0;//on remet la varaible à zero
         }
- 
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             //permet d'ajouter un zombie si 100 tick se sont écoulés
@@ -132,8 +143,8 @@ namespace Cpln.Enigmos.Enigmas
                         }
                         else
                         {
-                            Timer.Stop();//on stoppe le timer
                             MessageBox.Show("Vous avez perdu !");//on affiche un message
+                            Timer.Stop();//on stoppe le timer                            
                         }
 
                     }
@@ -146,8 +157,7 @@ namespace Cpln.Enigmos.Enigmas
 
             foreach (Zombie zombie in zombiesMort)//on parcours la liste de zombie mort
             {
-                zombies.Remove(zombie);//on enleve le zombie de liste de base de zombie
-                Controls.Remove(zombie);//on l'enleve de l'interface graphique
+                TuerZombie(zombie);
             }
 
             foreach(Coeur coeur in coeurs)//on parcours la liste de coeur
@@ -157,6 +167,17 @@ namespace Cpln.Enigmos.Enigmas
                     coeur.EnleverCoeur();//on met le coeur en blanc
                 }
             }
+
+            //gestion du chronometre
+            iChronometre--;
+            lblChronometre.Text = Convert.ToString(iChronometre);
+
+            if(iChronometre == 0)
+            {
+                Timer.Stop();
+                MessageBox.Show("La réponse est \'Cancun\' !");
+            }
+
         }
 
         /// <summary>
@@ -176,6 +197,12 @@ namespace Cpln.Enigmos.Enigmas
         private int NextRandom()
         {
             return random.Next(60, 120);
+        }
+
+        public void TuerZombie(Zombie zombie)
+        {
+            zombies.Remove(zombie);
+            Controls.Remove(zombie);
         }
     }
 }

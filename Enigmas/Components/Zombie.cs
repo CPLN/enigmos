@@ -13,16 +13,18 @@ namespace Cpln.Enigmos.Enigmas.Components
         private bool bZombieStop = false;//definit si le zombie est arreter
         private Direction direction;//définit la direction du zombie
         private PictureBox pbxBatiment;//image du batiment
+        private ZombieInvasionEnigmaPanel parent;//déclaration du parent
 
         /// <summary>
         /// C'est le constructeur par défaut de la classe zombie
         /// </summary>
         /// <param name="parent">on doit lui envoyer le panel en parametre</param>
-        public Zombie(EnigmaPanel parent, Direction direction, PictureBox pbxBatiment)
+        public Zombie(ZombieInvasionEnigmaPanel parent, Direction direction, PictureBox pbxBatiment)
         {
             this.Size = Properties.Resources.ZombieDroite.Size; //on définit la taille de l'image
             this.direction = direction;
             this.pbxBatiment = pbxBatiment;
+            this.parent = parent;
 
             //on affecte différent paramétre selon la position du zombie
             if (direction == Direction.GAUCHE)
@@ -35,6 +37,8 @@ namespace Cpln.Enigmos.Enigmas.Components
                 this.Location = new Point(0, parent.Height - this.Height);//place les zombies sur le panel
                 this.Image = Properties.Resources.ZombieGauche;//définit une image
             }
+
+            MouseClick += new MouseEventHandler(ZombieClick);
         }
 
         /// <summary>
@@ -106,7 +110,12 @@ namespace Cpln.Enigmos.Enigmas.Components
             return true;
         }
 
-        
+        private void ZombieClick(object sender, MouseEventArgs e)
+        {
+            parent.PanelClick(sender, e);
+            parent.TuerZombie(this);
+
+        }
     }
 
     /// <summary>
