@@ -70,13 +70,18 @@ namespace Cpln.Enigmos.Enigmas
             btnChoix2.FlatStyle = FlatStyle.Flat;
             btnChoix3.FlatStyle = FlatStyle.Flat;
             btnChoix1.FlatAppearance.BorderColor = Color.White;
+            btnChoix2.FlatAppearance.BorderColor = Color.White;
+            btnChoix3.FlatAppearance.BorderColor = Color.White;
 
-            btnChoix1.Location = new Point(200, 200);
-            btnChoix2.Location = new Point(320, 100);
+            btnChoix1.Location = new Point(30, 200);
+            btnChoix2.Location = new Point(600, 300);
             btnChoix3.Location = new Point(400, 200);
+            
+            
 
-
-
+            btnChoix1.BackColor = Color.Transparent;
+            btnChoix2.BackColor = Color.Transparent;
+            btnChoix3.BackColor = Color.Transparent;
 
 
             /*lblReponse.Text = "Réponse A : \n" + "Réponse B : \n" + "Réponse C : \n";
@@ -91,7 +96,14 @@ namespace Cpln.Enigmos.Enigmas
 
 
             }*/
+            btnChoix1.MouseHover += new EventHandler(btnChoix1rouge_MouseHover);
+            btnChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
 
+            btnChoix2.MouseHover += new EventHandler(btnChoix2jaune_MouseHover);
+            btnChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
+
+            btnChoix3.MouseHover += new EventHandler(btnChoix3vert_MouseHover);
+            btnChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
          
 
 
@@ -114,65 +126,81 @@ namespace Cpln.Enigmos.Enigmas
 
             // Image[] images = new Image[2]{Properties.Resources.depart, Properties.Resources.depart, Properties.Resources.depart };
 
-
-
-           
-
+            
 
 
 
 
 
+            
+
+
+        }
+        void btnChoix1MouseLeave(object sender, EventArgs e)
+        {
+            btnChoix1.BackColor = Color.White;
+        }
+        void btnChoix2MouseLeave(object sender, EventArgs e)
+        {
+            btnChoix2.BackColor = Color.White;
+        }
+        void btnChoix3MouseLeave(object sender, EventArgs e)
+        {
+            btnChoix3.BackColor = Color.White;
         }
         void btnChoix1rouge_MouseHover(object sender, EventArgs e)
         {
             btnChoix1.BackColor = Color.Red;
+            Cursor.Current = System.Windows.Forms.Cursors.Hand;
         }
         void btnChoix1jaune_MouseHover(object sender, EventArgs e)
         {
             btnChoix1.BackColor = Color.Yellow;
+            Cursor.Current = System.Windows.Forms.Cursors.Hand;
         }
         void btnChoix1vert_MouseHover(object sender, EventArgs e)
         {
             btnChoix1.BackColor = Color.Green;
+            Cursor.Current = System.Windows.Forms.Cursors.Hand;
         }
-        void btnChoix1_MouseLeave(object sender, EventArgs e)
-        {
-            this.btnChoix1.BackColor = Color.White;
-        }
+        
 
         void btnChoix2rouge_MouseHover(object sender, EventArgs e)
         {
             btnChoix2.BackColor = Color.Red;
+            Cursor.Current = System.Windows.Forms.Cursors.Hand;
         }
         void btnChoix2jaune_MouseHover(object sender, EventArgs e)
         {
             btnChoix2.BackColor = Color.Yellow;
+            Cursor.Current = System.Windows.Forms.Cursors.Hand;
         }
         void btnChoix2vert_MouseHover(object sender, EventArgs e)
         {
             btnChoix2.BackColor = Color.Green;
+            Cursor.Current = System.Windows.Forms.Cursors.Hand;
         }
-        void btnChoix2_MouseLeave(object sender, EventArgs e)
-        {
-            this.btnChoix2.BackColor = Color.White;
-        }
+       
 
         void btnChoix3rouge_MouseHover(object sender, EventArgs e)
         {
             btnChoix3.BackColor = Color.Red;
+            Cursor.Current = System.Windows.Forms.Cursors.Hand;
         }
         void btnChoix3jaune_MouseHover(object sender, EventArgs e)
         {
             btnChoix3.BackColor = Color.Yellow;
+            Cursor.Current = System.Windows.Forms.Cursors.Hand;
         }
         void btnChoix3vert_MouseHover(object sender, EventArgs e)
         {
             btnChoix3.BackColor = Color.Green;
+            Cursor.Current = System.Windows.Forms.Cursors.Hand;
         }
-        void btnChoix3_MouseLeave(object sender, EventArgs e)
+        void btnChoix1_MouseLeave(object sender, EventArgs e)
         {
-            this.btnChoix3.BackColor = Color.White;
+            this.btnChoix1.BackColor = Color.White;
+            Cursor.Current = System.Windows.Forms.Cursors.Default;
         }
 
 
@@ -183,13 +211,14 @@ namespace Cpln.Enigmos.Enigmas
             
             Image depart = Properties.Resources.salle_de_bain;
             Image imageDefaite = Properties.Resources.bluescreen;
-            Image imageDepart1 = Properties.Resources.cuisine;
+            Image imageDepart1 = Properties.Resources.Etage_2;
             Image imageDepart2 = Properties.Resources.chambre;
-            Image imageDepart3 = Properties.Resources.Etage_2;
-            Image imageMilieu4 = Properties.Resources.étage;
-            Image imageMilieu5 = Properties.Resources.cave;
+            Image imageDepart3 = Properties.Resources.étage;
+            Image imageMilieu4 = Properties.Resources.escalier;
+            Image imageMilieu5 = Properties.Resources.salon;
             Image imageMilieu6 = Properties.Resources.escalier;
             Image imageFin = Properties.Resources.sortie;
+          
             //Image imageDepart4 = Properties.Resources.assassinat;
             //Image imageDepart5 = Properties.Resources.buanderie;
             //Image imageDepart6 = Properties.Resources.grenier;
@@ -202,121 +231,137 @@ namespace Cpln.Enigmos.Enigmas
             // on test si le premier affichage a été fait.
             if (iEtape == 0)
             {
-                
+
+                GenerationButton(iEtape);
+
                 iEtape = 1;
                 random = randomNombre.Next(1, 4);
                 if (random == 1)
                 {
+                   
+
                     GenerationButton(iEtape);
                     btnChoix1.Location = new Point(10, 200);
                     btnChoix2.Location = new Point(100, 100);
                     btnChoix3.Location = new Point(400, 200);
-                    lblTexte.Text = "Vous arrivez dans la cuisine";
+                    lblTexte.Text = "Le couloir semble calme...";
                     iNumeroImage = 1;
                     return imgFinaleDepart = aImageDeBase[2];
-                    
 
+                  
                 }
                 if (random == 2)
                 {
+                    
                     GenerationButton(iEtape);
                     btnChoix1.Location = new Point(150, 200);
                     btnChoix2.Location = new Point(100, 100);
                     btnChoix3.Location = new Point(400, 200);
-                    lblTexte.Text = "Vous arrivez dans le salon";
-                     iNumeroImage = 2;
+                    lblTexte.Text = "Apparement, c'est une chambre d'enfant";
+                    iNumeroImage = 2;
                     return imgFinaleDepart = aImageDeBase[3];
-         
+                   
+
                 }
                 if (random == 3)
                 {
+                  
                     GenerationButton(iEtape);
                     btnChoix1.Location = new Point(100, 200);
                     btnChoix2.Location = new Point(10, 100);
                     btnChoix3.Location = new Point(40, 200);
-                    lblTexte.Text = "Vous sentez une flatulence : vous êtes au WC !";
-                     iNumeroImage = 3;
+                    lblTexte.Text = "Le froid semble vous atteindre dans ce couloir";
+                    iNumeroImage = 3;
                     return imgFinaleDepart = aImageDeBase[4];
-         
+
                 }
+
+
             }
             if(iEtape == 1)
             {
                
                 switch(iNumeroImage)
                 {
+                     
                     case 1 :
+                        
                         iNumeroImage = 4;
                         random = randomNombre.Next(1, 4);
                             if (random == 1)
                                  {
+                                     
                                 iEtape = 0;
+                                lblTexte.Text = "Cette pièce vous semble familier";
                                 return imgFinaleDepart = aImageDeBase[0];
+                               
 
                                  }
                             if (random == 2)
                                 {
+                                   
                                     iEtape = 2;
+                                    lblTexte.Text = "Vous semblez être au rez-de-chaussez"; 
                                  return imgFinaleDepart = aImageDeBase[5];
+                                 
                                 }
                             if (random == 3)
                                 {
                                     
                                
                                 DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
-                                {
-                                    Application.Exit();
-                                }
+                               
                                 return imgFinaleDepart = aImageDeBase[1];
                                 }
                      break;
                     case 2:
+                   
                      iNumeroImage = 5;
                                random = randomNombre.Next(1, 4);
                             if (random == 1)
                                  {
                                 iEtape = 0;
+                                lblTexte.Text = "Cette pièce vous semble familier";
                                 return imgFinaleDepart = aImageDeBase[0];
 
                                  }
                             if (random == 2)
                                 {
                                     iEtape = 2;
+                                    lblTexte.Text = "Le salon est bien accueillant";
                                  return imgFinaleDepart = aImageDeBase[6];
                                 }
                             if (random == 3)
                                 {
                                     DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
                                     if (perdu == DialogResult.OK)
-                                    {
-                                        
-                                        Application.Exit();
-                                    }
+                                   
                                 return imgFinaleDepart = aImageDeBase[1];
                                 }
                      break;
                     case 3:
+                    
                      iNumeroImage = 6;
                                random = randomNombre.Next(1, 4);
                             if (random == 1)
                                  {
                                 iEtape = 0;
+                                lblTexte.Text = "Cette pièce vous semble familière";
                                 return imgFinaleDepart = aImageDeBase[0];
 
                                  }
                             if (random == 2)
                                 {
                                     iEtape = 2;
-                                 return imgFinaleDepart = aImageDeBase[7];
+                                    lblTexte.Text = "Apparement, c'est une chambre d'enfant";
+                                 return imgFinaleDepart = aImageDeBase[2];
                                 }
                             if (random == 3)
                                 {
                                     DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
 
                                   if(perdu == DialogResult.OK)
-                                  {
-                                      Application.Exit();
-                                  }
+                                
                                 return imgFinaleDepart = aImageDeBase[1];
                                 }
                      break;
@@ -335,18 +380,17 @@ namespace Cpln.Enigmos.Enigmas
                 }
                 if (random == 2)
                 {
-                    lblTexte.Text = "Vous arrivez dans le salon";
-                    iNumeroImage = 2;
-                    return imgFinaleDepart = aImageDeBase[3];
+                    iEtape = 1;
+            
+                  
+                    
                 }
                 if (random == 3)
                 {
                     DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
 
                     if (perdu == DialogResult.OK)
-                    {
-                        Application.Exit();
-                    }
+                 
                     return imgFinaleDepart = aImageDeBase[1];
                 }
             }
@@ -359,6 +403,7 @@ namespace Cpln.Enigmos.Enigmas
         // Fonction permettant de générer une couleur de fond pour chaque aléatoirement à chaque affichage
         private void GenerationButton(int etape)
         {
+            
             int i;
             int randomCouleur;
             int iButton1 = 0;
@@ -372,24 +417,29 @@ namespace Cpln.Enigmos.Enigmas
                 {
                   if(i == 0)
                     {
+                        
                         randomCouleur = randomNombre.Next(0, 3);
                         iButton1 = randomCouleur;
                         switch(iButton1)
                         {
                                 case 0:
                                 btnChoix1.BackColor = Color.Red;
+                                
                                 break;
                                 case 1:
                                 btnChoix1.BackColor = Color.Yellow;
+                          
                                 break;
                                 case 2:
                                 btnChoix1.BackColor = Color.Green;
+                                
                                 break;
                         }
                         
                     }
                   if(i == 1)
                     {
+                        btnChoix2.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
                         randomCouleur = randomNombre.Next(0, 3);
                         iButton2 = randomCouleur;
                         while (iButton2 == iButton1)
@@ -401,12 +451,15 @@ namespace Cpln.Enigmos.Enigmas
                         {
                             case 0:
                                 btnChoix2.BackColor = Color.Red;
+                               
                                 break;
                             case 1:
                                 btnChoix2.BackColor = Color.Yellow;
+                            
                                 break;
                             case 2:
                                 btnChoix2.BackColor = Color.Green;
+                               
                                 break;
                         }
                         
@@ -415,6 +468,7 @@ namespace Cpln.Enigmos.Enigmas
                     {
                         randomCouleur = randomNombre.Next(0, 3);
                         iButton3 = randomCouleur;
+                        btnChoix3.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
                         while(iButton3 == iButton1 || iButton3 == iButton2)
                         {
                             randomCouleur = randomNombre.Next(0, 3);
@@ -424,72 +478,80 @@ namespace Cpln.Enigmos.Enigmas
                         {
                             case 0:
                                 btnChoix3.BackColor = Color.Red;
+                                
                                 break;
                             case 1:
                                 btnChoix3.BackColor = Color.Yellow;
+                                
                                 break;
                             case 2:
                                 btnChoix3.BackColor = Color.Green;
+                               
                                 break;
                         }
                         
                     }
 
                 }
-               
-                if (btnChoix1.BackColor == Color.Red)
-                {
-                    btnChoix1.MouseHover += new EventHandler(btnChoix1rouge_MouseHover);
-                    btnChoix1.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
-                }
-               
-                if (btnChoix1.BackColor == Color.Yellow)
-                {
-                    btnChoix1.MouseHover += new EventHandler(btnChoix1jaune_MouseHover);
-                    btnChoix1.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
-                }
-               
-                if (btnChoix1.BackColor == Color.Green)
-                {
-                    btnChoix1.MouseHover += new EventHandler(btnChoix1vert_MouseHover);
-                    btnChoix1.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
-                }
-            
-
-                if (btnChoix2.BackColor == Color.Red)
-                {
-                    btnChoix2.MouseHover += new EventHandler(btnChoix2rouge_MouseHover);
-                    btnChoix2.MouseLeave += new EventHandler(btnChoix2_MouseLeave);
-                }
-                if (btnChoix2.BackColor == Color.Yellow)
-                {
-                    btnChoix2.MouseHover += new EventHandler(btnChoix2jaune_MouseHover);
-                    btnChoix2.MouseLeave += new EventHandler(btnChoix2_MouseLeave);
-                }
-              
-                if (btnChoix2.BackColor == Color.Green)
-                {
-                    btnChoix2.MouseHover += new EventHandler(btnChoix2vert_MouseHover);
-                    btnChoix2.MouseLeave += new EventHandler(btnChoix2_MouseLeave);
-                }
+                
+               if(btnChoix1.BackColor == Color.Red)
+               {
+                   btnChoix1.BackColor = Color.White;
+                   btnChoix1.MouseHover += new EventHandler(btnChoix1rouge_MouseHover);
+                   btnChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
+               }
+               if (btnChoix1.BackColor == Color.Yellow)
+               {
+                   btnChoix1.BackColor = Color.White;
+                   btnChoix1.MouseHover += new EventHandler(btnChoix1jaune_MouseHover);
+                   btnChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
+               }
+               if (btnChoix1.BackColor == Color.Green)
+               {
+                   btnChoix1.BackColor = Color.White;
+                   btnChoix1.MouseHover += new EventHandler(btnChoix1vert_MouseHover);
+                   btnChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
+               }
                
                 
+               if (btnChoix2.BackColor == Color.Red)
+               {
+                   btnChoix2.BackColor = Color.White;
+                   btnChoix2.MouseHover += new EventHandler(btnChoix2rouge_MouseHover);
+                   btnChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
+               }
+               if (btnChoix2.BackColor == Color.Yellow)
+               {
+                   btnChoix2.BackColor = Color.White;
+                   btnChoix2.MouseHover += new EventHandler(btnChoix2jaune_MouseHover);
+                   btnChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
+               }
+               if (btnChoix2.BackColor == Color.Green)
+               {
+                   btnChoix2.BackColor = Color.White;
+                   btnChoix2.MouseHover += new EventHandler(btnChoix2vert_MouseHover);
+                   btnChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
+               }
 
-                if (btnChoix3.BackColor == Color.Red)
-                {
-                    btnChoix3.MouseHover += new EventHandler(btnChoix3rouge_MouseHover);
-                    btnChoix3.MouseLeave += new EventHandler(btnChoix3_MouseLeave);
-                }
-                if (btnChoix3.BackColor == Color.Yellow)
-                {
-                    btnChoix3.MouseHover += new EventHandler(btnChoix3jaune_MouseHover);
-                    btnChoix3.MouseLeave += new EventHandler(btnChoix3_MouseLeave);
-                }
-                if (btnChoix3.BackColor == Color.Green)
-                {
-                    btnChoix3.MouseHover += new EventHandler(btnChoix3vert_MouseHover);
-                    btnChoix3.MouseLeave += new EventHandler(btnChoix3_MouseLeave);
-                }
+
+               if (btnChoix3.BackColor == Color.Red)
+               {
+                   btnChoix3.BackColor = Color.White;
+                   btnChoix3.MouseHover += new EventHandler(btnChoix3rouge_MouseHover);
+                   btnChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
+               }
+               if (btnChoix3.BackColor == Color.Yellow)
+               {
+                   btnChoix3.BackColor = Color.White;
+                   btnChoix3.MouseHover += new EventHandler(btnChoix3jaune_MouseHover);
+                   btnChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
+               }
+               if (btnChoix3.BackColor == Color.Green)
+               {
+                   btnChoix3.BackColor = Color.White;
+                   btnChoix3.MouseHover += new EventHandler(btnChoix3vert_MouseHover);
+                   btnChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
+               }
                 
             }
           
