@@ -60,7 +60,10 @@ namespace Cpln.Enigmos.Enigmas
         {
             timer.Start();
         }
-
+        public override void Unload()
+        {
+            timer.Stop();
+        }
         /// <summary>
         /// Crée le prérequis de mon égnime
         /// </summary>
