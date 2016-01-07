@@ -17,7 +17,7 @@ namespace Cpln.Enigmos.Enigmas
         int iTimerCible = 0;//permet de compter les ticks du viseur
         int iTimerZombie = 0;//permet de faire spwaner les zombies a interval régulier
         int iNombresDeCoeurs = 0;//indique le nombre de coeur restant
-        int iChronometre = 300;//valeur du chronometre en haut a gauche
+        int iChronometre = 200;//valeur du chronometre en haut a gauche
 
         //déclaration des pricipaux éléments de l'énigme
         PictureBox pbxBackground = new PictureBox();
@@ -30,6 +30,7 @@ namespace Cpln.Enigmos.Enigmas
         //Création d'un objet Random
         Random random = new Random();
 
+        //permet de faire spawner les zombies a interval différent
         int iTickRandomGauche;
         int iTickRandomDroite;
 
@@ -76,7 +77,7 @@ namespace Cpln.Enigmos.Enigmas
             iTickRandomDroite = NextRandom();
 
             //placement du label
-            lblChronometre.Text = Convert.ToString(300);
+            lblChronometre.Text = Convert.ToString(200);
             lblChronometre.Font = new Font("Arial", 24, FontStyle.Bold);
             lblChronometre.Size = new Size(90, 30);
             lblChronometre.Location = new Point(30, 0);
@@ -139,7 +140,6 @@ namespace Cpln.Enigmos.Enigmas
             //fait avancer chaque zombie se trouvant dans la liste de zombie
             foreach (Zombie zombie in zombies)
             {
-
                 try
                 {
                     zombie.Avancer();//fait avancer le zombie contre la gauche
@@ -152,8 +152,8 @@ namespace Cpln.Enigmos.Enigmas
                         }
                         else
                         {
-                            MessageBox.Show("Vous avez perdu !");//on affiche un message
-                            Unload();                           
+                            timer.Stop();                        
+                            MessageBox.Show("Vous avez perdu !");//on affiche un message                            
                         }
 
                     }
@@ -183,8 +183,8 @@ namespace Cpln.Enigmos.Enigmas
 
             if(iChronometre == 0)
             {
-                Unload();
-                MessageBox.Show("La réponse est \'Cancun\' !");
+                timer.Stop();
+                MessageBox.Show("La réponse est \"Cancun\" !");
             }
 
         }
