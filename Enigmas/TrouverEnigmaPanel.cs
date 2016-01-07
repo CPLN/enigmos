@@ -36,7 +36,7 @@ namespace Cpln.Enigmos.Enigmas
                 Button b = new Button();
                 buttons.Add(b);
                 this.Controls.Add(b);
-                b.Text = "" + i;
+                //b.Text = "" + i;
                 b.Size = new Size(100, 100);
                 b.Location = new Point(random.Next(800), random.Next(600));
                 b.Name = "Cristiano" + i;
