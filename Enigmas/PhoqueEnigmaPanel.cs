@@ -117,8 +117,7 @@ namespace Cpln.Enigmos.Enigmas
                         iPoint += 1;
                         tblPointAttribue[i] = false;
                     }
-                }
-
+                } 
                 lblPoint.Text = "Points : " + iPoint;
             }
             
