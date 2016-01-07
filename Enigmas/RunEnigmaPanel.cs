@@ -35,7 +35,6 @@ namespace Cpln.Enigmos.Enigmas
             //timer
             timer.Interval = 1;
             timer.Tick += new EventHandler(Timer_Tick);
-            timer.Start();
 
             //Création des obstacles
             pbxCaillou.Size = new Size(116, 65);
@@ -56,9 +55,12 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(pbxHomme);
             Controls.Add(pbxCaillou);
             Controls.Add(pbxTronc);
-
         }
-        
+        public override void Load()
+        {
+            timer.Start();
+        }
+
         /// <summary>
         /// Crée le prérequis de mon égnime
         /// </summary>
