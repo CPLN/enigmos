@@ -28,14 +28,14 @@ namespace Cpln.Enigmos.Enigmas
             //Changement de l'image de fond
             this.BackgroundImage = Properties.Resources.Montagne;
 
-            //Création du Phoque
+            //Initialisation du phoque
             pbxPhoque.Size = new Size(85, 129);
             pbxPhoque.Image = Properties.Resources.Phoque1;
             pbxPhoque.Location = new Point(400 - (pbxPhoque.Width / 2), 550 - pbxPhoque.Height);
             pbxPhoque.BackColor = Color.Transparent;
             Controls.Add(pbxPhoque);
 
-            //Création des poissons
+            //Initialisation des poissons
             for (int i = 0; i < tblPoissons.Length; i++)
             {
                 PictureBox pbxPoisson = new PictureBox();
@@ -48,7 +48,7 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(pbxPoisson);
             }
 
-            //Création du Harpon
+            //Initialisation du harpon
             pbxHarpon.Size = new Size(7, 45);
             pbxHarpon.Location = new Point(RandomX.Next(0, 800), 0 - pbxHarpon.Height);
             pbxHarpon.Image = Properties.Resources.Harpon;
@@ -56,7 +56,7 @@ namespace Cpln.Enigmos.Enigmas
             tblObjet[tblPoissons.Length] = pbxHarpon;
             Controls.Add(pbxHarpon);
 
-            //Création label des point
+            //Création du label coompteur de point
             lblPoint.Location = new Point(0, 0);
             lblPoint.Size = new Size(200, 20);
             lblPoint.Text = "Points : 0";
@@ -64,7 +64,7 @@ namespace Cpln.Enigmos.Enigmas
             lblPoint.Font = new Font(fontFamily, 12); 
             Controls.Add(lblPoint);
 
-            //Timer
+            //Initialisation du timer
             timer.Interval = 1;
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
@@ -78,7 +78,7 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
-            //Penalisation lorsque le Phoque attrape le Harpon
+            //remise à zero du nombre de point lorsque le phoque attrape un harpon
             if (pbxHarpon.Top == 450 && pbxHarpon.Visible == false)
             {
                 iPoint = 0;
@@ -125,6 +125,7 @@ namespace Cpln.Enigmos.Enigmas
                 pbxPhoque.Left += 10;
             }
 
+            //Affichage du message de fin lorsque le joueur atteint l'objectif
             if(iPoint == 10)
             {
                 timer.Stop();
@@ -144,7 +145,6 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         public override void PressKey(object sender, KeyEventArgs e)
         {
-            //Verification si les touches de déplacement sont appuyer
             if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
             {
                 bDroite = true;   
