@@ -17,7 +17,7 @@ namespace Cpln.Enigmos.Enigmas
         int iTimerCible = 0;//permet de compter les ticks du viseur
         int iTimerZombie = 0;//permet de faire spwaner les zombies a interval régulier
         int iNombresDeCoeurs = 0;//indique le nombre de coeur restant
-        int iChronometre = 200;//valeur du chronometre en haut a gauche
+        int iChronometre = 2000;//valeur du chronometre en haut a gauche
 
         //déclaration des pricipaux éléments de l'énigme
         PictureBox pbxBackground = new PictureBox();
@@ -57,7 +57,7 @@ namespace Cpln.Enigmos.Enigmas
             //Modification des parametre du panel de base
             Screen myScreen = Screen.PrimaryScreen;
             this.Width = (myScreen.WorkingArea.Width);
-            this.Height = (myScreen.WorkingArea.Height) - 100;
+            this.Height = 400;
 
             //création des coeurs
             Coeur coeur1 = new Coeur(new Point(this.Right - 50, 0));
@@ -77,13 +77,13 @@ namespace Cpln.Enigmos.Enigmas
             iTickRandomDroite = NextRandom();
 
             //placement du label
-            lblChronometre.Text = Convert.ToString(200);
+            lblChronometre.Text = Convert.ToString(iChronometre);
             lblChronometre.Font = new Font("Arial", 24, FontStyle.Bold);
-            lblChronometre.Size = new Size(90, 30);
+            lblChronometre.Size = new Size(120, 30);
             lblChronometre.Location = new Point(30, 0);
 
             //Mise en place d'un timer
-            timer.Interval = 100; // 10 millisecondes
+            timer.Interval = 2; // 10 miliseconde
             timer.Tick += new EventHandler(Timer_Tick);
 
             //changement du curseur
@@ -112,23 +112,25 @@ namespace Cpln.Enigmos.Enigmas
         private void Timer_Tick(object sender, EventArgs e)
         {
             //permet d'ajouter un zombie si 100 tick se sont écoulés
-            if (iTimerZombie %  iTickRandomGauche == 0)
+            if (iTickRandomGauche == 0)
             {
                 //ajout les zombies de gauche sur le panel
                 AjouterZombie(Direction.GAUCHE);
                 iTickRandomGauche = NextRandom();
             }
 
-            if (iTimerZombie % iTickRandomDroite == 0)
+            if (iTickRandomDroite == 0)
             {
                 //ajout les zombies de droite sur le panel
                 AjouterZombie(Direction.DROITE);
-                iTickRandomGauche = NextRandom();
+                iTickRandomDroite = NextRandom();
             }
 
-            //incrementation les variables de timer
-            iTimerZombie++;
+            //incrementation et decrementaion de certains variables de timer
             iTimerCible++;
+
+            iTickRandomGauche--;
+            iTickRandomDroite--;
 
             //si le curseur n'est pas en rouge et que 10 seconde ce sont écoulées
             if(!bViseurRouge && iTimerCible > 2)
@@ -152,8 +154,13 @@ namespace Cpln.Enigmos.Enigmas
                         }
                         else
                         {
-                            timer.Stop();                        
-                            MessageBox.Show("Vous avez perdu !");//on affiche un message                            
+                            timer.Stop();
+                            if (MessageBox.Show("t'as perdu") == DialogResult.OK)
+                            {
+                                Initialisation();
+                                timer.Start();
+                                return;
+                            }
                         }
 
                     }
@@ -205,7 +212,7 @@ namespace Cpln.Enigmos.Enigmas
         /// <returns>Retourne un nombre aléatoire entre 60 et 120</returns>
         private int NextRandom()
         {
-            return random.Next(30, 70);
+            return random.Next(80, 150);
         }
 
         /// <summary>
@@ -216,6 +223,32 @@ namespace Cpln.Enigmos.Enigmas
         {
             zombies.Remove(zombie);
             Controls.Remove(zombie);
+        }
+
+        private  void Initialisation()
+        {
+            bViseurRouge = true;
+            iTimerCible = 0;//permet de compter les ticks du viseur
+            iTimerZombie = 0;//permet de faire spwaner les zombies a interval régulier
+            iNombresDeCoeurs = 0;//indique le nombre de coeur restant
+            iChronometre = 2000;//valeur du chronometre en haut a gauche
+
+            lblChronometre.Text = Convert.ToString(iChronometre);
+
+            foreach(Coeur coeur in coeurs)
+            {
+                Controls.Remove(coeur);
+                coeur.Image = Properties.Resources.CoeurRouge;
+                coeur.Enabled = true;
+                Controls.Add(coeur);
+            }
+
+            foreach(Zombie zombie in zombies)
+            {
+                Controls.Remove(zombie);
+            }
+
+            zombies.Clear();
         }
     }
 }

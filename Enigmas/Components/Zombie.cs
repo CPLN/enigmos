@@ -58,11 +58,11 @@ namespace Cpln.Enigmos.Enigmas.Components
             {
                 if(direction == Direction.GAUCHE)
                 {
-                    this.Left -= 12;//on fais avancer l'objet
+                    this.Left -= 2;//on fais avancer l'objet
                 }
                 else
                 {
-                    this.Left += 12;//on fais avancer l'objet
+                    this.Left += 2;//on fais avancer l'objet
                 }
             }
         }
