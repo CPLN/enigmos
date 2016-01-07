@@ -193,4 +193,16 @@
   <data name="sortie" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sortie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="chambre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chambre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Etage_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Etage 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="salle_de_bain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salle de bain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="étage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\étage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

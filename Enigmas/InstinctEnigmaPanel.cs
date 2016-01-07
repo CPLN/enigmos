@@ -60,7 +60,7 @@ namespace Cpln.Enigmos.Enigmas
             //pnlImage.BackColor = Color.BlueViolet;
             pnlImage.BackgroundImageLayout = ImageLayout.Center;
             pnlImage.BackgroundImageLayout = ImageLayout.Zoom;
-            pnlImage.BackgroundImage = Properties.Resources.depart;
+            pnlImage.BackgroundImage = Properties.Resources.salle_de_bain;
             Controls.Add(pnlImage);
             Image imageDepart1 = Properties.Resources.cuisine;
             Image imageDepart2 = Properties.Resources.salon;
@@ -92,7 +92,7 @@ namespace Cpln.Enigmos.Enigmas
 
             }*/
 
-
+         
 
 
             btnChoix1.Click += new EventHandler(Random_Click);
@@ -109,34 +109,84 @@ namespace Cpln.Enigmos.Enigmas
             pnlImage.Height = 600;
            //pnlImage.BackColor = Color.BlueViolet;
 
-            pnlImage.BackgroundImage = Properties.Resources.depart;
+            
             Controls.Add(pnlImage);
 
-           // Image[] images = new Image[2]{Properties.Resources.depart, Properties.Resources.depart, Properties.Resources.depart };
-
-         
-            
-            
-
-            
-            
+            // Image[] images = new Image[2]{Properties.Resources.depart, Properties.Resources.depart, Properties.Resources.depart };
 
 
 
-            
+           
+
+
+
+
+
+
         }
+        void btnChoix1rouge_MouseHover(object sender, EventArgs e)
+        {
+            btnChoix1.BackColor = Color.Red;
+        }
+        void btnChoix1jaune_MouseHover(object sender, EventArgs e)
+        {
+            btnChoix1.BackColor = Color.Yellow;
+        }
+        void btnChoix1vert_MouseHover(object sender, EventArgs e)
+        {
+            btnChoix1.BackColor = Color.Green;
+        }
+        void btnChoix1_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnChoix1.BackColor = Color.White;
+        }
+
+        void btnChoix2rouge_MouseHover(object sender, EventArgs e)
+        {
+            btnChoix2.BackColor = Color.Red;
+        }
+        void btnChoix2jaune_MouseHover(object sender, EventArgs e)
+        {
+            btnChoix2.BackColor = Color.Yellow;
+        }
+        void btnChoix2vert_MouseHover(object sender, EventArgs e)
+        {
+            btnChoix2.BackColor = Color.Green;
+        }
+        void btnChoix2_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnChoix2.BackColor = Color.White;
+        }
+
+        void btnChoix3rouge_MouseHover(object sender, EventArgs e)
+        {
+            btnChoix3.BackColor = Color.Red;
+        }
+        void btnChoix3jaune_MouseHover(object sender, EventArgs e)
+        {
+            btnChoix3.BackColor = Color.Yellow;
+        }
+        void btnChoix3vert_MouseHover(object sender, EventArgs e)
+        {
+            btnChoix3.BackColor = Color.Green;
+        }
+        void btnChoix3_MouseLeave(object sender, EventArgs e)
+        {
+            this.btnChoix3.BackColor = Color.White;
+        }
+
 
         //fonction qui permet de générer alétoirement une image du tableau d'image.
         private Image CliqueRandom()
         {
             
             
-            Image depart = Properties.Resources.depart;
+            Image depart = Properties.Resources.salle_de_bain;
             Image imageDefaite = Properties.Resources.bluescreen;
             Image imageDepart1 = Properties.Resources.cuisine;
-            Image imageDepart2 = Properties.Resources.salon;
-            Image imageDepart3 = Properties.Resources.toilette;
-            Image imageMilieu4 = Properties.Resources.jardin;
+            Image imageDepart2 = Properties.Resources.chambre;
+            Image imageDepart3 = Properties.Resources.Etage_2;
+            Image imageMilieu4 = Properties.Resources.étage;
             Image imageMilieu5 = Properties.Resources.cave;
             Image imageMilieu6 = Properties.Resources.escalier;
             Image imageFin = Properties.Resources.sortie;
@@ -314,7 +364,7 @@ namespace Cpln.Enigmos.Enigmas
             int iButton1 = 0;
             int iButton2 = 0;
             int iButton3 = 0;
-            
+           
             if(etape == 1)
             {
                 
@@ -330,12 +380,13 @@ namespace Cpln.Enigmos.Enigmas
                                 btnChoix1.BackColor = Color.Red;
                                 break;
                                 case 1:
-                                btnChoix2.BackColor = Color.Yellow;
+                                btnChoix1.BackColor = Color.Yellow;
                                 break;
                                 case 2:
-                                btnChoix3.BackColor = Color.Green;
+                                btnChoix1.BackColor = Color.Green;
                                 break;
                         }
+                        
                     }
                   if(i == 1)
                     {
@@ -349,16 +400,16 @@ namespace Cpln.Enigmos.Enigmas
                         switch (iButton2)
                         {
                             case 0:
-                                btnChoix1.BackColor = Color.Red;
+                                btnChoix2.BackColor = Color.Red;
                                 break;
                             case 1:
                                 btnChoix2.BackColor = Color.Yellow;
                                 break;
                             case 2:
-                                btnChoix3.BackColor = Color.Green;
+                                btnChoix2.BackColor = Color.Green;
                                 break;
                         }
-
+                        
                     }
                   if(i == 2)
                     {
@@ -372,21 +423,81 @@ namespace Cpln.Enigmos.Enigmas
                         switch (iButton3)
                         {
                             case 0:
-                                btnChoix1.BackColor = Color.Red;
+                                btnChoix3.BackColor = Color.Red;
                                 break;
                             case 1:
-                                btnChoix2.BackColor = Color.Yellow;
+                                btnChoix3.BackColor = Color.Yellow;
                                 break;
                             case 2:
                                 btnChoix3.BackColor = Color.Green;
                                 break;
                         }
+                        
                     }
 
                 }
+               
+                if (btnChoix1.BackColor == Color.Red)
+                {
+                    btnChoix1.MouseHover += new EventHandler(btnChoix1rouge_MouseHover);
+                    btnChoix1.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
+                }
+               
+                if (btnChoix1.BackColor == Color.Yellow)
+                {
+                    btnChoix1.MouseHover += new EventHandler(btnChoix1jaune_MouseHover);
+                    btnChoix1.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
+                }
+               
+                if (btnChoix1.BackColor == Color.Green)
+                {
+                    btnChoix1.MouseHover += new EventHandler(btnChoix1vert_MouseHover);
+                    btnChoix1.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
+                }
+            
+
+                if (btnChoix2.BackColor == Color.Red)
+                {
+                    btnChoix2.MouseHover += new EventHandler(btnChoix2rouge_MouseHover);
+                    btnChoix2.MouseLeave += new EventHandler(btnChoix2_MouseLeave);
+                }
+                if (btnChoix2.BackColor == Color.Yellow)
+                {
+                    btnChoix2.MouseHover += new EventHandler(btnChoix2jaune_MouseHover);
+                    btnChoix2.MouseLeave += new EventHandler(btnChoix2_MouseLeave);
+                }
               
+                if (btnChoix2.BackColor == Color.Green)
+                {
+                    btnChoix2.MouseHover += new EventHandler(btnChoix2vert_MouseHover);
+                    btnChoix2.MouseLeave += new EventHandler(btnChoix2_MouseLeave);
+                }
+               
+                
+
+                if (btnChoix3.BackColor == Color.Red)
+                {
+                    btnChoix3.MouseHover += new EventHandler(btnChoix3rouge_MouseHover);
+                    btnChoix3.MouseLeave += new EventHandler(btnChoix3_MouseLeave);
+                }
+                if (btnChoix3.BackColor == Color.Yellow)
+                {
+                    btnChoix3.MouseHover += new EventHandler(btnChoix3jaune_MouseHover);
+                    btnChoix3.MouseLeave += new EventHandler(btnChoix3_MouseLeave);
+                }
+                if (btnChoix3.BackColor == Color.Green)
+                {
+                    btnChoix3.MouseHover += new EventHandler(btnChoix3vert_MouseHover);
+                    btnChoix3.MouseLeave += new EventHandler(btnChoix3_MouseLeave);
+                }
+                
             }
-           
+          
+
+            
+            
+
+
         }
         
            
