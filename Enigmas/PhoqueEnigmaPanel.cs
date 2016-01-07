@@ -67,8 +67,16 @@ namespace Cpln.Enigmos.Enigmas
             //Initialisation du timer
             timer.Interval = 1;
             timer.Tick += new EventHandler(Timer_Tick);
-            timer.Start();
 
+        }
+        public override void Load()
+        {
+            timer.Start();
+        }
+
+        public override void Unload()
+        {
+            timer.Stop();
         }
 
         /// <summary>
@@ -79,7 +87,7 @@ namespace Cpln.Enigmos.Enigmas
         private void Timer_Tick(object sender, EventArgs e)
         {
             //remise à zero du nombre de point lorsque le phoque attrape un harpon
-            if (pbxHarpon.Top == 450 && pbxHarpon.Visible == false)
+            if (pbxHarpon.Bottom == 450 && pbxHarpon.Visible == false)
             {
                 iPoint = 0;
             }
@@ -92,7 +100,7 @@ namespace Cpln.Enigmos.Enigmas
                 //Reinitialisation des Poissons et du Harpon lorsqu'il est en dehors de la form
                 if (tblObjet[i].Top >= 600)
                 {
-                    tblObjet[i].Location = new Point(RandomX.Next(0, 800) - tblObjet[i].Width, 0 - tblObjet[i].Height);
+                    tblObjet[i].Location = new Point(RandomX.Next(0, 800 - tblObjet[i].Width) , 0 - tblObjet[i].Height);
                     tblObjet[i].Visible = true;
                     if(i <= 1)
                     {
