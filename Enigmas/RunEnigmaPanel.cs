@@ -103,14 +103,16 @@ namespace Cpln.Enigmos.Enigmas
                 DialogResult coucou = MessageBox.Show("Réponse : C'est pas trop tôt","Gagner",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 iCompteur = 0;
             }
-            //Vérifie quel méthode est appelé
+            //Test pour qu'il sache quel méthode appelé en fonction de la touche enclenché
             if(bDroite == true)
             {
-                DeplacementD(pbxHomme);
+                 DeplacementD(pbxHomme);
+                 bDroite = false;
             }
             else if(bGauche == true)
             {
-                DeplacementG(pbxHomme);
+                 DeplacementG(pbxHomme);
+                 bGauche = false;
             }
         }
         /// <summary>
@@ -119,49 +121,18 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="pbxHomme"></param>
         public void DeplacementD(PictureBox pbxHomme)
         {
-            if (bInversion == false)
-            {
-                pbxHomme.BackgroundImage = Properties.Resources.kirby2;
-                if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
-                {
-                    pbxHomme.Left += 200;
-                    bDroite = false;
-                }
-            }
-            else
-            {
-                pbxHomme.BackgroundImage = Properties.Resources.kirby3;
-                if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
-                {
-                    pbxHomme.Left -= 200;
-                    bDroite = false;
-                }
-            }
+            pbxHomme.BackgroundImage = Properties.Resources.kirby2;
+            pbxHomme.Left += 200;
         }
+        
         /// <summary>
         /// Méthode qui gère le déplacement gauche ou inverser
         /// </summary>
         /// <param name="pbxHomme"></param>
         public void DeplacementG(PictureBox pbxHomme)
         {
-            if (bInversion == false)
-            {
-                pbxHomme.BackgroundImage = Properties.Resources.kirby3;
-                if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
-                {
-                    pbxHomme.Left -= 200;
-                    bGauche = false;
-                }
-            }
-            else
-            {
-                pbxHomme.BackgroundImage = Properties.Resources.kirby2;
-                if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
-                {
-                    pbxHomme.Left += 200;
-                    bGauche = false;
-                }
-            }
+            pbxHomme.BackgroundImage = Properties.Resources.kirby3;
+            pbxHomme.Left -= 200;
         }
         /// <summary>
         /// Cette méthode met en place les obstacles
@@ -205,11 +176,37 @@ namespace Cpln.Enigmos.Enigmas
         {
             if (e.KeyCode == Keys.D)
             {
-                bDroite = true;
+                if (bInversion == false)
+                {
+                    if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
+                    {
+                        bDroite = true;
+                    }
+                }
+                else
+                {
+                    if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
+                    {
+                        bGauche = true;
+                    }
+                }
             }
             else if (e.KeyCode == Keys.A)
             {
-                bGauche = true;
+                if (bInversion == false)
+                {
+                    if (pbxHomme.Left + pbxHomme.Width / 2 > 200)
+                    {
+                        bGauche = true;
+                    }
+                }
+                else
+                {
+                    if (pbxHomme.Left + pbxHomme.Width / 2 < 600)
+                    {
+                        bDroite = true;
+                    }
+                }
             }
         }
     }
