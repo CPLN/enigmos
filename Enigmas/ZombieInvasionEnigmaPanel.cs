@@ -15,7 +15,6 @@ namespace Cpln.Enigmos.Enigmas
         //déclaration des variables
         bool bViseurRouge = true;
         int iTimerCible = 0;//permet de compter les ticks du viseur
-        int iTimerZombie = 0;//permet de faire spwaner les zombies a interval régulier
         int iNombresDeCoeurs = 0;//indique le nombre de coeur restant
         int iChronometre = 2000;//valeur du chronometre en haut a gauche
 
@@ -77,7 +76,7 @@ namespace Cpln.Enigmos.Enigmas
             iTickRandomDroite = NextRandom();
 
             //placement du label
-            lblChronometre.Text = Convert.ToString(iChronometre);
+            lblChronometre.Text = "Timer : " + Convert.ToString(iChronometre);
             lblChronometre.Font = new Font("Arial", 24, FontStyle.Bold);
             lblChronometre.Size = new Size(120, 30);
             lblChronometre.Location = new Point(30, 0);
@@ -212,7 +211,7 @@ namespace Cpln.Enigmos.Enigmas
         /// <returns>Retourne un nombre aléatoire entre 60 et 120</returns>
         private int NextRandom()
         {
-            return random.Next(80, 150);
+            return random.Next(50, 150);
         }
 
         /// <summary>
@@ -229,7 +228,6 @@ namespace Cpln.Enigmos.Enigmas
         {
             bViseurRouge = true;
             iTimerCible = 0;//permet de compter les ticks du viseur
-            iTimerZombie = 0;//permet de faire spwaner les zombies a interval régulier
             iNombresDeCoeurs = 0;//indique le nombre de coeur restant
             iChronometre = 2000;//valeur du chronometre en haut a gauche
 
