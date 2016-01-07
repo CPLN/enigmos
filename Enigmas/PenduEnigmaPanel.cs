@@ -22,6 +22,7 @@ namespace Cpln.Enigmos.Enigmas
         Label Reponse = new Label();
         PictureBox pbx = new PictureBox();
         Label lblEnigme = new Label();
+        string text = "*******";
 
         public PenduEnigmaPanel()
         {
@@ -37,8 +38,7 @@ namespace Cpln.Enigmos.Enigmas
             Reponse.Font = new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold);
             Reponse.Dock = DockStyle.Bottom;
             Reponse.TextAlign = ContentAlignment.BottomCenter;
-
-            this.Controls.Add(Reponse);
+            Controls.Add(Reponse);
 
             //Génération du titre
             lblEnigme.Text = "Jeu du pendu";
@@ -86,22 +86,18 @@ namespace Cpln.Enigmos.Enigmas
 
          private void test_lettre(char Lettre)
          {
-            string text = null;
             bool faute = true;
             for (int i = 0; i < strMot.Length; i++)
             {
                 if (strMot[i] == Lettre)
                 {
-                    text += Lettre;
+                    string Partie1 = text.Substring(0, i);
+                    string Partie2 = text.Substring(i + 1);
+                    text = Partie1 + Lettre + Partie2;
                     faute = false;
                 }
-                else
-                {
-                    if (Reponse.Text[i] != '*')
-                        text += Reponse.Text[i];
-                    else
-                        text += "*";
-                }
+                
+
             }
             if (faute)
             {
@@ -137,10 +133,15 @@ namespace Cpln.Enigmos.Enigmas
                     pbx.BackgroundImage = Properties.Resources.imageG;
                     pbx.Size = Properties.Resources.imageG.Size;
                     ImagePendu();
-                    MessageBox.Show("Dommage, vous n'avez pas réussis cete enigme,\n il vous faut donc la passer", "Fin");
+                    MessageBox.Show("Dommage, vous n'avez pas réussis cette enigme,\nil vous faut donc la passer", "Fin");
                     break;
                 }   
-                Reponse.Text = text;
+
+            }
+            Reponse.Text = text;
+            if (text == "OXYGENE")
+            {
+                MessageBox.Show("Bravo !\nVous avez découvert le mot -oxygene-","Pendu");
             }
         }
         private void ImagePendu()
