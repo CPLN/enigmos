@@ -105,7 +105,7 @@ namespace Cpln.Enigmos.Enigmas
             // Condition qui vérifie quand est-ce que le joueur gagne la partie
             if(iCompteur==500)
             {
-                DialogResult coucou = MessageBox.Show("Réponse : C'est pas trop tôt","Gagner",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                DialogResult coucou = MessageBox.Show("Réponse : " + (bInversion ? "Encore une fois" : "C'est pas trop tôt"),"Gagner",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 iCompteur = 0;
             }
             //Test pour qu'il sache quel méthode appelé en fonction de la touche enclenché
