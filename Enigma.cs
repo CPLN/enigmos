@@ -146,6 +146,13 @@ namespace Cpln.Enigmos
 
         public void Unload()
         {
+            KeyDown -= new KeyEventHandler(PressKey);
+            KeyUp -= new KeyEventHandler(ReleaseKey);
+            MouseDown -= new MouseEventHandler(PressMouse);
+            MouseClick -= new MouseEventHandler(PressMouse);
+            centerLayout.MouseClick -= new MouseEventHandler(PressMouse);
+            enigmaPanel.MouseClick -= new MouseEventHandler(PressMouse);
+
             enigmaPanel.Unload();
         }
 

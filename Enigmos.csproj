@@ -90,6 +90,9 @@
     <Compile Include="Enigmas\OiseauxEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\RunEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\AppuieReponseEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -163,6 +166,12 @@
     <Content Include="img\imageE.PNG" />
     <Content Include="img\imageF.PNG" />
     <Content Include="img\imageG.PNG" />
+    <None Include="Resources\kirby3.png" />
+    <None Include="Resources\kirby2.png" />
+    <None Include="Resources\kirby.png" />
+    <None Include="Resources\Caillou.png" />
+    <None Include="Resources\Arbre.png" />
+    <None Include="Resources\Fond.png" />
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
     <None Include="Resources\OpenDoor - Solution.png" />
