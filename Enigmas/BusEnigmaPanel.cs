@@ -14,11 +14,10 @@ namespace Cpln.Enigmos.Enigmas
     /// </summary>
     public class BusEnigmaPanel : EnigmaPanel
     {
+        // Version : 1.4
         // Initialisation des divers objets et variables
 
         Timer t1 = new Timer();
-
-        int iRandom = 0;
 
         Random r = new Random();
 
@@ -137,6 +136,17 @@ namespace Cpln.Enigmos.Enigmas
 
             lblEnigme.Text = "Bravo, mais moi je veux savoir pourquoi.";
             centerQuestion.Controls.Add(lblEnigme, 1, 1);
+
+            t1.Tick += new EventHandler(Timer_Tick);
+
+            pbxReponse1.Click += new EventHandler(ClickVrai);
+            pbxReponse2.Click += new EventHandler(ClickFaux);
+            pbxReponse3.Click += new EventHandler(ClickFaux);
+
+            // Démarrage du Timer pour écrire la réponse finale
+
+            t1.Enabled = true;
+            t1.Interval = 30000;
         }
 
         private void ClickFaux(object sender, EventArgs e)
@@ -154,16 +164,16 @@ namespace Cpln.Enigmos.Enigmas
             pbxReponse3.Enabled = false;
 
             DialogResult dlgSuccess = MessageBox.Show("Bravo !\nVeuillez entrer la couleur du bus pour continuer !\n\nVous avez 30 secondes pour écrire votre réponse...", "Correct", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-            // Démarrage du Timer pour écrire la réponse finale
-            t1.Tick += new EventHandler(Timer_Tick);
-            t1.Enabled = true;
-            t1.Interval = 30000;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
             // Méthode si le Tîmer arrive au bout
+            
+            pbxReponse1.Enabled = false;
+            pbxReponse2.Enabled = false;
+            pbxReponse3.Enabled = false;
+
             t1.Enabled = false;
             Start();
         }

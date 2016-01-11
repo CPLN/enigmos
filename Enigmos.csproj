@@ -96,6 +96,9 @@
     <Compile Include="Enigmas\ReflexeEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\MorpionEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\SimplePuzzleEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -148,6 +151,8 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="image\Cross.png" />
+    <None Include="image\Circle.png" />
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
     <None Include="Resources\OpenDoor - Solution.png" />

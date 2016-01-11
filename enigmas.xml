@@ -72,4 +72,8 @@
     <answer>Blanc</answer>
     <hint>la réponse est devant toi [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]</hint>
   </enigma>
+  <enigma title="Morpion">
+    <answer>J'ai gagné</answer>
+    <hint>Gagner au moins deux fois contre l'ordinateur.</hint>
+  </enigma>
 </enigmas>
