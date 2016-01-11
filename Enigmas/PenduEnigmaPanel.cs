@@ -78,6 +78,26 @@ namespace Cpln.Enigmos.Enigmas
             }
         }
 
+        public override void Unload()
+        {
+            foreach (Button bouton in boutons)
+            {
+                bouton.Enabled = true;
+            }
+
+            pbx.BackgroundImage = Properties.Resources.imageA;
+
+            Reponse.Text = "";
+            text = "";
+            for (int i = 0; i < strMot.Length; i++)
+            {
+                Reponse.Text += "*";
+                text += "*";
+            }
+
+            iFautes = 0;
+        }
+
         void bouton_Click(Object sender, EventArgs e)
         {
             ((Button)sender).Enabled = false;
@@ -96,8 +116,6 @@ namespace Cpln.Enigmos.Enigmas
                     text = Partie1 + Lettre + Partie2;
                     faute = false;
                 }
-                
-
             }
             if (faute)
             {
