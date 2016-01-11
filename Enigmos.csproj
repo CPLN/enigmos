@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\PenduEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -153,6 +156,13 @@
     </Content>
     <None Include="image\Cross.png" />
     <None Include="image\Circle.png" />
+    <Content Include="img\imageA.PNG" />
+    <Content Include="img\imageB.PNG" />
+    <Content Include="img\imageC.PNG" />
+    <Content Include="img\imageD.PNG" />
+    <Content Include="img\imageE.PNG" />
+    <Content Include="img\imageF.PNG" />
+    <Content Include="img\imageG.PNG" />
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
     <None Include="Resources\OpenDoor - Solution.png" />
