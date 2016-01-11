@@ -45,7 +45,6 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
             enigmas.Add(new Enigma(new NfsEnigmaPanel(), "Need For Speed"));
             enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
-            enigmas.Add(new Enigma(new MorpionEnigmaPanel(), "Morpion"));
 
             enigmas.Shuffle();
             return enigmas;
