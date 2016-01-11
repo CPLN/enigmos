@@ -61,6 +61,15 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream _2jzCarSound {
+            get {
+                return ResourceManager.GetStream("_2jzCarSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap bus {
@@ -96,6 +105,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap Bus_Reponse3 {
             get {
                 object obj = ResourceManager.GetObject("Bus_Reponse3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap car {
+            get {
+                object obj = ResourceManager.GetObject("car", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
