@@ -16,57 +16,49 @@ namespace Cpln.Enigmos.Enigmas
     /// </summary>
     public class RectangleEnigmaPanel : EnigmaPanel
     {
-        // Initialisation des divers objets et variables
-
-        Panel[] tpnlCarre = new Panel[500];
+        // Initialisation de divers variables
+        Panel[] tpnlCarre = new Panel[110];
+        FlowLayoutPanel centerLayout = new FlowLayoutPanel();
         
-
         /// <summary>
         /// Constructeur par défaut, génère plusieurs carrés.
         /// </summary>
         public RectangleEnigmaPanel()
         {
-            Random rnd = new Random();
-         
-            TableLayoutPanel centerLayout = new TableLayoutPanel();
-            centerLayout.ColumnCount = 27;
-            for (int i = 0; i < 27 ;i++)
-            {
-                centerLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,0.04f));
-            }
-            centerLayout.RowCount = 21;
-            for (int i = 0; i < 21; i++)
-            {
-                centerLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 0.05f));
-            }
+            //changement de taille de l'espace graphique
+            Width = 550;
+            Height = 500;
+
+            //Proriétés de la disposition du jeu
             centerLayout.Dock = DockStyle.Fill;
+
+            //ajout d'un contrôle sur la disposition
             Controls.Add(centerLayout);
 
+            Random rndArgb = new Random();
+            //création de carré dans le rectangle             
             for (int i = 0; i < tpnlCarre.Length; i++)
             {
                 tpnlCarre[i] = new Panel();
-                Random randonGen = new Random();
-                Color randomColor = Color.FromArgb(randonGen.Next(240), randonGen.Next(240),
-                randonGen.Next(255));
-                tpnlCarre[i].BackColor = randomColor;             
-                tpnlCarre[i].Size = new Size(20, 20);
-                int iLocX = rnd.Next(1, 27);
-                int iLocY = rnd.Next(0, 21);                 
-                centerLayout.Controls.Add(tpnlCarre[i], iLocX, iLocY);
+                tpnlCarre[i].Margin = new Padding(2);
+                tpnlCarre[i].Size = new Size(46, 46);
+                Color rndColor = Color.FromArgb(rndArgb.Next(240), rndArgb.Next(240),rndArgb.Next(255));
+                tpnlCarre[i].BackColor = rndColor;
+                centerLayout.Controls.Add(tpnlCarre[i]);
                 tpnlCarre[i].Click += new EventHandler(ClickOnCarre);
             }
-
+            //Evenement d'un clic sur le panel rectangle
             centerLayout.Click += new EventHandler(ClickOnPanel);
-
         }
+        //message si le jouer appuie sur le panel rectangle
         private void ClickOnPanel(object sender, EventArgs e)
         {
             MessageBox.Show("Bien ! (⌐■_■)" + "\n" + "La réponse à l'énigme est la couleur du rectangle.");
         }
+        //message si le jouer appuie sur l'un des panels carrés
         private void ClickOnCarre(object sender, EventArgs e)
         {
             MessageBox.Show("NON C'est un carré");
         }
-
     }
 }
