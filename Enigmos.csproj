@@ -50,8 +50,19 @@
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\Components\Graph.cs" />
+    <Compile Include="Enigmas\Components\Graph.cs">
+	  <SubType>Component</SubType>
+    </Compile>
+	<Compile Include="Enigmas\PenduEnigmaPanel.cs">
+	  <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\NfsEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\RectangleEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\PuzzlePiece.cs">
@@ -84,6 +95,9 @@
     <Compile Include="Enigmas\OiseauxEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\RunEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\AppuieReponseEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -91,6 +105,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\ReflexeEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\MorpionEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\SimplePuzzleEnigmaPanel.cs">
@@ -149,6 +166,21 @@
     <Content Include="Resources\banane_enigme.png" />
     <Content Include="Resources\pomme.png" />
     <Content Include="Resources\raisins.png" />
+    <None Include="image\Cross.png" />
+    <None Include="image\Circle.png" />
+    <Content Include="img\imageA.PNG" />
+    <Content Include="img\imageB.PNG" />
+    <Content Include="img\imageC.PNG" />
+    <Content Include="img\imageD.PNG" />
+    <Content Include="img\imageE.PNG" />
+    <Content Include="img\imageF.PNG" />
+    <Content Include="img\imageG.PNG" />
+    <None Include="Resources\kirby3.png" />
+    <None Include="Resources\kirby2.png" />
+    <None Include="Resources\kirby.png" />
+    <None Include="Resources\Caillou.png" />
+    <None Include="Resources\Arbre.png" />
+    <None Include="Resources\Fond.png" />
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
     <None Include="Resources\OpenDoor - Solution.png" />
@@ -164,6 +196,8 @@
     <None Include="image\Bus_Reponse1.png" />
     <None Include="image\bus.jpg" />
     <None Include="image\carre.jpg" />
+    <None Include="Resources\2jzCarSound.wav" />
+    <None Include="Resources\car.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
