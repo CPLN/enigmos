@@ -15,10 +15,10 @@ namespace Cpln.Enigmos.Enigmas
         {
             List<Image> liImages = new List<Image>()
             {
-                Image.FromFile(@"..\..\Resources\3bananes.png"),
-                Image.FromFile(@"..\..\Resources\banane_enigme.png"),
-                Image.FromFile(@"..\..\Resources\pomme.png"),
-                Image.FromFile(@"..\..\Resources\raisins.png")
+                Properties.Resources.troisBananes,
+                Properties.Resources.banane,
+                Properties.Resources.pomme,
+                Properties.Resources.raisins
             };
 
             TableLayoutPanel caseFruit = new TableLayoutPanel();
@@ -58,6 +58,8 @@ namespace Cpln.Enigmos.Enigmas
             lblEnigme10.Text = "+";
             lblEnigme11.Text = "=";
             lblEnigme12.Text = "?";
+
+            
 
             pbxImage.BackgroundImage = liImages[2];
             pbxImage2.BackgroundImage = liImages[2];

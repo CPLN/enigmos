@@ -51,10 +51,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\Graph.cs">
-	  <SubType>Component</SubType>
+      <SubType>Component</SubType>
     </Compile>
-	<Compile Include="Enigmas\PenduEnigmaPanel.cs">
-	  <SubType>Component</SubType>
+    <Compile Include="Enigmas\PenduEnigmaPanel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
       <SubType>Component</SubType>
@@ -162,10 +162,10 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\3bananes.png" />
-    <Content Include="Resources\banane_enigme.png" />
-    <Content Include="Resources\pomme.png" />
-    <Content Include="Resources\raisins.png" />
+    <None Include="Resources\raisins.png" />
+    <None Include="Resources\3bananes.png" />
+    <None Include="Resources\banane_enigme.png" />
+    <None Include="Resources\pomme.png" />
     <None Include="image\Cross.png" />
     <None Include="image\Circle.png" />
     <Content Include="img\imageA.PNG" />
