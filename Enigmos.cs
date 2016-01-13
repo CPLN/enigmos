@@ -32,8 +32,8 @@ namespace Cpln.Enigmos
             InitializeComponent();
 
             #if DEBUG
-            TopMost = false;
             #endif
+            TopMost = false;
 
             Init();
         }

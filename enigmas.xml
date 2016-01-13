@@ -26,6 +26,14 @@
     <answer>ornithorynque</answer>
     <hint>Résolvez la charade</hint>
   </enigma>
+  <enigma title="Roux run">
+    <answer>c'est pas trop tôt</answer>
+    <hint>Sois réactif</hint>
+  </enigma>
+  <enigma title="Roux run encore">
+    <answer>Encore une fois</answer>
+    <hint>Sois réactif</hint>
+  </enigma>
   <enigma title="Le jeu des 7 différences">
     <answer>bonjour</answer>
     <hint>Trouvez le mot caché dans la grille</hint>
@@ -58,9 +66,9 @@
     <answer></answer>
     <hint>Répond pas Morice</hint>
   </enigma>
-  <enigma title="Jeu du pendu">
-	<answer>oxygene</answer>
-	<hint>La corde, ça fait mal au cou</hint>
+  <enigma title="Le jeu du pendu">
+	  <answer>oxygene</answer>
+	  <hint>La corde, ça fait mal au cou</hint>
 	</enigma>
   <enigma title="Reflexe">
     <answer>Bon réflexe</answer>
@@ -69,5 +77,17 @@
   <enigma title="Jeu de mot">
     <answer>citron vert</answer>
     <hint>Combien de troncs ? Quelle couleur ?</hint>
+  </enigma>
+  <enigma title="Need For Speed">
+    <answer>eucalyptus</answer>
+    <hint>Utilise tes deux mains</hint>
+  </enigma>
+  <enigma title="Trouve le rectangle">
+    <answer>Blanc</answer>
+    <hint>la réponse est devant toi [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]</hint>
+  </enigma>
+  <enigma title="Morpion">
+    <answer>J'ai gagné</answer>
+    <hint>Gagner au moins deux fois contre l'ordinateur.</hint>
   </enigma>
 </enigmas>

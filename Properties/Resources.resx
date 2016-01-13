@@ -133,14 +133,53 @@
   <data name="carre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\image\carre.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="car" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\car.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="enigmas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\enigmas.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Fond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Arbre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Arbre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Caillou" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Caillou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kirby2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kirby2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kirby3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kirby3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SeptDifference1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\image1.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SeptDifference2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\img\image2.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageA.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageB.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageC.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageD.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageE.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageF.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imageG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\imageG.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OpenDoor_Flowers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OpenDoor - Flowers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -162,5 +201,8 @@
   </data>
   <data name="Verre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Verre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2jzCarSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2jzCarSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
