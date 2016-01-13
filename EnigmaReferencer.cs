@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new LettreHaute(), "Quelle est la lettre la plus haute ?");
+            return new Enigma(new LettreHaute(), "Quelle est la plus haute ?");
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new ReflexeEnigmaPanel(), "Reflexe"));
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
-            enigmas.Add(new Enigma(new LettreHaute(), "Quelle est la lettre la plus haute ?"));
+            enigmas.Add(new Enigma(new LettreHaute(), "Quelle est la plus haute ?"));
             enigmas.Shuffle();
             return enigmas;
         }
