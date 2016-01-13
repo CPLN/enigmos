@@ -47,6 +47,7 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         public MorpionEnigmaPanel()
         {
+            this.Width = 620;
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
             lblEnigme.AutoSize = true;
             casesMorpion.Dock = DockStyle.Fill;
@@ -125,172 +126,101 @@ namespace Cpln.Enigmos.Enigmas
              * IA à les ronds */
         }
 
+        private void IA_Winning(int i1, int i2, int i3, PictureBox pbx1, PictureBox pbx2, PictureBox pbx3)
+        {
+            if (iPlayer == 2 && ((tVerification[i1] == 2 && tVerification[i2] == 2) || (tVerification[i1] == 2 && tVerification[i3] == 2) || (tVerification[i2] == 2 && tVerification[i3] == 2)))
+            {
+                int[] tIA = new int[] { tVerification[i1], tVerification[i2], tVerification[i3] };
+                PictureBox[] tPbx = new PictureBox[] { pbx1, pbx2, pbx3 };
+
+                for (int iCpt = 0; iCpt < tIA.Length; iCpt++)
+                {
+                    if (tPbx[iCpt].BackColor == Color.White)
+                    {
+                        tPbx[iCpt].BackColor = Color.Blue;
+                        tIA[iCpt] = 2;
+
+                        // Changement de joueur
+                        iPlayer = 1;
+                    }
+                }
+            }
+        }
+
+        private void Player_Winning(int i1, int i2, int i3, PictureBox pbx1, PictureBox pbx2, PictureBox pbx3)
+        {
+            if (iPlayer == 2 && ((tVerification[i1] == 1 && tVerification[i2] == 1) || (tVerification[i1] == 1 && tVerification[i3] == 1) || (tVerification[i2] == 1 && tVerification[i3] == 1)))
+            {
+                int[] tIA = new int[] { tVerification[i1], tVerification[i2], tVerification[i3] };
+                PictureBox[] tPbx = new PictureBox[] { pbx1, pbx2, pbx3 };
+
+                for (int iCpt = 0; iCpt < tIA.Length; iCpt++)
+                {
+                    if (tPbx[iCpt].BackColor == Color.White)
+                    {
+                        tPbx[iCpt].BackColor = Color.Blue;
+                        tIA[iCpt] = 2;
+
+                        // Changement de joueur
+                        iPlayer = 1;
+                    }
+                }
+            }
+        }
+
         private void IA()
         {
-            if(iPlayer == 2 && ((tVerification[0] == tVerification[1]) || (tVerification[0] == tVerification[2]) || (tVerification[1] == tVerification[2])))
-            {
-                int[] tIA1 = new int[] { tVerification[0], tVerification[1], tVerification[2] };
-                PictureBox[] tPbx1 = new PictureBox[] { pbxCase1, pbxCase2, pbxCase3 };
+            // Intelligence artificielle
+            // Test si l'ordinateur peut gagner
+            IA_Winning(0, 1, 2, pbxCase1, pbxCase2, pbxCase3);
+            IA_Winning(3, 4, 5, pbxCase4, pbxCase5, pbxCase6);
+            IA_Winning(6, 7, 8, pbxCase7, pbxCase8, pbxCase9);
+            IA_Winning(0, 3, 6, pbxCase1, pbxCase4, pbxCase7);
+            IA_Winning(1, 4, 7, pbxCase2, pbxCase5, pbxCase8);
+            IA_Winning(2, 5, 8, pbxCase3, pbxCase6, pbxCase9);
+            IA_Winning(0, 4, 8, pbxCase1, pbxCase5, pbxCase9);
+            IA_Winning(2, 4, 6, pbxCase3, pbxCase5, pbxCase7);
 
-                for(int iCpt = 0; iCpt < tIA1.Length; iCpt++)
-                {
-                    if(tPbx1[iCpt].BackColor == Color.White)
-                    {
-                        tPbx1[iCpt].BackColor = Color.Blue;
-                        tIA1[iCpt] = 2;
+            // Test si le joueur peut gagner
+            Player_Winning(0, 1, 2, pbxCase1, pbxCase2, pbxCase3);
+            Player_Winning(3, 4, 5, pbxCase4, pbxCase5, pbxCase6);
+            Player_Winning(6, 7, 8, pbxCase7, pbxCase8, pbxCase9);
+            Player_Winning(0, 3, 6, pbxCase1, pbxCase4, pbxCase7);
+            Player_Winning(1, 4, 7, pbxCase2, pbxCase5, pbxCase8);
+            Player_Winning(2, 5, 8, pbxCase3, pbxCase6, pbxCase9);
+            Player_Winning(0, 4, 8, pbxCase1, pbxCase5, pbxCase9);
+            Player_Winning(2, 4, 6, pbxCase3, pbxCase5, pbxCase7);
 
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
             
-            if(iPlayer == 2 && ((tVerification[3] == tVerification[4]) || (tVerification[3] == tVerification[5]) || (tVerification[4] == tVerification[5])))
+            if(iPlayer == 2)
             {
-                int[] tIA2 = new int[] { tVerification[3], tVerification[4], tVerification[5] };
-                PictureBox[] tPbx2 = new PictureBox[] {pbxCase4, pbxCase5, pbxCase6};
+                PictureBox[] tBase = new PictureBox[]{pbxCase1, pbxCase2, pbxCase3, pbxCase4, pbxCase5, pbxCase6, pbxCase7, pbxCase8, pbxCase9};
+                List<PictureBox> List_Libre = new List<PictureBox> ();
 
-                for(int iCpt = 0; iCpt < tIA2.Length; iCpt++)
+                for(int iCpt = 0; iCpt < tVerification.Length; iCpt++)
                 {
-                    if(tPbx2[iCpt].BackColor == null)
+                    if(tVerification[iCpt] != 1 && tVerification[iCpt] != 2)
                     {
-                        tPbx2[iCpt].BackColor = Color.Blue;
-                        tIA2[iCpt] = 2;
+                        List_Libre.Add(tBase[iCpt]);
+                    }
+                }
 
-                        // Changement de joueur
+                int iNbCaseLibre;
+                Random rCaseLibre = new Random();
+
+                iNbCaseLibre = rCaseLibre.Next(0, List_Libre.Count);
+
+                for (int iCpt = 0; iCpt < List_Libre.Count; iCpt++)
+                {
+                    if (iCpt == iNbCaseLibre)
+                    {
+                        List_Libre[iCpt].BackColor = Color.Blue;
+
+                        tVerification[iCpt] = 2;
                         iPlayer = 1;
                     }
                 }
             }
-
-            if(iPlayer == 2 && ((tVerification[6] == tVerification[7]) || (tVerification[6] == tVerification[8]) || (tVerification[7] == tVerification[8])))
-            {
-                int[] tIA3 = new int[] { tVerification[3], tVerification[4], tVerification[5] };
-                PictureBox[] tPbx3 = new PictureBox[] { pbxCase7, pbxCase8, pbxCase9 };
-
-                for(int iCpt = 0; iCpt < tIA3.Length; iCpt++)
-                {
-                    if(tPbx3[iCpt].BackColor == null)
-                    {
-                        tPbx3[iCpt].BackColor = Color.Blue;
-                        tIA3[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            if(iPlayer == 2 && ((tVerification[0] == tVerification[3]) || (tVerification[0] == tVerification[6]) || (tVerification[3] == tVerification[6])))
-            {
-                int[] tIA4 = new int[] { tVerification[0], tVerification[3], tVerification[6] };
-                PictureBox[] tPbx4 = new PictureBox[] { pbxCase1, pbxCase4, pbxCase7 };
-
-                for(int iCpt = 0; iCpt < tIA4.Length; iCpt++)
-                {
-                    if(tPbx4[iCpt].BackColor == null)
-                    {
-                        tPbx4[iCpt].BackColor = Color.Blue;
-                        tIA4[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            if (iPlayer == 2 && ((tVerification[1] == tVerification[4]) || (tVerification[1] == tVerification[7]) || (tVerification[4] == tVerification[7])))
-            {
-                int[] tIA5 = new int[] { tVerification[1], tVerification[4], tVerification[7] };
-                PictureBox[] tPbx5 = new PictureBox[] { pbxCase2, pbxCase5, pbxCase8 };
-
-                for(int iCpt = 0; iCpt < tIA5.Length; iCpt++)
-                {
-                    if(tPbx5[iCpt].BackColor == null)
-                    {
-                        tPbx5[iCpt].BackColor = Color.Blue;
-                        tIA5[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            if(iPlayer == 2 && ((tVerification[2] == tVerification[5]) || (tVerification[2] == tVerification[8]) || (tVerification[5] == tVerification[8])))
-            {
-                int[] tIA6 = new int[] { tVerification[2], tVerification[5], tVerification[8] };
-                PictureBox[] tPbx6 = new PictureBox[] { pbxCase3, pbxCase6, pbxCase9 };
-
-                for (int iCpt = 0; iCpt < tIA6.Length; iCpt++)
-                {
-                    if(tPbx6[iCpt].BackColor == null)
-                    {
-                        tPbx6[iCpt].BackColor = Color.Blue;
-                        tIA6[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            if(iPlayer == 2 && ((tVerification[0] == tVerification[4]) || (tVerification[0] == tVerification[8]) || (tVerification[4] == tVerification[8])))
-            {
-                int[] tIA7 = new int[] { tVerification[0], tVerification[4], tVerification[8] };
-                PictureBox[] tPbx7 = new PictureBox[] { pbxCase1, pbxCase5, pbxCase9 };
-
-                for(int iCpt = 0; iCpt < tIA7.Length; iCpt++)
-                {
-                    if(tPbx7[iCpt].BackColor == null)
-                    {
-                        tPbx7[iCpt].BackColor = Color.Blue;
-                        tIA7[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            if (iPlayer == 2 && ((tVerification[2] == tVerification[4]) || (tVerification[2] == tVerification[6]) || (tVerification[4] == tVerification[6])))
-            {
-                int[] tIA8 = new int[] { tVerification[2], tVerification[4], tVerification[6] };
-                PictureBox[] tPbx8 = new PictureBox[] { pbxCase3, pbxCase5, pbxCase7 };
-
-                for(int iCpt = 0; iCpt < tIA8.Length; iCpt++)
-                {
-                    if(tPbx8[iCpt].BackColor == null)
-                    {
-                        tPbx8[iCpt].BackColor = Color.Blue;
-                        tIA8[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            // Changement de joueur (UNIQUEMENT POUR LES TESTS)
-            iPlayer = 1;
-
-            /*else if(iPlayer == 2)
-            {
-                PictureBox[] tPbx2 = new PictureBox[] { pbxCase1, pbxCase2, pbxCase3, pbxCase4, pbxCase5, pbxCase6, pbxCase7, pbxCase8, pbxCase9 };
-                Random r = new Random();
-                int iRandom = r.Next(0, 9);
-
-                for (int iCpt = 0; iCpt < tPbx2.Length; iCpt++)
-                {
-                    if((iRandom == iCpt) && (tVerification[iCpt] != 1) && (tVerification[iCpt] != 2))
-                    {
-                        tPbx2[iCpt].BackColor = Color.Blue;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }*/
         }
 
         private void ClickOnCase1(object sender, EventArgs e)
