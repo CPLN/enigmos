@@ -39,6 +39,9 @@ namespace Cpln.Enigmos.Enigmas
             lblEnigme.AutoSize = true;
             centerQuestion.Dock = DockStyle.Fill;
             Controls.Add(centerQuestion);
+            pbxReponse1.Click += new EventHandler(ClickVrai);
+            pbxReponse2.Click += new EventHandler(ClickFaux);
+            pbxReponse3.Click += new EventHandler(ClickFaux);
 
             pbxReponse1.Click += new EventHandler(ClickVrai);
             pbxReponse2.Click += new EventHandler(ClickFaux);
@@ -142,8 +145,6 @@ namespace Cpln.Enigmos.Enigmas
             centerQuestion.Controls.Add(lblEnigme, 1, 1);
 
             t1.Tick += new EventHandler(Timer_Tick);
-
-
             // Démarrage du Timer pour écrire la réponse finale
 
             t1.Enabled = true;
