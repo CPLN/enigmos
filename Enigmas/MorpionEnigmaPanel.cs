@@ -39,9 +39,6 @@ namespace Cpln.Enigmos.Enigmas
 
         TableLayoutPanel casesMorpion = new TableLayoutPanel();
 
-        // Tableau pour vérification
-        int[] tVerification = new int[9] {3, 4, 5, 6, 7, 8, 9, 10, 11};
-
         /// <summary>
         /// Constructeur par défaut, génère un texte et l'affiche dans le Panel.
         /// </summary>
@@ -58,7 +55,7 @@ namespace Cpln.Enigmos.Enigmas
 
         private void Start()
         {
-            PictureBox[] tCase = new PictureBox[] {pbxCase1, pbxCase2, pbxCase3, pbxCase4, pbxCase5, pbxCase6, pbxCase7, pbxCase8, pbxCase9};
+            PictureBox[] tCase = new PictureBox[] { pbxCase1, pbxCase2, pbxCase3, pbxCase4, pbxCase5, pbxCase6, pbxCase7, pbxCase8, pbxCase9 };
 
             // Activation des cases pictureBox
             for (int iCpt = 0; iCpt < tCase.Length; iCpt++)
@@ -114,7 +111,7 @@ namespace Cpln.Enigmos.Enigmas
             //iPlayer = Convert.ToInt32(rBegin.Next(1, 3));
             iPlayer = 1;
 
-            if(iPlayer == 2)
+            if (iPlayer == 2)
             {
                 IA();
             }
@@ -126,45 +123,49 @@ namespace Cpln.Enigmos.Enigmas
              * IA à les ronds */
         }
 
-        private void IA_Winning(int i1, int i2, int i3, PictureBox pbx1, PictureBox pbx2, PictureBox pbx3)
+        private void IA_Winning(PictureBox pbx1, PictureBox pbx2, PictureBox pbx3)
         {
-            if (iPlayer == 2 && ((tVerification[i1] == 2 && tVerification[i2] == 2) || (tVerification[i1] == 2 && tVerification[i3] == 2) || (tVerification[i2] == 2 && tVerification[i3] == 2)))
+            if (iPlayer == 2 && ((pbx1.BackColor == Color.Blue && pbx2.BackColor == Color.Blue) || (pbx2.BackColor == Color.Blue && pbx3.BackColor == Color.Blue) || (pbx1.BackColor == Color.Blue && pbx3.BackColor == Color.Blue)))
             {
-                int[] tIA = new int[] { tVerification[i1], tVerification[i2], tVerification[i3] };
                 PictureBox[] tPbx = new PictureBox[] { pbx1, pbx2, pbx3 };
 
-                for (int iCpt = 0; iCpt < tIA.Length; iCpt++)
+                for (int iCpt = 1; iCpt < tPbx.Length; iCpt++)
                 {
                     if (tPbx[iCpt].BackColor == Color.White)
                     {
                         tPbx[iCpt].BackColor = Color.Blue;
-                        tIA[iCpt] = 2;
+                        tPbx[iCpt].Enabled = false;
+                        Verification();
 
                         // Changement de joueur
                         iPlayer = 1;
                     }
                 }
+
+                //MessageBox.Show("Vérification :\n\nCase 1 = " + Convert.ToString(pbxCase1.BackColor) + "\nCase 2 = " + Convert.ToString(pbxCase2.BackColor) + "\nCase 3 = " + Convert.ToString(pbxCase3.BackColor) + "\nCase 4 = " + Convert.ToString(pbxCase4.BackColor) + "\nCase 5 = " + Convert.ToString(pbxCase5.BackColor) + "\nCase 6 = " + Convert.ToString(pbxCase6.BackColor) + "\nCase 7 = " + Convert.ToString(pbxCase7.BackColor) + "\nCase 8 = " + Convert.ToString(pbxCase8.BackColor) + "\nCase 9 = " + Convert.ToString(pbxCase9.BackColor));
             }
         }
 
-        private void Player_Winning(int i1, int i2, int i3, PictureBox pbx1, PictureBox pbx2, PictureBox pbx3)
+        private void Player_Winning(PictureBox pbx1, PictureBox pbx2, PictureBox pbx3)
         {
-            if (iPlayer == 2 && ((tVerification[i1] == 1 && tVerification[i2] == 1) || (tVerification[i1] == 1 && tVerification[i3] == 1) || (tVerification[i2] == 1 && tVerification[i3] == 1)))
+            if (iPlayer == 2 && ((pbx1.BackColor == Color.Red && pbx2.BackColor == Color.Red) || (pbx2.BackColor == Color.Red && pbx3.BackColor == Color.Red) || (pbx1.BackColor == Color.Red && pbx3.BackColor == Color.Red)))
             {
-                int[] tIA = new int[] { tVerification[i1], tVerification[i2], tVerification[i3] };
                 PictureBox[] tPbx = new PictureBox[] { pbx1, pbx2, pbx3 };
 
-                for (int iCpt = 0; iCpt < tIA.Length; iCpt++)
+                for (int iCpt = 0; iCpt < tPbx.Length; iCpt++)
                 {
                     if (tPbx[iCpt].BackColor == Color.White)
                     {
                         tPbx[iCpt].BackColor = Color.Blue;
-                        tIA[iCpt] = 2;
+                        tPbx[iCpt].Enabled = false;
+                        Verification();
 
                         // Changement de joueur
                         iPlayer = 1;
                     }
                 }
+
+                //MessageBox.Show("Vérification :\n\nCase 1 = " + Convert.ToString(pbxCase1.BackColor) + "\nCase 2 = " + Convert.ToString(pbxCase2.BackColor) + "\nCase 3 = " + Convert.ToString(pbxCase3.BackColor) + "\nCase 4 = " + Convert.ToString(pbxCase4.BackColor) + "\nCase 5 = " + Convert.ToString(pbxCase5.BackColor) + "\nCase 6 = " + Convert.ToString(pbxCase6.BackColor) + "\nCase 7 = " + Convert.ToString(pbxCase7.BackColor) + "\nCase 8 = " + Convert.ToString(pbxCase8.BackColor) + "\nCase 9 = " + Convert.ToString(pbxCase9.BackColor));
             }
         }
 
@@ -172,34 +173,34 @@ namespace Cpln.Enigmos.Enigmas
         {
             // Intelligence artificielle
             // Test si l'ordinateur peut gagner
-            IA_Winning(0, 1, 2, pbxCase1, pbxCase2, pbxCase3);
-            IA_Winning(3, 4, 5, pbxCase4, pbxCase5, pbxCase6);
-            IA_Winning(6, 7, 8, pbxCase7, pbxCase8, pbxCase9);
-            IA_Winning(0, 3, 6, pbxCase1, pbxCase4, pbxCase7);
-            IA_Winning(1, 4, 7, pbxCase2, pbxCase5, pbxCase8);
-            IA_Winning(2, 5, 8, pbxCase3, pbxCase6, pbxCase9);
-            IA_Winning(0, 4, 8, pbxCase1, pbxCase5, pbxCase9);
-            IA_Winning(2, 4, 6, pbxCase3, pbxCase5, pbxCase7);
+            IA_Winning(pbxCase1, pbxCase2, pbxCase3);
+            IA_Winning(pbxCase4, pbxCase5, pbxCase6);
+            IA_Winning(pbxCase7, pbxCase8, pbxCase9);
+            IA_Winning(pbxCase1, pbxCase4, pbxCase7);
+            IA_Winning(pbxCase2, pbxCase5, pbxCase8);
+            IA_Winning(pbxCase3, pbxCase6, pbxCase9);
+            IA_Winning(pbxCase1, pbxCase5, pbxCase9);
+            IA_Winning(pbxCase3, pbxCase5, pbxCase7);
 
             // Test si le joueur peut gagner
-            Player_Winning(0, 1, 2, pbxCase1, pbxCase2, pbxCase3);
-            Player_Winning(3, 4, 5, pbxCase4, pbxCase5, pbxCase6);
-            Player_Winning(6, 7, 8, pbxCase7, pbxCase8, pbxCase9);
-            Player_Winning(0, 3, 6, pbxCase1, pbxCase4, pbxCase7);
-            Player_Winning(1, 4, 7, pbxCase2, pbxCase5, pbxCase8);
-            Player_Winning(2, 5, 8, pbxCase3, pbxCase6, pbxCase9);
-            Player_Winning(0, 4, 8, pbxCase1, pbxCase5, pbxCase9);
-            Player_Winning(2, 4, 6, pbxCase3, pbxCase5, pbxCase7);
+            Player_Winning(pbxCase1, pbxCase2, pbxCase3);
+            Player_Winning(pbxCase4, pbxCase5, pbxCase6);
+            Player_Winning(pbxCase7, pbxCase8, pbxCase9);
+            Player_Winning(pbxCase1, pbxCase4, pbxCase7);
+            Player_Winning(pbxCase2, pbxCase5, pbxCase8);
+            Player_Winning(pbxCase3, pbxCase6, pbxCase9);
+            Player_Winning(pbxCase1, pbxCase5, pbxCase9);
+            Player_Winning(pbxCase3, pbxCase5, pbxCase7);
 
-            
-            if(iPlayer == 2)
+
+            if (iPlayer == 2)
             {
-                PictureBox[] tBase = new PictureBox[]{pbxCase1, pbxCase2, pbxCase3, pbxCase4, pbxCase5, pbxCase6, pbxCase7, pbxCase8, pbxCase9};
-                List<PictureBox> List_Libre = new List<PictureBox> ();
+                PictureBox[] tBase = new PictureBox[] { pbxCase1, pbxCase2, pbxCase3, pbxCase4, pbxCase5, pbxCase6, pbxCase7, pbxCase8, pbxCase9 };
+                List<PictureBox> List_Libre = new List<PictureBox>();
 
-                for(int iCpt = 0; iCpt < tVerification.Length; iCpt++)
+                for (int iCpt = 0; iCpt < tBase.Length; iCpt++)
                 {
-                    if(tVerification[iCpt] != 1 && tVerification[iCpt] != 2)
+                    if (tBase[iCpt].BackColor != Color.Blue && tBase[iCpt].BackColor != Color.Red)
                     {
                         List_Libre.Add(tBase[iCpt]);
                     }
@@ -215,36 +216,33 @@ namespace Cpln.Enigmos.Enigmas
                     if (iCpt == iNbCaseLibre)
                     {
                         List_Libre[iCpt].BackColor = Color.Blue;
-
-                        tVerification[iCpt] = 2;
+                        List_Libre[iCpt].Enabled = false;
+                        Verification();
                         iPlayer = 1;
                     }
                 }
+
+                //MessageBox.Show("Vérification :\n\nCase 1 = " + Convert.ToString(pbxCase1.BackColor) + "\nCase 2 = " + Convert.ToString(pbxCase2.BackColor) + "\nCase 3 = " + Convert.ToString(pbxCase3.BackColor) + "\nCase 4 = " + Convert.ToString(pbxCase4.BackColor) + "\nCase 5 = " + Convert.ToString(pbxCase5.BackColor) + "\nCase 6 = " + Convert.ToString(pbxCase6.BackColor) + "\nCase 7 = " + Convert.ToString(pbxCase7.BackColor) + "\nCase 8 = " + Convert.ToString(pbxCase8.BackColor) + "\nCase 9 = " + Convert.ToString(pbxCase9.BackColor));
             }
         }
 
         private void ClickOnCase1(object sender, EventArgs e)
         {
-            if(pbxCase1.Enabled == true)
+            if (pbxCase1.Enabled == true)
             {
                 if (iPlayer == 1)
                 {
                     pbxCase1.BackColor = Color.Red;
-                    tVerification[0] = iPlayer;
-                    
+
                     pbxCase1.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if(pbxCase1.Enabled == false)
-            {
-                Error();
             }
         }
 
@@ -255,21 +253,16 @@ namespace Cpln.Enigmos.Enigmas
                 if (iPlayer == 1)
                 {
                     pbxCase2.BackColor = Color.Red;
-                    tVerification[1] = iPlayer;
 
                     pbxCase2.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase2.Enabled == false)
-            {
-                Error();
             }
         }
 
@@ -280,21 +273,16 @@ namespace Cpln.Enigmos.Enigmas
                 if (iPlayer == 1)
                 {
                     pbxCase3.BackColor = Color.Red;
-                    tVerification[2] = iPlayer;
 
                     pbxCase3.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase3.Enabled == false)
-            {
-                Error();
             }
         }
 
@@ -305,21 +293,16 @@ namespace Cpln.Enigmos.Enigmas
                 if (iPlayer == 1)
                 {
                     pbxCase4.BackColor = Color.Red;
-                    tVerification[3] = iPlayer;
 
                     pbxCase4.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase4.Enabled == false)
-            {
-                Error();
             }
         }
 
@@ -330,21 +313,16 @@ namespace Cpln.Enigmos.Enigmas
                 if (iPlayer == 1)
                 {
                     pbxCase5.BackColor = Color.Red;
-                    tVerification[4] = iPlayer;
 
                     pbxCase5.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase5.Enabled == false)
-            {
-                Error();
             }
         }
 
@@ -355,21 +333,16 @@ namespace Cpln.Enigmos.Enigmas
                 if (iPlayer == 1)
                 {
                     pbxCase6.BackColor = Color.Red;
-                    tVerification[5] = iPlayer;
 
                     pbxCase6.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase6.Enabled == false)
-            {
-                Error();
             }
         }
 
@@ -380,21 +353,16 @@ namespace Cpln.Enigmos.Enigmas
                 if (iPlayer == 1)
                 {
                     pbxCase7.BackColor = Color.Red;
-                    tVerification[6] = iPlayer;
 
                     pbxCase7.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase7.Enabled == false)
-            {
-                Error();
             }
         }
 
@@ -405,21 +373,16 @@ namespace Cpln.Enigmos.Enigmas
                 if (iPlayer == 1)
                 {
                     pbxCase8.BackColor = Color.Red;
-                    tVerification[7] = iPlayer;
 
                     pbxCase8.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase8.Enabled == false)
-            {
-                Error();
             }
         }
 
@@ -430,75 +393,62 @@ namespace Cpln.Enigmos.Enigmas
                 if (iPlayer == 1)
                 {
                     pbxCase9.BackColor = Color.Red;
-                    tVerification[8] = iPlayer;
 
                     pbxCase9.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
             }
-            else if (pbxCase9.Enabled == false)
-            {
-                Error();
-            }
         }
 
-        private void End()
+        private void End(PictureBox pbx1, PictureBox pbx2, PictureBox pbx3)
         {
-            if(tVerification[0] == tVerification[3] && tVerification[0] == tVerification[6])
+            if(iPlayer == 1)
             {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
+                if(pbx1.BackColor == Color.Red && pbx2.BackColor == Color.Red && pbx3.BackColor == Color.Red)
+                {
+                    MessageBox.Show("Vous avez gagné !");
+                    iPlayer = 1;
+
+                    Start();
+                }
+                else
+                {
+
+                }
+            }
+            else if (iPlayer == 2)
+            {
+                if (pbx1.BackColor == Color.Blue && pbx2.BackColor == Color.Blue && pbx3.BackColor == Color.Blue)
+                {
+                    MessageBox.Show("Vous avez perdu !");
+                    iPlayer = 1;
+
+                    Start();
+                }
+                else
+                {
+                    
+                }
             }
 
-            if(tVerification[1] == tVerification[4] && tVerification[1] == tVerification[7])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(tVerification[2] == tVerification[5] && tVerification[2] == tVerification[8])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(tVerification[0] == tVerification[1] && tVerification[0] == tVerification[2])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(tVerification[3] == tVerification[4] && tVerification[3] == tVerification[5])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(tVerification[6] == tVerification[7] && tVerification[6] == tVerification[8])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(tVerification[2] == tVerification[4] && tVerification[2] == tVerification[6])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(tVerification[0] == tVerification[4] && tVerification[0] == tVerification[8])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(iPlayer == 2)
-            {
-                IA();
-            }
         }
 
-        private void Error()
+        private void Verification()
         {
-            DialogResult dlgError = MessageBox.Show("Cette case a déjà été utilislée.\n\nMerci d'en utiliser une autre.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            End(pbxCase1, pbxCase2, pbxCase3);
+            End(pbxCase4, pbxCase5, pbxCase6);
+            End(pbxCase7, pbxCase8, pbxCase9);
+            End(pbxCase1, pbxCase4, pbxCase7);
+            End(pbxCase2, pbxCase5, pbxCase8);
+            End(pbxCase3, pbxCase6, pbxCase9);
+            End(pbxCase1, pbxCase5, pbxCase9);
+            End(pbxCase3, pbxCase5, pbxCase7);
         }
     }
 
