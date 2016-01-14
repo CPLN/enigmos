@@ -16,7 +16,7 @@ namespace Cpln.Enigmos.Enigmas
         private Point[] tSaveMouseClickPosition = new Point[5];
         private Point[] tCentrePoint = new Point[9];
         private bool[] tPointTrace = new bool[9];
-        const int RAYON_POINT = 95;
+        const int RAYON_POINT = 100;
 
         /// <summary>
         /// Affichage de l'énigme 9 points
@@ -122,7 +122,12 @@ namespace Cpln.Enigmos.Enigmas
                 /*Message de fin - victoire/ défaite?*/
                 if (bOk)
                 {
-                    MessageBox.Show("OK");
+                    MessageBox.Show("La réponse est \" 9.\"");
+                }
+                else
+                {
+                    MessageBox.Show("Perdu! Vous n'avez pas réussi à tracer touts les points!");
+                    RedemarrerEnigme();
                 }
             }
         }
@@ -142,6 +147,13 @@ namespace Cpln.Enigmos.Enigmas
             }
             double distance = Math.Abs(pente * p.X - p.Y + (p1.Y - p1.X * pente)) / Math.Sqrt(1.0 + pente * pente);
             return distance;
+        }
+
+        private void RedemarrerEnigme()
+        {
+            tSaveMouseClickPosition = new Point[5];
+            tPointTrace = new bool[9];
+            pcbCase9Points.Image = null;
         }
     }
 }
