@@ -107,7 +107,6 @@ namespace Cpln.Enigmos.Enigmas
             //Affichage du message en fonction des nombres de clique
             if(bVert == true)
             {
-                timer.Stop();
                 if(iComptClics == 1)
                 {
                     MessageBox.Show("Bravo vous avez gagné !\nAvez-vous triché ou êtes-vous le professeur ?\n\nLa réponse est : Flash", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -130,7 +129,6 @@ namespace Cpln.Enigmos.Enigmas
                 }
 
                 //Affiche la reponse et bloque le bouton
-                btnACliquer.Enabled = false;
                 btnACliquer.Text = "La réponse est : Flash";
             }
             else
