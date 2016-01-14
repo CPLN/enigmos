@@ -8,16 +8,10 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
-    /// <summary>
-    /// Exemple d'énigme très simple. Seul un texte est affiché.
-    /// </summary>
     public class PenduEnigmaPanel : EnigmaPanel
     {
-        /// <summary>
-        /// Génération des boutons avec les lettres de l'alphabet.
-        /// </summary>
-        List<Button> boutons = new List<Button>();
-        string strMot = "OXYGENE";
+        List<Button> boutons = new List<Button>(); //Liste pour les boutons.
+        string strMot = "OXYGENE"; //Réponse de l'énigme.
         int iFautes = 0, k = 200, j = 65, iCompteur = 0, iAscii = 65;
         Label Reponse = new Label();
         PictureBox pbx = new PictureBox();
@@ -26,11 +20,12 @@ namespace Cpln.Enigmos.Enigmas
 
         public PenduEnigmaPanel()
         {
-            //Image de base
+            //Image de base du pendu.
             pbx.BackgroundImage = Properties.Resources.imageA;
             pbx.Size = Properties.Resources.imageA.Size;
             ImagePendu();
 
+            //Créaion du mot qui s'affiche en bas de l'écran, des astérisques en l'occurence.
             for (int i = 0; i < strMot.Length; i++)
             {
                 Reponse.Text += "*";
@@ -38,9 +33,9 @@ namespace Cpln.Enigmos.Enigmas
             Reponse.Font = new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold);
             Reponse.Dock = DockStyle.Bottom;
             Reponse.TextAlign = ContentAlignment.BottomCenter;
-            Controls.Add(Reponse);
+            this.Controls.Add(Reponse);
 
-            //Génération du titre
+            //Génération du titre.
             lblEnigme.Text = "Jeu du pendu";
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold);
             lblEnigme.Dock = DockStyle.Top;
@@ -48,18 +43,20 @@ namespace Cpln.Enigmos.Enigmas
 
             this.Controls.Add(lblEnigme);
             
-            //Boucle qui crée les boutons pour chaque lettre de l'alphabet
+            //Boucle qui crée les boutons pour chaque lettre de l'alphabet.
             for (int i = 0; i <= 25; i++)
             {
                 j += 35;
                 Button bouton = new Button();
                 bouton.Size = new Size(30, 30); 
-                bouton.Click += new EventHandler(bouton_Click);
+                bouton.Click += new EventHandler(bouton_Click); //Création d'un évenement pour chaque clic sur un bouton.
+                //Place 6 boutons par ligne.
                 if (j >= 310)
                 {
                     j = 100;
                     k += 35;
                     iCompteur++;
+                    //Il y a 6 boutons par ligne, il en reste donc 2 sur la dernière ligne(26 lettres dans l'alphabet), C'est pourquoi avec le code ci-dessous, on centre les deux derniers boutons.
                     if(iCompteur >= 4)
                     {
                         j=170;
@@ -67,10 +64,10 @@ namespace Cpln.Enigmos.Enigmas
                 }
                 bouton.Location = new Point(j, k);
                 this.Controls.Add(bouton);
-                boutons.Add(bouton);
+                boutons.Add(bouton); //Ajoute le bouton dans la liste des boutons.
             }
 
-            //Foreach qui ajoute toutes les lettres de l'alphabet sur les boutons créés précédemment
+            //Foreach qui ajoute toutes les lettres de l'alphabet sur les boutons créés précédemment.
             foreach(Button bouton in boutons)
             {
                 bouton.Text = Convert.ToString(Convert.ToChar(iAscii));
@@ -80,35 +77,28 @@ namespace Cpln.Enigmos.Enigmas
 
         public override void Unload()
         {
+            //Activation des boutons.
             foreach (Button bouton in boutons)
             {
                 bouton.Enabled = true;
             }
-
-            pbx.BackgroundImage = Properties.Resources.imageA;
-
-            Reponse.Text = "";
-            text = "";
-            for (int i = 0; i < strMot.Length; i++)
-            {
-                Reponse.Text += "*";
-                text += "*";
-            }
-
-            iFautes = 0;
         }
 
+        //Evenement sur le clic sur un bouton, utilisation de la méthode "test_lettre" avec comme paramètre la lettre se trouvant sur le bouton.
         void bouton_Click(Object sender, EventArgs e)
         {
             ((Button)sender).Enabled = false;
             test_lettre(Convert.ToChar(((Button)sender).Text));
         }
 
-         private void test_lettre(char Lettre)
-         {
+        //Méthode qui vérifie si la lettre choisie se trouve dans le mot.
+        private void test_lettre(char Lettre)
+        {
             bool faute = true;
+            //Vérification de chaque lettre du mot.
             for (int i = 0; i < strMot.Length; i++)
             {
+                //Ce if permet de vérifier si la lettre est dans le mot, et d'insérer la lettre trouvée, en coupant le mot en deux.
                 if (strMot[i] == Lettre)
                 {
                     string Partie1 = text.Substring(0, i);
@@ -117,9 +107,12 @@ namespace Cpln.Enigmos.Enigmas
                     faute = false;
                 }
             }
+            //Lorsqe la lettre choisie n'est pas dans le mot on entre ici.
             if (faute)
             {
+                //Permet de gérer le nombre de faute (max: 7), change l'image du pendu pour chaque erreur.
                 iFautes++;
+                #region Switch fautes
                 switch (iFautes)
                 {
                 case 1:
@@ -153,15 +146,17 @@ namespace Cpln.Enigmos.Enigmas
                     ImagePendu();
                     MessageBox.Show("Dommage, vous n'avez pas réussis cette enigme,\nil vous faut donc la passer", "Fin");
                     break;
-                }   
-
+                }
+                #endregion
             }
-            Reponse.Text = text;
+            Reponse.Text = text; //Affiche le mot en bas de l'écran, lorsqu'on trouve une lettre, elle s'affiche.
+            //Lorsqu'on trouve la réponse entière, un message s'affiche en nous répétant la réponse à écrire.
             if (text == "OXYGENE")
             {
                 MessageBox.Show("Bravo !\nVous avez découvert le mot -oxygene-","Pendu");
             }
         }
+        //Méthode qui donne les mêmes paramètres pour toutes les images du pendu.
         private void ImagePendu()
          {
              pbx.Location = new Point(450,200);
