@@ -8,10 +8,6 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
-    public class Boutton : EnigmaPanel
-    {
-
-    }
     public class TrouverEnigmaPanel : EnigmaPanel
     {
         /// <summary>
