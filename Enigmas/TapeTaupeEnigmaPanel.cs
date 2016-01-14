@@ -41,14 +41,19 @@ namespace Cpln.Enigmos.Enigmas
             pbxTaupe.MouseClick += new MouseEventHandler(pbxTaupe_Click);
 
             iVitesse = RandoDifficulte.Next(200, 250);
+            this.Cursor = new Cursor(Properties.Resources.gifessai.GetHicon());
+            this.Cursor.Size = new Size(2, 2);
+
         }
 
         private void pbxTaupe_Click(object sender, MouseEventArgs e)
         {
+            //si taupe
             iScore++;
             pbxTaupe.Enabled = false;
             pbxTaupe.Visible = false;
 
+            //si lapin
             iScore = 0;
         }
 

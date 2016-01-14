@@ -145,6 +145,8 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\gifessai.gif" />
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
     <None Include="Resources\OpenDoor - Solution.png" />
