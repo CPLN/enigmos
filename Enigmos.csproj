@@ -56,6 +56,8 @@
     </Compile>
 
     <Compile Include="Enigmas\TrouverEnigmaPanel.cs">
+	<SubType>Component</SubType>
+	</Compile>
 
     <Compile Include="Enigmas\NfsEnigmaPanel.cs">
       <SubType>Component</SubType>
@@ -112,7 +114,9 @@
     <Compile Include="Enigmas\SimplePuzzleEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="EnigmaReferencer.cs" />
+    <Compile Include="EnigmaReferencer.cs" >
+	<SubType>Component</SubType>
+	</Compile>
     <Compile Include="Enigma.cs">
       <SubType>Component</SubType>
     </Compile>
