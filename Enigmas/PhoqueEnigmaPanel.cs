@@ -56,7 +56,7 @@ namespace Cpln.Enigmos.Enigmas
             tblObjet[tblPoissons.Length] = pbxHarpon;
             Controls.Add(pbxHarpon);
 
-            //Création du label coompteur de point
+            //Création du label compteur de point
             lblPoint.Location = new Point(0, 0);
             lblPoint.Size = new Size(200, 20);
             lblPoint.Text = "Points : 0";
@@ -69,11 +69,18 @@ namespace Cpln.Enigmos.Enigmas
             timer.Tick += new EventHandler(Timer_Tick);
 
         }
+
+        /// <summary>
+        /// Lancement du Timer lorsque l'utilisateur se trouvge sur l'énigme
+        /// </summary>
         public override void Load()
         {
             timer.Start();
         }
 
+        /// <summary>
+        /// Arret du Timer lorsque l'utilisateur quitte l'enigme
+        /// </summary>
         public override void Unload()
         {
             timer.Stop();
