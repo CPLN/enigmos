@@ -50,6 +50,12 @@
     <Compile Include="Enigmas\LettreHaute.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\ClicRapideEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\PenduEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -97,6 +103,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\OiseauxEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\PhoqueEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\RunEnigmaPanel.cs">
@@ -170,6 +179,10 @@
     <None Include="Resources\3bananes.png" />
     <None Include="Resources\banane_enigme.png" />
     <None Include="Resources\pomme.png" />
+    <None Include="Resources\Harpon.png" />
+    <None Include="Resources\Poisson.png" />
+    <None Include="Resources\Phoque1.png" />
+    <None Include="Resources\Montagne.png" />
     <None Include="image\Cross.png" />
     <None Include="image\Circle.png" />
     <Content Include="img\imageA.PNG" />
