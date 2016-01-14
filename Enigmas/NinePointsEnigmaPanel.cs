@@ -36,8 +36,13 @@ namespace Cpln.Enigmos.Enigmas
 
             /*Initialise bouton recommencer*/
             Button btnRecommencer = new Button();
+            btnRecommencer.Font = new Font("Microsoft Sans Serif", 19);
             btnRecommencer.Text = "Recommencer";
+            btnRecommencer.AutoSize = true;
             btnRecommencer.Click += new EventHandler(MouseClick_btnRecommencer);
+            btnRecommencer.Location = new Point(this.Left + 10, this.Top + 750);
+            Controls.Add(btnRecommencer);
+            btnRecommencer.BringToFront();
 
             /*Initialise les positions du centre des points*/
             for (int i = 0, iX = 200, iY = 200; i < tCentrePoint.Length; i++, iX += 200)
@@ -153,9 +158,14 @@ namespace Cpln.Enigmos.Enigmas
                 }
             }
         }
-
+        /// <summary>
+        /// Affiche le prochain trait de façon dynamique
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MouseMove_Afficher9Points(object sender, MouseEventArgs e)
         {
+            /**/
             if (tSaveMouseClickPosition[0] != new Point())
             {
                 cursorPosition = e.Location;
@@ -181,6 +191,9 @@ namespace Cpln.Enigmos.Enigmas
             return distance;
         }
 
+        /// <summary>
+        /// Relance l'énigme
+        /// </summary>
         private void RedemarrerEnigme()
         {
             tSaveMouseClickPosition = new Point[5];
