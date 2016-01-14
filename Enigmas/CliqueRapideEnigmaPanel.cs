@@ -109,7 +109,7 @@ namespace Cpln.Enigmos.Enigmas
                 {
                     MessageBox.Show("Bravo vous avez gagné !\nAvez-vous triché ou êtes-vous le professeur ?\n\nLa réponse est : Flash", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if(iComptClique >= 2 || iComptClique <= 3)
+                else if(iComptClique >= 2 && iComptClique <= 3)
                 {
                     MessageBox.Show("Bravo vous avez gagné !\nAvez-vous eu de la chance ou êtes-vous juste bon ?\n\nLa réponse est : Flash", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -123,7 +123,7 @@ namespace Cpln.Enigmos.Enigmas
                 }
                 else
                 {
-                    MessageBox.Show("Bravo vous avez gagné !\nDésolé mais vous n'êtes pas très bon...\n\nLa réponse est : Flash", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Bravo vous avez enfin gagné !\nDésolé mais vous n'êtes pas très bon...\n\nLa réponse est : Flash", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 btnACliquer.Enabled = false;
                 btnACliquer.Text = "La réponse est : Flash";
