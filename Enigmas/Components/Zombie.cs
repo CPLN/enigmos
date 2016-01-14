@@ -18,7 +18,9 @@ namespace Cpln.Enigmos.Enigmas.Components
         /// <summary>
         /// C'est le constructeur par défaut de la classe zombie
         /// </summary>
-        /// <param name="parent">on doit lui envoyer le panel en parametre</param>
+        /// <param name="parent">on lui envoie le panel</param>
+        /// <param name="direction">on lui envoie la direction du zombie</param>
+        /// <param name="pbxBatiment">on lui envoie le batiment central</param>
         public Zombie(ZombieInvasionEnigmaPanel parent, Direction direction, PictureBox pbxBatiment)
         {
             this.Size = Properties.Resources.ZombieDroite.Size; //on définit la taille de l'image
@@ -38,11 +40,11 @@ namespace Cpln.Enigmos.Enigmas.Components
                 this.Image = Properties.Resources.ZombieGauche;//définit une image
             }
 
-            MouseClick += new MouseEventHandler(ZombieClick);
+            MouseClick += new MouseEventHandler(ZombieClick);//crée un evenement de clique sur le zombie
         }
 
         /// <summary>
-        /// permet de faire avancer le zombie de 2 pixels sur la gauche
+        /// permet de faire avancer le zombie
         /// </summary>
         public void Avancer()
         {
@@ -50,12 +52,13 @@ namespace Cpln.Enigmos.Enigmas.Components
             if (Collision())
             {
                 throw new ArreterException();
-                //Arreter();//s'il y a collision on arrete le zombie
+                ////s'il y a collision on arrete le zombie
             }
 
             //teste que le zombie ne soit pas stopper
             if (!bZombieStop)
             {
+                //si il avance en direction de la gauche
                 if(direction == Direction.GAUCHE)
                 {
                     this.Left -= 2;//on fais avancer l'objet
@@ -110,8 +113,12 @@ namespace Cpln.Enigmos.Enigmas.Components
             return true;
         }
 
+        /// <summary>
+        /// Evenement de clique sur le zombie
+        /// </summary>
         private void ZombieClick(object sender, MouseEventArgs e)
         {
+            //on envoie différent parametres au parent
             parent.PanelClick(sender, e);
             parent.TuerZombie(this);
 
