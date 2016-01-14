@@ -17,6 +17,7 @@ namespace Cpln.Enigmos.Enigmas
         /// <summary>
         /// Constructeur par défaut, génère un texte et l'affiche dans le Panel.
         /// </summary>
+        //Déclaration de toutes les variables
         bool bGo = false, bRebondXC = true, bRebondYC = true;
         int iAxeX = 4, iAxeY = 2;
         private Timer Timer = new Timer();
@@ -26,28 +27,29 @@ namespace Cpln.Enigmos.Enigmas
         bool[] brebondXA;
         public TrouverEnigmaPanel()
         {
-            //bGo = true;
             Label lblEnigme = new Label();
             int i = 0;
             Random random = new Random();
-            for (i = 0; i < 150; i++)
+            //Instanciation des bouttons + ajouts d'attributs
+            for (i = 0; i < 200; i++)
             {
 
                 Button b = new Button();
+                //Ajout des bouttons b dans la liste buttons
                 buttons.Add(b);
                 this.Controls.Add(b);
-
                 b.Size = new Size(100, 100);
                 b.Location = new Point(random.Next(800), random.Next(600));
                 b.Name = "Cristiano" + i;
                 Controls.Add(b);
                 brebondYA = new bool[i];
                 brebondXA = new bool[i];
-            }
 
+            }
+            //Fond d'écran de même couleur que les super meat boy
             this.BackColor = Color.FromArgb(174, 0, 1);
 
-            bCristiano.Text = "" + 666;
+            //Modifications des attributs du boutton Cristiano :D
             bCristiano.Size = new Size(100, 100);
             bCristiano.Location = new Point(400, 300);
             bCristiano.BackColor = Color.Red;
@@ -69,7 +71,7 @@ namespace Cpln.Enigmos.Enigmas
             Timer.Start();
             bGo = true;
 
-            //lblEnigme.Text = "fesse ?";
+            
 
 
 
@@ -77,6 +79,7 @@ namespace Cpln.Enigmos.Enigmas
 
         private void bCristiano_Click(object sender, EventArgs e)
         {
+            //Message qui apparait lorsque l'on clique sur Cristiano
             MessageBox.Show("Le mot à valider est cristiano", "Yo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
@@ -84,18 +87,21 @@ namespace Cpln.Enigmos.Enigmas
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            //Code dans l'event timer
             foreach (Button b in buttons)
             {
-                
+                //On parcourt la liste de boutton afin de pouvoir y appliquer des changements de paramètres
                 b.FlatStyle = FlatStyle.Flat;
                 b.FlatAppearance.BorderColor = Color.FromArgb(174, 0, 1); 
                 b.BackColor = System.Drawing.Color.Transparent;
                 b.ForeColor = System.Drawing.Color.Transparent;
                 b.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.supermeat));
+                //Et on applique "Deplacement" à tous les bouttons
                 Deplacement(b);
           
             }
             
+            //Voici le système de rebond pour Cristiano, basé sur ce qu'on a appris l'année passée
             if (bGo == true)
                 {
                     if (bCristiano.Left <= 0 || bCristiano.Right >= this.Width)
@@ -126,6 +132,7 @@ namespace Cpln.Enigmos.Enigmas
             }
         public void Deplacement(Button b)
         {
+            //Code permettant aux boutton de se déplacer telle une foule
             if (bGo == true)
             {
                 for (int i = 0; i < 10; i++ )
