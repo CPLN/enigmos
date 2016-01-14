@@ -12,9 +12,29 @@ namespace Cpln.Enigmos.Enigmas
        
     public class InstinctEnigmaPanel : EnigmaPanel
     {
+        private int iNombreRandom = 0;
+        Image depart = Properties.Resources.salle_de_bain;
+        Image imageDefaite = Properties.Resources.bluescreen;
+        Image imageDepart1 = Properties.Resources.Etage_2;
+        Image imageDepart2 = Properties.Resources.chambre;
+        Image imageDepart3 = Properties.Resources.étage;
+        Image imageMilieu4 = Properties.Resources.escalier;
+        Image imageMilieu5 = Properties.Resources.salon;
+        Image imageMilieu6 = Properties.Resources.escalier;
+        Image imageFin = Properties.Resources.sortie;
+        
+        private bool iLock1 = false;
+        private bool iLock2 = false;
+        private bool iLock3 = false;
+        private int iIndice1;
+        private int iIndice2;
+        private int iIndice3;
         private int iNumeroImage;
         private int random;
-        private int iEtape;
+        private int iEtape1 = 0;
+        private int iEtape2 = 0;
+        private int iEtape3 = 0;
+
         //création des buttons et des panels
         Label lblReponse = new Label();
         Label lblTexte = new Label();
@@ -23,21 +43,39 @@ namespace Cpln.Enigmos.Enigmas
         Button btnChoix2 = new Button();
         Button btnChoix3 = new Button();
         Random randomNombre = new Random();
+        Label lblIndice = new Label();
         
         //Evenement des clicks de boutons 
        private void Random_Click(object sender, EventArgs e)
        {
-           pnlImage.BackgroundImage = CliqueRandom();
-           
+           pnlImage.BackgroundImage = ChoixImage(iIndice1);
+            iLock2 = false;
+            iLock1 = false;
+            iLock3 = false;
+            TexteImage1();
+            iEtape2 = iEtape1;
+            iEtape3 = iEtape1;
        }
        private void Random2_Click(object sender, EventArgs e)
        {
-           pnlImage.BackgroundImage = CliqueRandom();
-       }
+           pnlImage.BackgroundImage = ChoixImage(iIndice2);
+            iLock2 = false;
+            iLock1 = false;
+            iLock3 = false;
+            TexteImage2();
+            iEtape3 = iEtape2;
+            iEtape1 = iEtape2;
+        }
        private void Random3_Click(object sender, EventArgs e)
        {
-           pnlImage.BackgroundImage = CliqueRandom();
-       }
+           pnlImage.BackgroundImage = ChoixImage(iIndice3);
+            iLock2 = false;
+            iLock1 = false;
+            iLock3 = false;
+            TexteImage3();
+            iEtape1 = iEtape3;
+            iEtape2 = iEtape3;
+        }
        
         //Constructeur par défaut qui initiliase les proprieté de la première fenêtre.
         public InstinctEnigmaPanel()
@@ -46,15 +84,18 @@ namespace Cpln.Enigmos.Enigmas
          
             bool bFindeJeu = false;
             lblTexte.Text = "Vous êtes retrouvez dans une maison inconnue en vous réveillant";
+            lblIndice.Text = "rien";
             lblTexte.Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold);
             lblTexte.Size = new Size(800, 30);
             lblTexte.Location = new Point(100, 0);
-            
+            lblIndice.Location = new Point(100, 500);
+            lblIndice.Size = new Size(800, 30);
             Controls.Add(lblReponse);
             Controls.Add(lblTexte);
             Controls.Add(btnChoix1);
             Controls.Add(btnChoix2);
             Controls.Add(btnChoix3);
+            Controls.Add(lblIndice);
             pnlImage.Width = 800;
             pnlImage.Height = 600;
             //pnlImage.BackColor = Color.BlueViolet;
@@ -139,29 +180,39 @@ namespace Cpln.Enigmos.Enigmas
         void btnChoix1MouseLeave(object sender, EventArgs e)
         {
             btnChoix1.BackColor = Color.White;
+            
         }
         void btnChoix2MouseLeave(object sender, EventArgs e)
         {
             btnChoix2.BackColor = Color.White;
+            
         }
         void btnChoix3MouseLeave(object sender, EventArgs e)
         {
             btnChoix3.BackColor = Color.White;
+    
         }
         void btnChoix1rouge_MouseHover(object sender, EventArgs e)
         {
             btnChoix1.BackColor = Color.Red;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
+            LockIndice1();
+
+          
+        
+            
         }
         void btnChoix1jaune_MouseHover(object sender, EventArgs e)
         {
             btnChoix1.BackColor = Color.Yellow;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
+            LockIndice1();
         }
         void btnChoix1vert_MouseHover(object sender, EventArgs e)
         {
             btnChoix1.BackColor = Color.Green;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
+            LockIndice1();
         }
         
 
@@ -169,16 +220,19 @@ namespace Cpln.Enigmos.Enigmas
         {
             btnChoix2.BackColor = Color.Red;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
+            LockIndice2();
         }
         void btnChoix2jaune_MouseHover(object sender, EventArgs e)
         {
             btnChoix2.BackColor = Color.Yellow;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
+            LockIndice2();
         }
         void btnChoix2vert_MouseHover(object sender, EventArgs e)
         {
             btnChoix2.BackColor = Color.Green;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
+            LockIndice2();
         }
        
 
@@ -186,38 +240,489 @@ namespace Cpln.Enigmos.Enigmas
         {
             btnChoix3.BackColor = Color.Red;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
+            LockIndice3();
         }
         void btnChoix3jaune_MouseHover(object sender, EventArgs e)
         {
             btnChoix3.BackColor = Color.Yellow;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
+            LockIndice3();
         }
         void btnChoix3vert_MouseHover(object sender, EventArgs e)
         {
             btnChoix3.BackColor = Color.Green;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
+            LockIndice3();
         }
         void btnChoix1_MouseLeave(object sender, EventArgs e)
         {
             this.btnChoix1.BackColor = Color.White;
             Cursor.Current = System.Windows.Forms.Cursors.Default;
+      
         }
 
-
-        //fonction qui permet de générer alétoirement une image du tableau d'image.
-        private Image CliqueRandom()
+        private int CliqueRandom1()
         {
+
+
+
+
+            //Image imageDepart4 = Properties.Resources.assassinat;
+            //Image imageDepart5 = Properties.Resources.buanderie;
+            //Image imageDepart6 = Properties.Resources.grenier;
+            //Image imageDepart7 = Properties.Resources.maxresdefault;
+            //Image imageDepart8 = Properties.Resources.piscine;
+            //Image imageDepart9 = Properties.Resources.sortie;
+
+
+            // on test si le premier affichage a été fait.
+            if (iEtape1 == 0)
+            {
+
+                GenerationButton(iEtape1);
+
+                iEtape1 = 1;
+                random = randomNombre.Next(1, 4);
+                if (random == 1)
+                {
+
+
+                    GenerationButton(iEtape1);
+                    
+                    // lblTexte.Text = "Le couloir semble calme...";
+                    iNumeroImage = 1;
+                    iNombreRandom = 3;
+                    // return imgFinaleDepart = aImageDeBase[2];
+                    return iNombreRandom;
+
+
+
+                }
+                if (random == 2)
+                {
+
+                    GenerationButton(iEtape1);
+                    
+                    //lblTexte.Text = "Apparement, c'est une chambre d'enfant";
+                    iNumeroImage = 2;
+                    //return imgFinaleDepart = aImageDeBase[3];
+                    iNombreRandom = 4;
+                    return iNombreRandom;
+
+                }
+                if (random == 3)
+                {
+
+                    GenerationButton(iEtape1);
+                    
+                    // lblTexte.Text = "Le froid semble vous atteindre dans ce couloir";
+                    iNumeroImage = 3;
+                    // return imgFinaleDepart = aImageDeBase[4];
+                    iNombreRandom = 5;
+                    return iNombreRandom;
+
+                }
+
+
+            }
+            if (iEtape1 == 1)
+            {
+
+                switch (iNumeroImage)
+                {
+
+                    case 1:
+
+                        iNumeroImage = 4;
+                        random = randomNombre.Next(1, 4);
+                        if (random == 1)
+                        {
+
+                            iEtape1 = 0;
+                            // lblTexte.Text = "Cette pièce vous semble familier";
+                            //return imgFinaleDepart = aImageDeBase[0];
+                            iNombreRandom = 1;
+                            return iNombreRandom;
+
+                        }
+                        if (random == 2)
+                        {
+
+                            iEtape1 = 2;
+                            //  lblTexte.Text = "Vous semblez être au rez-de-chaussez"; 
+                            //return imgFinaleDepart = aImageDeBase[5];
+                            iNombreRandom = 6;
+                            return iNombreRandom;
+
+                        }
+                        if (random == 3)
+                        {
+
+
+                            //DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+
+                            // return imgFinaleDepart = aImageDeBase[1];
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        else
+                        {
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        break;
+                    case 2:
+
+                        iNumeroImage = 5;
+                        random = randomNombre.Next(1, 4);
+                        if (random == 1)
+                        {
+                            iEtape1 = 0;
+                            // lblTexte.Text = "Cette pièce vous semble familier";
+                            // return imgFinaleDepart = aImageDeBase[0];
+                            iNombreRandom = 1;
+                            return iNombreRandom;
+
+                        }
+                        if (random == 2)
+                        {
+                            iEtape1 = 2;
+                            //lblTexte.Text = "Le salon est bien accueillant";
+                            //return imgFinaleDepart = aImageDeBase[6];
+                            iNombreRandom = 7;
+                            return iNombreRandom;
+                        }
+                        if (random == 3)
+                        {
+
+
+                            //return imgFinaleDepart = aImageDeBase[1];
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        else
+                        {
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        break;
+                    case 3:
+
+                        iNumeroImage = 6;
+                        random = randomNombre.Next(1, 4);
+                        if (random == 1)
+                        {
+                            iEtape1 = 0;
+                            //lblTexte.Text = "Cette pièce vous semble familière";
+                            // return imgFinaleDepart = aImageDeBase[0];
+                            iNombreRandom = 1;
+                            return iNombreRandom;
+
+                        }
+                        if (random == 2)
+                        {
+                            iEtape1 = 2;
+                            // lblTexte.Text = "Apparement, c'est une chambre d'enfant";
+                            //return imgFinaleDepart = aImageDeBase[2];
+                            iNombreRandom = 3;
+                            return iNombreRandom;
+                        }
+                        if (random == 3)
+                        {
+                            //  DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+
+                            //if(perdu == DialogResult.OK)
+
+                            //return imgFinaleDepart = aImageDeBase[1];
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        else
+                        {
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        break;
+
+                }
+            }
+            if (iEtape1 == 2)
+            {
+
+                random = randomNombre.Next(1, 4);
+                if (random == 1)
+                {
+                    // lblTexte.Text = "Vous avez gagné !";
+                    //return imgFinaleDepart = aImageDeBase[8];
+                    iNombreRandom = 9;
+                    return iNombreRandom;
+                }
+                if (random == 2)
+                {
+                    iEtape1 = 1;
+                    iNombreRandom = 0;
+                    return iNombreRandom;
+
+                }
+                if (random == 3)
+                {
+
+
+
+
+                    //return imgFinaleDepart = aImageDeBase[1];
+                    iNombreRandom = 0;
+                    return iNombreRandom;
+                }
+                else
+                {
+                    iNombreRandom = 0;
+                    return iNombreRandom;
+                }
+            }
+            else
+            {
+                iNombreRandom = 0;
+                return iNombreRandom;
+            }
+
+
+
+        }
+        //fonction qui permet de générer alétoirement une image du tableau d'image.
+        private int CliqueRandom2()
+        {
+
+
+
+
+            //Image imageDepart4 = Properties.Resources.assassinat;
+            //Image imageDepart5 = Properties.Resources.buanderie;
+            //Image imageDepart6 = Properties.Resources.grenier;
+            //Image imageDepart7 = Properties.Resources.maxresdefault;
+            //Image imageDepart8 = Properties.Resources.piscine;
+            //Image imageDepart9 = Properties.Resources.sortie;
+
+
+            // on test si le premier affichage a été fait.
+            if (iEtape1 == 0)
+            {
+
+                GenerationButton(iEtape1);
+
+                iEtape2 = 1;
+                random = randomNombre.Next(1, 4);
+                if (random == 1)
+                {
+
+
+                    GenerationButton(iEtape2);
+                    
+                    // lblTexte.Text = "Le couloir semble calme...";
+                    iNumeroImage = 1;
+                    iNombreRandom = 3;
+                    // return imgFinaleDepart = aImageDeBase[2];
+                    return iNombreRandom;
+
+
+
+                }
+                if (random == 2)
+                {
+
+                    GenerationButton(iEtape2);
+               
+                    //lblTexte.Text = "Apparement, c'est une chambre d'enfant";
+                    iNumeroImage = 2;
+                    //return imgFinaleDepart = aImageDeBase[3];
+                    iNombreRandom = 4;
+                    return iNombreRandom;
+
+                }
+                if (random == 3)
+                {
+
+                    GenerationButton(iEtape2);
+                   
+                    // lblTexte.Text = "Le froid semble vous atteindre dans ce couloir";
+                    iNumeroImage = 3;
+                    // return imgFinaleDepart = aImageDeBase[4];
+                    iNombreRandom = 5;
+                    return iNombreRandom;
+
+                }
+
+
+            }
+            if (iEtape2 == 1)
+            {
+
+                switch (iNumeroImage)
+                {
+
+                    case 1:
+
+                        iNumeroImage = 4;
+                        random = randomNombre.Next(1, 4);
+                        if (random == 1)
+                        {
+
+                            iEtape2 = 0;
+                            // lblTexte.Text = "Cette pièce vous semble familier";
+                            //return imgFinaleDepart = aImageDeBase[0];
+                            iNombreRandom = 1;
+                            return iNombreRandom;
+
+                        }
+                        if (random == 2)
+                        {
+
+                            iEtape2 = 2;
+                            //  lblTexte.Text = "Vous semblez être au rez-de-chaussez"; 
+                            //return imgFinaleDepart = aImageDeBase[5];
+                            iNombreRandom = 6;
+                            return iNombreRandom;
+
+                        }
+                        if (random == 3)
+                        {
+
+
+                            //DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+
+                            // return imgFinaleDepart = aImageDeBase[1];
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        else
+                        {
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        break;
+                    case 2:
+
+                        iNumeroImage = 5;
+                        random = randomNombre.Next(1, 4);
+                        if (random == 1)
+                        {
+                            iEtape1 = 0;
+                            // lblTexte.Text = "Cette pièce vous semble familier";
+                            // return imgFinaleDepart = aImageDeBase[0];
+                            iNombreRandom = 1;
+                            return iNombreRandom;
+
+                        }
+                        if (random == 2)
+                        {
+                            iEtape2 = 2;
+                            //lblTexte.Text = "Le salon est bien accueillant";
+                            //return imgFinaleDepart = aImageDeBase[6];
+                            iNombreRandom = 7;
+                            return iNombreRandom;
+                        }
+                        if (random == 3)
+                        {
+
+
+                            //return imgFinaleDepart = aImageDeBase[1];
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        else
+                        {
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        break;
+                    case 3:
+
+                        iNumeroImage = 6;
+                        random = randomNombre.Next(1, 4);
+                        if (random == 1)
+                        {
+                            iEtape2 = 0;
+                            //lblTexte.Text = "Cette pièce vous semble familière";
+                            // return imgFinaleDepart = aImageDeBase[0];
+                            iNombreRandom = 1;
+                            return iNombreRandom;
+
+                        }
+                        if (random == 2)
+                        {
+                            iEtape2 = 2;
+                            // lblTexte.Text = "Apparement, c'est une chambre d'enfant";
+                            //return imgFinaleDepart = aImageDeBase[2];
+                            iNombreRandom = 3;
+                            return iNombreRandom;
+                        }
+                        if (random == 3)
+                        {
+                            //  DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+
+                            //if(perdu == DialogResult.OK)
+
+                            //return imgFinaleDepart = aImageDeBase[1];
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        else
+                        {
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        break;
+
+                }
+            }
+            if (iEtape1 == 2)
+            {
+
+                random = randomNombre.Next(1, 4);
+                if (random == 1)
+                {
+                    // lblTexte.Text = "Vous avez gagné !";
+                    //return imgFinaleDepart = aImageDeBase[8];
+                    iNombreRandom = 9;
+                    return iNombreRandom;
+                }
+                if (random == 2)
+                {
+                    iEtape2 = 1;
+                    iNombreRandom = 0;
+                    return iNombreRandom;
+
+                }
+                if (random == 3)
+                {
+
+
+
+
+                    //return imgFinaleDepart = aImageDeBase[1];
+                    iNombreRandom = 0;
+                    return iNombreRandom;
+                }
+                else
+                {
+                    iNombreRandom = 0;
+                    return iNombreRandom;
+                }
+            }
+            else
+            {
+                iNombreRandom = 0;
+                return iNombreRandom;
+            }
+
+
+
+        }
+        private int CliqueRandom3()
+        {
+
             
-            
-            Image depart = Properties.Resources.salle_de_bain;
-            Image imageDefaite = Properties.Resources.bluescreen;
-            Image imageDepart1 = Properties.Resources.Etage_2;
-            Image imageDepart2 = Properties.Resources.chambre;
-            Image imageDepart3 = Properties.Resources.étage;
-            Image imageMilieu4 = Properties.Resources.escalier;
-            Image imageMilieu5 = Properties.Resources.salon;
-            Image imageMilieu6 = Properties.Resources.escalier;
-            Image imageFin = Properties.Resources.sortie;
+   
           
             //Image imageDepart4 = Properties.Resources.assassinat;
             //Image imageDepart5 = Properties.Resources.buanderie;
@@ -226,59 +731,58 @@ namespace Cpln.Enigmos.Enigmas
             //Image imageDepart8 = Properties.Resources.piscine;
             //Image imageDepart9 = Properties.Resources.sortie;
 
-            Image[] aImageDeBase = new Image[] {depart, imageDefaite,imageDepart1, imageDepart2, imageDepart3, imageMilieu4, imageMilieu5, imageMilieu6, imageFin};
-            Image imgFinaleDepart;
+
             // on test si le premier affichage a été fait.
-            if (iEtape == 0)
+            if (iEtape1 == 0)
             {
 
-                GenerationButton(iEtape);
+                GenerationButton(iEtape3);
 
-                iEtape = 1;
+                iEtape3 = 1;
                 random = randomNombre.Next(1, 4);
                 if (random == 1)
                 {
                    
 
-                    GenerationButton(iEtape);
-                    btnChoix1.Location = new Point(10, 200);
-                    btnChoix2.Location = new Point(100, 100);
-                    btnChoix3.Location = new Point(400, 200);
-                    lblTexte.Text = "Le couloir semble calme...";
+                    GenerationButton(iEtape3);
+                    
+                   // lblTexte.Text = "Le couloir semble calme...";
                     iNumeroImage = 1;
-                    return imgFinaleDepart = aImageDeBase[2];
+                    iNombreRandom = 3;
+                   // return imgFinaleDepart = aImageDeBase[2];
+                    return iNombreRandom;
 
-                  
+
+
                 }
                 if (random == 2)
                 {
                     
-                    GenerationButton(iEtape);
-                    btnChoix1.Location = new Point(150, 200);
-                    btnChoix2.Location = new Point(100, 100);
-                    btnChoix3.Location = new Point(400, 200);
-                    lblTexte.Text = "Apparement, c'est une chambre d'enfant";
+                    GenerationButton(iEtape3);
+                  
+                   //lblTexte.Text = "Apparement, c'est une chambre d'enfant";
                     iNumeroImage = 2;
-                    return imgFinaleDepart = aImageDeBase[3];
-                   
+                    //return imgFinaleDepart = aImageDeBase[3];
+                    iNombreRandom = 4;
+                    return iNombreRandom;
 
                 }
                 if (random == 3)
                 {
                   
-                    GenerationButton(iEtape);
-                    btnChoix1.Location = new Point(100, 200);
-                    btnChoix2.Location = new Point(10, 100);
-                    btnChoix3.Location = new Point(40, 200);
-                    lblTexte.Text = "Le froid semble vous atteindre dans ce couloir";
+                    GenerationButton(iEtape3);
+                
+                  // lblTexte.Text = "Le froid semble vous atteindre dans ce couloir";
                     iNumeroImage = 3;
-                    return imgFinaleDepart = aImageDeBase[4];
+                   // return imgFinaleDepart = aImageDeBase[4];
+                    iNombreRandom = 5;
+                    return iNombreRandom;
 
                 }
 
 
             }
-            if(iEtape == 1)
+            if(iEtape3 == 1)
             {
                
                 switch(iNumeroImage)
@@ -291,115 +795,208 @@ namespace Cpln.Enigmos.Enigmas
                             if (random == 1)
                                  {
                                      
-                                iEtape = 0;
-                                lblTexte.Text = "Cette pièce vous semble familier";
-                                return imgFinaleDepart = aImageDeBase[0];
-                               
+                                iEtape3 = 0;
+                               // lblTexte.Text = "Cette pièce vous semble familier";
+                                //return imgFinaleDepart = aImageDeBase[0];
+                            iNombreRandom = 1;
+                            return iNombreRandom;
 
-                                 }
+                        }
                             if (random == 2)
                                 {
                                    
-                                    iEtape = 2;
-                                    lblTexte.Text = "Vous semblez être au rez-de-chaussez"; 
-                                 return imgFinaleDepart = aImageDeBase[5];
-                                 
-                                }
+                                    iEtape3 = 2;
+                                  //  lblTexte.Text = "Vous semblez être au rez-de-chaussez"; 
+                                 //return imgFinaleDepart = aImageDeBase[5];
+                            iNombreRandom = 6;
+                            return iNombreRandom;
+
+                        }
                             if (random == 3)
                                 {
                                     
                                
-                                DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                                //DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
                                
-                                return imgFinaleDepart = aImageDeBase[1];
-                                }
-                     break;
+                               // return imgFinaleDepart = aImageDeBase[1];
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        else
+                        {
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        break;
                     case 2:
                    
                      iNumeroImage = 5;
                                random = randomNombre.Next(1, 4);
                             if (random == 1)
                                  {
-                                iEtape = 0;
-                                lblTexte.Text = "Cette pièce vous semble familier";
-                                return imgFinaleDepart = aImageDeBase[0];
+                                iEtape3 = 0;
+                               // lblTexte.Text = "Cette pièce vous semble familier";
+                               // return imgFinaleDepart = aImageDeBase[0];
+                            iNombreRandom = 1;
+                            return iNombreRandom;
 
-                                 }
+                        }
                             if (random == 2)
                                 {
-                                    iEtape = 2;
-                                    lblTexte.Text = "Le salon est bien accueillant";
-                                 return imgFinaleDepart = aImageDeBase[6];
-                                }
+                                    iEtape3 = 2;
+                                    //lblTexte.Text = "Le salon est bien accueillant";
+                                 //return imgFinaleDepart = aImageDeBase[6];
+                            iNombreRandom = 7;
+                            return iNombreRandom;
+                        }
                             if (random == 3)
                                 {
-                                    DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
-                                    if (perdu == DialogResult.OK)
                                    
-                                return imgFinaleDepart = aImageDeBase[1];
-                                }
-                     break;
+                                   
+                                //return imgFinaleDepart = aImageDeBase[1];
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        else
+                        {
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        break;
                     case 3:
                     
                      iNumeroImage = 6;
                                random = randomNombre.Next(1, 4);
                             if (random == 1)
                                  {
-                                iEtape = 0;
-                                lblTexte.Text = "Cette pièce vous semble familière";
-                                return imgFinaleDepart = aImageDeBase[0];
+                                iEtape3 = 0;
+                                //lblTexte.Text = "Cette pièce vous semble familière";
+                               // return imgFinaleDepart = aImageDeBase[0];
+                            iNombreRandom = 1;
+                            return iNombreRandom;
 
-                                 }
+                        }
                             if (random == 2)
                                 {
-                                    iEtape = 2;
-                                    lblTexte.Text = "Apparement, c'est une chambre d'enfant";
-                                 return imgFinaleDepart = aImageDeBase[2];
-                                }
+                                    iEtape3 = 2;
+                                   // lblTexte.Text = "Apparement, c'est une chambre d'enfant";
+                                 //return imgFinaleDepart = aImageDeBase[2];
+                            iNombreRandom = 3;
+                            return iNombreRandom;
+                        }
                             if (random == 3)
                                 {
-                                    DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                                  //  DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
 
-                                  if(perdu == DialogResult.OK)
+                                  //if(perdu == DialogResult.OK)
                                 
-                                return imgFinaleDepart = aImageDeBase[1];
-                                }
-                     break;
+                                //return imgFinaleDepart = aImageDeBase[1];
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        else
+                        {
+                            iNombreRandom = 0;
+                            return iNombreRandom;
+                        }
+                        break;
 
                 }
             }
-            if(iEtape == 2)
+            if(iEtape3 == 2)
             {
                 
                 random = randomNombre.Next(1, 4);
                 if (random == 1)
                 {
-                    lblTexte.Text = "Vous avez gagné !";
-                    return imgFinaleDepart = aImageDeBase[8];
-
+                   // lblTexte.Text = "Vous avez gagné !";
+                    //return imgFinaleDepart = aImageDeBase[8];
+                    iNombreRandom = 9;
+                    return iNombreRandom;
                 }
                 if (random == 2)
                 {
-                    iEtape = 1;
-            
-                  
+                    iEtape3 = 1;
+                    iNombreRandom = 0;
+                    return iNombreRandom;
                     
                 }
                 if (random == 3)
                 {
-                    DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                   
 
-                    if (perdu == DialogResult.OK)
+                    
                  
-                    return imgFinaleDepart = aImageDeBase[1];
+                    //return imgFinaleDepart = aImageDeBase[1];
+                    iNombreRandom = 0;
+                    return iNombreRandom;
+                }
+                else
+                {
+                    iNombreRandom = 0;
+                    return iNombreRandom;
                 }
             }
-
-            return null;
+           else
+            {
+                iNombreRandom = 0;
+                return iNombreRandom; 
+            }
+            
 
             
         }
+       private Image ChoixImage(int numeroRandom)
+        {
+            /*Image depart = Properties.Resources.salle_de_bain;
+            Image imageDefaite = Properties.Resources.bluescreen;
+            Image imageDepart1 = Properties.Resources.Etage_2;
+            Image imageDepart2 = Properties.Resources.chambre;
+            Image imageDepart3 = Properties.Resources.étage;
+            Image imageMilieu4 = Properties.Resources.escalier;
+            Image imageMilieu5 = Properties.Resources.salon;
+            Image imageMilieu6 = Properties.Resources.escalier;
+            Image imageFin = Properties.Resources.sortie;*/
 
+            Image[] aImageDeBase = new Image[] { depart, imageDefaite, imageDepart1, imageDepart2, imageDepart3, imageMilieu4, imageMilieu5, imageMilieu6, imageFin };
+
+            switch(numeroRandom)
+            {
+                case 0:
+                    return aImageDeBase[1];
+                    break;
+                case 1:
+                    return aImageDeBase[0];
+                    break;
+                case 2:
+                    return aImageDeBase[1];
+                    break;
+                case 3:
+                    return aImageDeBase[2];
+                    break;
+                case 4:
+                    return aImageDeBase[3];
+                    break;
+                case 5:
+                    return aImageDeBase[4];
+                    break;
+                case 6:
+                    return aImageDeBase[5];
+                    break;
+                case 7:
+                    return aImageDeBase[6];
+                    break;
+                case 8:
+                    return aImageDeBase[7];
+                    break;
+                default:
+                    return null;
+                    break;
+
+            }
+          
+
+        }
         // Fonction permettant de générer une couleur de fond pour chaque aléatoirement à chaque affichage
         private void GenerationButton(int etape)
         {
@@ -562,7 +1159,267 @@ namespace Cpln.Enigmos.Enigmas
 
         }
         
+        private void TexteImage1()
+        {
+            switch (iIndice1)
+            {
+                case 0:
+                    DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                    break;
+                case 1:
+                    lblTexte.Text = "Cette pièce vous semble familier";
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+                    lblTexte.Text = "Le couloir semble calme...";
+                    break;
+                case 4:
+                    lblTexte.Text = "Apparement, c'est une chambre d'enfant";
+                    break;
+                case 5:
+                    lblTexte.Text = "Le froid semble vous atteindre dans ce couloir";
+                    break;
+                case 6:
+                    lblTexte.Text = "Vous semblez être au rez-de-chaussez";
+                    break;
+                case 7:
+                    lblTexte.Text = "Le salon est bien accueillant";
+                    break;
+                case 9:
+                    lblTexte.Text = "Vous avez gagné !";
+                    break;
+
+            }
            
-        
+        }
+        private void TexteImage2()
+        {
+            switch (iIndice2)
+            {
+                case 0:
+                    DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                    break;
+                case 1:
+                    lblTexte.Text = "Cette pièce vous semble familier";
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+                    lblTexte.Text = "Le couloir semble calme...";
+                    break;
+                case 4:
+                    lblTexte.Text = "Apparement, c'est une chambre d'enfant";
+                    break;
+                case 5:
+                    lblTexte.Text = "Le froid semble vous atteindre dans ce couloir";
+                    break;
+                case 6:
+                    lblTexte.Text = "Vous semblez être au rez-de-chaussez";
+                    break;
+                case 7:
+                    lblTexte.Text = "Le salon est bien accueillant";
+                    break;
+                case 9:
+                    lblTexte.Text = "Vous avez gagné !";
+                    break;
+
+            }
+
+        }
+        private void TexteImage3()
+        {
+            switch (iIndice3)
+            {
+                case 0:
+                    DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                    break;
+                case 1:
+                    lblTexte.Text = "Cette pièce vous semble familier";
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+                    lblTexte.Text = "Le couloir semble calme...";
+                    break;
+                case 4:
+                    lblTexte.Text = "Apparement, c'est une chambre d'enfant";
+                    break;
+                case 5:
+                    lblTexte.Text = "Le froid semble vous atteindre dans ce couloir";
+                    break;
+                case 6:
+                    lblTexte.Text = "Vous semblez être au rez-de-chaussez";
+                    break;
+                case 7:
+                    lblTexte.Text = "Le salon est bien accueillant";
+                    break;
+                case 9:
+                    lblTexte.Text = "Vous avez gagné !";
+                    break;
+
+            }
+
+        }
+        private void LockIndice1()
+        {
+            if (iLock1 == false)
+            {
+                iIndice1 = CliqueRandom1();
+                iLock1 = true;
+             
+                switch (iIndice1)
+                {
+                    case 0:
+
+                        lblIndice.Text = "Ca sent le roussi !";
+
+                        break;
+                    case 1:
+
+                        lblIndice.Text = "Une impression de deja vu !";
+
+                        break;
+                    case 2:
+
+                        lblIndice.Text = "Ok !";
+
+                        break;
+                    case 3:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+                    case 4:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+                    case 5:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+                    case 6:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+
+
+
+                }
+
+            }
+         
+            
+        }
+        private void LockIndice2()
+        {
+            if (iLock2 == false)
+            {
+                iIndice2 = CliqueRandom2();
+                iLock2 = true;
+
+                switch (iIndice2)
+                {
+                    case 0:
+
+                        lblIndice.Text = "Ca sent le roussi !";
+
+                        break;
+                    case 1:
+
+                        lblIndice.Text = "Une impression de deja vu !";
+
+                        break;
+                    case 2:
+
+                        lblIndice.Text = "Ok !";
+
+                        break;
+                    case 3:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+                    case 4:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+                    case 5:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+                    case 6:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+
+
+
+                }
+
+            }
+           
+        }
+        private void LockIndice3()
+        {
+            if (iLock3 == false)
+            {
+                iIndice3 = CliqueRandom3();
+                iLock3 = true;
+
+                switch (iIndice3)
+                {
+                    case 0:
+
+                        lblIndice.Text = "Ca sent le roussi !";
+
+                        break;
+                    case 1:
+
+                        lblIndice.Text = "Une impression de deja vu !";
+
+                        break;
+                    case 2:
+
+                        lblIndice.Text = "Ok !";
+
+                        break;
+                    case 3:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+                    case 4:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+                    case 5:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+                    case 6:
+
+                        lblIndice.Text = "Ok!";
+
+                        break;
+
+
+
+                }
+
+            }
+          
+            }
     }
 }
