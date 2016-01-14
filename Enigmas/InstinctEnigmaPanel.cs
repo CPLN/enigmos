@@ -34,6 +34,10 @@ namespace Cpln.Enigmos.Enigmas
         private int iEtape1 = 0;
         private int iEtape2 = 0;
         private int iEtape3 = 0;
+        private string strQuestionLocale1;
+        private string strQuestionLocale2;
+        private string strQuestionLocale3;
+
 
         //création des buttons et des panels
         Label lblReponse = new Label();
@@ -60,9 +64,7 @@ namespace Cpln.Enigmos.Enigmas
             TexteImage1();
             iEtape2 = iEtape1;
             iEtape3 = iEtape1;
-            lbltest1.Text = Convert.ToString(iIndice1);
-            lbltest2.Text = Convert.ToString(iIndice2);
-            lbltest3.Text = Convert.ToString(iIndice3);
+            
        }
        private void Random2_Click(object sender, EventArgs e)
        {
@@ -73,9 +75,7 @@ namespace Cpln.Enigmos.Enigmas
             TexteImage2();
             iEtape3 = iEtape2;
             iEtape1 = iEtape2;
-            lbltest1.Text = Convert.ToString(iIndice1);
-            lbltest2.Text = Convert.ToString(iIndice2);
-            lbltest3.Text = Convert.ToString(iIndice3);
+            
         }
        private void Random3_Click(object sender, EventArgs e)
        {
@@ -84,11 +84,9 @@ namespace Cpln.Enigmos.Enigmas
             iLock1 = false;
             iLock3 = false;
             TexteImage3();
-            iEtape1 = iEtape3;
+           iEtape1 = iEtape3;
             iEtape2 = iEtape3;
-            lbltest1.Text = Convert.ToString(iIndice1);
-            lbltest2.Text = Convert.ToString(iIndice2);
-            lbltest3.Text = Convert.ToString(iIndice3);
+           
         }
        
         //Constructeur par défaut qui initiliase les proprieté de la première fenêtre.
@@ -107,9 +105,9 @@ namespace Cpln.Enigmos.Enigmas
             lbltest1.Text = Convert.ToString(iIndice1);
             lbltest2.Text = Convert.ToString(iIndice2);
             lbltest3.Text = Convert.ToString(iIndice3);
-            lbltest1.Size = new Size(100, 30);
+            /*lbltest1.Size = new Size(100, 30);
             lbltest2.Size = new Size(100, 30);
-            lbltest3.Size = new Size(100, 30);
+            lbltest3.Size = new Size(100, 30);*/
             lbltest1.Location = new Point(0, 300);
             lbltest2.Location = new Point(100, 300);
             lbltest3.Location = new Point(200, 300);
@@ -147,8 +145,9 @@ namespace Cpln.Enigmos.Enigmas
             btnChoix1.Location = new Point(30, 200);
             btnChoix2.Location = new Point(600, 300);
             btnChoix3.Location = new Point(400, 200);
-            
-            
+            btnChoix1.Size = new Size(100, 200);
+            btnChoix2.Size = new Size(40, 200);
+            btnChoix3.Size = new Size(40, 200);
 
             btnChoix1.BackColor = Color.Transparent;
             btnChoix2.BackColor = Color.Transparent;
@@ -538,7 +537,7 @@ namespace Cpln.Enigmos.Enigmas
             if (iEtape2 == 0)
             {
 
-                GenerationButton(iEtape1);
+                GenerationButton(iEtape2);
 
                 iEtape2 = 1;
                 random = randomNombre.Next(1, 4);
@@ -989,6 +988,7 @@ namespace Cpln.Enigmos.Enigmas
                     break;
                 case 1:
                     return aImageDeBase[0];
+                    
                     break;
                 case 2:
                     return aImageDeBase[1];
@@ -1290,97 +1290,104 @@ namespace Cpln.Enigmos.Enigmas
         {
             if (iLock1 == false)
             {
+                
                 iIndice1 = CliqueRandom1();
                 iLock1 = true;
-             
+                lbltest1.Text = Convert.ToString(iIndice1);
+                lbltest2.Text = Convert.ToString(iIndice2);
+                lbltest3.Text = Convert.ToString(iIndice3);
                 switch (iIndice1)
                 {
                     case 0:
 
-                        lblIndice.Text = "Ca sent le roussi !";
+                        strQuestionLocale1 = "Ca sent le roussi !";
 
                         break;
                     case 1:
 
-                        lblIndice.Text = "Une impression de deja vu !";
+                        strQuestionLocale1 = "Une impression de deja vu !";
 
                         break;
                     case 2:
 
-                        lblIndice.Text = "Ok !";
+                        strQuestionLocale1 = "Ok !";
 
                         break;
                     case 3:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale1 = "Ok!";
 
                         break;
                     case 4:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale1 = "Ok!";
 
                         break;
                     case 5:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale1 = "Ok!";
 
                         break;
                     case 6:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale1 = "Ok!";
 
                         break;
 
 
 
                 }
-
+             
             }
-         
+            lblIndice.Text = strQuestionLocale1;
             
         }
         private void LockIndice2()
         {
             if (iLock2 == false)
             {
+                
                 iIndice2 = CliqueRandom2();
+                lbltest1.Text = Convert.ToString(iIndice1);
+                lbltest2.Text = Convert.ToString(iIndice2);
+                lbltest3.Text = Convert.ToString(iIndice3);
                 iLock2 = true;
 
                 switch (iIndice2)
                 {
                     case 0:
 
-                        lblIndice.Text = "Ca sent le roussi !";
+                        strQuestionLocale2 = "Ca sent le roussi !";
 
                         break;
                     case 1:
 
-                        lblIndice.Text = "Une impression de deja vu !";
+                        strQuestionLocale2 = "Une impression de deja vu !";
 
                         break;
                     case 2:
 
-                        lblIndice.Text = "Ok !";
+                        strQuestionLocale2 = "Ok !";
 
                         break;
                     case 3:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale2 = "Ok!";
 
                         break;
                     case 4:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale2 = "Ok!";
 
                         break;
                     case 5:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale2 = "Ok!";
 
                         break;
                     case 6:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale2 = "Ok!";
 
                         break;
 
@@ -1389,6 +1396,7 @@ namespace Cpln.Enigmos.Enigmas
                 }
 
             }
+            lblIndice.Text = strQuestionLocale2;
            
         }
         private void LockIndice3()
@@ -1397,42 +1405,45 @@ namespace Cpln.Enigmos.Enigmas
             {
                 iIndice3 = CliqueRandom3();
                 iLock3 = true;
+                lbltest1.Text = Convert.ToString(iIndice1);
+                lbltest2.Text = Convert.ToString(iIndice2);
+                lbltest3.Text = Convert.ToString(iIndice3);
 
                 switch (iIndice3)
                 {
                     case 0:
 
-                        lblIndice.Text = "Ca sent le roussi !";
+                        strQuestionLocale3 = "Ca sent le roussi !";
 
                         break;
                     case 1:
 
-                        lblIndice.Text = "Une impression de deja vu !";
+                        strQuestionLocale3 = "Une impression de deja vu !";
 
                         break;
                     case 2:
 
-                        lblIndice.Text = "Ok !";
+                        strQuestionLocale3 = "Ok !";
 
                         break;
                     case 3:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale3 = "Ok!";
 
                         break;
                     case 4:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale3 = "Ok!";
 
                         break;
                     case 5:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale3 = "Ok!";
 
                         break;
                     case 6:
 
-                        lblIndice.Text = "Ok!";
+                        strQuestionLocale3 = "Ok!";
 
                         break;
 
@@ -1441,6 +1452,7 @@ namespace Cpln.Enigmos.Enigmas
                 }
 
             }
+            lblIndice.Text = strQuestionLocale3;
           
             }
     }

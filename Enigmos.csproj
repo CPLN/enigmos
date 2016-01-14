@@ -149,7 +149,6 @@
     <None Include="Resources\assassinat.png" />
     <None Include="Resources\buanderie.png" />
     <None Include="Resources\bluescreen.png" />
-    <None Include="Resources\cave.png" />
     <None Include="Resources\chambre.png" />
     <None Include="Resources\fenetre-cassee.png" />
     <None Include="Resources\grenier.png" />
@@ -162,6 +161,8 @@
     <None Include="Resources\salle de bain.png" />
     <None Include="Resources\sortie.png" />
     <None Include="Resources\Salon.png" />
+    <None Include="Resources\cave.png" />
+    <None Include="Resources\Salon2.png" />
     <Content Include="Resources\toilette.png" />
     <None Include="Resources\depart.png" />
     <None Include="img\image2.PNG" />
