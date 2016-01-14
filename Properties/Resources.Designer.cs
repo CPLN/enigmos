@@ -72,8 +72,8 @@ namespace Cpln.Enigmos.Properties {
         ///    &lt;hint&gt;Remettez les pièces à leur place.&lt;/hint&gt;
         ///  &lt;/enigma&gt;
         ///  &lt;enigma title=&quot;9 Points&quot;&gt;
-        ///    &lt;answer&gt;jongleur&lt;/answer&gt;
-        ///    &lt;hint&gt;Remettez les pièces à leur place.&lt;/hint&gt;
+        ///    &lt;answer&gt;9.&lt;/answer&gt;
+        ///    &lt;hint&gt;Tracé les 9 points en 4 traits&lt;/hint&gt;
         ///  &lt;/enigma&gt;
         ///&lt;/enigmas&gt;
         ///.

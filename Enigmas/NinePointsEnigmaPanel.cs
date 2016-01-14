@@ -16,7 +16,8 @@ namespace Cpln.Enigmos.Enigmas
         private Point[] tSaveMouseClickPosition = new Point[5];
         private Point[] tCentrePoint = new Point[9];
         private bool[] tPointTrace = new bool[9];
-        const int RAYON_POINT = 100;
+        private Point cursorPosition = new Point();
+        const int RAYON_POINT = 78;
 
         /// <summary>
         /// Affichage de l'énigme 9 points
@@ -29,8 +30,14 @@ namespace Cpln.Enigmos.Enigmas
             pcbCase9Points.Size = this.Size;
             pcbCase9Points.BackgroundImage = Properties.Resources.NinePoints;
             pcbCase9Points.Click += new System.EventHandler(MouseClick_Affiche9Points);
+            pcbCase9Points.MouseMove += new MouseEventHandler(MouseMove_Afficher9Points);
             pcbCase9Points.Paint += new PaintEventHandler(Paint_pcbCase9Points);
             Controls.Add(pcbCase9Points);
+
+            /*Initialise bouton recommencer*/
+            Button btnRecommencer = new Button();
+            btnRecommencer.Text = "Recommencer";
+            btnRecommencer.Click += new EventHandler(MouseClick_btnRecommencer);
 
             /*Initialise les positions du centre des points*/
             for (int i = 0, iX = 200, iY = 200; i < tCentrePoint.Length; i++, iX += 200)
@@ -46,6 +53,16 @@ namespace Cpln.Enigmos.Enigmas
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MouseClick_btnRecommencer(object sender, EventArgs e)
+        {
+            RedemarrerEnigme();
+        }
+
+        /// <summary>
         /// Dessine les traits dans la PictureBox
         /// </summary>
         /// <param name="sender"></param>
@@ -54,15 +71,19 @@ namespace Cpln.Enigmos.Enigmas
         {
             /*Pinceau*/
             Pen pen = new Pen(Color.Blue, 20);
-
+            int i = 1;
             /*Dessine les traits un par un, si leurs positions sont connues*/
-            for (int i = 1; i < tSaveMouseClickPosition.Length; i++)
+            for (i = 1; i < tSaveMouseClickPosition.Length; i++)
             {
                 if (tSaveMouseClickPosition[i].IsEmpty)
                 {
                     break;
                 }
                 e.Graphics.DrawLine(pen, tSaveMouseClickPosition[i - 1], tSaveMouseClickPosition[i]);
+            }
+            if (cursorPosition != new Point())
+            {
+                e.Graphics.DrawLine(pen, tSaveMouseClickPosition[i - 1], cursorPosition);
             }
         }
 
@@ -123,6 +144,7 @@ namespace Cpln.Enigmos.Enigmas
                 if (bOk)
                 {
                     MessageBox.Show("La réponse est \" 9.\"");
+                    pcbCase9Points.Enabled = false;
                 }
                 else
                 {
@@ -131,6 +153,16 @@ namespace Cpln.Enigmos.Enigmas
                 }
             }
         }
+
+        private void MouseMove_Afficher9Points(object sender, MouseEventArgs e)
+        {
+            if (tSaveMouseClickPosition[0] != new Point())
+            {
+                cursorPosition = e.Location;
+                pcbCase9Points.Invalidate();
+            }
+        }
+
         /// <summary>
         /// Formule qui calcule la distance d'un point à une droite
         /// </summary>
@@ -154,6 +186,7 @@ namespace Cpln.Enigmos.Enigmas
             tSaveMouseClickPosition = new Point[5];
             tPointTrace = new bool[9];
             pcbCase9Points.Image = null;
+            cursorPosition = new Point();
         }
     }
 }
