@@ -47,6 +47,10 @@
     <Compile Include="Enigmas\BeatThemAllEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\Components\Direction.cs" />
+    <Compile Include="Enigmas\Components\Ennemi.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -145,6 +149,9 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\GG.png" />
+    <None Include="Resources\game_over.png" />
+    <None Include="Resources\tutorial.png" />
     <None Include="Resources\pj4.PNG" />
     <None Include="Resources\pj3.PNG" />
     <None Include="Resources\pj2.PNG" />

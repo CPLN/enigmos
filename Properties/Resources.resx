@@ -178,4 +178,13 @@
   <data name="pj4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pj4.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="game_over" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\game_over.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tutorial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tutorial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
