@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new HiddenCharacterEnigmalPanel(), "Caractère caché");
+            return new Enigma(new LettreHaute(), "Quelle est la plus haute ?");
         }
 
         /// <summary>
@@ -53,6 +53,8 @@ namespace Cpln.Enigmos
             Enigma runEnigmaInverse = new Enigma(new RunEnigmaPanel(true), "Roux run encore");
             runEnigmaInverse.AddPrerequisite(runEnigma);
             enigmas.Add(runEnigmaInverse);
+
+            enigmas.Add(new Enigma(new LettreHaute(), "Quelle est la plus haute ?"));
 
             enigmas.Shuffle();
             return enigmas;

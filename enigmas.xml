@@ -90,4 +90,8 @@
     <answer>J'ai gagné</answer>
     <hint>Gagner au moins deux fois contre l'ordinateur.</hint>
   </enigma>
+  <enigma title="Quelle est la plus haute ?">
+    <answer>l</answer>
+    <hint>C'est pas ce que tu penses</hint>
+  </enigma>
 </enigmas>
