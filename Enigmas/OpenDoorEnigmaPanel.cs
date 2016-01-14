@@ -12,28 +12,30 @@ namespace Cpln.Enigmos.Enigmas
     {
         private Timer Timer = new Timer();
 
-        Panel pnlPictureLandscape = new Panel();
-        Panel pnlPictureFlowers = new Panel();
-        Panel pnlPictureSolution = new Panel();
+        private Panel pnlPictureLandscape = new Panel();
+        private Panel pnlPictureFlowers = new Panel();
+        private Panel pnlPictureAnswer = new Panel();
 
-        Label lblResult = new Label();
+        private Label lblResult = new Label();
 
-        bool bFin = false;
+        private bool bEnd = false;
+        private bool bClickPictureLandscape = false;
+        private bool bClickPictureFlowers = false;
 
         public OpenDoorEnigmaPanel()
         {
-            // Ajout d'une image et redimension
+            // Ajout d'une image de fond et redimension
             this.BackgroundImage = Properties.Resources.OpenDoor;
             this.Width = Properties.Resources.OpenDoor.Width;
             this.Height = Properties.Resources.OpenDoor.Height;
 
-            // Ajout d'un panel avec image des fleurs et redimension
+            // Ajout d'un panel avec image de fleurs, redimension et placement
             pnlPictureFlowers.BackgroundImage = Properties.Resources.OpenDoor_Flowers;
             pnlPictureFlowers.Width = Properties.Resources.OpenDoor_Flowers.Width;
             pnlPictureFlowers.Height = Properties.Resources.OpenDoor_Flowers.Height;
             Controls.Add(pnlPictureFlowers);
             pnlPictureFlowers.Location = new Point(550, 175);
-            pnlPictureFlowers.Click += new EventHandler(pnlPictureFlowers_Click); // on crée un événement click 
+            pnlPictureFlowers.Click += new EventHandler(pnlPicture_Click); // Création d'un événement click sur l'image
 
             // Ajout d'un panel avec image paysage et redimension
             pnlPictureLandscape.BackgroundImage = Properties.Resources.OpenDoor_Landscape;
@@ -41,52 +43,56 @@ namespace Cpln.Enigmos.Enigmas
             pnlPictureLandscape.Height = Properties.Resources.OpenDoor_Landscape.Height;
             Controls.Add(pnlPictureLandscape);
             pnlPictureLandscape.Location = new Point(90, 20);
-            pnlPictureLandscape.Click += new EventHandler(pnlPictureLandscape_Click); // on crée un événement click 
+            pnlPictureLandscape.Click += new EventHandler(pnlPicture_Click); // Création d'un événement click sur l'image
         }
-        private void pnlPictureFlowers_Click(object sender, EventArgs e)
+        private void pnlPicture_Click(object sender, EventArgs e)
         {
-            if (bFin == false)
+            Point coordonneesTexte = new Point(0, 0);
+            OpenDoorImage image = 0;
+
+
+            if ((Panel)sender == pnlPictureFlowers)
             {
-                pnlPictureFlowers.Location = new Point(550, 80);
-                TestResult(OpenDoorImage.FLOWER);
-                Timer_OpenDoor();
-                bFin = true;
+                coordonneesTexte = new Point(550, 80);
+                bClickPictureFlowers = true;
+                image = OpenDoorImage.FLOWER;
             }
-        }
-        private void pnlPictureLandscape_Click(object sender, EventArgs e)
-        {
-            if (bFin == false)
+            else if ((Panel)sender == pnlPictureLandscape)
             {
-                pnlPictureLandscape.Location = new Point(250, 20);
-                TestResult(OpenDoorImage.LANDSCAPE);
+                coordonneesTexte = new Point(260, 20);
+                bClickPictureLandscape = true;
+                image = OpenDoorImage.LANDSCAPE;
+            }
+
+            if (!bEnd && bClickPictureLandscape && bClickPictureFlowers)
+            {
+                .Location = coordonneesTexte;
+                TestResult(image);
                 Timer_OpenDoor();
-                bFin = true;
+                bEnd = true;
             }
         }
         private void Timer_OpenDoor()
         {
-            Timer.Interval = 3000; // 3 secondes
-            Timer.Tick += new EventHandler(Timer_Tick);
+            Timer.Interval = 1000; // 1 seconde
+            Timer.Tick += new EventHandler(Timer_Tick); // Création d'un événement pour le timer
             Timer.Start();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            Timer.Stop();
-
             // Ajout de la porte avec la réponse
-            pnlPictureSolution.BackgroundImage = Properties.Resources.OpenDoor_Solution;
-            pnlPictureSolution.Width = Properties.Resources.OpenDoor_Solution.Width;
-            pnlPictureSolution.Height = Properties.Resources.OpenDoor_Solution.Height;
-            Controls.Add(pnlPictureSolution);
-            pnlPictureSolution.Location = new Point(222, 160);
+            pnlPictureAnswer.BackgroundImage = Properties.Resources.OpenDoor_Solution;
+            pnlPictureAnswer.Width = Properties.Resources.OpenDoor_Solution.Width;
+            pnlPictureAnswer.Height = Properties.Resources.OpenDoor_Solution.Height;
+            Controls.Add(pnlPictureAnswer);
+            pnlPictureAnswer.Location = new Point(222, 160);
         }
         private void Result()
         {
             lblResult.Text = "Bien Joué";
-            lblResult.Font = new Font(FontFamily.GenericSansSerif, 10);
+            lblResult.Font = new Font(FontFamily.GenericSansSerif, 15); // Modification de la police et de la taille
             Controls.Add(lblResult);
             this.BackColor = Color.FromArgb(153, 217, 234);
-
         }
         private void TestResult(OpenDoorImage image)
         {

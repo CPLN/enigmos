@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new BeerShotEnigmaPanel(), "Bar les amis !");
+            return new Enigma(new OpenDoorEnigmaPanel(), "Ouvrez la porte !");
         }
 
         /// <summary>
