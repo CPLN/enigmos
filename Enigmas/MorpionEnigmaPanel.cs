@@ -1,6 +1,7 @@
 ﻿using Cpln.Enigmos.Utils;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -94,6 +95,16 @@ namespace Cpln.Enigmos.Enigmas
                 tCase[iCpt].BorderStyle = BorderStyle.FixedSingle;
                 tCase[iCpt].Size = new Size(200, 200);
                 tCase[iCpt].BackColor = Color.White;
+                Debug.WriteLine(
+                    "R: " + 
+                    tCase[iCpt].BackColor.R.ToString() +
+                    "G: " + 
+                    tCase[iCpt].BackColor.G.ToString() +
+                    "B: " + 
+                    tCase[iCpt].BackColor.B.ToString() +
+                    "A: " + 
+                    tCase[iCpt].BackColor.A.ToString()
+                    );
             }
 
             // Coordonées des objets
@@ -422,7 +433,7 @@ namespace Cpln.Enigmos.Enigmas
 
                 }
             }
-            else if (iPlayer == 2)
+            else
             {
                 if (pbx1.BackColor == Color.Blue && pbx2.BackColor == Color.Blue && pbx3.BackColor == Color.Blue)
                 {
