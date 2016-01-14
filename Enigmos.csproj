@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enigmas\CliqueRapideEnigmaPanel.cs">
+    <Compile Include="Enigmas\ClicRapideEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\PenduEnigmaPanel.cs">

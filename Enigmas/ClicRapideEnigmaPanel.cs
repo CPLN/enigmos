@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
-    class CliqueRapideEnigmaPanel : EnigmaPanel
+    class ClicRapideEnigmaPanel : EnigmaPanel
     {
         //Déclaration des objets et des variables
         private Button btnACliquer = new Button();
@@ -15,7 +15,7 @@ namespace Cpln.Enigmos.Enigmas
         int iComptSec = 0, iComptClics = 0;
         bool bVert = false;
         
-        public CliqueRapideEnigmaPanel()
+        public ClicRapideEnigmaPanel()
         {
             //Initialisation du bouton
             btnACliquer.Size = new Size(200, 200);
