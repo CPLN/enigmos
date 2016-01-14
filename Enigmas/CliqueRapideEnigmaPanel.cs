@@ -101,6 +101,7 @@ namespace Cpln.Enigmos.Enigmas
         private void btnACliquer_Clique(object sender, EventArgs e)
         {
             iComptClique++;
+            lblNbClique.Text = "Nombre de clique : " + Convert.ToString(iComptClique);
             if(bVert == true)
             {
                 timer.Stop();
@@ -130,7 +131,6 @@ namespace Cpln.Enigmos.Enigmas
             else
             {
                 iComptSec = 0;
-                lblNbClique.Text = "Nombre de clique : " + Convert.ToString(iComptClique);
             }
         }
     }
