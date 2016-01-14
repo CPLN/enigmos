@@ -42,7 +42,10 @@ namespace Cpln.Enigmos.Enigmas
 
             iVitesse = RandoDifficulte.Next(200, 250);
             this.Cursor = new Cursor(Properties.Resources.gifessai.GetHicon());
-            this.Cursor.Size = new Size(2, 2);
+            Graphics graphics = this.CreateGraphics();
+            Rectangle rectangle = new Rectangle( new Point(10,10), new Size(pbxTaupe.Width, pbxTaupe.Height));
+            Cursor.DrawStretched(graphics, rectangle);
+            //this.Cursor.Size = new Size(2, 2);
 
         }
 
