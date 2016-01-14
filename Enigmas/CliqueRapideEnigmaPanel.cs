@@ -9,10 +9,10 @@ namespace Cpln.Enigmos.Enigmas
         //Déclaration des objets et des variables
         private Button btnACliquer = new Button();
         private Timer timer = new Timer();
-        private Label lblNbClique = new Label();
+        private Label lblNbClics = new Label();
         FontFamily fontFamily = new FontFamily("Berlin Sans FB");
         const int SEC = 10;
-        int iComptSec = 0, iComptClique = 0;
+        int iComptSec = 0, iComptClics = 0;
         bool bVert = false;
         
         public CliqueRapideEnigmaPanel()
@@ -25,11 +25,11 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(btnACliquer);
 
             //Initialisation du label
-            lblNbClique.Size = new Size(200, 20);
-            lblNbClique.Location = new Point(20, 20);
-            lblNbClique.Font = new Font(fontFamily, 14);
-            lblNbClique.Text = "Nombre de clique : " + Convert.ToString(iComptClique);
-            Controls.Add(lblNbClique);
+            lblNbClics.Size = new Size(200, 20);
+            lblNbClics.Location = new Point(20, 20);
+            lblNbClics.Font = new Font(fontFamily, 14);
+            lblNbClics.Text = "Nombre de clics : " + Convert.ToString(iComptClics);
+            Controls.Add(lblNbClics);
 
             //Initialisation du timer
             timer.Interval = 100;
@@ -101,26 +101,26 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         private void btnACliquer_Clique(object sender, EventArgs e)
         {
-            iComptClique++;
-            lblNbClique.Text = "Nombre de clique : " + Convert.ToString(iComptClique);
+            iComptClics++;
+            lblNbClics.Text = "Nombre de clics : " + Convert.ToString(iComptClics);
 
             //Affichage du message en fonction des nombres de clique
             if(bVert == true)
             {
                 timer.Stop();
-                if(iComptClique == 1)
+                if(iComptClics == 1)
                 {
                     MessageBox.Show("Bravo vous avez gagné !\nAvez-vous triché ou êtes-vous le professeur ?\n\nLa réponse est : Flash", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if(iComptClique >= 2 && iComptClique <= 3)
+                else if(iComptClics >= 2 && iComptClics <= 3)
                 {
                     MessageBox.Show("Bravo vous avez gagné !\nAvez-vous eu de la chance ou êtes-vous juste bon ?\n\nLa réponse est : Flash", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if(iComptClique >= 4 && iComptClique <= 6)
+                else if(iComptClics >= 4 && iComptClics <= 6)
                 {
                     MessageBox.Show("Bravo vous avez gagné !\nVous êtes pas si mal\n\nLa réponse est : Flash", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if(iComptClique >= 7 && iComptClique <= 10)
+                else if(iComptClics >= 7 && iComptClics <= 10)
                 {
                     MessageBox.Show("Bravo vous avez gagné !\nVous êtes dans la moyenne\n\nLa réponse est : Flash", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
