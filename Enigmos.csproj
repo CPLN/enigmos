@@ -47,9 +47,6 @@
     <Compile Include="Enigmas\Components\CaseVide.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\Components\Jeton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Enigmas\NinePointsEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -111,6 +108,7 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\NinePoints.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

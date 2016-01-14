@@ -11,43 +11,38 @@ namespace Cpln.Enigmos.Enigmas
 {
     public class NinePointsEnigmaPanel : EnigmaPanel
     {
-        private Jeton[] tJeton = new Jeton[9];
-        private CaseVide[] tCaseVide = new CaseVide[16];
-        private TableLayoutPanel TlpCase9Points;
+        /*Variables & constantes*/
         private PictureBox pcbCase9Points = new PictureBox();
         private Point[] tSaveMouseClickPosition = new Point[5];
         private Point[] tCentrePoint = new Point[9];
-
-        const int RAYON_POINT = 40;
+        private bool[] tPointTrace = new bool[9];
+        const int RAYON_POINT = 95;
 
         /// <summary>
-        /// Charge l'énigme des 9 points.
+        /// Affichage de l'énigme 9 points
         /// </summary>
         public NinePointsEnigmaPanel()
         {
-            Affiche9Point();
+            this.Height = 800; //change la taille du panel "parent"
 
-        }
-
-        /// <summary>
-        /// Affichage des 9 points
-        /// </summary>
-        public void Affiche9Point()
-        {
-            this.Height = 800;
+            /*Initialise la PictureBox*/
             pcbCase9Points.Size = this.Size;
+            pcbCase9Points.BackgroundImage = Properties.Resources.NinePoints;
             pcbCase9Points.Click += new System.EventHandler(MouseClick_Affiche9Points);
             pcbCase9Points.Paint += new PaintEventHandler(Paint_pcbCase9Points);
             Controls.Add(pcbCase9Points);
 
-            Panel pnl = new Panel();
-            pnl.BackColor = Color.Black; ;
-            pnl.Location = new Point(this.Left + 380, this.Top + 380);
-            pnl.Size = new Size(40, 40);
-            this.Controls.Add(pnl);
-            pnl.BringToFront();
+            /*Initialise les positions du centre des points*/
+            for (int i = 0, iX = 200, iY = 200; i < tCentrePoint.Length; i++, iX += 200)
+            {
+                if (i % 3 == 0 && i != 0) //permet de changer de ligne dans un axe x, y
+                {
+                    iY += 200;
+                    iX = 200;
+                }
+                tCentrePoint[i] = new Point(iX, iY);
+            }
 
-            tCentrePoint[0] = new Point(Width / 2, Height / 2);
         }
 
         /// <summary>
@@ -57,8 +52,8 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         private void Paint_pcbCase9Points(object sender, PaintEventArgs e)
         {
-            /**/
-            Pen pen = new Pen(Color.Black, 10);
+            /*Pinceau*/
+            Pen pen = new Pen(Color.Blue, 20);
 
             /*Dessine les traits un par un, si leurs positions sont connues*/
             for (int i = 1; i < tSaveMouseClickPosition.Length; i++)
@@ -72,7 +67,8 @@ namespace Cpln.Enigmos.Enigmas
         }
 
         /// <summary>
-        /// Sauvegarde les positions des clicks de souris & met à jour la PictureBox
+        /// Sauvegarde les positions des clicks de souris, met à jour la PictureBox 
+        /// et détecte si les traits sont sur les points
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -99,58 +95,44 @@ namespace Cpln.Enigmos.Enigmas
                 pcbCase9Points.Invalidate();
             }
 
-            if(iFirstCaseEmpty != 0)
+            /*Détecte si tous les points sont tracés*/
+            if(iFirstCaseEmpty == 4)
             {
-                int iBeta, iA, iB, iC, iH;
-                double dblBetaRad;
-
-                int iTest = Distance(new Point(0, 0), new Point(20, 20));
-
-                /*Calcule les distances entre les différents clique et le centre du point*/
-                iA = Distance(tSaveMouseClickPosition[iFirstCaseEmpty - 1], tSaveMouseClickPosition[iFirstCaseEmpty]);
-                iB = Distance(tSaveMouseClickPosition[iFirstCaseEmpty - 1], tCentrePoint[0]);
-                iC = Distance(tCentrePoint[0], tSaveMouseClickPosition[iFirstCaseEmpty]);
-
-                //double dblTest = (iA * iA + iC * iC - iB * iB) / (2 * iA * iC);
-                //dblBetaRad = Math.Acos(dblTest);
-
-                //iBeta = (int)Math.Round(dblBetaRad * (180 / Math.PI), MidpointRounding.AwayFromZero);
-                
-                double dblPartieA = iA * iA + iC * iC - iB * iB;
-                double dblPartieB = 2 * iA * iC;
-                double dblPartieC = dblPartieA / dblPartieB;
-
-                dblBetaRad = (1.0 * iA * iA + iC * iC - iB * iB) / (2 * iA * iC); //Exemple bug
-
-                double dblTest = Math.Acos((1.0 * iA * iA + iC * iC - iB * iB) / (2 * iA * iC));
-
-                /*Formule pour trouver un angle à l'aide du théorème du Cosinus et de pythagore*/
-                iBeta = (int)Math.Round(Math.Acos((1.0 * iA * iA + iC * iC - iB * iB) / (2 * iA * iC)) * (180 / Math.PI), MidpointRounding.AwayFromZero);
-                
-                iH = (int)Math.Round(iC * Math.Sin(1.0 * iBeta), MidpointRounding.AwayFromZero);
-                
-                if(RAYON_POINT > Distance(tSaveMouseClickPosition[iFirstCaseEmpty - 1], tSaveMouseClickPosition[iFirstCaseEmpty], new Point(400, 400)))
+                /*Vérifie que chaque point à été tracé*/
+                for (int iPoint = 0; iPoint < tCentrePoint.Length; iPoint++)
                 {
+                    for (int iTrait = 1; iTrait < tSaveMouseClickPosition.Length; iTrait++)
+                    {
+                        if (RAYON_POINT > Distance(tSaveMouseClickPosition[iTrait - 1], tSaveMouseClickPosition[iTrait], tCentrePoint[iPoint]))
+                        {
+                            tPointTrace[iPoint] = true;
+                        }
+                    }
+                }
+                /*Vérifie si l'un des points n'a pas été tracé*/
+                bool bOk = true;
+                for(int i = 0; i < tPointTrace.Length; i++)
+                {
+                    if (tPointTrace[i] != true)
+                    {
+                        bOk = false;
+                    }
+                }
 
+                /*Message de fin - victoire/ défaite?*/
+                if (bOk)
+                {
+                    MessageBox.Show("OK");
                 }
             }
         }
         /// <summary>
-        /// Calcule la distance entre 2 points
+        /// Formule qui calcule la distance d'un point à une droite
         /// </summary>
-        /// <param name="p1"></param>
-        /// <param name="p2"></param>
+        /// <param name="p1">Premier point de la droite</param>
+        /// <param name="p2">Deuxième point de la droite</param>
+        /// <param name="p">Point externe à la droite dont on souhaite connaitre la distance par rapport à la droite</param>
         /// <returns></returns>
-        private int Distance(Point p1, Point p2)
-        {
-            int dx = p1.X - p2.X;
-            int dy = p1.Y - p2.Y;
-
-            double distance = Math.Sqrt(dx * dx + dy * dy);
-
-            return (int)Math.Round(distance, MidpointRounding.AwayFromZero);
-        }
-
         private double Distance(Point p1, Point p2, Point p)
         {
             double pente = (1.0 * p2.Y - p1.Y) / (p2.X - p1.X);
