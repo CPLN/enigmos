@@ -18,7 +18,7 @@ namespace Cpln.Enigmos
         public static Enigma DebugEnigma()
         {
             //return new Enigma(new CharadeEnigmaPanel(), "Charade");
-            return new Enigma(new LabyrintheEnigmaPanel(), "Labyrinthe");
+            return new Enigma(new TapeTaupeEnigmaPanel(), "Tape-taupe");
             //return null;
 
             //return new Enigma(new SimpleEnigmaPanel(), "C'est simple");
@@ -40,7 +40,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new OiseauxEnigmaPanel(), "Le plus long mot"));
             enigmas.Add(new Enigma(new BusEnigmaPanel(), "Sens du bus"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
-            enigmas.Add(new Enigma(new LabyrintheEnigmaPanel(), "Labyrinthe"));
+            enigmas.Add(new Enigma(new TapeTaupeEnigmaPanel(), "Tape-taupe"));
             enigmas.Add(new Enigma(new SeptDifferencesEnigmaPanel(), "Le jeu des 7 différences"));
             enigmas.Add(new Enigma(new OpenDoorEnigmaPanel(), "Ouvrez la porte !"));
             enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));

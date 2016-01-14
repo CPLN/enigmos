@@ -60,9 +60,9 @@
     <Compile Include="Enigmas\EnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\LabyrintheEnigmaPanel.cs">
-	  <SubType>Component</SubType>
-	</Compile>
+    <Compile Include="Enigmas\TapeTaupeEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\OpenDoorEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>

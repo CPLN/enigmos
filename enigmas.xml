@@ -20,9 +20,9 @@
     <answer>ornithorynque</answer>
     <hint>Résolvez la charade</hint>
   </enigma>
-  <enigma title="Labyrinthe">
-    <answer>maze</answer>
-    <hint>Finir le Labyrinthe</hint>
+  <enigma title="Tape-taupe">
+    <answer>Taupe</answer>
+    <hint>Cliquez sur les taupes qui apparaissent</hint>
   </enigma>
   <enigma title="Le jeu des 7 différences">
     <answer>bonjour</answer>
