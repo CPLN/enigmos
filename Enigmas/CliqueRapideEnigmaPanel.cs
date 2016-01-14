@@ -6,6 +6,7 @@ namespace Cpln.Enigmos.Enigmas
 {
     class CliqueRapideEnigmaPanel : EnigmaPanel
     {
+        //Déclaration des objets et des variables
         private Button btnACliquer = new Button();
         private Timer timer = new Timer();
         private Label lblNbClique = new Label();
@@ -102,6 +103,8 @@ namespace Cpln.Enigmos.Enigmas
         {
             iComptClique++;
             lblNbClique.Text = "Nombre de clique : " + Convert.ToString(iComptClique);
+
+            //Affichage du message en fonction des nombres de clique
             if(bVert == true)
             {
                 timer.Stop();
@@ -125,11 +128,14 @@ namespace Cpln.Enigmos.Enigmas
                 {
                     MessageBox.Show("Bravo vous avez enfin gagné !\nDésolé mais vous n'êtes pas très bon...\n\nLa réponse est : Flash", "Bravo !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
+                //Affiche la reponse et bloque le bouton
                 btnACliquer.Enabled = false;
                 btnACliquer.Text = "La réponse est : Flash";
             }
             else
             {
+                //remise a zero du temp lorsque l'utilisateur appuie sur le bouton rouge
                 iComptSec = 0;
             }
         }
