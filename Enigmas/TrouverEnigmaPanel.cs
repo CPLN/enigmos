@@ -42,7 +42,6 @@ namespace Cpln.Enigmos.Enigmas
                 b.Location = new Point(random.Next(800), random.Next(600));
                 b.Name = "Cristiano" + i;
                 Controls.Add(b);
-                b.Click += new EventHandler(b_Click);
                 brebondYA = new bool[i];
                 brebondXA = new bool[i];
             }
@@ -51,7 +50,6 @@ namespace Cpln.Enigmos.Enigmas
 
             bCristiano.Text = "" + 666;
             bCristiano.Size = new Size(100, 100);
-            //bCristiano.Location = new Point(random.Next(700), random.Next(500));
             bCristiano.Location = new Point(400, 300);
             bCristiano.BackColor = Color.Red;
             bCristiano.Click += new EventHandler(bCristiano_Click);
@@ -75,14 +73,7 @@ namespace Cpln.Enigmos.Enigmas
             //lblEnigme.Text = "fesse ?";
 
 
-        }
-        private void b_Click(object sender, EventArgs e)
-        {
-            clickCounter++;
-            if (clickCounter > 10) // arbitrary number
-            {
-                Application.Exit();
-            }
+
         }
 
         private void bCristiano_Click(object sender, EventArgs e)
@@ -90,7 +81,7 @@ namespace Cpln.Enigmos.Enigmas
             MessageBox.Show("Le mot à valider est cristiano", "Yo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
-
+       
 
         private void Timer_Tick(object sender, EventArgs e)
         {
