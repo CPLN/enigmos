@@ -38,12 +38,17 @@ namespace Cpln.Enigmos.Enigmas
         //création des buttons et des panels
         Label lblReponse = new Label();
         Label lblTexte = new Label();
+        Label lbltest1 = new Label();
+        Label lbltest2 = new Label();
+        Label lbltest3 = new Label();
         Panel pnlImage = new Panel();
         Button btnChoix1 = new Button();
         Button btnChoix2 = new Button();
         Button btnChoix3 = new Button();
         Random randomNombre = new Random();
         Label lblIndice = new Label();
+
+        
         
         //Evenement des clicks de boutons 
        private void Random_Click(object sender, EventArgs e)
@@ -55,6 +60,9 @@ namespace Cpln.Enigmos.Enigmas
             TexteImage1();
             iEtape2 = iEtape1;
             iEtape3 = iEtape1;
+            lbltest1.Text = Convert.ToString(iIndice1);
+            lbltest2.Text = Convert.ToString(iIndice2);
+            lbltest3.Text = Convert.ToString(iIndice3);
        }
        private void Random2_Click(object sender, EventArgs e)
        {
@@ -65,6 +73,9 @@ namespace Cpln.Enigmos.Enigmas
             TexteImage2();
             iEtape3 = iEtape2;
             iEtape1 = iEtape2;
+            lbltest1.Text = Convert.ToString(iIndice1);
+            lbltest2.Text = Convert.ToString(iIndice2);
+            lbltest3.Text = Convert.ToString(iIndice3);
         }
        private void Random3_Click(object sender, EventArgs e)
        {
@@ -75,6 +86,9 @@ namespace Cpln.Enigmos.Enigmas
             TexteImage3();
             iEtape1 = iEtape3;
             iEtape2 = iEtape3;
+            lbltest1.Text = Convert.ToString(iIndice1);
+            lbltest2.Text = Convert.ToString(iIndice2);
+            lbltest3.Text = Convert.ToString(iIndice3);
         }
        
         //Constructeur par défaut qui initiliase les proprieté de la première fenêtre.
@@ -90,6 +104,22 @@ namespace Cpln.Enigmos.Enigmas
             lblTexte.Location = new Point(100, 0);
             lblIndice.Location = new Point(100, 500);
             lblIndice.Size = new Size(800, 30);
+            lbltest1.Text = Convert.ToString(iIndice1);
+            lbltest2.Text = Convert.ToString(iIndice2);
+            lbltest3.Text = Convert.ToString(iIndice3);
+            lbltest1.Size = new Size(100, 30);
+            lbltest2.Size = new Size(100, 30);
+            lbltest3.Size = new Size(100, 30);
+            lbltest1.Location = new Point(0, 300);
+            lbltest2.Location = new Point(100, 300);
+            lbltest3.Location = new Point(200, 300);
+            
+            Controls.Add(lbltest1);
+            Controls.Add(lbltest2);
+            Controls.Add(lbltest3);
+            
+            
+            
             Controls.Add(lblReponse);
             Controls.Add(lblTexte);
             Controls.Add(btnChoix1);
@@ -362,7 +392,7 @@ namespace Cpln.Enigmos.Enigmas
                             //DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
 
                             // return imgFinaleDepart = aImageDeBase[1];
-                            iNombreRandom = 0;
+                           // iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -397,7 +427,7 @@ namespace Cpln.Enigmos.Enigmas
 
 
                             //return imgFinaleDepart = aImageDeBase[1];
-                            iNombreRandom = 0;
+                            //iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -434,7 +464,7 @@ namespace Cpln.Enigmos.Enigmas
                             //if(perdu == DialogResult.OK)
 
                             //return imgFinaleDepart = aImageDeBase[1];
-                            iNombreRandom = 0;
+                           // iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -505,7 +535,7 @@ namespace Cpln.Enigmos.Enigmas
 
 
             // on test si le premier affichage a été fait.
-            if (iEtape1 == 0)
+            if (iEtape2 == 0)
             {
 
                 GenerationButton(iEtape1);
@@ -591,7 +621,7 @@ namespace Cpln.Enigmos.Enigmas
                             //DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
 
                             // return imgFinaleDepart = aImageDeBase[1];
-                            iNombreRandom = 0;
+                            //iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -606,7 +636,7 @@ namespace Cpln.Enigmos.Enigmas
                         random = randomNombre.Next(1, 4);
                         if (random == 1)
                         {
-                            iEtape1 = 0;
+                            iEtape2 = 0;
                             // lblTexte.Text = "Cette pièce vous semble familier";
                             // return imgFinaleDepart = aImageDeBase[0];
                             iNombreRandom = 1;
@@ -626,7 +656,7 @@ namespace Cpln.Enigmos.Enigmas
 
 
                             //return imgFinaleDepart = aImageDeBase[1];
-                            iNombreRandom = 0;
+                           // iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -663,7 +693,7 @@ namespace Cpln.Enigmos.Enigmas
                             //if(perdu == DialogResult.OK)
 
                             //return imgFinaleDepart = aImageDeBase[1];
-                            iNombreRandom = 0;
+                            //iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -675,7 +705,7 @@ namespace Cpln.Enigmos.Enigmas
 
                 }
             }
-            if (iEtape1 == 2)
+            if (iEtape2 == 2)
             {
 
                 random = randomNombre.Next(1, 4);
@@ -700,7 +730,7 @@ namespace Cpln.Enigmos.Enigmas
 
 
                     //return imgFinaleDepart = aImageDeBase[1];
-                    iNombreRandom = 0;
+                   // iNombreRandom = 0;
                     return iNombreRandom;
                 }
                 else
@@ -711,9 +741,9 @@ namespace Cpln.Enigmos.Enigmas
             }
             else
             {
-                iNombreRandom = 0;
-                return iNombreRandom;
+                return iEtape2;
             }
+           
 
 
 
@@ -733,7 +763,7 @@ namespace Cpln.Enigmos.Enigmas
 
 
             // on test si le premier affichage a été fait.
-            if (iEtape1 == 0)
+            if (iEtape3 == 0)
             {
 
                 GenerationButton(iEtape3);
@@ -819,7 +849,7 @@ namespace Cpln.Enigmos.Enigmas
                                 //DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
                                
                                // return imgFinaleDepart = aImageDeBase[1];
-                            iNombreRandom = 0;
+                           // iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -854,7 +884,7 @@ namespace Cpln.Enigmos.Enigmas
                                    
                                    
                                 //return imgFinaleDepart = aImageDeBase[1];
-                            iNombreRandom = 0;
+                            //iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -891,7 +921,7 @@ namespace Cpln.Enigmos.Enigmas
                                   //if(perdu == DialogResult.OK)
                                 
                                 //return imgFinaleDepart = aImageDeBase[1];
-                            iNombreRandom = 0;
+                            //iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -916,19 +946,20 @@ namespace Cpln.Enigmos.Enigmas
                 }
                 if (random == 2)
                 {
-                    iEtape3 = 1;
+                    
                     iNombreRandom = 0;
                     return iNombreRandom;
                     
                 }
                 if (random == 3)
                 {
-                   
 
+                    iEtape3 = 1;
+                    return iNombreRandom;
                     
                  
                     //return imgFinaleDepart = aImageDeBase[1];
-                    iNombreRandom = 0;
+                    //iNombreRandom = 0;
                     return iNombreRandom;
                 }
                 else
@@ -937,10 +968,9 @@ namespace Cpln.Enigmos.Enigmas
                     return iNombreRandom;
                 }
             }
-           else
+            else
             {
-                iNombreRandom = 0;
-                return iNombreRandom; 
+                return iEtape1;
             }
             
 
@@ -948,15 +978,7 @@ namespace Cpln.Enigmos.Enigmas
         }
        private Image ChoixImage(int numeroRandom)
         {
-            /*Image depart = Properties.Resources.salle_de_bain;
-            Image imageDefaite = Properties.Resources.bluescreen;
-            Image imageDepart1 = Properties.Resources.Etage_2;
-            Image imageDepart2 = Properties.Resources.chambre;
-            Image imageDepart3 = Properties.Resources.étage;
-            Image imageMilieu4 = Properties.Resources.escalier;
-            Image imageMilieu5 = Properties.Resources.salon;
-            Image imageMilieu6 = Properties.Resources.escalier;
-            Image imageFin = Properties.Resources.sortie;*/
+           
 
             Image[] aImageDeBase = new Image[] { depart, imageDefaite, imageDepart1, imageDepart2, imageDepart3, imageMilieu4, imageMilieu5, imageMilieu6, imageFin };
 
