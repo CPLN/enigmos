@@ -106,6 +106,7 @@ namespace Cpln.Enigmos.Enigmas
         public void PanelClick(object sender, MouseEventArgs e)
         {
             this.Cursor = new Cursor(Properties.Resources.CibleNoir.GetHicon());//changement de l'image du curseur
+            this.Cursor = null;
             bViseurRouge = false;//on inverse la variable une fois que l'utilisateur à cliqué
             iTimerCible = 0;//on remet la varaible à zero
         }
@@ -134,7 +135,7 @@ namespace Cpln.Enigmos.Enigmas
             iTickRandomDroite--;
 
             //si le curseur n'est pas en rouge et que 10 seconde ce sont écoulées
-            if(!bViseurRouge && iTimerCible > 2)
+            if(!bViseurRouge && iTimerCible > 8)
             {
                 this.Cursor = new Cursor(Properties.Resources.CibleRouge.GetHicon());//changement de l'image du curseur
             }
@@ -213,12 +214,14 @@ namespace Cpln.Enigmos.Enigmas
         }
 
         /// <summary>
-        /// Permet de retourner un nombre aléatoire
+        ///  permet de retourner un nombre aléatoire
         /// </summary>
-        /// <returns>Retourne un nombre aléatoire entre 60 et 120</returns>
+        /// <param name="iMin">Le nombre minimum voulu</param>
+        /// <param name="iMax">Le nombre maximun voulu</param>
+        /// <returns>Retourne le nombre random en question</returns>
         private int NextRandom()
         {
-            return random.Next(50, 150);//retourne un nombre random
+            return random.Next(70, 170);//retourne un nombre random
         }
 
         /// <summary>
