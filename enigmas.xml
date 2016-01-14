@@ -88,4 +88,8 @@
     <answer>J'ai gagné</answer>
     <hint>Gagner au moins deux fois contre l'ordinateur.</hint>
   </enigma>
+  <enigma title="Clique-rapide">
+    <answer>Flash</answer>
+    <hint>Appuyer sur le bouton vert.</hint>
+  </enigma>
 </enigmas>
