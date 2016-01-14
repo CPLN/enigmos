@@ -17,7 +17,8 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new LettreHaute(), "Quelle est la plus haute ?");
+            //return new Enigma(new FruitsEnigmaPanel(), "Calcul");
+            return null;
         }
 
         /// <summary>
@@ -30,7 +31,6 @@ namespace Cpln.Enigmos
 
             enigmas.Add(new Enigma(new SimpleEnigmaPanel(), "C'est simple"));
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
-            enigmas.Add(new Enigma(new HiddenCharacterEnigmalPanel(), "Caractère caché"));
             enigmas.Add(new Enigma(new OuEstLaReponseEnigmaPanel(), "Où est la réponse ?"));
             enigmas.Add(new Enigma(new OiseauxEnigmaPanel(), "Le plus long mot"));
             enigmas.Add(new Enigma(new BusEnigmaPanel(), "Sens du bus"));
@@ -44,6 +44,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new ReflexeEnigmaPanel(), "Reflexe"));
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
+            enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
             enigmas.Add(new Enigma(new NfsEnigmaPanel(), "Need For Speed"));
             enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
             enigmas.Add(new Enigma(new PenduEnigmaPanel(), "Le jeu du pendu"));
@@ -53,8 +54,6 @@ namespace Cpln.Enigmos
             Enigma runEnigmaInverse = new Enigma(new RunEnigmaPanel(true), "Roux run encore");
             runEnigmaInverse.AddPrerequisite(runEnigma);
             enigmas.Add(runEnigmaInverse);
-
-            enigmas.Add(new Enigma(new LettreHaute(), "Quelle est la plus haute ?"));
 
             enigmas.Shuffle();
             return enigmas;

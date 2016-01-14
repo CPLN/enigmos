@@ -78,6 +78,10 @@
     <answer>citron vert</answer>
     <hint>Combien de troncs ? Quelle couleur ?</hint>
   </enigma>
+  <enigma title="Calcul">
+    <answer>21</answer>
+    <hint>Faites attention aux bananes !</hint>
+  </enigma>
   <enigma title="Need For Speed">
     <answer>eucalyptus</answer>
     <hint>Utilise tes deux mains</hint>
