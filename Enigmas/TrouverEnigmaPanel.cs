@@ -64,7 +64,6 @@ namespace Cpln.Enigmos.Enigmas
             //Mise en place d'un timer
             Timer.Interval = 1; // 1 milliseconde
             Timer.Tick += new EventHandler(Timer_Tick);
-            Timer.Start();
             bGo = true;
 
             
@@ -79,7 +78,17 @@ namespace Cpln.Enigmos.Enigmas
             MessageBox.Show("Le mot à valider est cristiano", "Yo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
-       
+
+
+        public override void Load()
+        {
+            Timer.Start();
+        }
+
+        public override void Unload()
+        {
+            Timer.Stop();
+        }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
