@@ -17,27 +17,26 @@ namespace Cpln.Enigmos.Enigmas
         /// <summary>
         /// Constructeur par défaut, génère un texte et l'affiche dans le Panel.
         /// </summary>
-        bool bGo = false /*bRebondX = true, bRebondY = true*/, bRebondXC = true, bRebondYC = true;
+        bool bGo = false, bRebondXC = true, bRebondYC = true;
         int iAxeX = 4, iAxeY = 2;
         private Timer Timer = new Timer();
         Button bCristiano = new Button();
         List<Button> buttons = new List<Button>();
         bool[] brebondYA;
         bool[] brebondXA;
-        private static int clickCounter = 0;
         public TrouverEnigmaPanel()
         {
             //bGo = true;
             Label lblEnigme = new Label();
             int i = 0;
             Random random = new Random();
-            for (i = 0; i < 200; i++)
+            for (i = 0; i < 150; i++)
             {
 
                 Button b = new Button();
                 buttons.Add(b);
                 this.Controls.Add(b);
-                //b.Text = "" + i;
+
                 b.Size = new Size(100, 100);
                 b.Location = new Point(random.Next(800), random.Next(600));
                 b.Name = "Cristiano" + i;
