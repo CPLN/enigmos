@@ -8,7 +8,7 @@ namespace Cpln.Enigmos.Enigmas
     public class HiddenCharacterEnigmalPanel : EnigmaPanel
     {
         //Déclaration des variables
-        private GraphicsPath P = new GraphicsPath(), P1 = new GraphicsPath(), P2 = new GraphicsPath(), P3 = new GraphicsPath();
+        private GraphicsPath P, P1, P2, P3;
         int iLastX, iLastY;
 
         /// <summary>
@@ -23,21 +23,30 @@ namespace Cpln.Enigmos.Enigmas
             lblHC.BackColor = Color.Transparent;
             lblHC.Location = new Point(600, 400);
             lblHC.Size = TextRenderer.MeasureText(lblHC.Text, lblHC.Font);
+            lblHC.MouseMove += new MouseEventHandler(MoveMouse);
             Controls.Add(lblHC);
 
             //Création d'évènements
-            this.MouseMove += new MouseEventHandler(Move);      //Lors d'un mouvement de la souris
+            this.MouseMove += new MouseEventHandler(MoveMouse);      //Lors d'un mouvement de la souris
             this.MouseEnter += new EventHandler(EnterPanel);    //Lors de l'entrée de la souris dans le panel 
             this.Paint += new PaintEventHandler(PaintBlue);     //Peindre les chemins graphiques
 
             DoubleBuffered = true;  //Elimination du scintillement
         }
 
+        public override void Load()
+        {
+            P = new GraphicsPath();
+            P1 = new GraphicsPath();
+            P2 = new GraphicsPath();
+            P3 = new GraphicsPath();
+        }
+
         private void EnterPanel(object sender, EventArgs e)
         {
             //Valeurs de départ du positionnement de la souris
-            iLastX = MousePosition.X;
-            iLastY = MousePosition.Y;
+            iLastX = PointToClient(MousePosition).X;
+            iLastY = PointToClient(MousePosition).Y;
         }
 
         /// <summary>
@@ -45,11 +54,11 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Move(object sender, EventArgs e)
+        private void MoveMouse(object sender, EventArgs e)
         {
             //Valeurs du positionnement de la souris
-            int iX = MousePosition.X;
-            int iY = MousePosition.Y;
+            int iX = PointToClient(MousePosition).X;
+            int iY = PointToClient(MousePosition).Y;
 
             int iDiff = 15; //Taille des lignes graphiques
 
@@ -74,8 +83,6 @@ namespace Cpln.Enigmos.Enigmas
         private void PaintBlue(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.TranslateTransform(-240,-170); //Origine
-            g.ScaleTransform(1.0f, 1.0f); //Echelle
 
             //Dessiner les chemins graphiques
             g.DrawPath(new Pen(Color.Blue), P);
