@@ -12,8 +12,19 @@ namespace Cpln.Enigmos.Enigmas
         {
             btnACliquer.Size = new Size(200, 200);
             btnACliquer.Location = new Point(400 - btnACliquer.Width / 2, 300 - btnACliquer.Height / 2);
-            //ChangementPourRouge();
+            ChangementPourRouge();
             Controls.Add(btnACliquer);
+        }
+        private void ChangementPourRouge()
+        {
+            btnACliquer.BackColor = Color.Red;
+            btnACliquer.Text = "Attention ...";
+        }
+
+        private void ChangementPourVert()
+        {
+            btnACliquer.BackColor = Color.Green;
+            btnACliquer.Text = "Appuie !!!";
         }
     }
 }
