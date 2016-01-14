@@ -47,26 +47,25 @@ namespace Cpln.Enigmos.Enigmas
         }
         private void pnlPicture_Click(object sender, EventArgs e)
         {
-            Point coordonneesTexte = new Point(0, 0);
+            Point LocationPicture = new Point(0, 0);
             OpenDoorImage image = 0;
-
 
             if ((Panel)sender == pnlPictureFlowers)
             {
-                coordonneesTexte = new Point(550, 80);
+                LocationPicture = new Point(550, 80);
                 bClickPictureFlowers = true;
                 image = OpenDoorImage.FLOWER;
             }
             else if ((Panel)sender == pnlPictureLandscape)
             {
-                coordonneesTexte = new Point(260, 20);
+                LocationPicture = new Point(260, 20);
                 bClickPictureLandscape = true;
                 image = OpenDoorImage.LANDSCAPE;
             }
 
             if (!bEnd && bClickPictureLandscape && bClickPictureFlowers)
             {
-                ((Panel)sender).Location = coordonneesTexte;
+                ((Panel)sender).Location = LocationPicture;
                 TestResult(image);
                 Timer_OpenDoor();
                 bEnd = true;
@@ -105,7 +104,7 @@ namespace Cpln.Enigmos.Enigmas
                 lblResult.Location = new Point(570, 370);
             }
 
-                            Result();
+            Result();
         }
     }
     enum OpenDoorImage
