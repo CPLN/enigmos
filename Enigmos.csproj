@@ -53,9 +53,7 @@
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\Components\Graph.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Enigmas\Components\Graph.cs" />
     <Compile Include="Enigmas\PenduEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>

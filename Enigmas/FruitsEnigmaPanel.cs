@@ -59,6 +59,19 @@ namespace Cpln.Enigmos.Enigmas
             lblEnigme11.Text = "=";
             lblEnigme12.Text = "?";
 
+            lblEnigme.Anchor = AnchorStyles.None;
+            lblEnigme2.Anchor = AnchorStyles.None;
+            lblEnigme3.Anchor = AnchorStyles.None;
+            lblEnigme4.Anchor = AnchorStyles.None;
+            lblEnigme5.Anchor = AnchorStyles.None;
+            lblEnigme6.Anchor = AnchorStyles.None;
+            lblEnigme7.Anchor = AnchorStyles.None;
+            lblEnigme8.Anchor = AnchorStyles.None;
+            lblEnigme9.Anchor = AnchorStyles.None;
+            lblEnigme10.Anchor = AnchorStyles.None;
+            lblEnigme11.Anchor = AnchorStyles.None;
+            lblEnigme12.Anchor = AnchorStyles.None;
+
             lblEnigme.Font = new Font("Times New Roman", 20);  //Agrandissement de la police d'écriture
             lblEnigme2.Font = new Font("Times New Roman", 20);
             lblEnigme3.Font = new Font("Times New Roman", 20);
