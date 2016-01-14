@@ -66,7 +66,7 @@ namespace Cpln.Enigmos.Enigmas
 
             if (!bEnd && bClickPictureLandscape && bClickPictureFlowers)
             {
-                .Location = coordonneesTexte;
+                ((Panel)sender).Location = coordonneesTexte;
                 TestResult(image);
                 Timer_OpenDoor();
                 bEnd = true;
@@ -98,14 +98,14 @@ namespace Cpln.Enigmos.Enigmas
         {
             if (image == OpenDoorImage.LANDSCAPE)
             {
-                Result();
                 lblResult.Location = new Point(150, 40);
             }
             else
             {
-                Result();
                 lblResult.Location = new Point(570, 370);
             }
+
+                            Result();
         }
     }
     enum OpenDoorImage
