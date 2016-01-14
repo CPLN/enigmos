@@ -58,7 +58,7 @@ namespace Cpln.Enigmos.Enigmas
         }
 
         /// <summary>
-        /// 
+        /// Evenement click du bouton recommencer, renvoie à une méthode qui recommence la partie
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -165,7 +165,7 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         private void MouseMove_Afficher9Points(object sender, MouseEventArgs e)
         {
-            /**/
+            /*Met à jour l'attribut "cursorPosition" qui permet d'afficherle prochain trait de façon dynamique*/
             if (tSaveMouseClickPosition[0] != new Point())
             {
                 cursorPosition = e.Location;
@@ -196,10 +196,12 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         private void RedemarrerEnigme()
         {
+            /*Remet à zéro les attributs et différents paramètres*/
             tSaveMouseClickPosition = new Point[5];
             tPointTrace = new bool[9];
             pcbCase9Points.Image = null;
             cursorPosition = new Point();
+            pcbCase9Points.Enabled = true;
         }
     }
 }
