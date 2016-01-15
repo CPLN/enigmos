@@ -11,42 +11,38 @@ namespace Cpln.Enigmos.Enigmas
 {
     public class TapeTaupeEnigmaPanel : EnigmaPanel
     {       
-        //déclaration du timer, de l'image, des deux randoms et de la liste de picturebox
+        //déclaration du timer, de l'image, des trois randoms
         private Timer tJeuTapeTaupe = new Timer();
         PictureBox pbxTaupe = new PictureBox();
         Random RandoPosition = new Random();
         Random RandoDifficulte = new Random();
-        List<PictureBox> Trous;
+        Random RandoAnimal = new Random();
 
         //déclaration des varaibles
         private int iCompteur = 0;
         private int iAxeX;
-        private int iAxey;
+        private int iAxeY;
         private int iScore;
         private int iVitesse;
         private int iTemps = 0;
-        private string strPerdu = "Dommage, vous avez mis trop de temps ou vous avez cliquez sur un lapin. Appuyer sur OK pour recommencer";
-        DialogResult Resultat;
+        private int iAnimal;
+        private bool bAnimal = false;
+        private string strPerdu = "Dommage, vous avez mis trop de temps ou vous avez cliquez sur un chat. Appuyer sur Recommencer pour réessayer";
 
         //Constructeur par défaut
         public TapeTaupeEnigmaPanel()
         {
-            //initialisation de la liste
-            Trous = new List<PictureBox>();
-
             //Création du timer et lancement
             tJeuTapeTaupe.Interval = 1;
             tJeuTapeTaupe.Tick += new EventHandler(timer_tJeuTapeTaupe);
             tJeuTapeTaupe.Start();
             
             //Création de la picturebox qui contient l'image
-            pbxTaupe.Width = 50;
-            pbxTaupe.Height = 50;
+            pbxTaupe.Width = 100;
+            pbxTaupe.Height = 100;
             pbxTaupe.Location = new Point(0, 0);
             pbxTaupe.Enabled = false;
             pbxTaupe.Visible = false;
-            //pbxTaupe.Image = 
-            pbxTaupe.BackColor = Color.Aqua;
             Controls.Add(pbxTaupe);
             pbxTaupe.BringToFront();
 
@@ -54,31 +50,30 @@ namespace Cpln.Enigmos.Enigmas
             pbxTaupe.MouseClick += new MouseEventHandler(pbxTaupe_Click);
 
             //Affectation de la difficulter (vitesse d'apparition de l'image)
-            iVitesse = RandoDifficulte.Next(200, 250); // ~4-5 secondes
-            /*
-            this.Cursor = new Cursor(Properties.Resources.gifessai.GetHicon());
-            Graphics graphics = this.CreateGraphics();
-            Rectangle rectangle = new Rectangle( new Point(10,10), new Size(pbxTaupe.Width, pbxTaupe.Height));
-            Cursor.DrawStretched(graphics, rectangle);
-            this.Cursor.Size = new Size(2, 2);*/
-
+            iVitesse = RandoDifficulte.Next(50, 100); // ~1-2 secondes           
         }
 
         //Evenement du clic sur la picturebox
         private void pbxTaupe_Click(object sender, MouseEventArgs e)
         {
-            //si taupe, augmentation du score et désactivation du panel
-            iScore++;
-            pbxTaupe.Enabled = false;
-            pbxTaupe.Visible = false;
-
-            //si lapin, appel de la fonction perdu()
+            //Si c'est une souris, augmentation du score et désactivation du panel, sinon on appel de la méthode perdu()
+            if (bAnimal == false)
+            {
+                iScore++;
+                pbxTaupe.Enabled = false;
+                pbxTaupe.Visible = false;
+            }
+            else
+            {
+                Perdu();
+            }
 
         }
 
         private void Perdu()
         {
-            //Arret du timer, réinitialisation des variables et désctivation de la picturebox
+
+            //Arret du timer, réinitialisation des variables et désactivation de la picturebox
             tJeuTapeTaupe.Stop();
             iScore = 0;
             iCompteur = 0;
@@ -86,57 +81,61 @@ namespace Cpln.Enigmos.Enigmas
             pbxTaupe.Enabled = false;
             pbxTaupe.Visible = false;
 
-            //Affichage de la message box et atribuation dans une variable
-            Resultat = MessageBox.Show(strPerdu, "Perdu", MessageBoxButtons.OK);
+            DialogResult resultat = MessageBox.Show(strPerdu, "Perdu", MessageBoxButtons.RetryCancel);            
 
-            //test pour savoir si le bouton OK de la message box à été pressé
-            if (Resultat == DialogResult.OK)
+            //test pour savoir si le bouton OK de la messagebox à été pressé
+            if (resultat == DialogResult.Retry)
             {
                 tJeuTapeTaupe.Start();
-            } 
+            }
         }
 
         //Evenement du timer
         private void timer_tJeuTapeTaupe(object sender, EventArgs e)
         {
-            //Incrémentaion de compteurs de temps
+            //Incrémentaion des compteurs
             iCompteur++;
             iTemps++;
 
             //Si le joueur à fais plus de ~ 17 secondes, on le fais recommencer
-            if (iTemps == 850)
+            if (iTemps == 1000)
             {
-                //Appele de la fonction perdu
+                //Appel de la méthode perdu()
                 Perdu();
-            }
+            }          
 
-            /*Si le compteur est à 150, il va afficher la picturebox à un endroit
-              aléatoire grace au random et l'activer. Sinon si le compteur est égal
-              avec la vitesse, il va le remettre juste avant la première condition.
-              Grace à cela, au prochain passsage dans l'évenement du timer, il va
-              remettre le panel à un autre endroit*/
-            if (iCompteur == 150) //~3 secondes
+            /*Si le compteur est égal à la vitesse, on determine le type de
+             l'animal et le positionnement de la picturebox. Ensuite, on l'active*/
+            if (iCompteur == iVitesse)
             {
-                //Affectation de la position calculer à l'aide de la largeur et de la hauteur de "l'ecran" de jeu
+                iAnimal = RandoAnimal.Next(0, 8);
                 iAxeX = RandoPosition.Next(0, Width - pbxTaupe.Width);
-                iAxey = RandoPosition.Next(0, Height - pbxTaupe.Height);
-                pbxTaupe.Location = new Point(iAxeX, iAxey);
+                iAxeY = RandoPosition.Next(0, Height - pbxTaupe.Height);
 
-                //Activation du panel
-                pbxTaupe.Enabled = true;
+                //si iAnimal est égal à 2, c'est un chat, sinon c'est une souris. On ajoute l'image voulu ensuite
+                if (iAnimal == 2)
+                {
+                    bAnimal = true;
+                    pbxTaupe.BackgroundImage = Properties.Resources.chat;
+                } else {
+                    pbxTaupe.BackgroundImage = Properties.Resources.souris;
+                    bAnimal = false;
+                }
+               
+                this.pbxTaupe.Location = new Point(iAxeX, iAxeY);
+                this.pbxTaupe.BringToFront();
+
                 pbxTaupe.Visible = true;
-            } 
-            else if (iCompteur == iVitesse)
-            {
-                iCompteur = 149;
+                pbxTaupe.Enabled = true;
+                iCompteur = 0;
             }
 
-            /*Si le score est à 10 (si le joueur à cliquer 10 fois sur une image, 
+            /*Si le score est à 8 (si le joueur à cliquer 8 fois sur une image, 
               on arrete le timer et on affiche la réponse à l'aide d'un pop-up*/
-            if (iScore == 10)
+            if (iScore == 8)
             {
                 tJeuTapeTaupe.Stop();
-                MessageBox.Show("La réponse est \"taupe\"", "Réponse", MessageBoxButtons.OK);
+                MessageBox.Show("La réponse est \"Souris\"", "Réponse", MessageBoxButtons.OK);
             }
         }
     }

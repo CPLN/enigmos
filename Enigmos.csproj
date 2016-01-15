@@ -146,6 +146,17 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\chat.png" />
+    <None Include="Resources\souris.png" />
+    <None Include="Resources\taupe - Copie.svg" />
+    <None Include="Resources\bloggif_569813faa0885.png" />
+    <None Include="Resources\paysage500.png" />
+    <None Include="Resources\terre.png" />
+    <None Include="Resources\taupe.png" />
+    <None Include="Resources\taupe - Copie.png" />
+    <None Include="Resources\paysage.png" />
+    <None Include="Resources\lapin.png" />
+    <None Include="Resources\lapin - Copie.png" />
     <None Include="Resources\gifessai.gif" />
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
