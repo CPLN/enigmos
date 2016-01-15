@@ -71,7 +71,6 @@
     <Compile Include="Enigmas\Components\Coeur.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\Components\Direction.cs" />
     <Compile Include="Enigmas\Components\Etat.cs" />
     <Compile Include="Enigmas\PenduEnigmaPanel.cs">
       <SubType>Component</SubType>
@@ -80,6 +79,13 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\Beer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\BeatThemAllEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Direction.cs" />
+    <Compile Include="Enigmas\Components\Ennemi.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
@@ -270,6 +276,14 @@
     <None Include="Resources\bière jaune clair.jpg" />
     <None Include="Resources\BeerShot_Curseur.png" />
     <None Include="Resources\BeetShot_Bar.png" />
+    <None Include="Resources\GG.png" />
+    <None Include="Resources\game_over.png" />
+    <None Include="Resources\tutorial.png" />
+    <None Include="Resources\pj4.PNG" />
+    <None Include="Resources\pj3.PNG" />
+    <None Include="Resources\pj2.PNG" />
+    <None Include="Resources\pj1.PNG" />
+    <None Include="Resources\ennemi1.png" />
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
     <None Include="Resources\OpenDoor - Solution.png" />

@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new TapeTaupeEnigmaPanel(), "Tape-taupe");
+            return new Enigma(new BeatThemAllEnigmaPanel(), "Beat them all");
         }
 
         /// <summary>
@@ -38,6 +38,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new PhoqueEnigmaPanel(), "Chop' les poissons"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
+            enigmas.Add(new Enigma(new BeatThemAllEnigmaPanel(), "Beat them all"));
             enigmas.Add(new Enigma(new SeptDifferencesEnigmaPanel(), "Le jeu des 7 différences"));
             enigmas.Add(new Enigma(new OpenDoorEnigmaPanel(), "Ouvrez la porte !"));
             enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));
@@ -50,7 +51,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
             enigmas.Add(new Enigma(new MorpionEnigmaPanel(), "Morpion"));
             enigmas.Add(new Enigma(new NfsEnigmaPanel(), "Need For Speed"));
-            //enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
+            enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
             enigmas.Add(new Enigma(new PenduEnigmaPanel(), "Le jeu du pendu"));
             enigmas.Add(new Enigma(new ClicRapideEnigmaPanel(), "Clic-rapide"));
             enigmas.Add(new Enigma(new NinePointsEnigmaPanel(), "9 Points"));

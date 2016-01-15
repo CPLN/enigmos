@@ -9,7 +9,7 @@ namespace Cpln.Enigmos.Enigmas.Components
     /// <summary>
     /// définit les 2 directions possibles
     /// </summary>
-    enum Direction
+    public enum Direction
     {
         GAUCHE, DROITE
     }

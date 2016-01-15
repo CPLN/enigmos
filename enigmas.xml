@@ -50,6 +50,10 @@
     <answer>Encore une fois</answer>
     <hint>Sois réactif</hint>
   </enigma>
+  <enigma title="Beat them all">
+      <answer>GG</answer>
+      <hint>Tuez les tous!</hint>
+  </enigma>
   <enigma title="Le jeu des 7 différences">
     <answer>bonjour</answer>
     <hint>Trouvez le mot caché dans la grille</hint>
