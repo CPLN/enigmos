@@ -116,7 +116,10 @@ namespace Cpln.Enigmos.Enigmas
             Coordinates(pbxCase7, 1, 2);
             Coordinates(pbxCase8, 2, 2);
             Coordinates(pbxCase9, 3, 2);
+        }
 
+        public override void Load()
+        {
             // Appelle la méthode pour démarrer le Morpion
             StartGame();
         }
