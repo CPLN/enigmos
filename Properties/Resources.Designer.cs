@@ -22,7 +22,7 @@ namespace Cpln.Enigmos.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Cpln.Enigmos.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cpln.Enigmos.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Cpln.Enigmos.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _2jzCarSound {
+        public static System.IO.UnmanagedMemoryStream _2jzCarSound {
             get {
                 return ResourceManager.GetStream("_2jzCarSound", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Arbre {
+        public static System.Drawing.Bitmap Arbre {
             get {
                 object obj = ResourceManager.GetObject("Arbre", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -82,7 +82,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap banane {
+        public static System.Drawing.Bitmap banane {
             get {
                 object obj = ResourceManager.GetObject("banane", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -92,7 +92,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Batiment {
+        public static System.Drawing.Bitmap Batiment {
             get {
                 object obj = ResourceManager.GetObject("Batiment", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -102,7 +102,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BeerShot_Bar {
+        public static System.Drawing.Bitmap BeerShot_Bar {
             get {
                 object obj = ResourceManager.GetObject("BeerShot_Bar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -112,7 +112,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BeerShot_Croix {
+        public static System.Drawing.Bitmap BeerShot_Croix {
             get {
                 object obj = ResourceManager.GetObject("BeerShot_Croix", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -122,7 +122,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BeerShot_Curseur {
+        public static System.Drawing.Bitmap BeerShot_Curseur {
             get {
                 object obj = ResourceManager.GetObject("BeerShot_Curseur", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -132,7 +132,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BeerShot_SansCroix {
+        public static System.Drawing.Bitmap BeerShot_SansCroix {
             get {
                 object obj = ResourceManager.GetObject("BeerShot_SansCroix", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -142,7 +142,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bus {
+        public static System.Drawing.Bitmap bus {
             get {
                 object obj = ResourceManager.GetObject("bus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -152,7 +152,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Bus_Reponse1 {
+        public static System.Drawing.Bitmap Bus_Reponse1 {
             get {
                 object obj = ResourceManager.GetObject("Bus_Reponse1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -162,7 +162,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Bus_Reponse2 {
+        public static System.Drawing.Bitmap Bus_Reponse2 {
             get {
                 object obj = ResourceManager.GetObject("Bus_Reponse2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -172,7 +172,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Bus_Reponse3 {
+        public static System.Drawing.Bitmap Bus_Reponse3 {
             get {
                 object obj = ResourceManager.GetObject("Bus_Reponse3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -182,7 +182,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Caillou {
+        public static System.Drawing.Bitmap Caillou {
             get {
                 object obj = ResourceManager.GetObject("Caillou", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -192,7 +192,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap car {
+        public static System.Drawing.Bitmap car {
             get {
                 object obj = ResourceManager.GetObject("car", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -202,7 +202,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap carre {
+        public static System.Drawing.Bitmap carre {
             get {
                 object obj = ResourceManager.GetObject("carre", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -212,7 +212,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CibleNoir {
+        public static System.Drawing.Bitmap CibleNoir {
             get {
                 object obj = ResourceManager.GetObject("CibleNoir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -222,7 +222,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CibleRouge {
+        public static System.Drawing.Bitmap CibleRouge {
             get {
                 object obj = ResourceManager.GetObject("CibleRouge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -232,7 +232,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CoeurBlanc {
+        public static System.Drawing.Bitmap CoeurBlanc {
             get {
                 object obj = ResourceManager.GetObject("CoeurBlanc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -242,7 +242,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CoeurRouge {
+        public static System.Drawing.Bitmap CoeurRouge {
             get {
                 object obj = ResourceManager.GetObject("CoeurRouge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -252,7 +252,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cristiano {
+        public static System.Drawing.Bitmap cristiano {
             get {
                 object obj = ResourceManager.GetObject("cristiano", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -270,16 +270,16 @@ namespace Cpln.Enigmos.Properties {
         ///    &lt;answer&gt;jongleur&lt;/answer&gt;
         ///    &lt;hint&gt;Remettez les pièces à leur place.&lt;/hint&gt;
         ///  &lt;/enigma&gt;
-        ///&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         ///  &lt;enigma title=&quot;Caractère caché&quot;&gt;
         ///    &lt;answer&gt;Cpln&lt;/answer&gt;
         ///    &lt;hint&gt;&quot;Le dessin est la base de tout&quot;
         ///    - Alberto Giacometti
         ///    &lt;/hint&gt;
         ///	&lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Où est la réponse  [rest of string was truncated]&quot;;.
+        ///  &lt;enigma title=&quot;Où est la réponse ?&quot;&gt;
+        ///    &lt;answ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string enigmas {
+        public static string enigmas {
             get {
                 return ResourceManager.GetString("enigmas", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Fond {
+        public static System.Drawing.Bitmap Fond {
             get {
                 object obj = ResourceManager.GetObject("Fond", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -298,7 +298,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Harpon {
+        public static System.Drawing.Bitmap Harpon {
             get {
                 object obj = ResourceManager.GetObject("Harpon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -308,7 +308,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap imageA {
+        public static System.Drawing.Bitmap imageA {
             get {
                 object obj = ResourceManager.GetObject("imageA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -318,7 +318,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap imageB {
+        public static System.Drawing.Bitmap imageB {
             get {
                 object obj = ResourceManager.GetObject("imageB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -328,7 +328,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap imageC {
+        public static System.Drawing.Bitmap imageC {
             get {
                 object obj = ResourceManager.GetObject("imageC", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -338,7 +338,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap imageD {
+        public static System.Drawing.Bitmap imageD {
             get {
                 object obj = ResourceManager.GetObject("imageD", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -348,7 +348,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap imageE {
+        public static System.Drawing.Bitmap imageE {
             get {
                 object obj = ResourceManager.GetObject("imageE", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -358,7 +358,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap imageF {
+        public static System.Drawing.Bitmap imageF {
             get {
                 object obj = ResourceManager.GetObject("imageF", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -368,7 +368,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap imageG {
+        public static System.Drawing.Bitmap imageG {
             get {
                 object obj = ResourceManager.GetObject("imageG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -378,7 +378,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap kirby2 {
+        public static System.Drawing.Bitmap kirby2 {
             get {
                 object obj = ResourceManager.GetObject("kirby2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -388,7 +388,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap kirby3 {
+        public static System.Drawing.Bitmap kirby3 {
             get {
                 object obj = ResourceManager.GetObject("kirby3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -398,7 +398,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Montagne {
+        public static System.Drawing.Bitmap Montagne {
             get {
                 object obj = ResourceManager.GetObject("Montagne", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -408,7 +408,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap NinePoints {
+        public static System.Drawing.Bitmap NinePoints {
             get {
                 object obj = ResourceManager.GetObject("NinePoints", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -418,7 +418,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OpenDoor {
+        public static System.Drawing.Bitmap OpenDoor {
             get {
                 object obj = ResourceManager.GetObject("OpenDoor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -428,7 +428,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OpenDoor_Flowers {
+        public static System.Drawing.Bitmap OpenDoor_Flowers {
             get {
                 object obj = ResourceManager.GetObject("OpenDoor_Flowers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -438,7 +438,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OpenDoor_Landscape {
+        public static System.Drawing.Bitmap OpenDoor_Landscape {
             get {
                 object obj = ResourceManager.GetObject("OpenDoor_Landscape", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -448,7 +448,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OpenDoor_Solution {
+        public static System.Drawing.Bitmap OpenDoor_Solution {
             get {
                 object obj = ResourceManager.GetObject("OpenDoor_Solution", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -458,7 +458,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PartiJuste {
+        public static System.Drawing.Bitmap PartiJuste {
             get {
                 object obj = ResourceManager.GetObject("PartiJuste", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -468,7 +468,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Phoque1 {
+        public static System.Drawing.Bitmap Phoque1 {
             get {
                 object obj = ResourceManager.GetObject("Phoque1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -478,7 +478,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Poisson {
+        public static System.Drawing.Bitmap Poisson {
             get {
                 object obj = ResourceManager.GetObject("Poisson", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -488,7 +488,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pomme {
+        public static System.Drawing.Bitmap pomme {
             get {
                 object obj = ResourceManager.GetObject("pomme", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -498,7 +498,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap raisins {
+        public static System.Drawing.Bitmap raisins {
             get {
                 object obj = ResourceManager.GetObject("raisins", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -508,7 +508,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SeptDifference1 {
+        public static System.Drawing.Bitmap SeptDifference1 {
             get {
                 object obj = ResourceManager.GetObject("SeptDifference1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -518,7 +518,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SeptDifference2 {
+        public static System.Drawing.Bitmap SeptDifference2 {
             get {
                 object obj = ResourceManager.GetObject("SeptDifference2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -528,7 +528,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap supermeat {
+        public static System.Drawing.Bitmap supermeat {
             get {
                 object obj = ResourceManager.GetObject("supermeat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -538,7 +538,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Table {
+        public static System.Drawing.Bitmap Table {
             get {
                 object obj = ResourceManager.GetObject("Table", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -548,7 +548,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap troisBananes {
+        public static System.Drawing.Bitmap troisBananes {
             get {
                 object obj = ResourceManager.GetObject("troisBananes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -558,7 +558,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Verre {
+        public static System.Drawing.Bitmap Verre {
             get {
                 object obj = ResourceManager.GetObject("Verre", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -568,7 +568,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ZombieDroite {
+        public static System.Drawing.Bitmap ZombieDroite {
             get {
                 object obj = ResourceManager.GetObject("ZombieDroite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -578,7 +578,7 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ZombieGauche {
+        public static System.Drawing.Bitmap ZombieGauche {
             get {
                 object obj = ResourceManager.GetObject("ZombieGauche", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

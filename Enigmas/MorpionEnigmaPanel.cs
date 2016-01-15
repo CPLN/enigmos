@@ -1,6 +1,7 @@
 ﻿using Cpln.Enigmos.Utils;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,20 +11,15 @@ using System.Windows.Forms;
 namespace Cpln.Enigmos.Enigmas
 {
     /// <summary>
-    /// Exemple d'énigme très simple. Seul un texte est affiché.
+    /// Enigme du Morpion - version 2.1 (finale)
     /// </summary>
     public class MorpionEnigmaPanel : EnigmaPanel
     {
-        // Version : 1.3
-
         // Variables pour gestion du jeu
-
         int iPlayer = 0;
-
-        Random rBegin = new Random();
+        int iScore = 0;
 
         // Initialisation des divers objets et variables
-
         Label lblEnigme = new Label();
 
         PictureBox pbxImage = new PictureBox();
@@ -39,39 +35,51 @@ namespace Cpln.Enigmos.Enigmas
 
         TableLayoutPanel casesMorpion = new TableLayoutPanel();
 
-        // Tableau pour vérification
-        int[] tVerification = new int[9] {3, 4, 5, 6, 7, 8, 9, 10, 11};
+        List<PictureBox> lCases = new List<PictureBox>();
 
-        /// <summary>
-        /// Constructeur par défaut, génère un texte et l'affiche dans le Panel.
-        /// </summary>
         public MorpionEnigmaPanel()
         {
+            // Paramètresde mise en page de la forme
+            this.Width = 620;
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
             lblEnigme.AutoSize = true;
             casesMorpion.Dock = DockStyle.Fill;
             Controls.Add(casesMorpion);
 
-            Start();
+            // Appelle la méthode pour ajouter les PictureBox dans la liste
+            addInList(pbxCase1);
+            addInList(pbxCase2);
+            addInList(pbxCase3);
+            addInList(pbxCase4);
+            addInList(pbxCase5);
+            addInList(pbxCase6);
+            addInList(pbxCase7);
+            addInList(pbxCase8);
+            addInList(pbxCase9);
+
+            // Appelle la méthode pour démarer l'application
+            StartApplication();
         }
 
-        private void Start()
+        public void addInList(PictureBox pbx)
         {
-            PictureBox[] tCase = new PictureBox[] {pbxCase1, pbxCase2, pbxCase3, pbxCase4, pbxCase5, pbxCase6, pbxCase7, pbxCase8, pbxCase9};
+            // Ajout des PictureBox dans la liste
+            lCases.Add(pbx);
+        }
 
-            // Activation des cases pictureBox
-            for (int iCpt = 0; iCpt < tCase.Length; iCpt++)
-            {
-                tCase[iCpt].Enabled = true;
-            }
-
+        private void StartApplication()
+        {
             // Création de la mise en page du tableau du jeu
+
+            // Colonnes :
             casesMorpion.ColumnCount = 5;
             casesMorpion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.5f));
             casesMorpion.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             casesMorpion.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             casesMorpion.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             casesMorpion.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.5f));
+
+            // Lignes :
             casesMorpion.RowCount = 4;
             casesMorpion.RowStyles.Add(new RowStyle(SizeType.Percent, 0.2f));
             casesMorpion.RowStyles.Add(new RowStyle(SizeType.AutoSize));
@@ -90,200 +98,151 @@ namespace Cpln.Enigmos.Enigmas
             pbxCase8.Click += new EventHandler(ClickOnCase8);
             pbxCase9.Click += new EventHandler(ClickOnCase9);
 
-            // Configuration des pictureBox
-            for (int iCpt = 0; iCpt < tCase.Length; iCpt++)
+            // Configuration des PictureBox
+            for (int iCpt = 0; iCpt < lCases.Count; iCpt++)
             {
-                tCase[iCpt].BorderStyle = BorderStyle.FixedSingle;
-                tCase[iCpt].Size = new Size(200, 200);
-                tCase[iCpt].BackColor = Color.White;
+                // Paramètres des cases (PictureBox)
+                lCases[iCpt].BorderStyle = BorderStyle.FixedSingle;
+                lCases[iCpt].Size = new Size(200, 200);
             }
 
-            // Coordonées des objets
-            casesMorpion.Controls.Add(pbxCase1, 1, 0);
-            casesMorpion.Controls.Add(pbxCase2, 2, 0);
-            casesMorpion.Controls.Add(pbxCase3, 3, 0);
-            casesMorpion.Controls.Add(pbxCase4, 1, 1);
-            casesMorpion.Controls.Add(pbxCase5, 2, 1);
-            casesMorpion.Controls.Add(pbxCase6, 3, 1);
-            casesMorpion.Controls.Add(pbxCase7, 1, 2);
-            casesMorpion.Controls.Add(pbxCase8, 2, 2);
-            casesMorpion.Controls.Add(pbxCase9, 3, 2);
+            // Appelle la méthode pour ajouter les coordonnées des différents PictureBox
+            Coordinates(pbxCase1, 1, 0);
+            Coordinates(pbxCase2, 2, 0);
+            Coordinates(pbxCase3, 3, 0);
+            Coordinates(pbxCase4, 1, 1);
+            Coordinates(pbxCase5, 2, 1);
+            Coordinates(pbxCase6, 3, 1);
+            Coordinates(pbxCase7, 1, 2);
+            Coordinates(pbxCase8, 2, 2);
+            Coordinates(pbxCase9, 3, 2);
 
-            // Joueur qui commence
-            //iPlayer = Convert.ToInt32(rBegin.Next(1, 3));
-            iPlayer = 2;
+            // Appelle la méthode pour démarrer le Morpion
+            StartGame();
+        }
 
-            if(iPlayer == 2)
+        private void Coordinates(PictureBox pbx, int iC, int iR)
+        {
+            // Ajout des coordonnées des cases (PicturesBox)
+            casesMorpion.Controls.Add(pbx, iC, iR);
+        }
+
+        private void StartGame()
+        {
+            // Activation des cases (PicturesBox)
+            for (int iCpt = 0; iCpt < lCases.Count; iCpt++)
             {
-                IA();
+                lCases[iCpt].BackColor = Color.White;
+                lCases[iCpt].Enabled = true;
             }
 
-            /* Si iPlayer = 1 : Joueur commence et aller à la fonction Player()
-             * Joueur à les croix
-             *
-             * Si iPlayer = 2 : IA commence et aller à la fonction IA()
-             * IA à les ronds */
+            // Défini le joueur qui commence ( 1 = Personne)
+            iPlayer = 1;
+        }
+
+        private void IA_Winning(PictureBox pbx1, PictureBox pbx2, PictureBox pbx3)
+        {
+            // Algorythme pour vérifier si l'ordinateur à la possibilité de gagner
+            if (iPlayer == 2 && ((pbx1.BackColor == Color.Blue && pbx2.BackColor == Color.Blue) ||
+                (pbx2.BackColor == Color.Blue && pbx3.BackColor == Color.Blue) || 
+                (pbx1.BackColor == Color.Blue && pbx3.BackColor == Color.Blue)))
+            {
+                // Création du tableau pour les 3 cases de victoire
+                PictureBox[] tPbx = new PictureBox[] { pbx1, pbx2, pbx3 };
+
+                // Le programme cherche quelle case il doit jouer pour gagner
+                for (int iCpt = 1; iCpt < tPbx.Length; iCpt++)
+                {
+                    if (tPbx[iCpt].BackColor == Color.White)
+                    {
+                        tPbx[iCpt].BackColor = Color.Blue;
+                        tPbx[iCpt].Enabled = false;
+                        Verification();
+
+                        // Changement de joueur
+                        iPlayer = 1;
+                    }
+                }
+            }
+        }
+
+        private void Player_Winning(PictureBox pbx1, PictureBox pbx2, PictureBox pbx3)
+        {
+            // Algorythme pour vérifier si la personne à la possibilité de gagner
+            if (iPlayer == 2 && ((pbx1.BackColor == Color.Red && pbx2.BackColor == Color.Red) || 
+                (pbx2.BackColor == Color.Red && pbx3.BackColor == Color.Red) || 
+                (pbx1.BackColor == Color.Red && pbx3.BackColor == Color.Red)))
+            {
+                // Création du tableau pour les 3 cases de danger
+                PictureBox[] tPbx = new PictureBox[] { pbx1, pbx2, pbx3 };
+
+                // Le programme cherche quelle case il doit jouer pour se défendre
+                for (int iCpt = 0; iCpt < tPbx.Length; iCpt++)
+                {
+                    if (tPbx[iCpt].BackColor == Color.White)
+                    {
+                        tPbx[iCpt].BackColor = Color.Blue;
+                        tPbx[iCpt].Enabled = false;
+                        Verification();
+
+                        // Changement de joueur
+                        iPlayer = 1;
+                    }
+                }
+            }
         }
 
         private void IA()
         {
-            if(iPlayer == 2 && ((tVerification[0] == tVerification[1]) || (tVerification[0] == tVerification[2]) || (tVerification[1] == tVerification[2])))
+            // Appelle la méthode pour tester si l'ordinateur peut gagner
+            IA_Winning(pbxCase1, pbxCase2, pbxCase3);
+            IA_Winning(pbxCase4, pbxCase5, pbxCase6);
+            IA_Winning(pbxCase7, pbxCase8, pbxCase9);
+            IA_Winning(pbxCase1, pbxCase4, pbxCase7);
+            IA_Winning(pbxCase2, pbxCase5, pbxCase8);
+            IA_Winning(pbxCase3, pbxCase6, pbxCase9);
+            IA_Winning(pbxCase1, pbxCase5, pbxCase9);
+            IA_Winning(pbxCase3, pbxCase5, pbxCase7);
+
+            // Appelle la méthode pour tester si la personne peut gagner
+            Player_Winning(pbxCase1, pbxCase2, pbxCase3);
+            Player_Winning(pbxCase4, pbxCase5, pbxCase6);
+            Player_Winning(pbxCase7, pbxCase8, pbxCase9);
+            Player_Winning(pbxCase1, pbxCase4, pbxCase7);
+            Player_Winning(pbxCase2, pbxCase5, pbxCase8);
+            Player_Winning(pbxCase3, pbxCase6, pbxCase9);
+            Player_Winning(pbxCase1, pbxCase5, pbxCase9);
+            Player_Winning(pbxCase3, pbxCase5, pbxCase7);
+
+            // Algorythme pour remplir une case lorsque l'ordinateur n'est pas dans une situation de danger
+            if (iPlayer == 2)
             {
-                int[] tIA1 = new int[] { tVerification[0], tVerification[1], tVerification[2] };
-                PictureBox[] tPbx1 = new PictureBox[] { pbxCase1, pbxCase2, pbxCase3 };
+                // Création du tableau des cases libres
+                List<PictureBox> List_Libre = new List<PictureBox>();
 
-                for(int iCpt = 0; iCpt < tIA1.Length; iCpt++)
+                // Rempli la liste avec les PictureBox des cases vides
+                for (int iCpt = 0; iCpt < lCases.Count; iCpt++)
                 {
-                    if(tPbx1[iCpt].BackColor == null)
+                    if (lCases[iCpt].BackColor != Color.Blue && lCases[iCpt].BackColor != Color.Red)
                     {
-                        tPbx1[iCpt].BackColor = Color.Blue;
-                        tIA1[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
+                        List_Libre.Add(lCases[iCpt]);
                     }
                 }
-            }
-            
-            if(iPlayer == 2 && ((tVerification[3] == tVerification[4]) || (tVerification[3] == tVerification[5]) || (tVerification[4] == tVerification[5])))
-            {
-                int[] tIA2 = new int[] { tVerification[3], tVerification[4], tVerification[5] };
-                PictureBox[] tPbx2 = new PictureBox[] {pbxCase4, pbxCase5, pbxCase6};
 
-                for(int iCpt = 0; iCpt < tIA2.Length; iCpt++)
+                int iNbCaseLibre;
+                Random rCaseLibre = new Random();
+
+                // Choisi la case à jouer
+                iNbCaseLibre = rCaseLibre.Next(0, List_Libre.Count);
+
+                // Algorythme pour remplir la case choisi
+                for (int iCpt = 0; iCpt < List_Libre.Count; iCpt++)
                 {
-                    if(tPbx2[iCpt].BackColor == null)
+                    if (iCpt == iNbCaseLibre)
                     {
-                        tPbx2[iCpt].BackColor = Color.Blue;
-                        tIA2[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            if(iPlayer == 2 && ((tVerification[6] == tVerification[7]) || (tVerification[6] == tVerification[8]) || (tVerification[7] == tVerification[8])))
-            {
-                int[] tIA3 = new int[] { tVerification[3], tVerification[4], tVerification[5] };
-                PictureBox[] tPbx3 = new PictureBox[] { pbxCase7, pbxCase8, pbxCase9 };
-
-                for(int iCpt = 0; iCpt < tIA3.Length; iCpt++)
-                {
-                    if(tPbx3[iCpt].BackColor == null)
-                    {
-                        tPbx3[iCpt].BackColor = Color.Blue;
-                        tIA3[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            if(iPlayer == 2 && ((tVerification[0] == tVerification[3]) || (tVerification[0] == tVerification[6]) || (tVerification[3] == tVerification[6])))
-            {
-                int[] tIA4 = new int[] { tVerification[0], tVerification[3], tVerification[6] };
-                PictureBox[] tPbx4 = new PictureBox[] { pbxCase1, pbxCase4, pbxCase7 };
-
-                for(int iCpt = 0; iCpt < tIA4.Length; iCpt++)
-                {
-                    if(tPbx4[iCpt].BackColor == null)
-                    {
-                        tPbx4[iCpt].BackColor = Color.Blue;
-                        tIA4[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            if (iPlayer == 2 && ((tVerification[1] == tVerification[4]) || (tVerification[1] == tVerification[7]) || (tVerification[4] == tVerification[7])))
-            {
-                int[] tIA5 = new int[] { tVerification[1], tVerification[4], tVerification[7] };
-                PictureBox[] tPbx5 = new PictureBox[] { pbxCase2, pbxCase5, pbxCase8 };
-
-                for(int iCpt = 0; iCpt < tIA5.Length; iCpt++)
-                {
-                    if(tPbx5[iCpt].BackColor == null)
-                    {
-                        tPbx5[iCpt].BackColor = Color.Blue;
-                        tIA5[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            if(iPlayer == 2 && ((tVerification[2] == tVerification[5]) || (tVerification[2] == tVerification[8]) || (tVerification[5] == tVerification[8])))
-            {
-                int[] tIA6 = new int[] { tVerification[2], tVerification[5], tVerification[8] };
-                PictureBox[] tPbx6 = new PictureBox[] { pbxCase3, pbxCase6, pbxCase9 };
-
-                for (int iCpt = 0; iCpt < tIA6.Length; iCpt++)
-                {
-                    if(tPbx6[iCpt].BackColor == null)
-                    {
-                        tPbx6[iCpt].BackColor = Color.Blue;
-                        tIA6[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            if(iPlayer == 2 && ((tVerification[0] == tVerification[4]) || (tVerification[0] == tVerification[8]) || (tVerification[4] == tVerification[8])))
-            {
-                int[] tIA7 = new int[] { tVerification[0], tVerification[4], tVerification[8] };
-                PictureBox[] tPbx7 = new PictureBox[] { pbxCase1, pbxCase5, pbxCase9 };
-
-                for(int iCpt = 0; iCpt < tIA7.Length; iCpt++)
-                {
-                    if(tPbx7[iCpt].BackColor == null)
-                    {
-                        tPbx7[iCpt].BackColor = Color.Blue;
-                        tIA7[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            if (iPlayer == 2 && ((tVerification[2] == tVerification[4]) || (tVerification[2] == tVerification[6]) || (tVerification[4] == tVerification[6])))
-            {
-                int[] tIA8 = new int[] { tVerification[2], tVerification[4], tVerification[6] };
-                PictureBox[] tPbx8 = new PictureBox[] { pbxCase3, pbxCase5, pbxCase7 };
-
-                for(int iCpt = 0; iCpt < tIA8.Length; iCpt++)
-                {
-                    if(tPbx8[iCpt].BackColor == null)
-                    {
-                        tPbx8[iCpt].BackColor = Color.Blue;
-                        tIA8[iCpt] = 2;
-
-                        // Changement de joueur
-                        iPlayer = 1;
-                    }
-                }
-            }
-
-            else if(iPlayer == 2)
-            {
-                PictureBox[] tPbx2 = new PictureBox[] { pbxCase1, pbxCase2, pbxCase3, pbxCase4, pbxCase5, pbxCase6, pbxCase7, pbxCase8, pbxCase9 };
-                Random r = new Random();
-                int iRandom = r.Next(0, 9);
-
-                for (int iCpt = 0; iCpt < tPbx2.Length; iCpt++)
-                {
-                    if((iRandom == iCpt) && (tVerification[iCpt] != 1) && (tVerification[iCpt] != 2))
-                    {
-                        tPbx2[iCpt].BackColor = Color.Blue;
-
-                        // Changement de joueur
+                        List_Libre[iCpt].BackColor = Color.Blue;
+                        List_Libre[iCpt].Enabled = false;
+                        Verification();
                         iPlayer = 1;
                     }
                 }
@@ -292,280 +251,293 @@ namespace Cpln.Enigmos.Enigmas
 
         private void ClickOnCase1(object sender, EventArgs e)
         {
-            if(pbxCase1.Enabled == true)
+            // La personne a décidé de jouer la première case
+            if (pbxCase1.Enabled == true)
             {
                 if (iPlayer == 1)
                 {
                     pbxCase1.BackColor = Color.Red;
-                    tVerification[0] = iPlayer;
-                    
+
                     pbxCase1.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if(pbxCase1.Enabled == false)
-            {
-                Error();
             }
         }
 
         private void ClickOnCase2(object sender, EventArgs e)
         {
+            // La personne a décidé de jouer la deuxième case
             if (pbxCase2.Enabled == true)
             {
                 if (iPlayer == 1)
                 {
                     pbxCase2.BackColor = Color.Red;
-                    tVerification[1] = iPlayer;
 
                     pbxCase2.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase2.Enabled == false)
-            {
-                Error();
             }
         }
 
         private void ClickOnCase3(object sender, EventArgs e)
         {
+            // La personne a décidé de jouer la troisième case
             if (pbxCase3.Enabled == true)
             {
                 if (iPlayer == 1)
                 {
                     pbxCase3.BackColor = Color.Red;
-                    tVerification[2] = iPlayer;
 
                     pbxCase3.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase3.Enabled == false)
-            {
-                Error();
             }
         }
 
         private void ClickOnCase4(object sender, EventArgs e)
         {
+            // La personne a décidé de jouer la quatrième case
             if (pbxCase4.Enabled == true)
             {
                 if (iPlayer == 1)
                 {
                     pbxCase4.BackColor = Color.Red;
-                    tVerification[3] = iPlayer;
 
                     pbxCase4.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase4.Enabled == false)
-            {
-                Error();
             }
         }
 
         private void ClickOnCase5(object sender, EventArgs e)
         {
+            // La personne a décidé de jouer la cinquième case
             if (pbxCase5.Enabled == true)
             {
                 if (iPlayer == 1)
                 {
                     pbxCase5.BackColor = Color.Red;
-                    tVerification[4] = iPlayer;
 
                     pbxCase5.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase5.Enabled == false)
-            {
-                Error();
             }
         }
 
         private void ClickOnCase6(object sender, EventArgs e)
         {
+            // La personne a décidé de jouer la sixième case
             if (pbxCase6.Enabled == true)
             {
                 if (iPlayer == 1)
                 {
                     pbxCase6.BackColor = Color.Red;
-                    tVerification[5] = iPlayer;
 
                     pbxCase6.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase6.Enabled == false)
-            {
-                Error();
             }
         }
 
         private void ClickOnCase7(object sender, EventArgs e)
         {
+            // La personne a décidé de jouer la septième case
             if (pbxCase7.Enabled == true)
             {
                 if (iPlayer == 1)
                 {
                     pbxCase7.BackColor = Color.Red;
-                    tVerification[6] = iPlayer;
 
                     pbxCase7.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase7.Enabled == false)
-            {
-                Error();
             }
         }
 
         private void ClickOnCase8(object sender, EventArgs e)
         {
+            // La personne a décidé de jouer la hutième case
             if (pbxCase8.Enabled == true)
             {
                 if (iPlayer == 1)
                 {
                     pbxCase8.BackColor = Color.Red;
-                    tVerification[7] = iPlayer;
 
                     pbxCase8.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
-            }
-            else if (pbxCase8.Enabled == false)
-            {
-                Error();
             }
         }
 
         private void ClickOnCase9(object sender, EventArgs e)
         {
+            // La personne a décidé de jouer la neuvième case
             if (pbxCase9.Enabled == true)
             {
                 if (iPlayer == 1)
                 {
                     pbxCase9.BackColor = Color.Red;
-                    tVerification[8] = iPlayer;
 
                     pbxCase9.Enabled = false;
 
                     // Vérifie si la partie est terminée
-                    End();
+                    Verification();
 
                     //Changement de joueur
                     iPlayer = 2;
                     IA();
                 }
             }
-            else if (pbxCase9.Enabled == false)
+        }
+
+        private void End(PictureBox pbx1, PictureBox pbx2, PictureBox pbx3)
+        {
+            // Algormythme pour tester si quelqu'un va gagner
+            if (iPlayer == 1)
             {
-                Error();
+                // Le pogramme test si la personne a gagné
+
+
+                if (pbx1.BackColor == Color.Red && pbx2.BackColor == Color.Red && pbx3.BackColor == Color.Red)
+                {
+                    MessageBox.Show("Partie terminée\n\nVous avez gagné !");
+                    iPlayer = 1;
+
+                    iScore++;
+
+                    DialogResult dlgInfo = MessageBox.Show("Vous avez terminé le jeu\n\nLe mot mystère est : << J'ai gagné >>\n\nVous pouvez passer à l'énigme suivante ou continuer à jouer", "Fin", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    // Relance une nouvelle partie
+                    StartGame();
+                }
+                else
+                {
+
+                }
+            }
+            else if(iPlayer == 2)
+            {
+                // Le programme test si l'ordinateur a gagné
+                if (pbx1.BackColor == Color.Blue && pbx2.BackColor == Color.Blue && pbx3.BackColor == Color.Blue)
+                {
+                    MessageBox.Show("Partie terminée\n\nVous avez perdu !\n\nRevenez plus tard :)");
+                    iPlayer = 1;
+
+                    // Relance une nouvelle partie
+                    StartGame();
+                }
+                else
+                {
+
+                }
+            }
+
+            // Algorythme pour vérifier si toutes les cases ont été utilisées sans que quelqu'un gagne
+            int iResultat = 0;
+
+            for (int iCpt = 0; iCpt < 9; iCpt++)
+            {
+                if (lCases[iCpt].BackColor != Color.White)
+                {
+                    iResultat++;
+                }
+            }
+
+            // Message si personne n'a gagné
+            if(iResultat == 9)
+            {
+                MessageBox.Show("Partie terminée\n\nAucun joueur n'a gagné.");
+
+                // Relance le jeu
+                StartGame();
             }
         }
 
-        private void End()
+        private void Verification()
         {
-            if(tVerification[0] == tVerification[3] && tVerification[0] == tVerification[6])
+            // Algorythme pour vérifier si l'ordinateur ne joue qu'une fois s'il commence
+            int iIATest = 0;
+
+            for(int iCpt = 0; iCpt < lCases.Count; iCpt++)
             {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
+                if(lCases[iCpt].BackColor == Color.Blue && 
+                    (pbxCase1.BackColor != Color.Red && pbxCase2.BackColor != Color.Red && 
+                    pbxCase3.BackColor != Color.Red &&
+                    pbxCase4.BackColor != Color.Red && 
+                    pbxCase5.BackColor != Color.Red && 
+                    pbxCase6.BackColor != Color.Red && 
+                    pbxCase7.BackColor != Color.Red &&
+                    pbxCase8.BackColor != Color.Red && 
+                    pbxCase9.BackColor != Color.Red))
+                {
+                    iIATest++;
+                }
             }
 
-            if(tVerification[1] == tVerification[4] && tVerification[1] == tVerification[7])
+            // Si l'ordinateur a joué plus d'une fois au démarrage, le jeu redémarre
+            if(iIATest >= 1)
             {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
+                // Relance le jeu
+                StartGame();
             }
-
-            if(tVerification[2] == tVerification[5] && tVerification[2] == tVerification[8])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(tVerification[0] == tVerification[1] && tVerification[0] == tVerification[2])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(tVerification[3] == tVerification[4] && tVerification[3] == tVerification[5])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(tVerification[6] == tVerification[7] && tVerification[6] == tVerification[8])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(tVerification[2] == tVerification[4] && tVerification[2] == tVerification[6])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(tVerification[0] == tVerification[4] && tVerification[0] == tVerification[8])
-            {
-                MessageBox.Show("Partie terminée [PLAYER] gagne");
-            }
-
-            if(iPlayer == 2)
-            {
-                IA();
-            }
-        }
-
-        private void Error()
-        {
-            DialogResult dlgError = MessageBox.Show("Cette case a déjà été utilislée.\n\nMerci d'en utiliser une autre.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+            // Appelle la méthode pour vérifier si quelqu'un a gagné
+            End(pbxCase1, pbxCase2, pbxCase3);
+            End(pbxCase4, pbxCase5, pbxCase6);
+            End(pbxCase7, pbxCase8, pbxCase9);
+            End(pbxCase1, pbxCase4, pbxCase7);
+            End(pbxCase2, pbxCase5, pbxCase8);
+            End(pbxCase3, pbxCase6, pbxCase9);
+            End(pbxCase1, pbxCase5, pbxCase9);
+            End(pbxCase3, pbxCase5, pbxCase7);
         }
     }
 }
