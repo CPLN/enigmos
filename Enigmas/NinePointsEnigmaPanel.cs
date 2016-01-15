@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cpln.Enigmos.Enigmas.Components;
+using System.Drawing.Drawing2D;
 
 namespace Cpln.Enigmos.Enigmas
 {
@@ -57,6 +58,11 @@ namespace Cpln.Enigmos.Enigmas
 
         }
 
+        public override void Load()
+        {
+            RedemarrerEnigme();
+        }
+
         /// <summary>
         /// Evenement click du bouton recommencer, renvoie à une méthode qui recommence la partie
         /// </summary>
@@ -76,6 +82,8 @@ namespace Cpln.Enigmos.Enigmas
         {
             /*Pinceau*/
             Pen pen = new Pen(Color.Blue, 20);
+            pen.StartCap = LineCap.Round;
+            pen.EndCap = LineCap.Round;
             int i = 1;
             /*Dessine les traits un par un, si leurs positions sont connues*/
             for (i = 1; i < tSaveMouseClickPosition.Length; i++)
@@ -153,7 +161,7 @@ namespace Cpln.Enigmos.Enigmas
                 }
                 else
                 {
-                    MessageBox.Show("Perdu! Vous n'avez pas réussi à tracer touts les points!");
+                    MessageBox.Show("Perdu! Vous n'avez pas réussi à passer par tous les points!");
                     RedemarrerEnigme();
                 }
             }
