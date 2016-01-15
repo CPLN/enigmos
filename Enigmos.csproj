@@ -116,6 +116,9 @@
     <Compile Include="Enigmas\EnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\TapeTaupeEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\HiddenCharacterEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -192,7 +195,7 @@
       <DependentUpon>Enigmos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -213,6 +216,19 @@
     <Content Include="enigmas.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\chat.png" />
+    <None Include="Resources\souris.png" />
+    <None Include="Resources\taupe - Copie.svg" />
+    <None Include="Resources\bloggif_569813faa0885.png" />
+    <None Include="Resources\paysage500.png" />
+    <None Include="Resources\terre.png" />
+    <None Include="Resources\taupe.png" />
+    <None Include="Resources\taupe - Copie.png" />
+    <None Include="Resources\paysage.png" />
+    <None Include="Resources\lapin.png" />
+    <None Include="Resources\lapin - Copie.png" />
+    <None Include="Resources\gifessai.gif" />
     <None Include="Resources\raisins.png" />
     <None Include="Resources\3bananes.png" />
     <None Include="Resources\banane_enigme.png" />
