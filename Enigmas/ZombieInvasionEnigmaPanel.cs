@@ -173,7 +173,7 @@ namespace Cpln.Enigmos.Enigmas
 
                     }
                 }
-                catch (ArreterException exception)//si le zombie est arreter on lance une exeption 
+                catch (ArreterException)//si le zombie est arreter on lance une exeption 
                 {
                     zombiesMort.Add(zombie);//on ajoute le zombie à la liste des zombies morts
                 }

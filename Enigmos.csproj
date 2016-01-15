@@ -61,6 +61,12 @@
     <Compile Include="Enigmas\PenduEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\BeerShotEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Beer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -219,6 +225,12 @@
     <None Include="Resources\Caillou.png" />
     <None Include="Resources\Arbre.png" />
     <None Include="Resources\Fond.png" />
+    <None Include="Resources\BeerShot_SansCroix.jpg" />
+    <None Include="Resources\beer_628x436.jpg" />
+    <None Include="Resources\BeerShot_Foncé.png" />
+    <None Include="Resources\bière jaune clair.jpg" />
+    <None Include="Resources\BeerShot_Curseur.png" />
+    <None Include="Resources\BeetShot_Bar.png" />
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
     <None Include="Resources\OpenDoor - Solution.png" />

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <enigmas>
   <enigma title="Le plus long mot">
     <answer>oiseaux</answer>
@@ -113,5 +113,9 @@
   <enigma title="Clic-rapide">
     <answer>Flash</answer>
     <hint>Appuyer sur le bouton vert avec la souris.</hint>
+  </enigma>
+  <enigma title="Bar les amis !">
+    <answer>Brasseur</answer>
+    <hint>Celles avec des cibles sont les meilleures !</hint>
   </enigma>
 </enigmas>
