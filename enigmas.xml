@@ -118,4 +118,8 @@
     <answer>Brasseur</answer>
     <hint>Celles avec des cibles sont les meilleures !</hint>
   </enigma>
+  <enigma title="9 Points">
+    <answer>9.</answer>
+    <hint>Passez par les 9 points en 4 traits</hint>
+  </enigma>
 </enigmas>

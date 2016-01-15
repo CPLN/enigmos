@@ -83,6 +83,12 @@
     <Compile Include="Enigmas\RectangleEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\Components\CaseVide.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\NinePointsEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\PuzzlePiece.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -248,6 +254,7 @@
     <None Include="image\carre.jpg" />
     <None Include="Resources\2jzCarSound.wav" />
     <None Include="Resources\car.png" />
+    <None Include="Resources\NinePoints.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

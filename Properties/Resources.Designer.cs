@@ -270,14 +270,14 @@ namespace Cpln.Enigmos.Properties {
         ///    &lt;answer&gt;jongleur&lt;/answer&gt;
         ///    &lt;hint&gt;Remettez les pièces à leur place.&lt;/hint&gt;
         ///  &lt;/enigma&gt;
+        ///&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         ///  &lt;enigma title=&quot;Caractère caché&quot;&gt;
         ///    &lt;answer&gt;Cpln&lt;/answer&gt;
         ///    &lt;hint&gt;&quot;Le dessin est la base de tout&quot;
         ///    - Alberto Giacometti
         ///    &lt;/hint&gt;
         ///	&lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Où est la réponse ?&quot;&gt;
-        ///    &lt;answ [rest of string was truncated]&quot;;.
+        ///  &lt;enigma title=&quot;Où est la réponse  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string enigmas {
             get {
@@ -401,6 +401,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap Montagne {
             get {
                 object obj = ResourceManager.GetObject("Montagne", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NinePoints {
+            get {
+                object obj = ResourceManager.GetObject("NinePoints", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

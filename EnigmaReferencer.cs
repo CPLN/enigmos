@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new OpenDoorEnigmaPanel(), "Ouvrez la porte !");
+            return new Enigma(new NinePointsEnigmaPanel(), "9 Points");
         }
 
         /// <summary>
@@ -51,6 +51,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
             enigmas.Add(new Enigma(new PenduEnigmaPanel(), "Le jeu du pendu"));
             enigmas.Add(new Enigma(new ClicRapideEnigmaPanel(), "Clic-rapide"));
+            enigmas.Add(new Enigma(new NinePointsEnigmaPanel(), "9 Points"));
 
             Enigma runEnigma = new Enigma(new RunEnigmaPanel(), "Roux run");
             enigmas.Add(runEnigma);
