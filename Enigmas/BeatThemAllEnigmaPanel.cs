@@ -16,7 +16,7 @@ namespace Cpln.Enigmos.Enigmas
 
         private Timer Timer = new Timer();
         private PictureBox pbxPlayer = new PictureBox();
-        private PictureBox pbxGround = new PictureBox();
+        public PictureBox pbxGround = new PictureBox();
         private PictureBox pbxTutoriel = new PictureBox();
         public List<Ennemi> listEnnemi;
 
@@ -49,7 +49,7 @@ namespace Cpln.Enigmos.Enigmas
             //Mise en place du Bouton "tutoriel" qui servira également à "game over" 
             pbxTutoriel.Size = Properties.Resources.tutorial.Size;
             pbxTutoriel.Image = Properties.Resources.tutorial;
-            pbxTutoriel.Location = new Point(this.Width / 2 - pbxTutoriel.Width / 2, this.Top);
+            pbxTutoriel.Location = new Point(this.Width/5, this.Top);
             pbxTutoriel.BackColor = Color.Transparent;
             Controls.Add(pbxTutoriel);
             Controls.SetChildIndex(pbxTutoriel, 0);
@@ -65,6 +65,26 @@ namespace Cpln.Enigmos.Enigmas
             pbxTutoriel.Click += new EventHandler(OnButtonClick);
 
             this.Focus();
+        }
+
+        public override void Load()//au chargement de l'énigme
+        {
+            pbxTutoriel.Enabled = true;//remet le tuto en cliquable
+            pbxTutoriel.Show();
+            pbxTutoriel.Size = Properties.Resources.tutorial.Size;
+            pbxTutoriel.Image = Properties.Resources.tutorial;
+            pbxTutoriel.BackColor = Color.Transparent;
+            pbxPlayer.Location = new Point(pbxGround.Width / 2 - pbxPlayer.Width / 2, pbxGround.Top - pbxPlayer.Height);
+            pbxPlayer.BackColor = Color.Transparent;
+            pbxPlayer.Width = Properties.Resources.pj1.Width;//reset la taille du player
+
+        }
+
+        public override void Unload()//quand on quitte l'énigme
+        {
+            pbxGround.BackColor = Color.Black;
+            Timer.Stop();
+            pbxPlayer.Width = Properties.Resources.pj1.Width;//reset la taille du player
         }
 
         private void OnButtonClick(object sender, EventArgs e)
@@ -274,6 +294,7 @@ namespace Cpln.Enigmos.Enigmas
             }
             #endregion
 
+            #region test si gagne
             //test si le joueur à gagné
             if (iNbrEnnemiDead >= 10)
             {
@@ -283,6 +304,7 @@ namespace Cpln.Enigmos.Enigmas
                 pbxTutoriel.Image = Properties.Resources.GG; //modifi en écran de fin
                 pbxTutoriel.Show();//montre de fin
             }
+            #endregion
         }
     }
 }
