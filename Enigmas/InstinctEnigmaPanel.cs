@@ -51,11 +51,15 @@ namespace Cpln.Enigmos.Enigmas
         Button btnChoix3 = new Button();
         Random randomNombre = new Random();
         Label lblIndice = new Label();
+        PictureBox pbxChoix1 = new PictureBox();
+        PictureBox pbxChoix2 = new PictureBox();
+        PictureBox pbxChoix3 = new PictureBox();
 
-        
-        
+
+
+
         //Evenement des clicks de boutons 
-       private void Random_Click(object sender, EventArgs e)
+        private void Random_Click(object sender, EventArgs e)
        {
            pnlImage.BackgroundImage = ChoixImage(iIndice1);
             iLock2 = false;
@@ -120,9 +124,12 @@ namespace Cpln.Enigmos.Enigmas
             
             Controls.Add(lblReponse);
             Controls.Add(lblTexte);
-            Controls.Add(btnChoix1);
-            Controls.Add(btnChoix2);
-            Controls.Add(btnChoix3);
+            Controls.Add(pbxChoix1);
+            Controls.Add(pbxChoix2);
+            Controls.Add(pbxChoix3);
+            // Controls.Add(btnChoix1);
+            //Controls.Add(btnChoix2);
+            //Controls.Add(btnChoix3);
             Controls.Add(lblIndice);
             pnlImage.Width = 800;
             pnlImage.Height = 600;
@@ -142,16 +149,20 @@ namespace Cpln.Enigmos.Enigmas
             btnChoix2.FlatAppearance.BorderColor = Color.White;
             btnChoix3.FlatAppearance.BorderColor = Color.White;
 
-            btnChoix1.Location = new Point(30, 200);
-            btnChoix2.Location = new Point(600, 300);
-            btnChoix3.Location = new Point(400, 200);
-            btnChoix1.Size = new Size(100, 200);
-            btnChoix2.Size = new Size(40, 200);
-            btnChoix3.Size = new Size(40, 200);
+            pbxChoix1.Location = new Point(30, 200);
+            pbxChoix2.Location = new Point(600, 300);
+            pbxChoix3.Location = new Point(400, 200);
+            pbxChoix1.Size = new Size(100, 200);
+            pbxChoix2.Size = new Size(40, 200);
+            pbxChoix3.Size = new Size(40, 200);
 
-            btnChoix1.BackColor = Color.Transparent;
-            btnChoix2.BackColor = Color.Transparent;
-            btnChoix3.BackColor = Color.Transparent;
+         /*btnChoix1.Size = new Size(100, 200);
+         /*btnChoix2.Size = new Size(40, 200);
+         /*btnChoix3.Size = new Size(40, 200);
+
+         btnChoix1.BackColor = Color.Transparent;
+         btnChoix2.BackColor = Color.Transparent;
+         btnChoix3.BackColor = Color.Transparent;*/
 
 
             /*lblReponse.Text = "Réponse A : \n" + "Réponse B : \n" + "Réponse C : \n";
@@ -166,20 +177,20 @@ namespace Cpln.Enigmos.Enigmas
 
 
             }*/
-            btnChoix1.MouseHover += new EventHandler(btnChoix1rouge_MouseHover);
-            btnChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
+            pbxChoix1.MouseHover += new EventHandler(btnChoix1rouge_MouseHover);
+            pbxChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
 
-            btnChoix2.MouseHover += new EventHandler(btnChoix2jaune_MouseHover);
-            btnChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
+            pbxChoix2.MouseHover += new EventHandler(btnChoix2jaune_MouseHover);
+            pbxChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
 
-            btnChoix3.MouseHover += new EventHandler(btnChoix3vert_MouseHover);
-            btnChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
-         
+            pbxChoix3.MouseHover += new EventHandler(btnChoix3vert_MouseHover);
+            pbxChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
 
 
-            btnChoix1.Click += new EventHandler(Random_Click);
-            btnChoix2.Click += new EventHandler(Random2_Click);
-            btnChoix3.Click += new EventHandler(Random3_Click);
+            
+            pbxChoix1.Click += new EventHandler(Random_Click);
+            pbxChoix2.Click += new EventHandler(Random2_Click);
+            pbxChoix3.Click += new EventHandler(Random3_Click);
             
             
            
@@ -208,22 +219,22 @@ namespace Cpln.Enigmos.Enigmas
         }
         void btnChoix1MouseLeave(object sender, EventArgs e)
         {
-            btnChoix1.BackColor = Color.White;
+            pbxChoix1.BackColor = Color.White;
             
         }
         void btnChoix2MouseLeave(object sender, EventArgs e)
         {
-            btnChoix2.BackColor = Color.White;
+            pbxChoix2.BackColor = Color.White;
             
         }
         void btnChoix3MouseLeave(object sender, EventArgs e)
         {
-            btnChoix3.BackColor = Color.White;
+            pbxChoix3.BackColor = Color.White;
     
         }
         void btnChoix1rouge_MouseHover(object sender, EventArgs e)
         {
-            btnChoix1.BackColor = Color.Red;
+            pbxChoix1.BackColor = Color.Red;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
             LockIndice1();
 
@@ -233,13 +244,13 @@ namespace Cpln.Enigmos.Enigmas
         }
         void btnChoix1jaune_MouseHover(object sender, EventArgs e)
         {
-            btnChoix1.BackColor = Color.Yellow;
+            pbxChoix1.BackColor = Color.Yellow;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
             LockIndice1();
         }
         void btnChoix1vert_MouseHover(object sender, EventArgs e)
         {
-            btnChoix1.BackColor = Color.Green;
+            pbxChoix1.BackColor = Color.Green;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
             LockIndice1();
         }
@@ -247,19 +258,19 @@ namespace Cpln.Enigmos.Enigmas
 
         void btnChoix2rouge_MouseHover(object sender, EventArgs e)
         {
-            btnChoix2.BackColor = Color.Red;
+            pbxChoix2.BackColor = Color.Red;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
             LockIndice2();
         }
         void btnChoix2jaune_MouseHover(object sender, EventArgs e)
         {
-            btnChoix2.BackColor = Color.Yellow;
+            pbxChoix2.BackColor = Color.Yellow;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
             LockIndice2();
         }
         void btnChoix2vert_MouseHover(object sender, EventArgs e)
         {
-            btnChoix2.BackColor = Color.Green;
+            pbxChoix2.BackColor = Color.Green;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
             LockIndice2();
         }
@@ -267,25 +278,25 @@ namespace Cpln.Enigmos.Enigmas
 
         void btnChoix3rouge_MouseHover(object sender, EventArgs e)
         {
-            btnChoix3.BackColor = Color.Red;
+            pbxChoix3.BackColor = Color.Red;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
             LockIndice3();
         }
         void btnChoix3jaune_MouseHover(object sender, EventArgs e)
         {
-            btnChoix3.BackColor = Color.Yellow;
+            pbxChoix3.BackColor = Color.Yellow;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
             LockIndice3();
         }
         void btnChoix3vert_MouseHover(object sender, EventArgs e)
         {
-            btnChoix3.BackColor = Color.Green;
+            pbxChoix3.BackColor = Color.Green;
             Cursor.Current = System.Windows.Forms.Cursors.Hand;
             LockIndice3();
         }
         void btnChoix1_MouseLeave(object sender, EventArgs e)
         {
-            this.btnChoix1.BackColor = Color.White;
+            this.pbxChoix1.BackColor = Color.White;
             Cursor.Current = System.Windows.Forms.Cursors.Default;
       
         }
@@ -362,7 +373,7 @@ namespace Cpln.Enigmos.Enigmas
 
                     case 1:
 
-                        iNumeroImage = 4;
+                       // iNumeroImage = 4;
                         random = randomNombre.Next(1, 4);
                         if (random == 1)
                         {
@@ -387,7 +398,7 @@ namespace Cpln.Enigmos.Enigmas
                         if (random == 3)
                         {
 
-
+                            iNombreRandom = 0;
                             //DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
 
                             // return imgFinaleDepart = aImageDeBase[1];
@@ -402,7 +413,7 @@ namespace Cpln.Enigmos.Enigmas
                         break;
                     case 2:
 
-                        iNumeroImage = 5;
+                        // = 5;
                         random = randomNombre.Next(1, 4);
                         if (random == 1)
                         {
@@ -424,7 +435,7 @@ namespace Cpln.Enigmos.Enigmas
                         if (random == 3)
                         {
 
-
+                            iNombreRandom = 0;
                             //return imgFinaleDepart = aImageDeBase[1];
                             //iNombreRandom = 0;
                             return iNombreRandom;
@@ -437,7 +448,7 @@ namespace Cpln.Enigmos.Enigmas
                         break;
                     case 3:
 
-                        iNumeroImage = 6;
+                        //iNumeroImage = 6;
                         random = randomNombre.Next(1, 4);
                         if (random == 1)
                         {
@@ -458,12 +469,13 @@ namespace Cpln.Enigmos.Enigmas
                         }
                         if (random == 3)
                         {
+                            iNombreRandom = 0;
                             //  DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
 
                             //if(perdu == DialogResult.OK)
 
                             //return imgFinaleDepart = aImageDeBase[1];
-                           // iNombreRandom = 0;
+                            // iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -591,7 +603,7 @@ namespace Cpln.Enigmos.Enigmas
 
                     case 1:
 
-                        iNumeroImage = 4;
+                       // iNumeroImage = 4;
                         random = randomNombre.Next(1, 4);
                         if (random == 1)
                         {
@@ -616,7 +628,7 @@ namespace Cpln.Enigmos.Enigmas
                         if (random == 3)
                         {
 
-
+                            iNombreRandom = 0;
                             //DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
 
                             // return imgFinaleDepart = aImageDeBase[1];
@@ -652,10 +664,10 @@ namespace Cpln.Enigmos.Enigmas
                         }
                         if (random == 3)
                         {
-
+                            iNombreRandom = 0;
 
                             //return imgFinaleDepart = aImageDeBase[1];
-                           // iNombreRandom = 0;
+                            // iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -687,6 +699,7 @@ namespace Cpln.Enigmos.Enigmas
                         }
                         if (random == 3)
                         {
+                            iNombreRandom = 0;
                             //  DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
 
                             //if(perdu == DialogResult.OK)
@@ -725,11 +738,11 @@ namespace Cpln.Enigmos.Enigmas
                 if (random == 3)
                 {
 
-
+                    iNombreRandom = 0;
 
 
                     //return imgFinaleDepart = aImageDeBase[1];
-                   // iNombreRandom = 0;
+                    // iNombreRandom = 0;
                     return iNombreRandom;
                 }
                 else
@@ -819,7 +832,7 @@ namespace Cpln.Enigmos.Enigmas
                      
                     case 1 :
                         
-                        iNumeroImage = 4;
+                        //iNumeroImage = 4;
                         random = randomNombre.Next(1, 4);
                             if (random == 1)
                                  {
@@ -843,12 +856,12 @@ namespace Cpln.Enigmos.Enigmas
                         }
                             if (random == 3)
                                 {
-                                    
-                               
-                                //DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
-                               
-                               // return imgFinaleDepart = aImageDeBase[1];
-                           // iNombreRandom = 0;
+                            iNombreRandom = 0;
+
+                            //DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+
+                            // return imgFinaleDepart = aImageDeBase[1];
+                            // iNombreRandom = 0;
                             return iNombreRandom;
                         }
                         else
@@ -860,7 +873,7 @@ namespace Cpln.Enigmos.Enigmas
                     case 2:
                    
                      iNumeroImage = 5;
-                               random = randomNombre.Next(1, 4);
+                               random = randomNombre.Next(2, 4);
                             if (random == 1)
                                  {
                                 iEtape3 = 0;
@@ -880,9 +893,9 @@ namespace Cpln.Enigmos.Enigmas
                         }
                             if (random == 3)
                                 {
-                                   
-                                   
-                                //return imgFinaleDepart = aImageDeBase[1];
+                            iNombreRandom = 0;
+
+                            //return imgFinaleDepart = aImageDeBase[1];
                             //iNombreRandom = 0;
                             return iNombreRandom;
                         }
@@ -915,11 +928,12 @@ namespace Cpln.Enigmos.Enigmas
                         }
                             if (random == 3)
                                 {
-                                  //  DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                            iNombreRandom = 0;
+                            //  DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
 
-                                  //if(perdu == DialogResult.OK)
-                                
-                                //return imgFinaleDepart = aImageDeBase[1];
+                            //if(perdu == DialogResult.OK)
+
+                            //return imgFinaleDepart = aImageDeBase[1];
                             //iNombreRandom = 0;
                             return iNombreRandom;
                         }
@@ -941,11 +955,14 @@ namespace Cpln.Enigmos.Enigmas
                    // lblTexte.Text = "Vous avez gagné !";
                     //return imgFinaleDepart = aImageDeBase[8];
                     iNombreRandom = 9;
+                    
                     return iNombreRandom;
+                    
+
                 }
                 if (random == 2)
                 {
-                    
+                    iEtape3 = 1;
                     iNombreRandom = 0;
                     return iNombreRandom;
                     
@@ -953,7 +970,7 @@ namespace Cpln.Enigmos.Enigmas
                 if (random == 3)
                 {
 
-                    iEtape3 = 1;
+                    iNombreRandom = 0;
                     return iNombreRandom;
                     
                  
@@ -991,25 +1008,25 @@ namespace Cpln.Enigmos.Enigmas
                     
                     break;
                 case 2:
-                    return aImageDeBase[1];
-                    break;
-                case 3:
                     return aImageDeBase[2];
                     break;
-                case 4:
+                case 3:
                     return aImageDeBase[3];
                     break;
-                case 5:
+                case 4:
                     return aImageDeBase[4];
                     break;
-                case 6:
+                case 5:
                     return aImageDeBase[5];
                     break;
-                case 7:
+                case 6:
                     return aImageDeBase[6];
                     break;
-                case 8:
+                case 7:
                     return aImageDeBase[7];
+                    break;
+                case 8:
+                    return aImageDeBase[8];
                     break;
                 default:
                     return null;
@@ -1042,15 +1059,15 @@ namespace Cpln.Enigmos.Enigmas
                         switch(iButton1)
                         {
                                 case 0:
-                                btnChoix1.BackColor = Color.Red;
+                                pbxChoix1.BackColor = Color.Red;
                                 
                                 break;
                                 case 1:
-                                btnChoix1.BackColor = Color.Yellow;
+                                pbxChoix1.BackColor = Color.Yellow;
                           
                                 break;
                                 case 2:
-                                btnChoix1.BackColor = Color.Green;
+                                pbxChoix1.BackColor = Color.Green;
                                 
                                 break;
                         }
@@ -1058,7 +1075,7 @@ namespace Cpln.Enigmos.Enigmas
                     }
                   if(i == 1)
                     {
-                        btnChoix2.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
+                        pbxChoix2.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
                         randomCouleur = randomNombre.Next(0, 3);
                         iButton2 = randomCouleur;
                         while (iButton2 == iButton1)
@@ -1069,15 +1086,15 @@ namespace Cpln.Enigmos.Enigmas
                         switch (iButton2)
                         {
                             case 0:
-                                btnChoix2.BackColor = Color.Red;
+                                pbxChoix2.BackColor = Color.Red;
                                
                                 break;
                             case 1:
-                                btnChoix2.BackColor = Color.Yellow;
+                                pbxChoix2.BackColor = Color.Yellow;
                             
                                 break;
                             case 2:
-                                btnChoix2.BackColor = Color.Green;
+                                pbxChoix2.BackColor = Color.Green;
                                
                                 break;
                         }
@@ -1087,7 +1104,7 @@ namespace Cpln.Enigmos.Enigmas
                     {
                         randomCouleur = randomNombre.Next(0, 3);
                         iButton3 = randomCouleur;
-                        btnChoix3.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
+                        pbxChoix3.MouseLeave += new EventHandler(btnChoix1_MouseLeave);
                         while(iButton3 == iButton1 || iButton3 == iButton2)
                         {
                             randomCouleur = randomNombre.Next(0, 3);
@@ -1096,15 +1113,15 @@ namespace Cpln.Enigmos.Enigmas
                         switch (iButton3)
                         {
                             case 0:
-                                btnChoix3.BackColor = Color.Red;
+                                pbxChoix3.BackColor = Color.Red;
                                 
                                 break;
                             case 1:
-                                btnChoix3.BackColor = Color.Yellow;
+                                pbxChoix3.BackColor = Color.Yellow;
                                 
                                 break;
                             case 2:
-                                btnChoix3.BackColor = Color.Green;
+                                pbxChoix3.BackColor = Color.Green;
                                
                                 break;
                         }
@@ -1113,63 +1130,63 @@ namespace Cpln.Enigmos.Enigmas
 
                 }
                 
-               if(btnChoix1.BackColor == Color.Red)
+               if(pbxChoix1.BackColor == Color.Red)
                {
-                   btnChoix1.BackColor = Color.White;
-                   btnChoix1.MouseHover += new EventHandler(btnChoix1rouge_MouseHover);
-                   btnChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
+                   pbxChoix1.BackColor = Color.White;
+                   pbxChoix1.MouseHover += new EventHandler(btnChoix1rouge_MouseHover);
+                   pbxChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
                }
-               if (btnChoix1.BackColor == Color.Yellow)
+               if (pbxChoix1.BackColor == Color.Yellow)
                {
-                   btnChoix1.BackColor = Color.White;
-                   btnChoix1.MouseHover += new EventHandler(btnChoix1jaune_MouseHover);
-                   btnChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
+                   pbxChoix1.BackColor = Color.White;
+                   pbxChoix1.MouseHover += new EventHandler(btnChoix1jaune_MouseHover);
+                   pbxChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
                }
-               if (btnChoix1.BackColor == Color.Green)
+               if (pbxChoix1.BackColor == Color.Green)
                {
-                   btnChoix1.BackColor = Color.White;
-                   btnChoix1.MouseHover += new EventHandler(btnChoix1vert_MouseHover);
-                   btnChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
+                   pbxChoix1.BackColor = Color.White;
+                   pbxChoix1.MouseHover += new EventHandler(btnChoix1vert_MouseHover);
+                   pbxChoix1.MouseLeave += new EventHandler(btnChoix1MouseLeave);
                }
                
                 
-               if (btnChoix2.BackColor == Color.Red)
+               if (pbxChoix2.BackColor == Color.Red)
                {
-                   btnChoix2.BackColor = Color.White;
-                   btnChoix2.MouseHover += new EventHandler(btnChoix2rouge_MouseHover);
-                   btnChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
+                   pbxChoix2.BackColor = Color.White;
+                   pbxChoix2.MouseHover += new EventHandler(btnChoix2rouge_MouseHover);
+                   pbxChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
                }
-               if (btnChoix2.BackColor == Color.Yellow)
+               if (pbxChoix2.BackColor == Color.Yellow)
                {
-                   btnChoix2.BackColor = Color.White;
-                   btnChoix2.MouseHover += new EventHandler(btnChoix2jaune_MouseHover);
-                   btnChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
+                   pbxChoix2.BackColor = Color.White;
+                   pbxChoix2.MouseHover += new EventHandler(btnChoix2jaune_MouseHover);
+                   pbxChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
                }
-               if (btnChoix2.BackColor == Color.Green)
+               if (pbxChoix2.BackColor == Color.Green)
                {
-                   btnChoix2.BackColor = Color.White;
-                   btnChoix2.MouseHover += new EventHandler(btnChoix2vert_MouseHover);
-                   btnChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
+                   pbxChoix2.BackColor = Color.White;
+                   pbxChoix2.MouseHover += new EventHandler(btnChoix2vert_MouseHover);
+                   pbxChoix2.MouseLeave += new EventHandler(btnChoix2MouseLeave);
                }
 
 
-               if (btnChoix3.BackColor == Color.Red)
+               if (pbxChoix3.BackColor == Color.Red)
                {
-                   btnChoix3.BackColor = Color.White;
-                   btnChoix3.MouseHover += new EventHandler(btnChoix3rouge_MouseHover);
-                   btnChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
+                   pbxChoix3.BackColor = Color.White;
+                   pbxChoix3.MouseHover += new EventHandler(btnChoix3rouge_MouseHover);
+                   pbxChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
                }
-               if (btnChoix3.BackColor == Color.Yellow)
+               if (pbxChoix3.BackColor == Color.Yellow)
                {
-                   btnChoix3.BackColor = Color.White;
-                   btnChoix3.MouseHover += new EventHandler(btnChoix3jaune_MouseHover);
-                   btnChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
+                   pbxChoix3.BackColor = Color.White;
+                   pbxChoix3.MouseHover += new EventHandler(btnChoix3jaune_MouseHover);
+                   pbxChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
                }
-               if (btnChoix3.BackColor == Color.Green)
+               if (pbxChoix3.BackColor == Color.Green)
                {
-                   btnChoix3.BackColor = Color.White;
-                   btnChoix3.MouseHover += new EventHandler(btnChoix3vert_MouseHover);
-                   btnChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
+                   pbxChoix3.BackColor = Color.White;
+                   pbxChoix3.MouseHover += new EventHandler(btnChoix3vert_MouseHover);
+                   pbxChoix3.MouseLeave += new EventHandler(btnChoix3MouseLeave);
                }
                 
             }
@@ -1187,12 +1204,14 @@ namespace Cpln.Enigmos.Enigmas
             {
                 case 0:
                     DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                    ReinitialisationValeur();
+                    
                     break;
                 case 1:
                     lblTexte.Text = "Cette pièce vous semble familier";
                     break;
                 case 2:
-
+                    lblTexte.Text = "Cette étage est formé bizarrement";
                     break;
                 case 3:
                     lblTexte.Text = "Le couloir semble calme...";
@@ -1222,6 +1241,7 @@ namespace Cpln.Enigmos.Enigmas
             {
                 case 0:
                     DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                    ReinitialisationValeur();
                     break;
                 case 1:
                     lblTexte.Text = "Cette pièce vous semble familier";
@@ -1257,6 +1277,7 @@ namespace Cpln.Enigmos.Enigmas
             {
                 case 0:
                     DialogResult perdu = MessageBox.Show("Vous avez perdu", "Yo", MessageBoxButtons.OK);
+                    ReinitialisationValeur();
                     break;
                 case 1:
                     lblTexte.Text = "Cette pièce vous semble familier";
@@ -1455,5 +1476,17 @@ namespace Cpln.Enigmos.Enigmas
             lblIndice.Text = strQuestionLocale3;
           
             }
+        private void ReinitialisationValeur()
+        {
+            lblTexte.Text = "Vous êtes retrouvez dans une maison inconnue en vous réveillant";
+            lblIndice.Text = "Chercher les chemins possibles sur l'image";
+            pnlImage.BackgroundImage = depart;
+           iEtape1 = 0;
+            iEtape2 = 0;
+           iEtape3 = 0;
+           iLock1 = false;
+         iLock2 = false;
+        iLock3 = false;
+    }
     }
 }
