@@ -8,6 +8,12 @@
     <answer>jongleur</answer>
     <hint>Remettez les pièces à leur place.</hint>
   </enigma>
+  <enigma title="Caractère caché">
+    <answer>Cpln</answer>
+    <hint>"Le dessin est la base de tout"
+    - Alberto Giacometti
+    </hint>
+	</enigma>
   <enigma title="Où est la réponse ?">
     <answer>là-bas</answer>
     <hint>je t'ai dis là-bas, enfin !</hint>
@@ -23,6 +29,18 @@
   <enigma title="Tape-taupe">
     <answer>Souris</answer>
     <hint>Cliquez sur les souris qui apparaissent, ne pas cliquez sur les chats</hint>
+  </enigma>
+  <enigma title="Chop' les poissons">
+    <answer>Dru</answer>
+    <hint>Aider le phoque a attraper 10 poissons, mais attention au harpons !</hint>
+  </enigma>
+  <enigma title="Roux run">
+    <answer>c'est pas trop tôt</answer>
+    <hint>Sois réactif</hint>
+  </enigma>
+  <enigma title="Roux run encore">
+    <answer>Encore une fois</answer>
+    <hint>Sois réactif</hint>
   </enigma>
   <enigma title="Le jeu des 7 différences">
     <answer>bonjour</answer>
@@ -56,9 +74,9 @@
     <answer></answer>
     <hint>Répond pas Morice</hint>
   </enigma>
-  <enigma title="Jeu du pendu">
-	<answer>oxygene</answer>
-	<hint>La corde, ça fait mal au cou</hint>
+  <enigma title="Le jeu du pendu">
+	  <answer>oxygene</answer>
+	  <hint>La corde, ça fait mal au cou</hint>
 	</enigma>
   <enigma title="Reflexe">
     <answer>Bon réflexe</answer>
@@ -67,5 +85,29 @@
   <enigma title="Jeu de mot">
     <answer>citron vert</answer>
     <hint>Combien de troncs ? Quelle couleur ?</hint>
+  </enigma>
+  <enigma title="Calcul">
+    <answer>21</answer>
+    <hint>Faites attention aux bananes !</hint>
+  </enigma>
+  <enigma title="Need For Speed">
+    <answer>eucalyptus</answer>
+    <hint>Utilise tes deux mains</hint>
+  </enigma>
+  <enigma title="Trouve le rectangle">
+    <answer>Blanc</answer>
+    <hint>la réponse est devant toi [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]</hint>
+  </enigma>
+  <enigma title="Morpion">
+    <answer>J'ai gagné</answer>
+    <hint>Gagner au moins deux fois contre l'ordinateur.</hint>
+  </enigma>
+  <enigma title="Quelle est la plus haute ?">
+    <answer>l</answer>
+    <hint>C'est pas ce que tu penses</hint>
+  </enigma>
+  <enigma title="Clic-rapide">
+    <answer>Flash</answer>
+    <hint>Appuyer sur le bouton vert avec la souris.</hint>
   </enigma>
 </enigmas>

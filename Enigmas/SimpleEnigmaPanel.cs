@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
@@ -15,11 +16,10 @@ namespace Cpln.Enigmos.Enigmas
         {
             Label lblEnigme = new Label();
 
-            lblEnigme.Text = "la solution est simple";
+            lblEnigme.Text = "La solution est simple";
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
             lblEnigme.Dock = DockStyle.Fill;
             lblEnigme.TextAlign = ContentAlignment.MiddleCenter;
-
             Controls.Add(lblEnigme);
         }
     }
