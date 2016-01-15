@@ -90,7 +90,7 @@ namespace Cpln.Enigmos.Enigmas
             }
         }
 
-        //Evenement du timer
+        //Evenement du timer de jeu
         private void timer_tJeuTapeTaupe(object sender, EventArgs e)
         {
             //Incrémentaion des compteurs
