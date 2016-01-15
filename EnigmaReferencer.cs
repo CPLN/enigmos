@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion");
+            return new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano");
         }
 
         /// <summary>
@@ -36,6 +36,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
             enigmas.Add(new Enigma(new PhoqueEnigmaPanel(), "Chop' les poissons"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
+            enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
             enigmas.Add(new Enigma(new SeptDifferencesEnigmaPanel(), "Le jeu des 7 différences"));
             enigmas.Add(new Enigma(new OpenDoorEnigmaPanel(), "Ouvrez la porte !"));
             enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));
@@ -56,6 +57,7 @@ namespace Cpln.Enigmos
             Enigma runEnigmaInverse = new Enigma(new RunEnigmaPanel(true), "Roux run encore");
             runEnigmaInverse.AddPrerequisite(runEnigma);
             enigmas.Add(runEnigmaInverse);
+
 
             enigmas.Shuffle();
             return enigmas;

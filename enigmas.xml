@@ -34,6 +34,10 @@
     <answer>cancun</answer>
     <hint>Survivez pendant 2000 Tick !</hint>
   </enigma>
+  <enigma title="Trouver Cristiano">
+    <answer>fesse</answer>
+    <hint>Trouvez Cristiano</hint>
+	</enigma>
   <enigma title="Roux run">
     <answer>c'est pas trop tôt</answer>
     <hint>Sois réactif</hint>

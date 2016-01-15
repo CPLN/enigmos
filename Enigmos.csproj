@@ -68,10 +68,16 @@
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+
+    <Compile Include="Enigmas\TrouverEnigmaPanel.cs">
+	<SubType>Component</SubType>
+	</Compile>
+
     <Compile Include="Enigmas\NfsEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\RectangleEnigmaPanel.cs">
+
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\PuzzlePiece.cs">
@@ -131,7 +137,9 @@
     <Compile Include="Enigmas\SimplePuzzleEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="EnigmaReferencer.cs" />
+    <Compile Include="EnigmaReferencer.cs" >
+	<SubType>Component</SubType>
+	</Compile>
     <Compile Include="Enigma.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -198,6 +206,9 @@
     <None Include="Resources\Batiment.png" />
     <None Include="Resources\CibleNoir.png" />
     <None Include="Resources\Cible.png" />
+    <None Include="Resources\cristiano.png" />
+    <None Include="Resources\supermeat.jpg" />
+    <None Include="Resources\Fesse.png" />
     <None Include="image\Cross.png" />
     <None Include="image\Circle.png" />
     <Content Include="img\imageA.PNG" />
@@ -213,6 +224,7 @@
     <None Include="Resources\Caillou.png" />
     <None Include="Resources\Arbre.png" />
     <None Include="Resources\Fond.png" />
+
     <None Include="img\image2.PNG" />
     <None Include="img\image1.PNG" />
     <None Include="Resources\OpenDoor - Solution.png" />
