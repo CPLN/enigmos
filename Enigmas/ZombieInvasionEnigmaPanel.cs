@@ -44,6 +44,7 @@ namespace Cpln.Enigmos.Enigmas
         public override void Load()
         {
             timer.Start();
+            Initialisation();
         }
 
         public override void Unload()
@@ -106,7 +107,7 @@ namespace Cpln.Enigmos.Enigmas
         public void PanelClick(object sender, MouseEventArgs e)
         {
             this.Cursor = new Cursor(Properties.Resources.CibleNoir.GetHicon());//changement de l'image du curseur
-            this.Cursor = null;
+            //this.Cursor = null;
             bViseurRouge = false;//on inverse la variable une fois que l'utilisateur à cliqué
             iTimerCible = 0;//on remet la varaible à zero
         }
