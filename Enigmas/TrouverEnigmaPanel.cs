@@ -75,7 +75,7 @@ namespace Cpln.Enigmos.Enigmas
         private void bCristiano_Click(object sender, EventArgs e)
         {
             //Message qui apparait lorsque l'on clique sur Cristiano
-            MessageBox.Show("Le mot à valider est cristiano", "Yo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show("Le mot à valider est football", "Yo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
 
