@@ -53,6 +53,11 @@
     <Compile Include="Enigmas\ClicRapideEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\Components\Coeur.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Direction.cs" />
+    <Compile Include="Enigmas\Components\Etat.cs" />
     <Compile Include="Enigmas\PenduEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -70,6 +75,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\PuzzlePiece.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Zombie.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\DingbatEnigmaPanel.cs">
@@ -127,6 +135,9 @@
     <Compile Include="Enigma.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\ZombieInvasionEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +191,13 @@
     <None Include="Resources\Poisson.png" />
     <None Include="Resources\Phoque1.png" />
     <None Include="Resources\Montagne.png" />
+    <None Include="Resources\CoeurRouge.png" />
+    <None Include="Resources\CoeurBlanc.png" />
+    <None Include="Resources\ZombieDroite.png" />
+    <None Include="Resources\Zombie.png" />
+    <None Include="Resources\Batiment.png" />
+    <None Include="Resources\CibleNoir.png" />
+    <None Include="Resources\Cible.png" />
     <None Include="image\Cross.png" />
     <None Include="image\Circle.png" />
     <Content Include="img\imageA.PNG" />
