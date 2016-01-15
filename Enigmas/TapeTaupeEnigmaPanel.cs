@@ -27,7 +27,7 @@ namespace Cpln.Enigmos.Enigmas
         private int iTemps = 0;
         private int iAnimal;
         private bool bAnimal = false;
-        private string strPerdu = "Dommage, vous avez mis trop de temps ou vous avez cliquez sur un chat. Appuyer sur Recommencer pour réessayer";
+        private string strPerdu = "Dommage, vous avez mis trop de temps ou vous avez cliquez sur un chat.";
 
         //Constructeur par défaut
         public TapeTaupeEnigmaPanel()
@@ -35,7 +35,6 @@ namespace Cpln.Enigmos.Enigmas
             //Création du timer et lancement
             tJeuTapeTaupe.Interval = 1;
             tJeuTapeTaupe.Tick += new EventHandler(timer_tJeuTapeTaupe);
-            tJeuTapeTaupe.Start();
             
             //Création de la picturebox qui contient l'image
             pbxTaupe.Width = 100;
@@ -50,7 +49,25 @@ namespace Cpln.Enigmos.Enigmas
             pbxTaupe.MouseClick += new MouseEventHandler(pbxTaupe_Click);
 
             //Affectation de la difficulter (vitesse d'apparition de l'image)
-            iVitesse = RandoDifficulte.Next(50, 100); // ~1-2 secondes           
+            iVitesse = RandoDifficulte.Next(50, 100); // ~1-2 secondes      
+        }
+
+        private void Initialiser()
+        {
+            iTemps = 0;
+            iCompteur = 0;
+            iScore = 0;
+            tJeuTapeTaupe.Start();
+        }
+
+        public override void Load()
+        {
+            Initialiser();
+        }
+
+        public override void Unload()
+        {
+            tJeuTapeTaupe.Stop();
         }
 
         //Evenement du clic sur la picturebox
@@ -81,12 +98,12 @@ namespace Cpln.Enigmos.Enigmas
             pbxTaupe.Enabled = false;
             pbxTaupe.Visible = false;
 
-            DialogResult resultat = MessageBox.Show(strPerdu, "Perdu", MessageBoxButtons.RetryCancel);            
+            DialogResult resultat = MessageBox.Show(strPerdu, "Perdu");            
 
             //test pour savoir si le bouton OK de la messagebox à été pressé
             if (resultat == DialogResult.Retry)
             {
-                tJeuTapeTaupe.Start();
+                Initialiser();
             }
         }
 
@@ -135,7 +152,10 @@ namespace Cpln.Enigmos.Enigmas
             if (iScore == 8)
             {
                 tJeuTapeTaupe.Stop();
-                MessageBox.Show("La réponse est \"Souris\"", "Réponse", MessageBoxButtons.OK);
+                if (MessageBox.Show("La réponse est \"Souris\"", "Réponse", MessageBoxButtons.OK) == DialogResult.OK)
+                {
+                    Initialiser();
+                }
             }
         }
     }
