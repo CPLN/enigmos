@@ -1189,7 +1189,7 @@ namespace Cpln.Enigmos.Enigmas
                     lblTexte.Text = "Vous vous sentez oppressé dans cette pièce";
                     break;
                 case 8:
-                    DialogResult gagne = MessageBox.Show("Dans la cave, vous trouvez une porte grande ouvert et vous vous échapper. recommencer ? ", "bien joué !", MessageBoxButtons.YesNo);
+                    DialogResult gagne = MessageBox.Show("Dans la cave, vous trouvez une porte grande ouvert et vous vous échapper. Réponse : liberté. recommencer ? ", "bien joué !", MessageBoxButtons.YesNo);
                     if (gagne == DialogResult.Yes)
                     {
                         ReinitialisationValeur();
@@ -1242,7 +1242,7 @@ namespace Cpln.Enigmos.Enigmas
                     lblTexte.Text = "Vous vous sentez oppressé dans cette pièce";
                     break;
                 case 8:
-                    DialogResult gagne = MessageBox.Show("Dans la cave, vous trouvez une porte grande ouvert et vous vous échapper. recommencer ? ", "bien joué !", MessageBoxButtons.YesNo);
+                  DialogResult gagne = MessageBox.Show("Dans la cave, vous trouvez une porte grande ouvert et vous vous échapper. Réponse : liberté. recommencer ? ", "bien joué !", MessageBoxButtons.YesNo);
                     if (gagne == DialogResult.Yes)
                     {
                         ReinitialisationValeur();
@@ -1297,7 +1297,7 @@ namespace Cpln.Enigmos.Enigmas
                     lblTexte.Text = "Vous vous sentez oppressé dans cette pièce";
                     break;
                 case 8:
-                    DialogResult gagne = MessageBox.Show("Dans la cave, vous trouvez une porte grande ouvert et vous vous échapper. recommencer ? ", "bien joué !", MessageBoxButtons.YesNo);
+                  DialogResult gagne = MessageBox.Show("Dans la cave, vous trouvez une porte grande ouvert et vous vous échapper. Réponse : liberté. recommencer ? ", "bien joué !", MessageBoxButtons.YesNo);
                     if (gagne == DialogResult.Yes)
                     {
                         ReinitialisationValeur();
