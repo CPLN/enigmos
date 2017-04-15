@@ -8,4 +8,4 @@ Il consiste en une série d'énigmes plus ou moins complexes, que le joueur doit
 
 ## Développement
 
-Pour participer au développement, merci de vous référer au [guide de développement](doc/HOWTO.md).
+Pour participer au projet, merci de vous référer au guide de développement sur le [wiki](https://github.com/CPLN/enigmos/wiki).
