@@ -101,7 +101,7 @@ namespace Cpln.Enigmos.Enigmas
             DialogResult resultat = MessageBox.Show(strPerdu, "Perdu");            
 
             //test pour savoir si le bouton OK de la messagebox à été pressé
-            if (resultat == DialogResult.Retry)
+            if (resultat == DialogResult.OK)
             {
                 Initialiser();
             }

@@ -152,6 +152,8 @@ namespace Cpln.Enigmos
         /// </summary>
         private void NextEnigma()
         {
+            tbxAnswer.Text = "";
+
             #if DEBUG
             Enigma debug = EnigmaReferencer.DebugEnigma();
             if (debug != null)
