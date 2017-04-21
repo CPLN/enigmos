@@ -59,7 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enigmas\Components\Clavier.cs" />
+    <Compile Include="Enigmas\Components\Touche.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\FruitsEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>

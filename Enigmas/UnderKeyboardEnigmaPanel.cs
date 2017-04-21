@@ -8,6 +8,6 @@ namespace Cpln.Enigmos.Enigmas
 {
     class UnderKeyboardEnigmaPanel : EnigmaPanel
     {
-        List<ToucheClavier> = List
+        
     }
 }
