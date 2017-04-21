@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\Components\Clavier.cs" />
     <Compile Include="Enigmas\FruitsEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -172,6 +173,9 @@
     </Compile>
     <Compile Include="EnigmaReferencer.cs" />
     <Compile Include="Enigma.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\UnderKeyboardEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\ZombieInvasionEnigmaPanel.cs">
