@@ -33,6 +33,15 @@ namespace Cpln.Enigmos.Enigmas.Components
             Location = new Point(locX,locY);
             Width = 4;
             Height = 4;
+            
+        }
+        public Touche(string nom, int locX, int locY, int width, int height)
+        {
+            strNom = nom;
+            Location = new Point(locX, locY);
+            Width = width;
+            Height = height;
+
         }
     }
 }
