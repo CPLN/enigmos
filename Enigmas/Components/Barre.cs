@@ -1,5 +1,4 @@
-﻿using Cpln.Enigmos.Enigmas.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Cpln.Enigmos.Enigmas
+namespace Cpln.Enigmos.Enigmas.Components
 {
-    class CodeBarreEnigmaPanel : EnigmaPanel
+    class Barre : Panel
     {
         Panel pBarreE = new Panel();
-        public CodeBarreEnigmaPanel()
+        public Barre()
         {
             pBarreE.Left = 121;
             pBarreE.Top = 11;
