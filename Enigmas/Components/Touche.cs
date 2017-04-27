@@ -32,8 +32,8 @@ namespace Cpln.Enigmos.Enigmas.Components
         {
             strNom = nom;
             Location = new Point(locX,locY);
-            Width = 4;
-            Height = 4;
+            Width = 20;
+            Height = 20;
             
         }
         public Touche(string nom, int locX, int locY, int width, int height)
