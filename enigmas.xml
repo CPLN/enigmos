@@ -18,6 +18,10 @@
     <answer>là-bas</answer>
     <hint>je t'ai dis là-bas, enfin !</hint>
   </enigma>
+  <enigma title="Les 3 singes">
+    <answer>Bananas</answer>
+    <hint>Chaque boutons active/désactive ou inverse l'état d'un singe, essaye de les activer tous en même temps</hint>
+  </enigma>
   <enigma title="C'est simple">
     <answer>simple</answer>
     <hint>Pas d'indice, la solution est simple !</hint>
