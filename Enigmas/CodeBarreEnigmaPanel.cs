@@ -20,7 +20,10 @@ namespace Cpln.Enigmos.Enigmas
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-
+        
+        /// <summary>
+        /// Constructeur par défaut (initialisation des panels)
+        /// </summary>
         public CodeBarreEnigmaPanel()
         {
             pBarreE.Left = 121;
@@ -31,6 +34,12 @@ namespace Cpln.Enigmos.Enigmas
             pBarreE.MouseMove += new MouseEventHandler(DeplacerBarre);
             this.Controls.Add(pBarreE);
         }
+
+        /// <summary>
+        /// Méthode pour deplacer certain panels
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeplacerBarre(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
