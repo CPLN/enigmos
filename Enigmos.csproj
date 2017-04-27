@@ -62,9 +62,6 @@
     <Compile Include="Enigmas\CodeBarreEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\Components\Barre.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Enigmas\FruitsEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
