@@ -12,7 +12,7 @@ namespace Cpln.Enigmos.Enigmas
 {
     class CodeBarreEnigmaPanel : EnigmaPanel
     {
-        Panel pBarreE = new Panel();
+
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -20,21 +20,27 @@ namespace Cpln.Enigmos.Enigmas
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-        
+
+        List<Panel> list = new List<Panel>();
+        int iPosX = 120;
+        Random rnd = new Random();
         /// <summary>
         /// Constructeur par défaut (initialisation des panels)
         /// </summary>
         public CodeBarreEnigmaPanel()
         {
-            pBarreE.Left = 121;
-            pBarreE.Top = 11;
-            pBarreE.Size = new Size(10, 200);
-            pBarreE.Location = new Point(100, 200);
-            pBarreE.BackColor = Color.Black;
-            pBarreE.MouseMove += new MouseEventHandler(DeplacerBarre);
-            this.Controls.Add(pBarreE);
+            for (int i = 0; i < 15; i++)
+            {
+                Panel Barre = new Panel();
+                list.Add(Barre);
+                list[0 + i].Size = new Size(rnd.Next(8, 20), 200);
+                list[0 + i].Location = new Point(iPosX + iPosX, 200);
+                list[0 + i].BackColor = Color.Black;
+                list[0 + i].MouseMove += new MouseEventHandler(DeplacerBarre);
+                this.Controls.Add(list[0 + i]);
+                iPosX += 12;
+            }
         }
-
         /// <summary>
         /// Méthode pour deplacer certain panels
         /// </summary>
