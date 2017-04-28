@@ -35,7 +35,7 @@ namespace Cpln.Enigmos.Enigmas
             {
                 Panel Barre = new Panel();
                 list.Add(Barre);
-                list[0 + i].Size = new Size(rnd.Next(8, 20), 200);
+                list[0 + i].Size = new Size(rnd.Next(9, 22), 200);
                 list[0 + i].Location = new Point(iPosX + iPosX, 200);
                 list[0 + i].BackColor = Color.Black;
                 list[0 + i].MouseMove += new MouseEventHandler(DeplacerBarre);
@@ -43,8 +43,9 @@ namespace Cpln.Enigmos.Enigmas
                 iPosX += 12;
             }
             // Initialise le mot caché
-            cpln.Text = "cpln";
-            cpln.Location = new Point(500, 300);
+            cpln.Text = "CodeBarreVicieux";
+            cpln.Location = new Point(504, 300);
+            cpln.Size = new Size(1, 10);
             cpln.Angle = 90;
             this.Controls.Add(cpln);
         }
@@ -53,13 +54,33 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DeplacerBarre(object sender, MouseEventArgs e)
+        int xPos;
+        int yPos;
+        private Panel pBas;
+
+        private void pBas_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                xPos = e.X;
+                yPos = e.Y;
             }
         }
+
+        private void DeplacerBarre(object sender, MouseEventArgs e)
+        {
+            pBas = sender as Panel;
+            if (pBas != null)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    pBas.Top += (e.Y - yPos);
+                    pBas.Left += (e.X - xPos);
+                }
+                //ReleaseCapture();
+                //SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
     }
 }
