@@ -59,7 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enigmas\Components\Carre.cs" />
     <Compile Include="Enigmas\FormesEnFoliesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>

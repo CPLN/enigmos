@@ -14,7 +14,7 @@ namespace Cpln.Enigmos.Enigmas
         Button btnDifferent = new Button(); // Création du bouton différent
         Button btnIdentique = new Button(); // Création du bouton identique
 
-        Panel Carre1 = new Panel(); // Création du panel qui va faire office de forme
+        Panel Carre1 = new Panel(); // Création du panel qui sera carré
         Panel Carre2 = new Panel();
 
         public FormesEnFoliesEnigmaPanel()
@@ -33,9 +33,7 @@ namespace Cpln.Enigmos.Enigmas
 
             Carre2 = AjoutPanelCarre(50, 350, 350, Carre2);
             Carre2.BackColor = Color.Black;
-
         }
-
 
         public Panel AjoutPanelCarre(int cote, int positionX, int positionY, Panel p)
         {
