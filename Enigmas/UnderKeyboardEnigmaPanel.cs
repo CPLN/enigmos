@@ -32,6 +32,12 @@ namespace Cpln.Enigmos.Enigmas
             {
                 Label label = new Label();
                 label.Text = Convert.ToString(i);
+                label.Font = new Font(FontFamily.GenericMonospace, 10);
+                label.AutoSize = true;
+                label.BackColor = Color.Transparent;
+                label.ForeColor = Color.Blue;
+                lettres.Add(label);
+
             }
             for (int i = 0; i < 26; i++)
             {
@@ -49,7 +55,9 @@ namespace Cpln.Enigmos.Enigmas
                 touche.BackColor = Color.Black;
                 touche.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                 touches.Add(touche);
-                Controls.Add(touche);   
+                Controls.Add(touche);
+                Controls.Add(lettres[i]);
+               // lettres[i].Location;
             }
 
         }
