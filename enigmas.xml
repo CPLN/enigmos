@@ -98,6 +98,10 @@
     <answer>citron vert</answer>
     <hint>Combien de troncs ? Quelle couleur ?</hint>
   </enigma>
+  <enigma title="Invisible Answer">
+    <answer>Blanc c'est blanc</answer>
+    <hint>La réponse est derrière vous, ou peut-être devant</hint>
+  </enigma>
   <enigma title="Calcul">
     <answer>21</answer>
     <hint>Faites attention aux bananes !</hint>
