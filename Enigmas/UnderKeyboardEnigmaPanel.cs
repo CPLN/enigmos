@@ -28,9 +28,14 @@ namespace Cpln.Enigmos.Enigmas
             lettres = new ShuffleList<char>();
             iLocX = iLocalisationX;
             iLocY = iLocalisationY;
+            for (char i = 'a'; i <= 'z';i++)
+            {
+                Label label = new Label();
+                label.Text = i;
+            }
+
             for (int i = 0; i < 26; i++)
             {
-                lettres.Add('i');
                 iLocX += iWidth;
                 if (i%7 == 0)
                 {
@@ -46,7 +51,7 @@ namespace Cpln.Enigmos.Enigmas
                 touche.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                 touches.Add(touche);
                 Controls.Add(touche);
-                touche.Controls.Add(new LiteralControl("some more text!"));
+               
             }
         }
     }
