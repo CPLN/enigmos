@@ -27,18 +27,16 @@ namespace Cpln.Enigmos.Enigmas
                 if (i%7 == 0)
                 {
                     iLocX = iLocalisationX;
-                    iLocY += iLocalisationY + iHeight;
-                   
+                    iLocY += iHeight;
                 }
                 if (i == 21)
                 {
-                    iLocX = iLocalisationX;
-                    iLocY += iLocalisationY + Height * 2;
-
+                    iLocX += iWidth; 
                 }
                 Touche touche = new Touche("", iLocX, iLocY,iWidth,iHeight);
                 touche.BackColor = Color.Black;
                 touche.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+                
                 touches.Add(touche);
                 Controls.Add(touche);
             }
