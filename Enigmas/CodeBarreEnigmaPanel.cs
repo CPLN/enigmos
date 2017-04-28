@@ -24,11 +24,13 @@ namespace Cpln.Enigmos.Enigmas
         List<Panel> list = new List<Panel>();
         int iPosX = 120;
         Random rnd = new Random();
+        RotatingLabel cpln = new RotatingLabel();
         /// <summary>
-        /// Constructeur par défaut (initialisation des panels)
+        /// Constructeur par défaut (initialisation le code barre et initialisation du mot caché)
         /// </summary>
         public CodeBarreEnigmaPanel()
         {
+            // Initialise le code barre
             for (int i = 0; i < 15; i++)
             {
                 Panel Barre = new Panel();
@@ -40,6 +42,11 @@ namespace Cpln.Enigmos.Enigmas
                 this.Controls.Add(list[0 + i]);
                 iPosX += 12;
             }
+            // Initialise le mot caché
+            cpln.Text = "cpln";
+            cpln.Location = new Point(500, 300);
+            cpln.Angle = 90;
+            this.Controls.Add(cpln);
         }
         /// <summary>
         /// Méthode pour deplacer certain panels

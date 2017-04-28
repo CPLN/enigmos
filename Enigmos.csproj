@@ -199,6 +199,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RotatingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Utils\ShuffleList.cs" />
     <EmbeddedResource Include="Enigmos.resx">
       <DependentUpon>Enigmos.cs</DependentUpon>
