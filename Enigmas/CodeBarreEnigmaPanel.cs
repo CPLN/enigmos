@@ -42,6 +42,10 @@ namespace Cpln.Enigmos.Enigmas
                 this.Controls.Add(list[0 + i]);
                 iPosX += 12;
             }
+            // Place une barre exactement sur le label 
+            list[11].Size = new Size(11, 200);
+            list[11].Location = new Point(505, 200);
+
             // Initialise le mot caché
             cpln.Text = "CodeBarreVicieux";
             cpln.Location = new Point(504, 300);
