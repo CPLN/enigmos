@@ -30,19 +30,20 @@ namespace Cpln.Enigmos.Enigmas
             BackgroundImage = Properties.Resources.jungle;
             Size = Properties.Resources.jungle.Size;
 
-            //Image des singes
+            //Création des pictures box
             foreach (PictureBox pbx in pbx)
             {
                 BackgroundImage = Properties.Resources.SingeBleuCymbaleFermees;
                 Size = Properties.Resources.SingeBleuCymbaleFermees.Size;
                 BackColor = Color.Transparent;
+                Controls.Add(pbx);
                 ImageSinges();
             }
 
             //Placement des PictureBox
             pbx[0].Location = new Point(200, 500); 
-            pbx[1].Location = new Point(600, 500);
-            pbx[2].Location = new Point(800, 500);
+            pbx[1].Location = new Point(400, 500);
+            pbx[2].Location = new Point(600, 500);
 
             //Création des boutons
             Button bouton = new Button();
@@ -55,15 +56,16 @@ namespace Cpln.Enigmos.Enigmas
                 //btnReponse[i].Image = Image.FromFile("banane");
             }
 
-            btnReponse[0].Location = new Point(450, 800);//Placement des boutons
+            //Placement des boutons
+            btnReponse[0].Location = new Point(450, 800);
             btnReponse[1].Location = new Point(600, 850);
             btnReponse[2].Location = new Point(750, 800);
             btnReponse[3].Location = new Point(900, 850);
             btnReponse[4].Location = new Point(1050, 800);
 
+            //Attribution d'une taille pour les boutons
             for (int i = 0; i < 5; i++)
             {
-                //attribution d'une taille et d'un texte pour les boutons
                 btnReponse[i].Width = 50;
                 btnReponse[i].Height = 30;
                 //btnReponse[i].Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
@@ -72,16 +74,15 @@ namespace Cpln.Enigmos.Enigmas
             }
         }
 
-            //Evenement sur le clic sur un bouton.
+            //Evènement sur le clic sur un bouton.
             private void bouton_Click(object sender, EventArgs e)
             {
                 ((Button)sender).Enabled = false;
             }
 
-            private void ImageSinges()
-            {
-                //Controls.Add();
-            }
+        private void ImageSinges()
+        {
+        }
 
         public override void Unload()
         {
