@@ -21,7 +21,7 @@ namespace Cpln.Enigmos.Enigmas
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        List<Panel> list = new List<Panel>();
+        List<MovablePanel> list = new List<MovablePanel>();
         int iPosX = 120;
         Random rnd = new Random();
         RotatingLabel cpln = new RotatingLabel();
@@ -33,12 +33,11 @@ namespace Cpln.Enigmos.Enigmas
             // Initialise le code barre
             for (int i = 0; i < 15; i++)
             {
-                Panel Barre = new Panel();
+                MovablePanel Barre = new MovablePanel();
                 list.Add(Barre);
                 list[0 + i].Size = new Size(rnd.Next(9, 22), 200);
                 list[0 + i].Location = new Point(iPosX + iPosX, 200);
                 list[0 + i].BackColor = Color.Black;
-                list[0 + i].MouseMove += new MouseEventHandler(DeplacerBarre);
                 this.Controls.Add(list[0 + i]);
                 iPosX += 12;
             }
@@ -52,38 +51,6 @@ namespace Cpln.Enigmos.Enigmas
             cpln.Size = new Size(1, 10);
             cpln.Angle = 90;
             this.Controls.Add(cpln);
-        }
-        /// <summary>
-        /// Méthode pour deplacer certain panels
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        int xPos;
-        int yPos;
-        private Panel pBas;
-
-        private void pBas_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                xPos = e.X;
-                yPos = e.Y;
-            }
-        }
-
-        private void DeplacerBarre(object sender, MouseEventArgs e)
-        {
-            pBas = sender as Panel;
-            if (pBas != null)
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    pBas.Top += (e.Y - yPos);
-                    pBas.Left += (e.X - xPos);
-                }
-                //ReleaseCapture();
-                //SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
         }
 
     }
