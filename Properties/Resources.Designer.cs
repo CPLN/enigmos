@@ -628,6 +628,26 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SingeBleuCymbaleFermees {
+            get {
+                object obj = ResourceManager.GetObject("SingeBleuCymbaleFermees", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SingeBleuCymbalesOuvertes {
+            get {
+                object obj = ResourceManager.GetObject("SingeBleuCymbalesOuvertes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap souris {
             get {
                 object obj = ResourceManager.GetObject("souris", resourceCulture);

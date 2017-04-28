@@ -13,7 +13,7 @@ namespace Cpln.Enigmos.Enigmas
         private Button[] btnReponse = new Button[5];
         //string strMot = "BANANAS"; //Réponse de l'énigme.
         Label Reponse = new Label();
-        //PictureBox pbx = new PictureBox();
+        private PictureBox [] pbx = new PictureBox[3];
         Label lblEnigme = new Label();
 
         public SingesEnigmaPanel()
@@ -29,7 +29,20 @@ namespace Cpln.Enigmos.Enigmas
             //Image de base.
             BackgroundImage = Properties.Resources.jungle;
             Size = Properties.Resources.jungle.Size;
-            //ImageSinges();
+
+            //Image des singes
+            foreach (PictureBox pbx in pbx)
+            {
+                BackgroundImage = Properties.Resources.SingeBleuCymbaleFermees;
+                Size = Properties.Resources.SingeBleuCymbaleFermees.Size;
+                BackColor = Color.Transparent;
+                ImageSinges();
+            }
+
+            //Placement des PictureBox
+            pbx[0].Location = new Point(200, 500); 
+            pbx[1].Location = new Point(600, 500);
+            pbx[2].Location = new Point(800, 500);
 
             //Création des boutons
             Button bouton = new Button();
@@ -67,8 +80,7 @@ namespace Cpln.Enigmos.Enigmas
 
             private void ImageSinges()
             {
-                //pbx.Location = new Point(200, 200);
-                //Controls.Add(pbx);
+                //Controls.Add();
             }
 
         public override void Unload()
