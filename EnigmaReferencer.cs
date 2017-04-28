@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new HiddenCharacterEnigmalPanel(), "Caractère caché");
+            return new Enigma(new InvisibleAnswerEnigmaPanel(), "Invisible Answer");
         }
 
         /// <summary>
