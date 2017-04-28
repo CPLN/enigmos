@@ -24,7 +24,7 @@ namespace Cpln.Enigmos.Enigmas
             lblEnigme.Dock = DockStyle.Top;
             lblEnigme.TextAlign = ContentAlignment.TopCenter;
 
-            this.Controls.Add(lblEnigme);
+            Controls.Add(lblEnigme);
 
             //Image de base.
             BackgroundImage = Properties.Resources.jungle;
