@@ -1,12 +1,49 @@
-﻿using System;
+﻿using Cpln.Enigmos.Utils;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
-    class FormesEnFoliesEnigmaPanel
+    public class FormesEnFoliesEnigmaPanel : EnigmaPanel 
     {
+        Button btnDifferent = new Button(); // Création du bouton différent
+        Button btnIdentique = new Button(); // Création du bouton identique
+
+        Panel Carre1 = new Panel(); // Création du panel qui va faire office de forme
+        Panel Carre2 = new Panel();
+
+        public FormesEnFoliesEnigmaPanel()
+        {
+
+            Controls.Add(btnDifferent);
+            btnDifferent.Location = new Point(421, 111);
+            btnDifferent.Text = "Différent";
+
+            Controls.Add(btnIdentique);
+            btnIdentique.Location = new Point(321, 111);
+            btnIdentique.Text = "Identique";
+
+            Carre1 = AjoutPanelCarre(50, 250, 250, Carre1);
+            Carre1.BackColor = Color.Blue;
+
+            Carre2 = AjoutPanelCarre(50, 350, 350, Carre2);
+            Carre2.BackColor = Color.Black;
+
+        }
+
+
+        public Panel AjoutPanelCarre(int cote, int positionX, int positionY, Panel p)
+        {
+            p.Size = new Size(cote, cote);
+            p.Location = new Point(positionX, positionY);
+            Controls.Add(p);
+
+            return p;
+        }
     }
 }
