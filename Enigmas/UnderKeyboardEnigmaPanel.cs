@@ -35,7 +35,7 @@ namespace Cpln.Enigmos.Enigmas
                 label.Font = new Font(FontFamily.GenericMonospace, 10);
                 label.AutoSize = true;
                 label.BackColor = Color.Transparent;
-                label.ForeColor = Color.Blue;
+                label.ForeColor = Color.White;
                 lettres.Add(label);
 
             }
@@ -56,8 +56,7 @@ namespace Cpln.Enigmos.Enigmas
                 touche.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                 touches.Add(touche);
                 Controls.Add(touche);
-                Controls.Add(lettres[i]);
-               // lettres[i].Location;
+                touche.Controls.Add(lettres[i]);
             }
 
         }
