@@ -6,34 +6,33 @@ using System.Threading.Tasks;
 using Cpln.Enigmos.Enigmas.Components;
 using System.Drawing;
 using Cpln.Enigmos.Utils;
-using System.Reflection.Emit;
+using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
     class UnderKeyboardEnigmaPanel : EnigmaPanel
     {
         private List<Touche> touches;
-        private ShuffleList<char> lettres ;
+        private ShuffleList<Label> lettres ;
+       // private Label;
         private int iWidth = 60;
         private int iHeight = 60;
         private int iLocalisationX = 50;
         private int iLocalisationY = 50;
         private int iLocY;
         private int iLocX;
-        private char cLettre;
 
         public UnderKeyboardEnigmaPanel()
         {
             touches = new List<Touche>();
-            lettres = new ShuffleList<char>();
+            lettres = new ShuffleList<Label>();
             iLocX = iLocalisationX;
             iLocY = iLocalisationY;
-            for (char i = 'a'; i <= 'z';i++)
+            for (char i = 'a'; i <= 'z'; i++)
             {
                 Label label = new Label();
-                label.Text = i;
+                label.Text = Convert.ToString(i);
             }
-
             for (int i = 0; i < 26; i++)
             {
                 iLocX += iWidth;
@@ -50,9 +49,9 @@ namespace Cpln.Enigmos.Enigmas
                 touche.BackColor = Color.Black;
                 touche.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                 touches.Add(touche);
-                Controls.Add(touche);
-               
+                Controls.Add(touche);   
             }
+
         }
     }
 }
