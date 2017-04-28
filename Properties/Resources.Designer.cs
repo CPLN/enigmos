@@ -418,6 +418,16 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap jungle {
+            get {
+                object obj = ResourceManager.GetObject("jungle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kirby2 {
             get {
                 object obj = ResourceManager.GetObject("kirby2", resourceCulture);
@@ -611,16 +621,6 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap SeptDifference2 {
             get {
                 object obj = ResourceManager.GetObject("SeptDifference2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap SingesBackground {
-            get {
-                object obj = ResourceManager.GetObject("SingesBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

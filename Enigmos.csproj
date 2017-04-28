@@ -226,6 +226,14 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\jungle.png" />
+    <None Include="Resources\SingeVioletCymbalesOuvertes.png" />
+    <None Include="Resources\SingeVioletCymbaleFermees.png" />
+    <None Include="Resources\SingeTrumpet.png" />
+    <None Include="Resources\SingeRougeCymbalesOuvertes.png" />
+    <None Include="Resources\SingeRougeCymbaleFermees.png" />
+    <None Include="Resources\SingeBleuCymbalesOuvertes.png" />
+    <None Include="Resources\SingeBleuCymbaleFermees.png" />
     <None Include="Resources\SingesBackground.png" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\souris.png" />
