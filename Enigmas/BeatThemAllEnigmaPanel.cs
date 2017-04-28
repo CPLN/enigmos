@@ -145,16 +145,14 @@ namespace Cpln.Enigmos.Enigmas
                 //attaque à droit
                 if (bFaceRight == true)
                 {
-                    pbxPlayer.Width += WIDTH_PUNCH;
                     pbxPlayer.Image = Properties.Resources.pj2;
                 }
                 //attaque à gauche
                 else
                 {
-                    pbxPlayer.Left -= WIDTH_PUNCH;
-                    pbxPlayer.Width += WIDTH_PUNCH;
                     pbxPlayer.Image = Properties.Resources.pj4;
                 }
+                pbxPlayer.Width = pbxPlayer.Image.Width; // mise à jour de la taille
                 bPunch = true;//lance une fonction dans le timer permettant de "retracter" le poing
             }
         }
@@ -180,6 +178,7 @@ namespace Cpln.Enigmos.Enigmas
             {
                 pbxPlayer.Image = Properties.Resources.pj3;
             }
+            pbxPlayer.Width = pbxPlayer.Image.Width; // mise à jour de la taille
 
             #region Left Right input
             //Gére les déplacement
