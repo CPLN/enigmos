@@ -18,7 +18,7 @@ namespace Cpln.Enigmos.Enigmas.Components
         private Point moveStart;
 
         /// <summary>
-        /// Ce constructeur permet de créer une pièce de puzzle d'après un élément représentant le puzzle terminé.
+        /// Permet le déplacement des panels (start, move, stop)
         /// </summary>
         public MovablePanel()
         {
@@ -28,7 +28,7 @@ namespace Cpln.Enigmos.Enigmas.Components
         }
 
         /// <summary>
-        /// Appelé lors du clic sur la pièce.
+        /// Appelé lors du clic sur le panel
         /// </summary>
         /// <param name="sender">L'objet appelant</param>
         /// <param name="e">Les données liées à la souris</param>
@@ -39,7 +39,7 @@ namespace Cpln.Enigmos.Enigmas.Components
         }
 
         /// <summary>
-        /// Appelé lors du déplacement de la pièce.
+        /// Appelé lors du déplacement du panel
         /// </summary>
         /// <param name="sender">L'objet appelant</param>
         /// <param name="e">Les données liées à la souris</param>
@@ -57,7 +57,7 @@ namespace Cpln.Enigmos.Enigmas.Components
         }
 
         /// <summary>
-        /// Appelé lors du relachement du bouton sur la pièce.
+        /// Appelé lors du relachement du bouton sur le panel
         /// </summary>
         /// <param name="sender">L'objet appelant</param>
         /// <param name="e">Les données liées à la souris</param>
