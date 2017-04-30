@@ -226,7 +226,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
-    <None Include="Resources\texture.jpg" />
+    <None Include="Resources\Coin1.png" />
+    <None Include="Resources\walkcyclevarious.png" />
+    <None Include="Resources\11635.jpg" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\souris.png" />
     <None Include="Resources\taupe - Copie.svg" />
