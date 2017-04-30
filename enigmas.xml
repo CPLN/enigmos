@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <enigmas>
+  <enigma title="Plateformer">
+    <answer>Ugwemuhwem</answer>
+    <hint>Gagne.</hint>
+  </enigma>
   <enigma title="Le plus long mot">
     <answer>oiseaux</answer>
     <hint>C'est un animal.</hint>

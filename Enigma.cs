@@ -53,6 +53,7 @@ namespace Cpln.Enigmos
         /// Est-ce que l'énigme doit prendre le focus ?
         /// </summary>
         private bool bTakeFocus = false;
+        private PlateformerEnigmaPanel plateformerEnigmaPanel;
 
         /// <summary>
         /// Permet d'afficher le titre de l'énigme.

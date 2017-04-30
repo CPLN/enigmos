@@ -15,6 +15,7 @@ namespace Cpln.Enigmos.Enigmas
         {
             BackColor = Color.White;
             Size = new Size(800, 600);
+            DoubleBuffered = true;
         }
 
         /// <summary>

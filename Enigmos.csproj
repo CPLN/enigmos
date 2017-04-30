@@ -88,6 +88,9 @@
     <Compile Include="Enigmas\Components\Ennemi.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\PlateformerEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -223,6 +226,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\texture.jpg" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\souris.png" />
     <None Include="Resources\taupe - Copie.svg" />
