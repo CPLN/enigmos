@@ -11,9 +11,9 @@ namespace Cpln.Enigmos.Enigmas {
     class PlateformerEnigmaPanel : EnigmaPanel {
         
         Hero _hero = new Hero(0, 300, 50, 50);
+        Badboy _badboy;
         Rectangle _rWin;
         Rectangle[] _tPlateformes;
-        bool bEnd = false;
 
         public PlateformerEnigmaPanel() {
             _hero.Moved += new EventHandler(_hero_Moved);
@@ -26,30 +26,34 @@ namespace Cpln.Enigmos.Enigmas {
                 new Rectangle(600, Height - 500, 200, 50)
             };
 
+            _badboy = new Badboy(_tPlateformes[_tPlateformes.Length - 2].X, _tPlateformes[_tPlateformes.Length - 2].Y - 40, 40, 40, _tPlateformes[_tPlateformes.Length - 2].Right - 40);
+            _badboy.Moved += delegate { Invalidate(); };
+
             _rWin = new Rectangle(_tPlateformes.Last().X + _tPlateformes.Last().Width - 30, _tPlateformes.Last().Y - 30, 30, 30);
 
             _hero.Jump(true);
         }
 
         private void _hero_Moved(object sender, EventArgs e) {
-            if (!bEnd) {
-                foreach (Rectangle _r in _tPlateformes) {
-                    if (_hero.Y == _r.Y - _r.Height && (_hero.X >= _r.X - _hero.Width && _hero.X <= _r.X + _r.Width) && _hero.JumpFinish) {
-                        _hero.IsJumping = false;
-                        break;
-                    } else if (_hero.Y == _r.Y - _r.Height && !(_hero.X >= _r.X - _hero.Width && _hero.X <= _r.X + _r.Width) && !_hero.IsJumping) {
-                        _hero.JumpFinish = true;
-                        _hero.IsJumping = true;
-                    } else if (_hero.Y >= Width) {
-                        _hero.SetPosition(0, 0);
-                    }
+            foreach (Rectangle _r in _tPlateformes) {
+                if (_hero.Rectangle.Bottom == _r.Top && (_hero.Rectangle.Right >= _r.Left && _hero.Rectangle.Left <= _r.Right) && _hero.JumpFinish) {
+                    _hero.IsJumping = false;
+                    break;
+                } else if (_hero.Rectangle.Bottom == _r.Top && !(_hero.Rectangle.Right >= _r.Left && _hero.Rectangle.Left <= _r.Right) && !_hero.IsJumping) {
+                    _hero.JumpFinish = true;
+                    _hero.IsJumping = true;
+                } else if (_hero.Y >= Width) {
+                    _hero.SetPosition(0, 0);
                 }
-                Invalidate();
+            }
+            Invalidate();
 
-                if (_hero.Rectangle.IntersectsWith(_rWin)) {
-                    bEnd = true;
-                    MessageBox.Show("Ugwemuhwem");
-                }
+            if (_hero.Rectangle.IntersectsWith(_rWin)) {
+                _hero.Dead();
+            }
+
+            if (_hero.Rectangle.IntersectsWith(_badboy.Rectangle)) {
+                _hero.Dead();
             }
         }
 
@@ -57,24 +61,23 @@ namespace Cpln.Enigmos.Enigmas {
             e.Graphics.FillRectangles(Brushes.ForestGreen, _tPlateformes);
             e.Graphics.FillRectangle(Brushes.LightGray, _hero.Rectangle);
             e.Graphics.DrawImage(_hero.Texture, _hero.Rectangle);
+            e.Graphics.FillRectangle(Brushes.Black, _badboy.Rectangle);
             e.Graphics.DrawImage(new Bitmap(Resources.Coin), _rWin);
         }
 
         public override void PressKey(object sender, KeyEventArgs e) {
-            if (!bEnd) {
-                switch (e.KeyCode) {
-                    case Keys.D:
-                    _hero.MoveX(1);
-                    break;
+            switch (e.KeyCode) {
+                case Keys.D:
+                _hero.MoveX(1);
+                break;
 
-                    case Keys.A:
-                    _hero.MoveX(-1);
-                    break;
+                case Keys.A:
+                _hero.MoveX(-1);
+                break;
 
-                    case Keys.W:
-                    _hero.Jump(false);
-                    break;
-                }
+                case Keys.W:
+                _hero.Jump(false);
+                break;
             }
         }
 
@@ -83,34 +86,66 @@ namespace Cpln.Enigmos.Enigmas {
         }
     }
 
-    public class Hero {
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public int Width { get; private set; }
-        public int Height { get; private set; }
-        public int Margin { get; private set; } = 20;
-        public bool IsJumping { get; set; }
-        public bool JumpFinish { get; set; }
-        private Bitmap[] Textures = new Bitmap[6];
-        public Bitmap Texture { get; set; }
-        public event EventHandler Moved;
-
-        private Timer _tmr = new Timer() { Enabled = true, Interval = 1 };
-        private int iJump;
-        private int iTexture = 0;
-        private int iIntervalTexture = 0;
-        private int iDirection;
+    public abstract class Boy {
+        public int X { get; protected set; }
+        public int Y { get; protected set; }
+        public int Width { get; protected set; }
+        public int Height { get; protected set; }
+        public abstract event EventHandler Moved;
 
         public Rectangle Rectangle {
             get { return new Rectangle(X, Y, Width, Height); }
         }
+        protected Timer Timer { get; set; } = new Timer() { Enabled = true, Interval = 1 };
 
-        public Hero(int X, int Y, int Width, int Height) {
+        protected Boy(int X, int Y, int Width, int Height) {
             this.X = X;
             this.Y = Y;
             this.Width = Width;
             this.Height = Height;
 
+            Timer.Tick += Timer_Tick;
+        }
+
+        protected abstract void Timer_Tick(object sender, EventArgs e);
+    }
+
+    public class Badboy : Boy {
+        public override event EventHandler Moved;
+        private int iXMin;
+        private int iXMax;
+        private bool bMax = false;
+
+        public Badboy(int X, int Y, int Width, int Height, int XMax) : base(X, Y, Width, Height) {
+            iXMin = X;
+            iXMax = XMax;
+        }
+
+        protected override void Timer_Tick(object sender, EventArgs e) {
+            if (X < iXMax && !bMax) {
+                X++;
+                bMax = X >= iXMax;
+            } if (bMax) {
+                X--;
+                bMax = X >= iXMin;
+            }
+            Moved?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    public class Hero : Boy {
+        public bool IsJumping { get; set; }
+        public bool JumpFinish { get; set; }
+        public Bitmap Texture { get; set; }
+        public override event EventHandler Moved;
+
+        private Bitmap[] Textures = new Bitmap[6];
+        private int iJump;
+        private int iTexture = 0;
+        private int iIntervalTexture = 0;
+        private int iDirection;
+
+        public Hero(int X, int Y, int Width, int Height) : base (X, Y, Width, Height) {
             int tX = 0;
             Bitmap _OriginalTexture = new Bitmap(Resources.Player);
             for (int i = 0; i < 6; i++) {
@@ -118,32 +153,6 @@ namespace Cpln.Enigmos.Enigmas {
                 tX += 60;
             }
             Texture = Textures[0];
-            _tmr.Tick += _tmr_Tick;
-        }
-        
-        private void _tmr_Tick(object sender, EventArgs e) {
-            if (IsJumping) {
-                if (Y > iJump && !JumpFinish) {
-                    Move(0, -10);
-                    JumpFinish = Y <= iJump;
-                }
-
-                if (JumpFinish) {
-                    Move(0, 10);
-                }
-            }
-
-            switch (iDirection) {
-                case 1:
-                Move(5, 0);
-                ChangeTexture(0, 2);
-                break;
-
-                case -1:
-                Move(-5, 0);
-                ChangeTexture(3, Textures.Length - 1);
-                break;
-            }
         }
 
         private void ChangeTexture(int TextureMin, int TextureMax) {
@@ -170,19 +179,52 @@ namespace Cpln.Enigmos.Enigmas {
         }
 
         public void Move(int X, int Y) {
-            this.X += X;
-            this.Y += Y;
+            base.X += X;
+            base.Y += Y;
 
             Moved?.Invoke(this, EventArgs.Empty);
         }
 
         public void SetPosition(int X, int Y) {
-            this.X = X;
-            this.Y = Y;
+            base.X = X;
+            base.Y = Y;
+
+            Moved?.Invoke(this, EventArgs.Empty);
         }
 
         public void MoveX(int iDirection) {
             this.iDirection = iDirection;
+        }
+
+        protected override void Timer_Tick(object sender, EventArgs e) {
+            if (IsJumping) {
+                if (Y > iJump && !JumpFinish) {
+                    Move(0, -10);
+                    JumpFinish = Y <= iJump;
+                }
+
+                if (JumpFinish) {
+                    Move(0, 10);
+                }
+            }
+
+            switch (iDirection) {
+                case 1:
+                Move(5, 0);
+                ChangeTexture(0, 2);
+                break;
+
+                case -1:
+                Move(-5, 0);
+                ChangeTexture(3, Textures.Length - 1);
+                break;
+            }
+        }
+
+        public void Dead() {
+            SetPosition(0, 0);
+            IsJumping = true;
+            JumpFinish = true;
         }
     }
 }
