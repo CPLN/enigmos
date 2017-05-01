@@ -27,7 +27,12 @@ namespace Cpln.Enigmos.Enigmas {
             };
 
             _badboy = new Badboy(_tPlateformes[_tPlateformes.Length - 2].X, _tPlateformes[_tPlateformes.Length - 2].Y - 40, 40, 40, _tPlateformes[_tPlateformes.Length - 2].Right - 40);
-            _badboy.Moved += delegate { Invalidate(); };
+            _badboy.Moved += delegate {
+                if (_hero.Rectangle.IntersectsWith(_badboy.Rectangle)) {
+                    _hero.Dead();
+                }
+                Invalidate();
+            };
 
             _rWin = new Rectangle(_tPlateformes.Last().X + _tPlateformes.Last().Width - 30, _tPlateformes.Last().Y - 30, 30, 30);
 
@@ -51,10 +56,6 @@ namespace Cpln.Enigmos.Enigmas {
             if (_hero.Rectangle.IntersectsWith(_rWin)) {
                 _hero.Dead();
                 MessageBox.Show("Ugwemuhwem");
-            }
-
-            if (_hero.Rectangle.IntersectsWith(_badboy.Rectangle)) {
-                _hero.Dead();
             }
         }
 
