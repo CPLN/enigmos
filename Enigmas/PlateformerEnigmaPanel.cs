@@ -50,6 +50,7 @@ namespace Cpln.Enigmos.Enigmas {
 
             if (_hero.Rectangle.IntersectsWith(_rWin)) {
                 _hero.Dead();
+                MessageBox.Show("Ugwemuhwem");
             }
 
             if (_hero.Rectangle.IntersectsWith(_badboy.Rectangle)) {
