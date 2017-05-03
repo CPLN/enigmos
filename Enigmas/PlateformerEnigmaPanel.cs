@@ -41,10 +41,10 @@ namespace Cpln.Enigmos.Enigmas {
 
         private void _hero_Moved(object sender, EventArgs e) {
             foreach (Rectangle _r in _tPlateformes) {
-                if (_hero.Rectangle.Bottom == _r.Top && (_hero.Rectangle.Right >= _r.Left && _hero.Rectangle.Left <= _r.Right) && _hero.JumpFinish) {
+                if (_hero.Rectangle.Bottom == _r.Top && (_hero.Rectangle.Right > _r.Left && _hero.Rectangle.Left < _r.Right) && _hero.JumpFinish) {
                     _hero.IsJumping = false;
                     break;
-                } else if (_hero.Rectangle.Bottom == _r.Top && !(_hero.Rectangle.Right >= _r.Left && _hero.Rectangle.Left <= _r.Right) && !_hero.IsJumping) {
+                } else if (_hero.Rectangle.Bottom == _r.Top && !(_hero.Rectangle.Right > _r.Left && _hero.Rectangle.Left < _r.Right) && !_hero.IsJumping) {
                     _hero.JumpFinish = true;
                     _hero.IsJumping = true;
                 } else if (_hero.Y >= Width) {
