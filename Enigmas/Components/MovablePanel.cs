@@ -25,6 +25,7 @@ namespace Cpln.Enigmos.Enigmas.Components
             this.MouseDown += new MouseEventHandler(MoveStart);
             this.MouseMove += new MouseEventHandler(MoveMove);
             this.MouseUp += new MouseEventHandler(MoveStop);
+            this.Cursor = Cursors.NoMove2D;
         }
 
         /// <summary>
@@ -45,7 +46,6 @@ namespace Cpln.Enigmos.Enigmas.Components
         /// <param name="e">Les données liées à la souris</param>
         private void MoveMove(object sender, MouseEventArgs e)
         {
-            Cursor = Cursors.NoMove2D;
             if (bMoving)
             {
                 int newX = Left + e.X - moveStart.X;
