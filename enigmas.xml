@@ -86,6 +86,10 @@
     <answer></answer>
     <hint>Répond pas Morice</hint>
   </enigma>
+  <enigma title="Invisible Answer">
+    <answer>Blanc c'est blanc</answer>
+    <hint>La réponse est derrière toi, ou peut-être devant</hint>
+  </enigma>
   <enigma title="Le jeu du pendu">
 	  <answer>oxygene</answer>
 	  <hint>La corde, ça fait mal au cou</hint>
