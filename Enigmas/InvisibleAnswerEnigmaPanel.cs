@@ -23,15 +23,13 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         public InvisibleAnwerEnigmaPanel()
         {
-            // Ajout du panel (pHaut), localisation, taille, couleur, type de curseur
-            pHaut.Location = new Point(1, 1);
+            // Ajout du panel (pHaut), taille, couleur, type de curseur
             pHaut.Size = new Size(798, 270);
             pHaut.BackColor = Color.White;
             pHaut.Cursor = Cursors.Arrow;       
             this.Controls.Add(pHaut);
 
-            // Ajout du panel (pBas), localisation, taille, couleur, type de curseur
-            pBas.Location = new Point(1, 300);
+            // Ajout du panel (pBas), taille, couleur, type de curseur
             pBas.Size = new Size(798, 299);
             pBas.BackColor = Color.White;
             pBas.Cursor = Cursors.Arrow;
@@ -41,6 +39,16 @@ namespace Cpln.Enigmos.Enigmas
             this.Controls.Add(lblAnswer);
             this.lblAnswer.Text = "Blanc c'est blanc";
             lblAnswer.Location = new Point(400, 250);
+        }
+
+
+        /// <summary>
+        /// Methode permettant d'initaliser les positions
+        /// </summary>
+        public override void Load()
+        {
+            pHaut.Location = new Point(1, 1);
+            pBas.Location = new Point(1, 300);
         }
     }
 }
