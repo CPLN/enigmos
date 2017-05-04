@@ -13,8 +13,8 @@ namespace Cpln.Enigmos.Enigmas
     
     class UnderKeyboardEnigmaPanel : EnigmaPanel
     {
-        private List<Touche> touches;
-        private ShuffleList<Label> lettres ;
+        //4 18 22 26
+        private ShuffleList<Touche> touches;
         private int iWidth = 60;
         private int iHeight = 60;
         private int iLocalisationX = 190;
@@ -22,8 +22,10 @@ namespace Cpln.Enigmos.Enigmas
         private int iLocY;
         private int iLocX;
 
-        public void CreerClavier (ShuffleList<Label>Lettre)
+        public void CreerClavier (List<Touche>touches)
         {
+            iLocX = iLocalisationX;
+            iLocY = iLocalisationY;
             for (int i = 0; i < 26; i++)
             {
                 iLocX += iWidth;
@@ -36,20 +38,16 @@ namespace Cpln.Enigmos.Enigmas
                 {
                     iLocX += iWidth;
                 }
-                Touche touche = new Touche("", iLocX, iLocY, iWidth, iHeight);
-                touche.BackColor = Color.Black;
-                touche.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-                touches.Add(touche);
-                Controls.Add(touche);
-                touche.Controls.Add(lettres[i]);
+
+                Touche touche = touches[i];
+                touche.Location = new Point(iLocX, iLocY);
+
             }
         }
+
         public UnderKeyboardEnigmaPanel()
         {
-            touches = new List<Touche>();
-            lettres = new ShuffleList<Label>();
-            iLocX = iLocalisationX;
-            iLocY = iLocalisationY;
+            touches = new ShuffleList<Touche>();
 
             Button reset = new Button();
             Controls.Add(reset);
@@ -59,20 +57,28 @@ namespace Cpln.Enigmos.Enigmas
 
             for (char i = 'a'; i <= 'z'; i++)
             {
-                Label label = new Label();
-                label.Text = Convert.ToString(i);
-                label.Font = new Font(FontFamily.GenericMonospace, 10);
-                label.AutoSize = true;
-                label.BackColor = Color.Transparent;
-                label.ForeColor = Color.White;
-                lettres.Add(label);
+                    Label label = new Label();
+                    label.Text = Convert.ToString(i);
+                    label.Font = new Font(FontFamily.GenericMonospace, 10);
+                    label.AutoSize = true;
+                    label.BackColor = Color.Transparent;
+                    label.ForeColor = Color.White;
+
+                    Touche touche = new Touche("", iLocX, iLocY, iWidth, iHeight);
+
+                    touche.BackColor = Color.Black;
+                    touche.BorderStyle = BorderStyle.Fixed3D;
+                    touches.Add(touche);
+                    Controls.Add(touche);
+                    touche.Controls.Add(label);
             }
-            lettres.Shuffle();
-            CreerClavier(lettres);
+
+            touches.Shuffle();
+            CreerClavier(touches);
     }
         private void Reset(object sender, EventArgs e)
         {
-            CreerClavier(lettres);
+            CreerClavier(touches);
         }
     }
 }
