@@ -15,7 +15,6 @@ namespace Cpln.Enigmos.Enigmas
     {
         private List<Touche> touches;
         private ShuffleList<Label> lettres ;
-       // private Label;
         private int iWidth = 60;
         private int iHeight = 60;
         private int iLocalisationX = 190;
@@ -23,34 +22,8 @@ namespace Cpln.Enigmos.Enigmas
         private int iLocY;
         private int iLocX;
 
-        public ShuffleList CreerClavier(lettres)
+        public void CreerClavier (ShuffleList<Label>Lettre)
         {
-
-        }
-        public UnderKeyboardEnigmaPanel()
-        {
-            touches = new List<Touche>();
-            lettres = new ShuffleList<Label>();
-            iLocX = iLocalisationX;
-            iLocY = iLocalisationY;
-
-           /* Button reset = new Button();
-            Controls.Add(reset);
-            reset.Text = "Réinitialiser le clavier";
-            reset.Size = new Size(140, 30); */
-
-            for (char i = 'a'; i <= 'z'; i++)
-            {
-                Label label = new Label();
-                label.Text = Convert.ToString(i);
-                label.Font = new Font(FontFamily.GenericMonospace, 10);
-                label.AutoSize = true;
-                label.BackColor = Color.Transparent;
-                label.ForeColor = Color.White;
-                lettres.Add(label);
-
-            }
-            lettres.Shuffle();
             for (int i = 0; i < 26; i++)
             {
                 iLocX += iWidth;
@@ -70,7 +43,36 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(touche);
                 touche.Controls.Add(lettres[i]);
             }
+        }
+        public UnderKeyboardEnigmaPanel()
+        {
+            touches = new List<Touche>();
+            lettres = new ShuffleList<Label>();
+            iLocX = iLocalisationX;
+            iLocY = iLocalisationY;
 
+            Button reset = new Button();
+            Controls.Add(reset);
+            reset.Text = "Réinitialiser le clavier";
+            reset.Size = new Size(140, 30);
+            reset.Click += new EventHandler(Reset);
+
+            for (char i = 'a'; i <= 'z'; i++)
+            {
+                Label label = new Label();
+                label.Text = Convert.ToString(i);
+                label.Font = new Font(FontFamily.GenericMonospace, 10);
+                label.AutoSize = true;
+                label.BackColor = Color.Transparent;
+                label.ForeColor = Color.White;
+                lettres.Add(label);
+            }
+            lettres.Shuffle();
+            CreerClavier(lettres);
     }
+        private void Reset(object sender, EventArgs e)
+        {
+            CreerClavier(lettres);
+        }
     }
 }
