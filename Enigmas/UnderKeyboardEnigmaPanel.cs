@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
+    
     class UnderKeyboardEnigmaPanel : EnigmaPanel
     {
         private List<Touche> touches;
@@ -17,17 +18,27 @@ namespace Cpln.Enigmos.Enigmas
        // private Label;
         private int iWidth = 60;
         private int iHeight = 60;
-        private int iLocalisationX = 50;
-        private int iLocalisationY = 50;
+        private int iLocalisationX = 190;
+        private int iLocalisationY = 150;
         private int iLocY;
         private int iLocX;
 
+        public ShuffleList CreerClavier(lettres)
+        {
+
+        }
         public UnderKeyboardEnigmaPanel()
         {
             touches = new List<Touche>();
             lettres = new ShuffleList<Label>();
             iLocX = iLocalisationX;
             iLocY = iLocalisationY;
+
+           /* Button reset = new Button();
+            Controls.Add(reset);
+            reset.Text = "Réinitialiser le clavier";
+            reset.Size = new Size(140, 30); */
+
             for (char i = 'a'; i <= 'z'; i++)
             {
                 Label label = new Label();
@@ -39,19 +50,20 @@ namespace Cpln.Enigmos.Enigmas
                 lettres.Add(label);
 
             }
+            lettres.Shuffle();
             for (int i = 0; i < 26; i++)
             {
                 iLocX += iWidth;
-                if (i%7 == 0)
+                if (i % 7 == 0)
                 {
                     iLocX = iLocalisationX;
                     iLocY += iHeight;
                 }
                 if (i == 21)
                 {
-                    iLocX += iWidth; 
+                    iLocX += iWidth;
                 }
-                Touche touche = new Touche("", iLocX, iLocY,iWidth,iHeight);
+                Touche touche = new Touche("", iLocX, iLocY, iWidth, iHeight);
                 touche.BackColor = Color.Black;
                 touche.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                 touches.Add(touche);
@@ -59,6 +71,6 @@ namespace Cpln.Enigmos.Enigmas
                 touche.Controls.Add(lettres[i]);
             }
 
-        }
+    }
     }
 }
