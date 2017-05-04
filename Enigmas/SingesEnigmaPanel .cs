@@ -2,22 +2,31 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
     public class SingesEnigmaPanel : EnigmaPanel
     {
+        //Déclarations des variables
+        private Timer tSinges = new Timer();
         private Button[] btnReponse = new Button[5];
         //string strMot = "BANANAS"; //Réponse de l'énigme.
         Label Reponse = new Label();
-        private PictureBox [] pbx = new PictureBox[3];
+        private PictureBox[] tblPbx = new PictureBox[3];
         Label lblEnigme = new Label();
 
         public SingesEnigmaPanel()
         {
+            //Initialisation des PituresBox
+            for (int i = 0; i < tblPbx.Length; i++)
+            {
+                tblPbx[i] = new PictureBox();
+            }
+
             //Génération du titre.
             lblEnigme.Text = "Jeu des 3 Singes";
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold);
@@ -30,20 +39,19 @@ namespace Cpln.Enigmos.Enigmas
             BackgroundImage = Properties.Resources.jungle;
             Size = Properties.Resources.jungle.Size;
 
-            //Création des pictures box
-            foreach (PictureBox pbx in pbx)
+            //Formatages des pictures box et insertions de l'image du singe
+            foreach (PictureBox pbx in tblPbx)
             {
-                BackgroundImage = Properties.Resources.SingeBleuCymbaleFermees;
-                Size = Properties.Resources.SingeBleuCymbaleFermees.Size;
-                BackColor = Color.Transparent;
+                pbx.Image = Properties.Resources.SingeBleuCymbalesOuvertes;
+                pbx.Size = Properties.Resources.SingeBleuCymbalesOuvertes.Size;
+                pbx.BackColor = Color.Transparent;
                 Controls.Add(pbx);
-                ImageSinges();
             }
 
             //Placement des PictureBox
-            pbx[0].Location = new Point(200, 500); 
-            pbx[1].Location = new Point(400, 500);
-            pbx[2].Location = new Point(600, 500);
+            tblPbx[0].Location = new Point(200, 500);
+            tblPbx[1].Location = new Point(600, 500);
+            tblPbx[2].Location = new Point(1000, 500);
 
             //Création des boutons
             Button bouton = new Button();
@@ -53,7 +61,6 @@ namespace Cpln.Enigmos.Enigmas
             {
                 Controls.Remove(btnReponse[i]);
                 btnReponse[i] = new Button();
-                //btnReponse[i].Image = Image.FromFile("banane");
             }
 
             //Placement des boutons
@@ -74,18 +81,23 @@ namespace Cpln.Enigmos.Enigmas
             }
         }
 
-            //Evènement sur le clic sur un bouton.
-            private void bouton_Click(object sender, EventArgs e)
-            {
-                ((Button)sender).Enabled = false;
-            }
-
-        private void ImageSinges()
+        //Evènement sur le clic sur un bouton.
+        private void bouton_Click(object sender, EventArgs e)
         {
+            
+        }
+        private void tSinge_Tick(object sender, EventArgs e)
+        {
+            tSinges.Tick += new EventHandler(TimerEventProcessor);
+            tSinges.Start();
+            tSinges.Interval = 500;
+            //((Button)sender).Enabled = false;*/
+         
         }
 
-        public override void Unload()
+        private void TimerEventProcessor(object sender, EventArgs e)
         {
+            tblPbx[1].Image = Properties.Resources.SingeBleuCymbaleFermees;
         }
     }
 }
