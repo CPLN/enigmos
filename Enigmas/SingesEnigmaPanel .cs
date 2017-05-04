@@ -5,7 +5,6 @@ namespace Cpln.Enigmos.Enigmas
 {
     public class SingesEnigmaPanel : EnigmaPanel
     {
-
         //Déclarations des variables
         bool bEtatSinge1 = false;
         bool bEtatSinge2 = false;
@@ -16,7 +15,6 @@ namespace Cpln.Enigmos.Enigmas
         private Button[] btnReponse = new Button[5];
         private PictureBox[] tblPbx = new PictureBox[3];
         string strMot = "BANANAS"; //Réponse de l'énigme.
-
         public SingesEnigmaPanel()
         {
             //Initialisation des PituresBox
@@ -24,15 +22,12 @@ namespace Cpln.Enigmos.Enigmas
             {
                 tblPbx[i] = new PictureBox();
             }
-
             //Génération du titre.
             lblEnigme.Text = "Jeu des 3 Singes";
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold);
             lblEnigme.Dock = DockStyle.Top;
             lblEnigme.TextAlign = ContentAlignment.TopCenter;
-
             Controls.Add(lblEnigme);
-
             //Image de base.
             BackgroundImage = Properties.Resources.jungle;
             Size = Properties.Resources.jungle.Size;
@@ -45,7 +40,6 @@ namespace Cpln.Enigmos.Enigmas
                 pbx.BackColor = Color.Transparent;
                 Controls.Add(pbx);
             }
-
             //Placement des PictureBox
             tblPbx[0].Location = new Point(200, 500);
             tblPbx[1].Location = new Point(600, 500);
@@ -60,7 +54,6 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Remove(btnReponse[i]);
                 btnReponse[i] = new Button();
             }
-
             //Placement des boutons
             btnReponse[0].Location = new Point(450, 800);
             btnReponse[1].Location = new Point(600, 850);
@@ -97,11 +90,9 @@ namespace Cpln.Enigmos.Enigmas
         {
             Initialiser();
         }
-
         public override void Unload()
         {
             tSinge.Stop();
         }
-
     }
 }
