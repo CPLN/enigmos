@@ -11,32 +11,45 @@ namespace Cpln.Enigmos.Enigmas {
     class PlateformerEnigmaPanel : EnigmaPanel {
         
         Hero _hero = new Hero(0, 300, 50, 50);
-        Badboy _badboy;
         Rectangle _rWin;
         Rectangle[] _tPlateformes;
+        Badboy[] _tBadboys;
 
         public PlateformerEnigmaPanel() {
+            Width = 1500;
+            Height = 900;
             _hero.Moved += new EventHandler(_hero_Moved);
             Paint += PlateformerEnigmaPanel_Paint;
 
             _tPlateformes = new Rectangle[] {
                 new Rectangle(0, Height - 50, 200, 50),
-                new Rectangle(250, Height - 200, 200, 50),
-                new Rectangle(270, Height - 400, 200, 50),
-                new Rectangle(600, Height - 500, 200, 50)
+                new Rectangle(250, Height - 200, 200, 30),
+                new Rectangle(350, Height - 400, 40, 10),
+                new Rectangle(600, Height - 500, 200, 50),
+                new Rectangle(980, Height - 580, 50, 10),
+                new Rectangle(850, Height - 800, 125, 50),
+                new Rectangle(1200, Height - 820, 100, 10),
+                new Rectangle(Width - 70, 50, 70, 10)
             };
 
-            _badboy = new Badboy(_tPlateformes[_tPlateformes.Length - 2].X, _tPlateformes[_tPlateformes.Length - 2].Y - 40, 40, 40, _tPlateformes[_tPlateformes.Length - 2].Right - 40);
-            _badboy.Moved += delegate {
-                if (_hero.Rectangle.IntersectsWith(_badboy.Rectangle)) {
-                    _hero.Dead();
-                }
-                Invalidate();
+            _tBadboys = new Badboy[] {
+                new Badboy(_tPlateformes[_tPlateformes.Length - 3], 40, 2),
+                new Badboy(_tPlateformes[1], 30, 4)
             };
+            foreach(Badboy _bb in _tBadboys) { _bb.Moved += _bb_Moved; }
 
             _rWin = new Rectangle(_tPlateformes.Last().X + _tPlateformes.Last().Width - 30, _tPlateformes.Last().Y - 30, 30, 30);
 
             _hero.Jump(true);
+        }
+
+        private void _bb_Moved(object sender, EventArgs e) {
+            Badboy _bbThis = (Badboy)sender;
+
+            if (_hero.Rectangle.IntersectsWith(_bbThis.Rectangle))
+                _hero.Dead();
+
+            Invalidate();
         }
 
         private void _hero_Moved(object sender, EventArgs e) {
@@ -63,8 +76,8 @@ namespace Cpln.Enigmos.Enigmas {
             e.Graphics.FillRectangles(Brushes.ForestGreen, _tPlateformes);
             e.Graphics.FillRectangle(Brushes.LightGray, _hero.Rectangle);
             e.Graphics.DrawImage(_hero.Texture, _hero.Rectangle);
-            e.Graphics.FillRectangle(Brushes.Black, _badboy.Rectangle);
             e.Graphics.DrawImage(new Bitmap(Resources.Coin), _rWin);
+            foreach(Badboy _bb in _tBadboys) { e.Graphics.FillRectangle(Brushes.Black, _bb.Rectangle); }
         }
 
         public override void PressKey(object sender, KeyEventArgs e) {
@@ -78,6 +91,7 @@ namespace Cpln.Enigmos.Enigmas {
                 break;
 
                 case Keys.W:
+                case Keys.Space:
                 _hero.Jump(false);
                 break;
             }
@@ -117,18 +131,20 @@ namespace Cpln.Enigmos.Enigmas {
         private int iXMin;
         private int iXMax;
         private bool bMax = false;
+        private int iSpeed;
 
-        public Badboy(int X, int Y, int Width, int Height, int XMax) : base(X, Y, Width, Height) {
+        public Badboy(Rectangle _r, int Length, int Speed) : base(_r.X, _r.Y - Length, Length, Length) {
             iXMin = X;
-            iXMax = XMax;
+            iXMax = _r.Right - Length;
+            iSpeed = Speed;
         }
 
         protected override void Timer_Tick(object sender, EventArgs e) {
             if (X < iXMax && !bMax) {
-                X++;
+                X += iSpeed;
                 bMax = X >= iXMax;
             } if (bMax) {
-                X--;
+                X -= iSpeed;
                 bMax = X >= iXMin;
             }
             Moved?.Invoke(this, EventArgs.Empty);
