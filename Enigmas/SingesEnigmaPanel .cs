@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
-
 namespace Cpln.Enigmos.Enigmas
 {
     public class SingesEnigmaPanel : EnigmaPanel
     {
+
         //Déclarations des variables
-        private Timer tSinges = new Timer();
-        private Button[] btnReponse = new Button[5];
-        //string strMot = "BANANAS"; //Réponse de l'énigme.
+        bool bEtatSinge1 = false;
+        bool bEtatSinge2 = false;
+        bool bEtatSinge3 = false;
         Label Reponse = new Label();
-        private PictureBox[] tblPbx = new PictureBox[3];
         Label lblEnigme = new Label();
+        Timer tSinge = new Timer();
+        private Button[] btnReponse = new Button[5];
+        private PictureBox[] tblPbx = new PictureBox[3];
+        string strMot = "BANANAS"; //Réponse de l'énigme.
 
         public SingesEnigmaPanel()
         {
@@ -80,24 +78,30 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(btnReponse[i]);
             }
         }
-
         //Evènement sur le clic sur un bouton.
         private void bouton_Click(object sender, EventArgs e)
         {
-            
+   
         }
-        private void tSinge_Tick(object sender, EventArgs e)
-        {
-            tSinges.Tick += new EventHandler(TimerEventProcessor);
-            tSinges.Start();
-            tSinges.Interval = 500;
-            //((Button)sender).Enabled = false;*/
-         
-        }
-
         private void TimerEventProcessor(object sender, EventArgs e)
         {
             tblPbx[1].Image = Properties.Resources.SingeBleuCymbaleFermees;
         }
+        private void Initialiser()
+        {
+            tSinge.Tick += new EventHandler(TimerEventProcessor);
+            tSinge.Interval = 500;
+            tSinge.Start();
+        }
+        public override void Load()
+        {
+            Initialiser();
+        }
+
+        public override void Unload()
+        {
+            tSinge.Stop();
+        }
+
     }
 }
