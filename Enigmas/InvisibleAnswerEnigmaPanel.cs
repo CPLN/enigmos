@@ -19,22 +19,25 @@ namespace Cpln.Enigmos.Enigmas
 
 
         /// <summary>
-        /// Constructeur par défaut (initialisation des panels)
+        /// Constructeur par défaut (initialisation des panels et label)
         /// </summary>
         public InvisibleAnwerEnigmaPanel()
         {
-            pHaut.Size = new Size(798, 270);
+            // Ajout du panel (pHaut), localisation, taille, couleur, type de curseur
             pHaut.Location = new Point(1, 1);
+            pHaut.Size = new Size(798, 270);
             pHaut.BackColor = Color.White;
             pHaut.Cursor = Cursors.Arrow;       
             this.Controls.Add(pHaut);
 
-            pBas.Size = new Size(798, 299);
+            // Ajout du panel (pBas), localisation, taille, couleur, type de curseur
             pBas.Location = new Point(1, 300);
+            pBas.Size = new Size(798, 299);
             pBas.BackColor = Color.White;
             pBas.Cursor = Cursors.Arrow;
             this.Controls.Add(pBas);
 
+            // Ajout du label de la réponse (lblAnswer)
             this.Controls.Add(lblAnswer);
             this.lblAnswer.Text = "Blanc c'est blanc";
             lblAnswer.Location = new Point(400, 250);
