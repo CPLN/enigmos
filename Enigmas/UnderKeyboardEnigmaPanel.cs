@@ -21,6 +21,8 @@ namespace Cpln.Enigmos.Enigmas
         private int iLocalisationY = 150;
         private int iLocY;
         private int iLocX;
+        private char cchar;
+        private int place;
 
         public void CreerClavier (List<Touche>touches)
         {
@@ -57,25 +59,26 @@ namespace Cpln.Enigmos.Enigmas
 
             for (char i = 'a'; i <= 'z'; i++)
             {
-                    Label label = new Label();
-                    label.Text = Convert.ToString(i);
-                    label.Font = new Font(FontFamily.GenericMonospace, 10);
-                    label.AutoSize = true;
-                    label.BackColor = Color.Transparent;
-                    label.ForeColor = Color.White;
+                Touche touche = new Touche("" + i, iWidth, iHeight);
 
-                    Touche touche = new Touche("", iLocX, iLocY, iWidth, iHeight);
-
-                    touche.BackColor = Color.Black;
-                    touche.BorderStyle = BorderStyle.Fixed3D;
-                    touches.Add(touche);
                     Controls.Add(touche);
-                    touche.Controls.Add(label);
+                    touches.Add(touche);
             }
 
             touches.Shuffle();
             CreerClavier(touches);
-    }
+
+
+            for (int i = 0; i < 26; i++)
+            {
+                
+                if ()
+                {
+
+                }
+            }
+
+        }
         private void Reset(object sender, EventArgs e)
         {
             CreerClavier(touches);
