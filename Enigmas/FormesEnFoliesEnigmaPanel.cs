@@ -12,7 +12,7 @@ namespace Cpln.Enigmos.Enigmas
 {
     public class FormesEnFoliesEnigmaPanel : EnigmaPanel 
     {
-        List<Panel> lstForme = new List<Panel>();
+        List<Panel> lstForme = new List<Panel>(); // Création d'une liste qui contiendra tous les panels (formes)
 
         Button btnDifferent = new Button(); // Création du bouton différent
         Button btnIdentique = new Button(); // Création du bouton identique
@@ -22,8 +22,12 @@ namespace Cpln.Enigmos.Enigmas
 
         public FormesEnFoliesEnigmaPanel()
         {
-            Triangle triangle = new Triangle(100, 50); // Création du panel qui sera un triangle
+            Triangle triangle = new Triangle(100, 50); // Création du panel qui sera un triangle, avec une base de 100 et un sommet à 50 (en haut milieu du panel)
             Controls.Add(triangle);
+
+            Rond rond = new Rond();
+            rond.Location = new Point(250, 250);
+            Controls.Add(rond);
 
             Controls.Add(btnDifferent);
             btnDifferent.Location = new Point(421, 111);

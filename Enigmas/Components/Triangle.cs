@@ -11,8 +11,8 @@ namespace Cpln.Enigmos.Enigmas.Components
 {
     class Triangle : Panel
     {
-        public int Cote { get; set; }
-        public int Sommet { get; set; }
+        public int Cote { get; set; } // Création de la propriété côté qui sera la base du triangle
+        public int Sommet { get; set; } // Création de la propriété  sommet qui sera la position du sommet sur le haut du panel
 
         public Triangle(int cote, int sommet)
         {

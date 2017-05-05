@@ -59,6 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\Components\Rond.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\Triangle.cs" />
     <Compile Include="Enigmas\FormesEnFoliesEnigmaPanel.cs">
       <SubType>Component</SubType>
