@@ -26,13 +26,13 @@ namespace Cpln.Enigmos.Enigmas
             PanelCouche = new List<Panel>();
 
             pCouche1 = new Panel();
-            AjoutPanelEtPos(pCouche1,100,100, 50, 50,"Orange");
+            AjoutPanelEtPos(pCouche1,100,200, 50, 50,"Orange");
 
             pCouchep2 = new Panel();
-            AjoutPanelEtPos(pCouchep2, 100, 100, 50, 50,"Grey");
+            AjoutPanelEtPos(pCouchep2, 100, 300, 50, 50,"Gray");
 
             pCouche3 = new Panel();
-            AjoutPanelEtPos(pCouche3, 100, 100, 50, 50,"Blue");
+            AjoutPanelEtPos(pCouche3, 100, 400, 50, 50,"Blue");
 
             pCouche4 = new Panel();
             AjoutPanelEtPos(pCouche4, 100, 100, 50, 50, "Green");
@@ -50,7 +50,7 @@ namespace Cpln.Enigmos.Enigmas
              PanelCouche.ForEach(this.Controls.Add);
              
         }
-
+        
         /// <summary>
         /// Ajoute le panel dans la liste, une position, une taille et une couleur
         /// </summary>
