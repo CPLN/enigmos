@@ -18,8 +18,10 @@ namespace Cpln.Enigmos.Enigmas
         private Label lblReponse;
         private PictureBox ptbTrolle;
         private Label lblReset;
+
+
         /// <summary>
-        /// Constructeur pas défaut
+        /// Constructeur
         /// </summary>
         public CoucheCouleurEnigmaPanel()
         {
@@ -37,16 +39,16 @@ namespace Cpln.Enigmos.Enigmas
             for (int i = 0;i<tabCouleur.Length; i++)
             {
                 Panel panel = new Panel();
-                panel.Location = new System.Drawing.Point(0, 0);
-                panel.Size = new System.Drawing.Size(800, 600);
-                panel.BackColor = System.Drawing.Color.FromName(tabCouleur[i]);
+                panel.Location = new Point(0, 0);
+                panel.Size = new Size(800, 600);
+                panel.BackColor = Color.FromName(tabCouleur[i]);
                 PanelCouche.Add(panel);
             }     
             PanelCouche.ForEach(this.Controls.Add);
 
             lblReponse = new Label();
             lblReponse.Location = new Point(100, 50);
-            lblReponse.Text = "La réponse est la suite de caractère que vous venez d'entrer.";
+            lblReponse.Text = "La réponse est la suite de caractères que vous venez d'entrer.";
             lblReponse.Width = 300;
             Controls.Add(lblReponse);
 
@@ -60,7 +62,7 @@ namespace Cpln.Enigmos.Enigmas
         public override void PressKey(object sender, KeyEventArgs e)
         {
             //regarde si le caractère entré est égale à la case du tableau
-                if(Convert.ToChar(e.KeyValue) == tabReponse[iCpt])
+                if(e.KeyValue == tabReponse[iCpt])
                 {
                     PanelCouche[iCpt].Visible = false;
                 if(iCpt<6)
