@@ -11,69 +11,70 @@ namespace Cpln.Enigmos.Enigmas
    public class CoucheCouleurEnigmaPanel : EnigmaPanel
     {
         private List<Panel> PanelCouche;
-        Panel pCouche1;
-        Panel pCouchep2;
-        Panel pCouche3;
-        Panel pCouche4;
-        Panel pCouche5;
-        Panel pCouche6;
-        Panel pCouche7;
+        private string[] tabCouleur;
+        private char[] tabReponse;
+        private int iCpt;
+        private const int iLongeurReponse = 7;
+        private Label lblReponse;
+        private PictureBox ptbTrolle;
+        private Label lblReset;
         /// <summary>
         /// Constructeur pas défaut
         /// </summary>
         public CoucheCouleurEnigmaPanel()
         {
+            iCpt = 0;
+            tabCouleur = new string[iLongeurReponse] { "Purple", "Orange", "Blue", "Green", "Pink", "Red", "Yellow" };
+            tabReponse = new char[iLongeurReponse] { 'T', 'R', 'O', 'L', 'L', 'E', 'R' };
             PanelCouche = new List<Panel>();
 
-            pCouche1 = new Panel();
-            AjoutPanelEtPos(pCouche1,100,200, 50, 50,"Orange");
+            lblReset = new Label();
+            lblReset.Text = "Recommencer";
+            lblReset.Click += new EventHandler(Reset);
+            Controls.Add(lblReset);
 
-            pCouchep2 = new Panel();
-            AjoutPanelEtPos(pCouchep2, 100, 300, 50, 50,"Gray");
-
-            pCouche3 = new Panel();
-            AjoutPanelEtPos(pCouche3, 100, 400, 50, 50,"Blue");
-
-            pCouche4 = new Panel();
-            AjoutPanelEtPos(pCouche4, 100, 100, 50, 50, "Green");
-
-            pCouche5 = new Panel();
-            AjoutPanelEtPos(pCouche5, 100, 100, 50, 50,"Pink");
-
-            pCouche6 = new Panel();
-            AjoutPanelEtPos(pCouche6, 100, 100, 500, 50,"Red");
-
-            pCouche7 = new Panel();
-            AjoutPanelEtPos(pCouche7, 100, 100,50,100, "White");
-
-
-             PanelCouche.ForEach(this.Controls.Add);
-             
-        }
-        
-        /// <summary>
-        /// Ajoute le panel dans la liste, une position, une taille et une couleur
-        /// </summary>
-        /// <param name="panel"></param>
-        /// <param name="iPosLeft"></param>
-        /// <param name="iPosTop"></param>
-        /// <param name="dblHeight"></param>
-        /// <param name="dblWidht"></param>
-        /// <param name="strCouleur"></param>
-        public void AjoutPanelEtPos(Panel panel, int iPosLeft, int iPosTop,int dblHeight,int dblWidht,string strCouleur)
-        {
-            panel.Left = iPosLeft;
-            panel.Location = new System.Drawing.Point(iPosLeft, iPosTop);
-            panel.Size = new System.Drawing.Size(dblHeight, dblWidht);
-            panel.BackColor = System.Drawing.Color.FromName(strCouleur);
-            PanelCouche.Add(panel);
-        }
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 'g')
+            //création de tous les panels en fonction de la longueur de la Réponse avec juste la couleur qui change
+            for (int i = 0;i<tabCouleur.Length; i++)
             {
-                pCouche1.Visible = false;
+                Panel panel = new Panel();
+                panel.Location = new System.Drawing.Point(0, 0);
+                panel.Size = new System.Drawing.Size(800, 600);
+                panel.BackColor = System.Drawing.Color.FromName(tabCouleur[i]);
+                PanelCouche.Add(panel);
+            }     
+            PanelCouche.ForEach(this.Controls.Add);
+
+            lblReponse = new Label();
+            lblReponse.Location = new Point(100, 50);
+            lblReponse.Text = "La réponse est la suite de caractère que vous venez d'entrer.";
+            lblReponse.Width = 300;
+            Controls.Add(lblReponse);
+
+            ptbTrolle = new PictureBox();
+            ptbTrolle.Location = new Point(200, 100);
+            ptbTrolle.Size = new Size(1000, 1000);
+            ptbTrolle.Image = Properties.Resources.TrollFace;
+            Controls.Add(ptbTrolle);
+        }
+
+        public override void PressKey(object sender, KeyEventArgs e)
+        {
+            //regarde si le caractère entré est égale à la case du tableau
+                if(Convert.ToChar(e.KeyValue) == tabReponse[iCpt])
+                {
+                    PanelCouche[iCpt].Visible = false;
+                if(iCpt<6)
+                    iCpt++;
+                } 
+        }
+        private void Reset(object sender, EventArgs e)
+        {
+            iCpt = 0;
+            foreach(Panel panel in PanelCouche)
+            {
+                panel.Visible = true;
             }
         }
     }
+
 }
