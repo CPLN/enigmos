@@ -1,4 +1,5 @@
-﻿using Cpln.Enigmos.Utils;
+﻿using Cpln.Enigmos.Enigmas.Components;
+using Cpln.Enigmos.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -21,6 +22,8 @@ namespace Cpln.Enigmos.Enigmas
 
         public FormesEnFoliesEnigmaPanel()
         {
+            Triangle triangle = new Triangle(100, 50); // Création du panel qui sera un triangle
+            Controls.Add(triangle);
 
             Controls.Add(btnDifferent);
             btnDifferent.Location = new Point(421, 111);

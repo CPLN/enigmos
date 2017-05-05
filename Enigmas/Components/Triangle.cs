@@ -9,14 +9,30 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas.Components
 {
-    class Triangle
+    class Triangle : Panel
     {
-        private int iCote { get; set; }
+        public int Cote { get; set; }
+        public int Sommet { get; set; }
 
-        public Triangle(int cote)
+        public Triangle(int cote, int sommet)
         {
-            iCote = cote;
+            Cote = cote;
+            Sommet = sommet;
+            Paint += new PaintEventHandler(Draw);
         }
+
+        private void Draw(object sender, PaintEventArgs e)
+        {
+            PointF[] points = new PointF[3];
+            points[0].X = Sommet;
+            points[0].Y = 0;
+            points[1].X = 0;
+            points[1].Y = Cote;
+            points[2].X = Cote;
+            points[2].Y = Cote;
+            e.Graphics.FillPolygon(Brushes.Red, points);
+        }
+
         public void drawTriangle(PaintEventArgs e, int x, int y, int distance)
         {
             float angle = 0;
