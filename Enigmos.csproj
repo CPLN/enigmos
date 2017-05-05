@@ -226,6 +226,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\Coot-.png" />
+    <None Include="Resources\warpzoneglitchremix.png" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\souris.png" />
     <None Include="Resources\taupe - Copie.svg" />
