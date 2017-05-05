@@ -10,6 +10,7 @@ namespace Cpln.Enigmos.Enigmas
 {
    public class CoucheCouleurEnigmaPanel : EnigmaPanel
     {
+        //Déclaration des variables
         private List<Panel> PanelCouche;
         private string[] tabCouleur;
         private char[] tabReponse;
