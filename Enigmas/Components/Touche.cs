@@ -13,18 +13,6 @@ namespace Cpln.Enigmos.Enigmas.Components
     {
         private Label lblLettre;
 
-        public Label LabelLettre
-        {
-            get
-            {
-                return lblLettre;
-            }
-            private set
-            {
-                lblLettre = value;
-            }
-        }
-
         public Touche(string nom,int Width, int Height)
         {
             LabelLettre = new Label();
@@ -41,6 +29,18 @@ namespace Cpln.Enigmos.Enigmas.Components
             BackColor = Color.Black;
             BorderStyle = BorderStyle.Fixed3D;
         }
+        public Label LabelLettre
+        {
+            get
+            {
+                return lblLettre;
+            }
+            private set
+            {
+                lblLettre = value;
+            }
+        }
+
     }
 }
 

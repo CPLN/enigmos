@@ -13,16 +13,19 @@ namespace Cpln.Enigmos.Enigmas
     
     class UnderKeyboardEnigmaPanel : EnigmaPanel
     {
-        //4 18 22 26
+        
         private ShuffleList<Touche> touches;
+        private ShuffleList<int> placement;
+        private List<string> caractere;
+
         private int iWidth = 60;
         private int iHeight = 60;
         private int iLocalisationX = 190;
         private int iLocalisationY = 150;
         private int iLocY;
         private int iLocX;
-        private char cchar;
-        private int place;
+        private int place = 0;
+        private string strNom;
 
         public void CreerClavier (List<Touche>touches)
         {
@@ -49,6 +52,17 @@ namespace Cpln.Enigmos.Enigmas
 
         public UnderKeyboardEnigmaPanel()
         {
+            placement = new ShuffleList<int>();
+            caractere = new List<string>();
+            placement.Add(3);
+            placement.Add(17);
+            placement.Add(21);
+            placement.Add(25);
+            caractere.Add("p");
+            caractere.Add("r");
+            caractere.Add("e");
+            caractere.Add("s");
+
             touches = new ShuffleList<Touche>();
 
             Button reset = new Button();
@@ -64,17 +78,22 @@ namespace Cpln.Enigmos.Enigmas
                     Controls.Add(touche);
                     touches.Add(touche);
             }
-
+            placement.Shuffle();
             touches.Shuffle();
             CreerClavier(touches);
 
-
+            //3 17 21 25
             for (int i = 0; i < 26; i++)
             {
                 
-                if ()
+               
+                if ("p" == touches[i].LabelLettre.Text | "r" == touches[i].LabelLettre.Text | "e" == touches[i].LabelLettre.Text| "s" == touches[i].LabelLettre.Text && place < 4)
                 {
-
+                    strNom = touches[placement[place]].LabelLettre.Text;
+                    touches[place].LabelLettre.Text = caractere[place] ;
+                    touches[i].LabelLettre.Text = strNom;
+                    place++;
+                    ;
                 }
             }
 
