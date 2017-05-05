@@ -92,6 +92,16 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BananesWTF {
+            get {
+                object obj = ResourceManager.GetObject("BananesWTF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Batiment {
             get {
                 object obj = ResourceManager.GetObject("Batiment", resourceCulture);
@@ -628,9 +638,9 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SingeBleuCymbaleFermees {
+        internal static System.Drawing.Bitmap SingeBleuCymbalesFermees {
             get {
-                object obj = ResourceManager.GetObject("SingeBleuCymbaleFermees", resourceCulture);
+                object obj = ResourceManager.GetObject("SingeBleuCymbalesFermees", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

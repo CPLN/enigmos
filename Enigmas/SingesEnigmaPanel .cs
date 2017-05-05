@@ -6,21 +6,19 @@ namespace Cpln.Enigmos.Enigmas
     public class SingesEnigmaPanel : EnigmaPanel
     {
         //Déclarations des variables
-        bool bEtatSinge1 = false;
-        bool bEtatSinge2 = false;
-        bool bEtatSinge3 = false;
         Label Reponse = new Label();
         Label lblEnigme = new Label();
         Timer tChrono = new Timer();
         private Button[] btnReponse = new Button[5];
         private PictureBox[] tblPbx = new PictureBox[3];
-        string strMot = "BANANAS"; //Réponse de l'énigme.
         Image[] tblImg = new Image[2];
+        bool[] tblBool = new bool[3];
+        private PictureBox pbxReponse;
 
         public SingesEnigmaPanel()
         {
             //Remplissage des cases du tableau d'images
-            tblImg[0] = Properties.Resources.SingeBleuCymbaleFermees;
+            tblImg[0] = Properties.Resources.SingeBleuCymbalesFermees;
             tblImg[1] = Properties.Resources.SingeBleuCymbalesOuvertes;
 
             //Initialisation des PituresBox
@@ -44,6 +42,17 @@ namespace Cpln.Enigmos.Enigmas
                 pbx.Size = Properties.Resources.SingeBleuCymbalesOuvertes.Size;
                 pbx.BackColor = Color.Transparent;
                 Controls.Add(pbx);
+            }
+            //Initialisation des booléans
+            for (int i = 0; i < tblBool.Length; i++)
+            {
+                tblBool[i] = new bool();
+            }
+
+            //Affectation de la valeur à false
+            foreach (boolean bool  in tblBool)
+            {
+                
             }
             //Placement des PictureBox
             tblPbx[0].Location = new Point(200, 500);
@@ -75,6 +84,16 @@ namespace Cpln.Enigmos.Enigmas
                 btnReponse[i].FlatStyle = FlatStyle.System;
                 Controls.Add(btnReponse[i]);
             }
+            //Réponse à l'énigme
+            if (bEtatSinge1 == true && bEtatSinge2 == true && bEtatSinge3 == true)
+            {
+                pbxReponse = new PictureBox();
+                pbxReponse.Image = Properties.Resources.BananesWTF;
+                pbxReponse.Size = Properties.Resources.BananesWTF.Size;
+                pbxReponse.Location = new Point(500, 100);
+                pbxReponse.BackColor = Color.Transparent;
+                Controls.Add(pbxReponse);
+            }
         }
             //Evènement sur le clic sur un bouton.
             private void bouton_Click(object sender, EventArgs e)
@@ -89,41 +108,51 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="i">Correspond au numero de la cellule du tableau ou se trouve la pbx</param>
         public void Activer(int i)
         {
-            if (tblPbx[i].Image == Properties.Resources.SingeBleuCymbaleFermees)
+            if (tblPbx[i].Image == Properties.Resources.SingeBleuCymbalesFermees)
             {
                 tblPbx[i].Image = Properties.Resources.SingeBleuCymbalesOuvertes;
             }
             if (tblPbx[i].Image == Properties.Resources.SingeBleuCymbalesOuvertes)
             {
-                tblPbx[i].Image = Properties.Resources.SingeBleuCymbaleFermees;
+                tblPbx[i].Image = Properties.Resources.SingeBleuCymbalesFermees;
             }
         }
         /// <summary>
         /// Permet d'arrêter le mouvement d'un singe
         /// </summary>
         /// <param name="i">Correspond au numero de la cellule du tableau ou se trouve la pbx</param>
-        private void SingeStop(int i)
+        private void Desactiver(int i)
             {
-                tblPbx[i].Image = Properties.Resources.SingeBleuCymbaleFermees;
+               
             }
+
+        /// <summary>
+        /// Inverse l'état d'un singe
+        /// </summary>
+        ///  /// <param name="i">Correspond au numero de la cellule du tableau ou se trouve la pbx</param>
+        private void Inverses(int i)
+        {
+            
+        }
+
         /// <summary>
         /// Initialise le timer, créer une intervalle d'une demi-seconde, et le démarre
         /// </summary>
-            private void Initialiser()
+        private void Initialiser()
             {
                tChrono.Tick += new EventHandler(TimerEventProcessor);
                tChrono.Interval = 500;
                tChrono.Start();
 
+            }   
+         public override void Load()
+        {
+          Initialiser();
         }
-            public override void Load()
-            {
-                Initialiser();
-            }
-            public override void Unload()
-            {
-                tChrono.Stop();
-        }
+         public override void Unload()
+       {
+          tChrono.Stop();
+       }
     }
 }
 
