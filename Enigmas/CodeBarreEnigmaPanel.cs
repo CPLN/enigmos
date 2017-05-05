@@ -12,16 +12,21 @@ namespace Cpln.Enigmos.Enigmas
 {
     class CodeBarreEnigmaPanel : EnigmaPanel
     {
+        /// <summary>
+        /// Création d'une liste pour les panel
+        /// Créer une instance de Random
+        /// </summary>
         List<MovablePanel> list = new List<MovablePanel>();
         int iPosX = 120;
         Random rnd = new Random();
         RotatingLabel cpln = new RotatingLabel();
+
         /// <summary>
-        /// Constructeur par défaut (initialisation le code barre et initialisation du mot caché)
+        /// Constructeur par défaut (instancie les panels et le mot caché)
         /// </summary>
         public CodeBarreEnigmaPanel()
         {
-            // Initialise le code barre
+            // instancie le code barre
             for (int i = 0; i < 15; i++)
             {
                 MovablePanel Barre = new MovablePanel();
@@ -36,7 +41,7 @@ namespace Cpln.Enigmos.Enigmas
             list[11].Size = new Size(11, 200);
             list[11].Location = new Point(505, 200);
 
-            // Initialise le mot caché
+            // instancie le mot caché
             cpln.Text = "CodeBarreVicieux";
             cpln.Location = new Point(504, 300);
             cpln.Size = new Size(1, 10);
