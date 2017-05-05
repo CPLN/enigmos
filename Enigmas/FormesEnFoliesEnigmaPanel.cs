@@ -42,7 +42,7 @@ namespace Cpln.Enigmos.Enigmas
             p.Size = new Size(cote, cote);
             p.Location = new Point(positionX, positionY);
             lstForme.Add(p);
-
+            
             return p;
         }
 
@@ -54,5 +54,7 @@ namespace Cpln.Enigmos.Enigmas
 
             return p;
         }
+
+
     }
 }
