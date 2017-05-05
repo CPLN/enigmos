@@ -68,6 +68,9 @@
     <Compile Include="Enigmas\FruitsEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\InvisibleAnswerEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\LettreHaute.cs">
       <SubType>Component</SubType>
     </Compile>
