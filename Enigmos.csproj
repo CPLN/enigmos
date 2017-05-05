@@ -59,6 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\CodeBarreEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\MovablePanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -201,6 +204,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RotatingLabel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utils\ShuffleList.cs" />
     <EmbeddedResource Include="Enigmos.resx">

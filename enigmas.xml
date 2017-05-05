@@ -86,6 +86,10 @@
     <answer></answer>
     <hint>Répond pas Morice</hint>
   </enigma>
+  <enigma title="Le code barre">
+    <answer>CodeBarreVicieux</answer>
+    <hint>Sâche que le code barre est vicieux</hint>
+  </enigma>
   <enigma title="Le jeu du pendu">
 	  <answer>oxygene</answer>
 	  <hint>La corde, ça fait mal au cou</hint>
