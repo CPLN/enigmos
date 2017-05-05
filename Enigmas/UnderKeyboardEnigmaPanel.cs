@@ -17,7 +17,8 @@ namespace Cpln.Enigmos.Enigmas
         private ShuffleList<Touche> touches;
         private ShuffleList<int> placement;
         private List<string> caractere;
-
+        private Button reset;
+        private Label lblPresser;
         private int iWidth = 60;
         private int iHeight = 60;
         private int iLocalisationX = 190;
@@ -58,20 +59,24 @@ namespace Cpln.Enigmos.Enigmas
             placement.Add(17);
             placement.Add(21);
             placement.Add(25);
-            caractere.Add("p");
-            caractere.Add("r");
-            caractere.Add("e");
-            caractere.Add("s");
+            caractere.Add("P");
+            caractere.Add("R");
+            caractere.Add("E");
+            caractere.Add("S");
 
+            lblPresser = new Label();
+            lblPresser.Text = "PRESSER";
+            Controls.Add(lblPresser);
+            lblPresser.Location = new  Point (375, 60);
             touches = new ShuffleList<Touche>();
 
-            Button reset = new Button();
+            reset = new Button();
             Controls.Add(reset);
             reset.Text = "Réinitialiser le clavier";
             reset.Size = new Size(140, 30);
             reset.Click += new EventHandler(Reset);
 
-            for (char i = 'a'; i <= 'z'; i++)
+            for (char i = 'A'; i <= 'Z'; i++)
             {
                 Touche touche = new Touche("" + i, iWidth, iHeight);
 
@@ -85,12 +90,15 @@ namespace Cpln.Enigmos.Enigmas
             //3 17 21 25
             for (int i = 0; i < 26; i++)
             {
-                
-               
-                if ("p" == touches[i].LabelLettre.Text | "r" == touches[i].LabelLettre.Text | "e" == touches[i].LabelLettre.Text| "s" == touches[i].LabelLettre.Text && place < 4)
+               if (placement.Contains(i))
                 {
-                    strNom = touches[placement[place]].LabelLettre.Text;
-                    touches[place].LabelLettre.Text = caractere[place] ;
+                    continue;
+                }
+               
+                if ("P" == touches[i].LabelLettre.Text | "R" == touches[i].LabelLettre.Text | "E" == touches[i].LabelLettre.Text| "S" == touches[i].LabelLettre.Text && place < 4)
+                {
+                    strNom = touches[i].LabelLettre.Text;
+                    touches[placement[place]].LabelLettre.Text = caractere[place] ;
                     touches[i].LabelLettre.Text = strNom;
                     place++;
                     ;

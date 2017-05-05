@@ -17,7 +17,7 @@ namespace Cpln.Enigmos.Enigmas.Components
         {
             LabelLettre = new Label();
             LabelLettre.Text = nom;
-            LabelLettre.Font = new Font(FontFamily.GenericMonospace, 10);
+            LabelLettre.Font = new Font(FontFamily.GenericMonospace, 15);
             LabelLettre.AutoSize = true;
             LabelLettre.BackColor = Color.Transparent;
             LabelLettre.ForeColor = Color.White;
