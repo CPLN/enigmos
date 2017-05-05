@@ -21,6 +21,7 @@ namespace Cpln.Enigmos.Enigmas
         Random rnd = new Random();
         RotatingLabel cpln = new RotatingLabel();
 
+
         /// <summary>
         /// Constructeur par défaut (instancie les panels et le mot caché)
         /// </summary>
@@ -30,6 +31,7 @@ namespace Cpln.Enigmos.Enigmas
             for (int i = 0; i < 15; i++)
             {
                 MovablePanel Barre = new MovablePanel();
+                Barre.Cursor = Cursors.Arrow;
                 list.Add(Barre);
                 list[0 + i].Size = new Size(rnd.Next(9, 22), 200);
                 list[0 + i].Location = new Point(iPosX + iPosX, 200);
@@ -48,6 +50,5 @@ namespace Cpln.Enigmos.Enigmas
             cpln.Angle = 90;
             this.Controls.Add(cpln);
         }
-
     }
 }
