@@ -6,6 +6,8 @@ namespace Cpln.Enigmos.Enigmas
     public class SingesEnigmaPanel : EnigmaPanel
     {
         //Déclarations des variables
+        private ImageList MyImageList = null;
+        private int myImageNum = 0;
         bool bEtatSinge1 = false;
         bool bEtatSinge2 = false;
         bool bEtatSinge3 = false;
@@ -15,6 +17,7 @@ namespace Cpln.Enigmos.Enigmas
         private Button[] btnReponse = new Button[5];
         private PictureBox[] tblPbx = new PictureBox[3];
         string strMot = "BANANAS"; //Réponse de l'énigme.
+
         public SingesEnigmaPanel()
         {
             //Initialisation des PituresBox
@@ -31,7 +34,6 @@ namespace Cpln.Enigmos.Enigmas
             //Image de base.
             BackgroundImage = Properties.Resources.jungle;
             Size = Properties.Resources.jungle.Size;
-
             //Formatages des pictures box et insertions de l'image du singe
             foreach (PictureBox pbx in tblPbx)
             {
@@ -74,17 +76,23 @@ namespace Cpln.Enigmos.Enigmas
         //Evènement sur le clic sur un bouton.
         private void bouton_Click(object sender, EventArgs e)
         {
-   
+          
         }
-        private void TimerEventProcessor(object sender, EventArgs e)
+
+    private void TimerEventProcessor(object sender, EventArgs e)
         {
-            tblPbx[1].Image = Properties.Resources.SingeBleuCymbaleFermees;
+            tblPbx[0].Image = MyImageList.Images[myImageNum];
+            tblPbx[0].Refresh();
+            myImageNum = (myImageNum == 1 ? 0 : 1);
+            //tblPbx[1].Image = Properties.Resources.SingeBleuCymbaleFermees;
         }
         private void Initialiser()
         {
-            tSinge.Tick += new EventHandler(TimerEventProcessor);
-            tSinge.Interval = 500;
-            tSinge.Start();
+           MyImageList.Images.Add(Properties.Resources.SingeBleuCymbaleFermees);
+           MyImageList.Images.Add(Properties.Resources.SingeBleuCymbalesOuvertes); 
+           tSinge.Tick += new EventHandler(TimerEventProcessor);
+           tSinge.Interval = 500;
+           tSinge.Start();
         }
         public override void Load()
         {
