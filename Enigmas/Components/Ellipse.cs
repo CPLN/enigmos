@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas.Components
 {
-    class Rond : Panel
+    class Ellipse : Panel
     {
         
-        public Rond()
+        public Ellipse()
         {
             Paint += new PaintEventHandler(DrawEllipse);
         }
@@ -23,7 +23,7 @@ namespace Cpln.Enigmos.Enigmas.Components
             Graphics formGraphics;
 
             formGraphics = this.CreateGraphics();
-            formGraphics.FillEllipse(myBrush, new Rectangle(0, 0, 200, 200));
+            formGraphics.FillEllipse(myBrush, new Rectangle(0, 0, Width, Height));
             myBrush.Dispose();
             formGraphics.Dispose();
         }

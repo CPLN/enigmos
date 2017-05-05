@@ -25,23 +25,32 @@ namespace Cpln.Enigmos.Enigmas
             Triangle triangle = new Triangle(100, 50); // Création du panel qui sera un triangle, avec une base de 100 et un sommet à 50 (en haut milieu du panel)
             Controls.Add(triangle);
 
-            Rond rond = new Rond();
-            rond.Location = new Point(250, 250);
-            Controls.Add(rond);
+            Ellipse ellipse = new Ellipse();
+            ellipse.Location = new Point(250, 250);
+            ellipse.Size = new Size(200, 200);
+            Controls.Add(ellipse);
+            lstForme.Add(ellipse);
 
             Controls.Add(btnDifferent);
             btnDifferent.Location = new Point(421, 111);
             btnDifferent.Text = "Différent";
+            btnDifferent.Click += new EventHandler(ClicSurBouton);
 
             Controls.Add(btnIdentique);
             btnIdentique.Location = new Point(321, 111);
             btnIdentique.Text = "Identique";
+            btnIdentique.Click += new EventHandler(ClicSurBouton);
 
             Carre1 = AjoutPanelCarre(50, 250, 250, Carre1);
             Carre1.BackColor = Color.Blue;
 
             Carre2 = AjoutPanelCarre(50, 350, 350, Carre2);
             Carre2.BackColor = Color.Black;
+        }
+
+        private void ClicSurBouton(object sender, EventArgs e)
+        {
+            
         }
 
         public Panel AjoutPanelCarre(int cote, int positionX, int positionY, Panel p)
