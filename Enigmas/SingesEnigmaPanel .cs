@@ -11,7 +11,7 @@ namespace Cpln.Enigmos.Enigmas
         bool bEtatSinge3 = false;
         Label Reponse = new Label();
         Label lblEnigme = new Label();
-        Timer tSinge = new Timer();
+        Timer tChrono = new Timer();
         private Button[] btnReponse = new Button[5];
         private PictureBox[] tblPbx = new PictureBox[3];
         string strMot = "BANANAS"; //Réponse de l'énigme.
@@ -83,24 +83,47 @@ namespace Cpln.Enigmos.Enigmas
              private void TimerEventProcessor(object sender, EventArgs e)
             {
             }
-            /*private void SingeStop()
+        /// <summary>
+        /// Permet d'activer un singe
+        /// </summary>
+        /// <param name="i">Correspond au numero de la cellule du tableau ou se trouve la pbx</param>
+        public void Activer(int i)
+        {
+            if (tblPbx[i].Image == Properties.Resources.SingeBleuCymbaleFermees)
+            {
+                tblPbx[i].Image = Properties.Resources.SingeBleuCymbalesOuvertes;
+            }
+            if (tblPbx[i].Image == Properties.Resources.SingeBleuCymbalesOuvertes)
             {
                 tblPbx[i].Image = Properties.Resources.SingeBleuCymbaleFermees;
-            }*/
+            }
+        }
+        /// <summary>
+        /// Permet d'arrêter le mouvement d'un singe
+        /// </summary>
+        /// <param name="i">Correspond au numero de la cellule du tableau ou se trouve la pbx</param>
+        private void SingeStop(int i)
+            {
+                tblPbx[i].Image = Properties.Resources.SingeBleuCymbaleFermees;
+            }
+        /// <summary>
+        /// Initialise le timer, créer une intervalle d'une demi-seconde, et le démarre
+        /// </summary>
             private void Initialiser()
             {
-               tSinge.Tick += new EventHandler(TimerEventProcessor);
-               tSinge.Interval = 500;
-               tSinge.Start();
-            }
+               tChrono.Tick += new EventHandler(TimerEventProcessor);
+               tChrono.Interval = 500;
+               tChrono.Start();
+
+        }
             public override void Load()
             {
                 Initialiser();
             }
             public override void Unload()
             {
-                tSinge.Stop();
-            }
+                tChrono.Stop();
+        }
     }
 }
 
