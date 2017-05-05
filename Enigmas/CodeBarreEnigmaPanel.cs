@@ -33,15 +33,13 @@ namespace Cpln.Enigmos.Enigmas
                 MovablePanel Barre = new MovablePanel();
                 Barre.Cursor = Cursors.Arrow;
                 list.Add(Barre);
-                list[0 + i].Size = new Size(rnd.Next(9, 22), 200);
-                list[0 + i].Location = new Point(iPosX + iPosX, 200);
-                list[0 + i].BackColor = Color.Black;
-                this.Controls.Add(list[0 + i]);
+                list[i].Size = new Size(rnd.Next(9, 22), 200);
+                list[i].BackColor = Color.Black;
+                this.Controls.Add(list[i]);
                 iPosX += 12;
             }
-            // Place une barre exactement sur le label 
+            // Définie une taille pour le panel qui est sur le mot caché
             list[11].Size = new Size(11, 200);
-            list[11].Location = new Point(505, 200);
 
             // instancie le mot caché
             cpln.Text = "CodeBarreVicieux";
@@ -49,6 +47,19 @@ namespace Cpln.Enigmos.Enigmas
             cpln.Size = new Size(1, 10);
             cpln.Angle = 90;
             this.Controls.Add(cpln);
+        }
+        /// <summary>
+        /// Repositionne les panels
+        /// </summary>
+        public override void Load()
+        {
+            iPosX = 120;
+            for (int i = 0; i < 15; i++)
+            {
+                list[i].Location = new Point(2 * iPosX, 200);
+                iPosX += 12;
+            }
+            list[11].Location = new Point(505, 200);
         }
     }
 }

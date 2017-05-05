@@ -34,8 +34,8 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
             enigmas.Add(new Enigma(new ClicRapideEnigmaPanel(), "Clic-rapide"));
-            enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
             enigmas.Add(new Enigma(new CodeBarreEnigmaPanel(), "Le code barre"));
+            enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
             enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
             enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));
             enigmas.Add(new Enigma(new HiddenCharacterEnigmalPanel(), "Caractère caché"));
