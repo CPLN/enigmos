@@ -36,9 +36,8 @@ namespace Cpln.Enigmos.Enigmas
             AjoutPanelEtPos(p6, 100, 100, 50, 50);
 
             Panel p7 = new Panel();
-            AjoutPanelEtPos(p7, 100, 100,50,50);
+            AjoutPanelEtPos(p7, 100, 100, 50, 50);
 
-            this.Controls.Add(p1);
         }
         /// <summary>
         /// Ajoute le panel dans la liste et ajoute une position
