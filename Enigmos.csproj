@@ -59,7 +59,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\Components\MovablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\FruitsEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\InvisibleAnswerEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\LettreHaute.cs">
