@@ -11,11 +11,13 @@ namespace Cpln.Enigmos.Enigmas
 {
     public class FormesEnFoliesEnigmaPanel : EnigmaPanel 
     {
+        List<Panel> lstForme = new List<Panel>();
+
         Button btnDifferent = new Button(); // Création du bouton différent
         Button btnIdentique = new Button(); // Création du bouton identique
 
         Panel Carre1 = new Panel(); // Création du panel qui sera carré
-        Panel Carre2 = new Panel();
+        Panel Carre2 = new Panel(); // Création d'un deuxième panel qui sera carré
 
         public FormesEnFoliesEnigmaPanel()
         {
@@ -39,7 +41,16 @@ namespace Cpln.Enigmos.Enigmas
         {
             p.Size = new Size(cote, cote);
             p.Location = new Point(positionX, positionY);
-            Controls.Add(p);
+            lstForme.Add(p);
+
+            return p;
+        }
+
+        public Panel AjoutPanelRectangle(int hauteur, int largeur, int positionX, int positionY, Panel p)
+        {
+            p.Size = new Size(largeur, hauteur);
+            p.Location = new Point(positionX, positionY);
+            lstForme.Add(p);
 
             return p;
         }
