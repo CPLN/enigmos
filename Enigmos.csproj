@@ -238,6 +238,15 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\pendu3.png" />
+    <None Include="Resources\pendu2.png" />
+    <None Include="Resources\pendu1.png" />
+    <None Include="Resources\pendu0.png" />
+    <None Include="Resources\pendu8.png" />
+    <None Include="Resources\pendu7.png" />
+    <None Include="Resources\pendu6.png" />
+    <None Include="Resources\pendu5.png" />
+    <None Include="Resources\pendu4.png" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\souris.png" />
     <None Include="Resources\taupe - Copie.svg" />
