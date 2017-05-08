@@ -9,8 +9,8 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas {
     class PlateformerEnigmaPanel : EnigmaPanel {
-        Hero _hero = new Hero(0, 300, 50, 50);
-        Rectangle _rWin;
+        Hero _hero = new Hero(0, 300, 50, 50); // Le hero que le joueur incarne
+        Rectangle _rWin; // La piece qui permet de gagner
         Rectangle[] _tPlateformes;
         Badboy[] _tBadboys;
 
@@ -38,7 +38,7 @@ namespace Cpln.Enigmos.Enigmas {
                 new Badboy(_tPlateformes[_tPlateformes.Length - 3], 40, 2),
                 new Badboy(_tPlateformes[1], 30, 4)
             };
-            foreach(Badboy _bb in _tBadboys) { _bb.Moved += _bb_Moved; }
+            foreach(Badboy _bb in _tBadboys) { _bb.Moved += _bb_Moved; } // Assigne à tous les Badboys l'evenement _bb_Moved
 			
 			// Piece qui permettera de gagner
             _rWin = new Rectangle(_tPlateformes.Last().X + _tPlateformes.Last().Width - 30, _tPlateformes.Last().Y - 30, 30, 30);
@@ -151,6 +151,7 @@ namespace Cpln.Enigmos.Enigmas {
             Timer.Tick += Timer_Tick;
         }
 
+        // L'evenement de Tick du timer, à overrider
         protected abstract void Timer_Tick(object sender, EventArgs e);
     }
 
@@ -161,8 +162,8 @@ namespace Cpln.Enigmos.Enigmas {
         public override event EventHandler Moved;
         private int iXMin;  // Position minimale (Initiale)
         private int iXMax;  // Position maximale
-        private bool bMax = false; 
-        private int iSpeed;
+        private bool bMax = false; // True = va à gauche, False = va à droite
+        private int iSpeed; // Vitesse de l'objet
 
         /// <summary>
         /// Constructeur de la class Badboy.
@@ -201,14 +202,14 @@ namespace Cpln.Enigmos.Enigmas {
     public class Hero : Boy {
         public bool IsJumping { get; set; } // True = Entrain de sauter, False = Saute pas
         public bool JumpFinish { get; set; } // True = A fini de monter, False = Redescent
-        public Bitmap Texture { get; set; }
-        public override event EventHandler Moved;
+        public Bitmap Texture { get; set; } // Texture actuelle de l'objet
+        public override event EventHandler Moved; // Evenement qui se déclenche quand l'objet bouge
 
-        private Bitmap[] Textures = new Bitmap[6];
-        private int iJump;
-        private int iTexture = 0;
-        private int iIntervalTexture = 0;
-        private int iDirection;
+        private Bitmap[] Textures = new Bitmap[6]; // Textures de l'objet
+        private int iJump; // Haut du daut maximale
+        private int iTexture = 0; // Index de la texture, fait référence au tableau des texture
+        private int iIntervalTexture = 0; // Interval en ms de chagement de texture
+        private int iDirection; // La direction du déplacemet du l'objet, 1 = Droite, -1 Gauche, 0 = Bouge pas
 
         /// <summary>
         /// Constructeur de Hero
