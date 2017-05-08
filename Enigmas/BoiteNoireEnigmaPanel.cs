@@ -30,8 +30,6 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(tChiffreAfficher[icpt]);
                 iY = iY + 70;
             }
-            
-
         }
 
         public BoiteNoireEnigmaPanel()
@@ -45,9 +43,7 @@ namespace Cpln.Enigmos.Enigmas
             pnlBoiteNoire.BackColor = Color.Black;
             Controls.Add(pnlBoiteNoire);
 
-            RemplirTableauChiffreEtAfficher(ref tChiffreAfficher, tChiffre);
-            
-            
+            RemplirTableauChiffreEtAfficher(ref tChiffreAfficher, tChiffre);   
         }
         
     }
