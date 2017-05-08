@@ -138,4 +138,8 @@
     <answer>9.</answer>
     <hint>Passez par les 9 points en 4 traits</hint>
   </enigma>
+  <enigma title="Devine l'animal !">
+    <answer>éléphant</answer>
+    <hint>L'ombre d'un doute</hint>
+  </enigma>
 </enigmas>

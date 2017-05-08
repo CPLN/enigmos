@@ -65,6 +65,9 @@
     <Compile Include="Enigmas\Components\MovablePanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\DevineAnimalEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\FruitsEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -235,6 +238,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\elephant.png" />
+    <None Include="Resources\ombre.png" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\souris.png" />
     <None Include="Resources\taupe - Copie.svg" />
