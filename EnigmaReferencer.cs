@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new CodeBarreEnigmaPanel(), "Le code barre");
+            return new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?");
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new TapeTaupeEnigmaPanel(), "Tape-taupe"));
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
-            enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s"));
+            enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?"));
 
             Enigma runEnigma = new Enigma(new RunEnigmaPanel(), "Roux run");
             enigmas.Add(runEnigma);
