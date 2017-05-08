@@ -72,6 +72,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\Etat.cs" />
+    <Compile Include="Enigmas\Pendu2EnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\PenduEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
