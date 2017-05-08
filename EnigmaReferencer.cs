@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new CodeBarreEnigmaPanel(), "Le code barre");
+            return new Enigma(new PileOuFaceEnigmaPanel(), "Pile ou face");
         }
 
         /// <summary>
@@ -45,6 +45,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new MorpionEnigmaPanel(), "Morpion"));
             enigmas.Add(new Enigma(new NbrCarresEnigmaPanel(), "Nombre de carrés"));
             enigmas.Add(new Enigma(new NfsEnigmaPanel(), "Need For Speed"));
+            enigmas.Add(new Enigma(new PileOuFaceEnigmaPanel(), "Pile ou face"));
             enigmas.Add(new Enigma(new NinePointsEnigmaPanel(), "9 Points"));
             enigmas.Add(new Enigma(new OiseauxEnigmaPanel(), "Le plus long mot"));
             enigmas.Add(new Enigma(new OpenDoorEnigmaPanel(), "Ouvrez la porte !"));
@@ -59,6 +60,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new TapeTaupeEnigmaPanel(), "Tape-taupe"));
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
+          
 
             Enigma runEnigma = new Enigma(new RunEnigmaPanel(), "Roux run");
             enigmas.Add(runEnigma);

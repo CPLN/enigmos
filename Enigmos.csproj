@@ -97,6 +97,9 @@
     <Compile Include="Enigmas\Components\Ennemi.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\PileOuFaceEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>

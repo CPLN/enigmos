@@ -138,4 +138,8 @@
     <answer>9.</answer>
     <hint>Passez par les 9 points en 4 traits</hint>
   </enigma>
+  <enigma title="Pile ou face">
+    <answer>je sais pas encore</answer>
+    <hint>Choisi une combinaison de 3</hint>
+  </enigma>
 </enigmas>
