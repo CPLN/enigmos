@@ -23,13 +23,32 @@ namespace Cpln.Enigmos.Enigmas
             {
                 tChiffreAfficher[icpt] = new Label();
                 tChiffreAfficher[icpt].Text = Convert.ToString(tChiffre[icpt]);
-
                 tChiffreAfficher[icpt].Location = new Point(iX, iY);
-                tChiffreAfficher[icpt].Size = new Size(50, 50);
+                tChiffreAfficher[icpt].Size = new Size(100, 50);
                 tChiffreAfficher[icpt].Font = new Font("Arial", 40);
                 Controls.Add(tChiffreAfficher[icpt]);
                 iY = iY + 70;
             }
+        }
+
+        public void AfficherCaseARemplir(ref TextBox[] tChiffreATrouver)
+        {
+            int iX = 610;
+            int iY = 135;
+            
+            for (int icpt = 0; icpt < tChiffreATrouver.Length; icpt++)
+            {
+                tChiffreATrouver[icpt] = new TextBox();
+                tChiffreATrouver[icpt].Location = new Point(iX, iY);
+                tChiffreATrouver[icpt].Size = new Size(80, 50);
+                tChiffreATrouver[icpt].Font = new Font("Arial", 40);
+                Controls.Add(tChiffreATrouver[icpt]);
+                iY = iY + 70;
+            }
+            tChiffreATrouver[0].Text = "19";
+            tChiffreATrouver[1].Text = "5";
+            tChiffreATrouver[0].Enabled = false;
+            tChiffreATrouver[1].Enabled = false;
         }
 
         public BoiteNoireEnigmaPanel()
@@ -43,7 +62,8 @@ namespace Cpln.Enigmos.Enigmas
             pnlBoiteNoire.BackColor = Color.Black;
             Controls.Add(pnlBoiteNoire);
 
-            RemplirTableauChiffreEtAfficher(ref tChiffreAfficher, tChiffre);   
+            RemplirTableauChiffreEtAfficher(ref tChiffreAfficher, tChiffre);
+            AfficherCaseARemplir(ref tChiffreATrouver);
         }
         
     }
