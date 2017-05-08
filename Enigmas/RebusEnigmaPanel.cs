@@ -26,11 +26,11 @@ namespace Cpln.Enigmos.Enigmas
         {
             //Lors de l'instantation, peupler une liste d'image contenant les 5 images possibles.
             //Piocher dans cette liste une image aléatoire qui sera l'image affichée.
-            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.Coccinelle, Size = new Size(550, 240) });
-            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.farine, Size = new Size(500, 500) });
-            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.mamifere, Size = new Size(512, 261) });
-            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.parapluie, Size = new Size(550, 240) });
-            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.piano, Size = new Size(550, 240) });
+            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.Coccinelle, Size = new Size(512, 261), Tag = "coccinelle" });
+            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.farine, Size = new Size(512, 261), Tag = "farine" });
+            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.mamifere, Size = new Size(512, 261), Tag = "mamifere" });
+            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.parapluie, Size = new Size(512, 261), Tag = "parapluie" });
+            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.piano, Size = new Size(512, 261), Tag = "piano" });
 
             //Définit la source de l'affichage
             display.Dock = DockStyle.Fill;
@@ -68,9 +68,17 @@ namespace Cpln.Enigmos.Enigmas
 
             // Coordonnées des objets
             display.Controls.Add(lblTitle, 1, 0);
-            display.Controls.Add(lImg[2], 1, 1);
+            display.Controls.Add(lImg[RandomIndex()], 1, 1);
             display.Controls.Add(tbxAnswer, 1, 2);
             display.Controls.Add(bntDone, 1, 3);
+        }
+        #endregion
+
+        #region Méthodes
+        public int RandomIndex()
+        {
+            Random r = new Random();
+            return r.Next(0, 4);
         }
         #endregion
 
