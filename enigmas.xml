@@ -130,4 +130,9 @@
     <answer>9.</answer>
     <hint>Passez par les 9 points en 4 traits</hint>
   </enigma>
+  <enigma title="Boite noire">
+    <answer>skate</answer>
+    <hint>Touver les lettres corresondantes aux chiffres et mettez les dans le bon ordre</hint>
+  </enigma>
+
 </enigmas>
