@@ -60,13 +60,13 @@ namespace Cpln.Enigmos.Enigmas {
 		// Evemement qui se déclanche le joueur bouge
         private void _hero_Moved(object sender, EventArgs e) {
             foreach (Rectangle _r in _tPlateformes) {
-                if (_hero.Rectangle.Bottom == _r.Top && (_hero.Rectangle.Right > _r.Left && _hero.Rectangle.Left < _r.Right) && _hero.JumpFinish) {
+                if (_hero.Rectangle.Bottom == _r.Top && (_hero.Rectangle.Right > _r.Left && _hero.Rectangle.Left < _r.Right) && _hero.JumpFinish) { // Saut avec intersection sur une plateforme
                     _hero.IsJumping = false;
                     break;
-                } else if (_hero.Rectangle.Bottom == _r.Top && !(_hero.Rectangle.Right > _r.Left && _hero.Rectangle.Left < _r.Right) && !_hero.IsJumping) {
+                } else if (_hero.Rectangle.Bottom == _r.Top && !(_hero.Rectangle.Right > _r.Left && _hero.Rectangle.Left < _r.Right) && !_hero.IsJumping) { // Gravité
                     _hero.JumpFinish = true;
                     _hero.IsJumping = true;
-                } else if (_hero.Y >= Width) {
+                } else if (_hero.Y >= Width) {  // Tombe en bas
                     _hero.SetPosition(0, 0);
                 }
             }
@@ -159,9 +159,9 @@ namespace Cpln.Enigmos.Enigmas {
     /// </summary>
     public class Badboy : Boy {
         public override event EventHandler Moved;
-        private int iXMin;
-        private int iXMax;
-        private bool bMax = false;
+        private int iXMin;  // Position minimale (Initiale)
+        private int iXMax;  // Position maximale
+        private bool bMax = false; 
         private int iSpeed;
 
         /// <summary>
@@ -199,8 +199,8 @@ namespace Cpln.Enigmos.Enigmas {
     /// L'objet que l'utilisateur jouera, il hérite de la classe abstraite Boy
     /// </summary>
     public class Hero : Boy {
-        public bool IsJumping { get; set; }
-        public bool JumpFinish { get; set; }
+        public bool IsJumping { get; set; } // True = Entrain de sauter, False = Saute pas
+        public bool JumpFinish { get; set; } // True = A fini de monter, False = Redescent
         public Bitmap Texture { get; set; }
         public override event EventHandler Moved;
 
