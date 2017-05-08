@@ -18,7 +18,7 @@ namespace Cpln.Enigmos.Enigmas
         Label lblTitle = new Label { Text = "Rébus" };
         TextBox tbxAnswer = new TextBox { Text = "Réponse", Width=200 };
         TableLayoutPanel display = new TableLayoutPanel();
-        Button bntDone = new Button { Text = "Valider" };
+        Button btnDone = new Button { Text = "Valider" };
         #endregion
 
         #region Contructeur class & page
@@ -42,8 +42,11 @@ namespace Cpln.Enigmos.Enigmas
 
         public void BuildPage()
         {
-            //Ajoute les évènements sur la texbox
+            //Ajout de l'évènement du placeholder sur la textbox
             tbxAnswer.GotFocus += RemoveText;
+
+            //Ajout de l'évènement de click sur le bouton
+            btnDone.Click += BtnDone_Click;
 
             // Suppression de la mise en page des réponses
             display.Controls.Clear();
@@ -70,8 +73,9 @@ namespace Cpln.Enigmos.Enigmas
             display.Controls.Add(lblTitle, 1, 0);
             display.Controls.Add(lImg[RandomIndex()], 1, 1);
             display.Controls.Add(tbxAnswer, 1, 2);
-            display.Controls.Add(bntDone, 1, 3);
+            display.Controls.Add(btnDone, 1, 3);
         }
+
         #endregion
 
         #region Méthodes
@@ -86,6 +90,12 @@ namespace Cpln.Enigmos.Enigmas
         public void RemoveText(object sender, EventArgs e)
         {
             tbxAnswer.Text = "";
+        }
+
+        private void BtnDone_Click(object sender, EventArgs e)
+        {
+            //Vérifier que la saisie ainsi que le tag de l'image corresponde
+
         }
         #endregion
     }
