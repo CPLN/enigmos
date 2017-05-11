@@ -16,9 +16,10 @@ namespace Cpln.Enigmos.Enigmas
     {
         #region Attributs & Propriétés
         List<PictureBox> lImg = new List<PictureBox>();
+
+        TableLayoutPanel display = new TableLayoutPanel();
         Label lblTitle = new Label { Text = "Rébus" };
         TextBox tbxAnswer = new TextBox { Text = "Réponse", Width=200 };
-        TableLayoutPanel display = new TableLayoutPanel();
         Button btnDone = new Button { Text = "Valider" };
 
         int randomIndex;
@@ -27,8 +28,7 @@ namespace Cpln.Enigmos.Enigmas
         #region Contructeur class & page
         public RebusEnigmaPanel()
         {
-            //Lors de l'instantation, peupler une liste d'image contenant les 5 images possibles.
-            //Piocher dans cette liste une image aléatoire qui sera l'image affichée.
+            //Lors de l'instantation, peupler une liste d'image contenant les 5 images possibles. Les tags correspondent aux réponses.
             lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.Coccinelle, Size = new Size(512, 261), Tag = "coccinelle" });
             lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.farine, Size = new Size(512, 261), Tag = "farine" });
             lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.mamifere, Size = new Size(512, 261), Tag = "mammifère" });
@@ -68,8 +68,9 @@ namespace Cpln.Enigmos.Enigmas
             display.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             display.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             display.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.5f));
-            display.RowCount = 4;
-            display.RowStyles.Add(new RowStyle(SizeType.Percent, 0.5f));
+            display.RowCount = 5;
+            display.RowStyles.Add(new RowStyle(SizeType.Percent, 0.3f));
+            display.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             display.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             display.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             display.RowStyles.Add(new RowStyle(SizeType.Percent, 0.5f));
@@ -83,10 +84,10 @@ namespace Cpln.Enigmos.Enigmas
             randomIndex = RandomIndex();
 
             // Coordonnées des objets
-            display.Controls.Add(lblTitle, 1, 0);
-            display.Controls.Add(lImg[randomIndex], 1, 1);
-            display.Controls.Add(tbxAnswer, 1, 2);
-            display.Controls.Add(btnDone, 1, 3);
+            display.Controls.Add(lblTitle, 1, 1);
+            display.Controls.Add(lImg[randomIndex], 1, 2);
+            display.Controls.Add(tbxAnswer, 1, 3);
+            display.Controls.Add(btnDone, 1, 4);
         }
 
         #endregion
