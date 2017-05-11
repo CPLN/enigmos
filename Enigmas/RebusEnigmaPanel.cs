@@ -48,6 +48,10 @@ namespace Cpln.Enigmos.Enigmas
             //Evènement keypress de la ta textbox
             tbxAnswer.KeyDown += PressKey;
 
+            //Permet d'attraper la touche enter dans la textbox
+            tbxAnswer.Multiline = true;
+            tbxAnswer.AcceptsReturn = true;
+
             //Evènement du placeholder sur la textbox
             tbxAnswer.GotFocus += RemoveText;
 
@@ -142,10 +146,10 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         public override void PressKey(object sender, KeyEventArgs e)
         {
-            /*if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
             {
-                //enter key is down
-            }*/
+                ValidateAnswer(tbxAnswer.Text);
+            }
         }
         #endregion
     }
