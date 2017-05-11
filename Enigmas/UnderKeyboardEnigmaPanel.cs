@@ -19,8 +19,8 @@ namespace Cpln.Enigmos.Enigmas
         private List<string> caractere;
         private Button reset;
         private Label lblPresser;
-        private int iWidth = 60;
-        private int iHeight = 60;
+        private int iWidth = 70;
+        private int iHeight = 70;
         private int iLocalisationX = 190;
         private int iLocalisationY = 150;
         private int iLocY;
@@ -90,17 +90,17 @@ namespace Cpln.Enigmos.Enigmas
             //3 17 21 25
             for (int i = 0; i < 26; i++)
             {
-               if (placement.Contains(i))
+               if (placement.Contains(i)) // vérifie si la boucle est sur un emplacement réserver pour une lettre
                 {
                     continue;
                 }
                
-                if ("P" == touches[i].LabelLettre.Text | "R" == touches[i].LabelLettre.Text | "E" == touches[i].LabelLettre.Text| "S" == touches[i].LabelLettre.Text && place < 4)
+                if ("P" == touches[i].Nom | "R" == touches[i].Nom | "E" == touches[i].Nom| "S" == touches[i].Nom) //
                 {
-                    strNom = touches[i].LabelLettre.Text;
-                    touches[placement[place]].LabelLettre.Text = caractere[place] ;
-                    touches[i].LabelLettre.Text = strNom;
-                    place++;
+                    strNom = touches[placement[place]].Nom; // on récupère la lettre de la touche à la place de la liste placement
+                    touches[placement[place]].Nom = caractere[place] ; // on met dans touche une lettre de la liste caractere
+                    touches[i].Nom = strNom; // on met dans l'emplacement i la lettre que on avais récuperer
+                    place++; // on incrémente place pour le prochain tour de bloucle
                     ;
                 }
             }

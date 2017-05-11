@@ -11,36 +11,28 @@ namespace Cpln.Enigmos.Enigmas.Components
 {
     class Touche : MovablePanel
     {
-        private Label lblLettre;
+        public string Nom { get; set; }
 
         public Touche(string nom,int Width, int Height)
         {
-            LabelLettre = new Label();
-            LabelLettre.Text = nom;
-            LabelLettre.Font = new Font(FontFamily.GenericMonospace, 15);
-            LabelLettre.AutoSize = true;
-            LabelLettre.BackColor = Color.Transparent;
-            LabelLettre.ForeColor = Color.White;
-            Controls.Add(LabelLettre);
-
+            this.Nom = nom;
+            
             this.Width = Width ;
             this.Height = Height ;
-
-            BackColor = Color.Black;
-            BorderStyle = BorderStyle.Fixed3D;
+            this.Cursor = Cursors.Arrow;
+            this.Paint += new PaintEventHandler(Dessin);
         }
-        public Label LabelLettre
+
+        private void Dessin(object sender, PaintEventArgs e)
         {
-            get
-            {
-                return lblLettre;
-            }
-            private set
-            {
-                lblLettre = value;
-            }
+            e.Graphics.FillRectangle(Brushes.Black, 10, 0, Width -20, Height);
+            e.Graphics.FillRectangle(Brushes.Black, 0, 10, Width, Height -20);
+            e.Graphics.FillEllipse(Brushes.Black , 0, 0, 20, 20);
+            e.Graphics.FillEllipse(Brushes.Black, 0, 0, 20, 20);
+            e.Graphics.FillEllipse(Brushes.Black, 0, 0, 20, 20);
+            e.Graphics.FillEllipse(Brushes.Black, 0, 0, 20, 20);
+            e.Graphics.DrawString(Nom, new Font("Arial", 12), Brushes.White, 2, 2);
         }
-
     }
 }
 
