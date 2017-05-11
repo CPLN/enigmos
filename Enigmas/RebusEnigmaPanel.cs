@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,6 +20,8 @@ namespace Cpln.Enigmos.Enigmas
         TextBox tbxAnswer = new TextBox { Text = "Réponse", Width=200 };
         TableLayoutPanel display = new TableLayoutPanel();
         Button btnDone = new Button { Text = "Valider" };
+
+        int randomIndex;
         #endregion
 
         #region Contructeur class & page
@@ -28,7 +31,7 @@ namespace Cpln.Enigmos.Enigmas
             //Piocher dans cette liste une image aléatoire qui sera l'image affichée.
             lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.Coccinelle, Size = new Size(512, 261), Tag = "coccinelle" });
             lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.farine, Size = new Size(512, 261), Tag = "farine" });
-            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.mamifere, Size = new Size(512, 261), Tag = "mamifere" });
+            lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.mamifere, Size = new Size(512, 261), Tag = "mammifère" });
             lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.parapluie, Size = new Size(512, 261), Tag = "parapluie" });
             lImg.Add(new PictureBox { BackgroundImage = Properties.Resources.piano, Size = new Size(512, 261), Tag = "piano" });
 
@@ -42,10 +45,13 @@ namespace Cpln.Enigmos.Enigmas
 
         public void BuildPage()
         {
-            //Ajout de l'évènement du placeholder sur la textbox
+            //Evènement keypress de la ta textbox
+            tbxAnswer.KeyDown += PressKey;
+
+            //Evènement du placeholder sur la textbox
             tbxAnswer.GotFocus += RemoveText;
 
-            //Ajout de l'évènement de click sur le bouton
+            //Evènement de click sur le bouton
             btnDone.Click += BtnDone_Click;
 
             // Suppression de la mise en page des réponses
@@ -69,9 +75,12 @@ namespace Cpln.Enigmos.Enigmas
             lblTitle.AutoSize = true;
             display.SetColumnSpan(lblTitle, 3);
 
+            //Génération du nombre aléatoire
+            randomIndex = RandomIndex();
+
             // Coordonnées des objets
             display.Controls.Add(lblTitle, 1, 0);
-            display.Controls.Add(lImg[RandomIndex()], 1, 1);
+            display.Controls.Add(lImg[randomIndex], 1, 1);
             display.Controls.Add(tbxAnswer, 1, 2);
             display.Controls.Add(btnDone, 1, 3);
         }
@@ -79,23 +88,64 @@ namespace Cpln.Enigmos.Enigmas
         #endregion
 
         #region Méthodes
+        /// <summary>
+        /// Génère un index aléatoire permettant de choisir l'image affichée
+        /// </summary>
         public int RandomIndex()
         {
             Random r = new Random();
             return r.Next(0, 4);
         }
+
+        /// <summary>
+        /// Valide la saisie de l'utilisateur
+        /// </summary>
+        public void ValidateAnswer(string answer)
+        {
+            //Formater la saisie de l'utilisateur en minuscule
+            answer = answer.ToLower();
+
+            //Tester si la réponse est correcte
+            if (answer == lImg[randomIndex].Tag.ToString())
+            {
+                //Bonne réponse
+                MessageBox.Show("La réponse est : 42", "Bravo !");
+            }
+            else
+            {
+                //Mauvaise réponse
+                tbxAnswer.Clear();
+                tbxAnswer.Focus();
+            }
+        }
         #endregion
 
         #region Evènements
+        /// <summary>
+        /// Permet de supprimer le texte lors du focus sur la textbox (alternative au placeholder)
+        /// </summary>
         public void RemoveText(object sender, EventArgs e)
         {
             tbxAnswer.Text = "";
         }
 
+        /// <summary>
+        /// Vérifie que la saisie ainsi que le tag de l'image affichée corresponde
+        /// </summary>
         private void BtnDone_Click(object sender, EventArgs e)
         {
-            //Vérifier que la saisie ainsi que le tag de l'image corresponde
+            ValidateAnswer(tbxAnswer.Text);
+        }
 
+        /// <summary>
+        /// Permet de valider la réponse quand l'utilisateur clique sur la touche enter
+        /// </summary>
+        public override void PressKey(object sender, KeyEventArgs e)
+        {
+            /*if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            {
+                //enter key is down
+            }*/
         }
         #endregion
     }
