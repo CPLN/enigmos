@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return null;
+            return new Enigma(new UnderKeyboardEnigmaPanel(), "Sous le clavier");
         }
 
         /// <summary>
@@ -59,6 +59,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
             enigmas.Add(new Enigma(new TapeTaupeEnigmaPanel(), "Tape-taupe"));
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
+            enigmas.Add(new Enigma(new UnderKeyboardEnigmaPanel(), "Sous le clavier"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
 
             Enigma runEnigma = new Enigma(new RunEnigmaPanel(), "Roux run");

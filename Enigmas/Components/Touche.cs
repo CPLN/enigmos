@@ -22,7 +22,9 @@ namespace Cpln.Enigmos.Enigmas.Components
             this.Height = Height ;
             this.Cursor = Cursors.Arrow;
             this.Paint += new PaintEventHandler(Dessin);
+            SourisBouge += new MouseEventHandler(Bouge); // evenement quand la souris est sur le panel
         }
+
 
         private void Dessin(object sender, PaintEventArgs e)
         {
