@@ -262,9 +262,49 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coffre {
+            get {
+                object obj = ResourceManager.GetObject("coffre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Coot_transp {
+            get {
+                object obj = ResourceManager.GetObject("Coot_transp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cristiano {
             get {
                 object obj = ResourceManager.GetObject("cristiano", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap donjon1 {
+            get {
+                object obj = ResourceManager.GetObject("donjon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap donjon2 {
+            get {
+                object obj = ResourceManager.GetObject("donjon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -311,16 +351,6 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap Fond {
             get {
                 object obj = ResourceManager.GetObject("Fond", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Foulque {
-            get {
-                object obj = ResourceManager.GetObject("Foulque", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -448,9 +478,29 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Medivial_sprite {
+            get {
+                object obj = ResourceManager.GetObject("Medivial_sprite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Montagne {
             get {
                 object obj = ResourceManager.GetObject("Montagne", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mur {
+            get {
+                object obj = ResourceManager.GetObject("mur", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -578,6 +628,46 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap player_bot {
+            get {
+                object obj = ResourceManager.GetObject("player_bot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_left {
+            get {
+                object obj = ResourceManager.GetObject("player_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_right {
+            get {
+                object obj = ResourceManager.GetObject("player_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player_top {
+            get {
+                object obj = ResourceManager.GetObject("player_top", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Poisson {
             get {
                 object obj = ResourceManager.GetObject("Poisson", resourceCulture);
@@ -658,9 +748,9 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap teleporter {
+        internal static System.Drawing.Bitmap teleport_transp {
             get {
-                object obj = ResourceManager.GetObject("teleporter", resourceCulture);
+                object obj = ResourceManager.GetObject("teleport_transp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -26,10 +26,28 @@ namespace Cpln.Enigmos.Enigmas
         int iTailleDeLaSalleCacheY = 80;
         Rectangle RectFoulque;
         bool bMessageFoulque = false;
+        bool bSalleSecreteDevrouille = false;
+        Image imgPlayer = Properties.Resources.player_right;
+        private int iCoffreWidth=100, iCoffreHeight=100;
+        Rectangle rectCoffre;
+
         //Commence quand on affiche le jeu
         public override void Load()
-        {            
+        {
+            bUnlocked = false;
+            PlayerPositionX = 45;
+            bTeleportMessage = false;
+            PlayerPositionY = 45;
+            bMessageFoulque = false;
+            bSalleSecreteDevrouille = false;
+            iCoffreWidth = 100;
+            iCoffreHeight = 100;
+            iTailleDeLaSalleCacheX = 120;
+            iTailleDeLaSalleCacheY = 80;
+
             timer.Start();
+
+            imgPlayer = Properties.Resources.player_left;
             Rectangle MBase1 = new Rectangle(-20, 0, 20, 100); ListeDeMurs.Add(MBase1);
             Rectangle MBase2 = new Rectangle(0, -20, 100, 20); ListeDeMurs.Add(MBase2);
             Rectangle MBase3 = new Rectangle(500, -20, 100, 20); ListeDeMurs.Add(MBase3);
@@ -49,7 +67,6 @@ namespace Cpln.Enigmos.Enigmas
             Rectangle M10 = new Rectangle(340, 160, 120, 80); ListeDeMurs.Add(M10);
             Rectangle M11 = new Rectangle(460, 160, 80, 180); ListeDeMurs.Add(M11);
             Rectangle M12 = new Rectangle(560, 100, 40, 240); ListeDeMurs.Add(M12);
-            //Rectangle M14 = new Rectangle(600, 180, 200, 160); ListeDeMurs.Add(M14);
             Rectangle M14_1 = new Rectangle(600, 180, 60, 160); ListeDeMurs.Add(M14_1);
             Rectangle M14_2 = new Rectangle(660, 180, 80, 120); ListeDeMurs.Add(M14_2);
             Rectangle M14_3 = new Rectangle(740, 180, 60, 120); ListeDeMurs.Add(M14_3);
@@ -58,7 +75,6 @@ namespace Cpln.Enigmos.Enigmas
             Rectangle M16 = new Rectangle(60, 360, 100, 80); ListeDeMurs.Add(M16);
             Rectangle M17 = new Rectangle(360, 260, 80, 200); ListeDeMurs.Add(M17);
             Rectangle M18 = new Rectangle(460, 360, 200, 80); ListeDeMurs.Add(M18);
-            //Rectangle M19 = new Rectangle(660, 340, 140, 60); ListeDeMurs.Add(M19);
             Rectangle M19_1 = new Rectangle(780, 340, 20, 40); ListeDeMurs.Add(M19_1);
             Rectangle M19_2 = new Rectangle(660, 380, 140, 20); ListeDeMurs.Add(M19_2);
             Rectangle M20 = new Rectangle(40, 460, 660, 40); ListeDeMurs.Add(M20);
@@ -98,11 +114,17 @@ namespace Cpln.Enigmos.Enigmas
         }
         private void Tick(object sender, EventArgs e)
         {
+            if (RectPlayer.IntersectsWith(rectCoffre) && bUnlocked == true)
+            {
+                iCoffreHeight = 0; iCoffreWidth = 0;
+            }
             bool bColision = false;
             //bToucheA, bToucheS, bToucheD, bToucheW
             if (bToucheD)
             {
-                if(RectPlayer.IntersectsWith(RectFoulque) && bMessageFoulque == false)
+                imgPlayer = Properties.Resources.player_right;
+                
+                if (RectPlayer.IntersectsWith(RectFoulque) && bMessageFoulque == false && bTeleportMessage == true)
                 {
                     bMessageFoulque = true;
                     MessageBox.Show("Vous m'avez eu? Mince, quelle foulquage! Bon, je vous benis! Prennez le portail!");
@@ -119,6 +141,7 @@ namespace Cpln.Enigmos.Enigmas
                 {
                     iTailleDeLaSalleCacheX = 0;
                     iTailleDeLaSalleCacheY = 0;
+                    bSalleSecreteDevrouille = true;
                 }
                 if(RectPlayer.IntersectsWith(RectTeleporterInput) && bTeleportMessage == false)
                 {
@@ -137,6 +160,7 @@ namespace Cpln.Enigmos.Enigmas
             }
             if (bToucheA)
             {
+                imgPlayer = Properties.Resources.player_left;
                 Rectangle RectClone = new Rectangle(PlayerPositionX-VitesseDeDeplacement, PlayerPositionY, 10, 10);
                 if (RectPlayer.IntersectsWith(RectTeleporterInput) && bTeleportMessage == false)
                 {
@@ -155,6 +179,7 @@ namespace Cpln.Enigmos.Enigmas
             }
             if (bToucheS)
             {
+                imgPlayer = Properties.Resources.player_bot;
                 //PlayerPositionY += VitesseDeDeplacement;
                 Rectangle RectClone = new Rectangle(PlayerPositionX, PlayerPositionY+VitesseDeDeplacement, 10, 10);
                 if (RectPlayer.IntersectsWith(RectTeleporterInput) && bTeleportMessage == false)
@@ -174,6 +199,7 @@ namespace Cpln.Enigmos.Enigmas
             }
             if (bToucheW)
             {
+                imgPlayer = Properties.Resources.player_top;
                 Rectangle RectClone = new Rectangle(PlayerPositionX, PlayerPositionY - VitesseDeDeplacement, 10, 10);
                 //PlayerPositionY -= VitesseDeDeplacement;
                 if (RectPlayer.IntersectsWith(RectTeleporterInput) && bTeleportMessage == false)
@@ -198,31 +224,7 @@ namespace Cpln.Enigmos.Enigmas
         {
             /*Width = 800;
             Height = 500;*/
-            Graphics g=e.Graphics;
-
-            //Position du joueur            
-            RectPlayer=new Rectangle(PlayerPositionX, PlayerPositionY, 10, 10);
-            g.DrawRectangle(Pens.Black, RectPlayer);
-            //g.DrawRectangle(Pens.Black, PlayerPositionX, PlayerPositionY, 10, 10);
-
-            //Création de tous les murs
-            ListeDeMurs.ForEach(delegate (Rectangle OneWall)
-            {
-                //sg.DrawRectangle(Pens.Black, OneWall);
-                g.FillRectangle(Brushes.Black, OneWall);
-            });
-
-            //Case de teleport
-            Image imgTeleporter = Properties.Resources.teleporter;
-            RectTeleporterInput = new Rectangle(720, 420, 60, 60);
-            RectTeleporterOutput = new Rectangle(640, 20, 60, 60);
-            g.DrawImage(imgTeleporter, RectTeleporterInput);
-            g.DrawImage(imgTeleporter, RectTeleporterOutput);
-
-            //FOULQUE DES TENEBRES
-            RectFoulque = new Rectangle(720, 300, 60, 80);
-            Image imgFoulque = Properties.Resources.Foulque;
-            g.DrawImage(imgFoulque, RectFoulque);
+            Graphics g = e.Graphics;
 
             //Salle caché
             RectSalleCache = new Rectangle(660, 300, iTailleDeLaSalleCacheX, iTailleDeLaSalleCacheY);
@@ -230,6 +232,54 @@ namespace Cpln.Enigmos.Enigmas
 
             
 
+            //background
+            Image imgDonjon = Properties.Resources.donjon1;            
+            if(bSalleSecreteDevrouille==false)
+            {
+                g.DrawImage(imgDonjon, 0, 0, Width, Height);
+            }
+            else
+            {
+                imgDonjon = Properties.Resources.donjon2;
+                g.DrawImage(imgDonjon, 0, 0, Width, Height);
+
+                //FOULQUE DES TENEBRES
+                RectFoulque = new Rectangle(720, 300, 60, 80);
+                Image imgFoulque = Properties.Resources.Coot_transp;
+                g.DrawImage(imgFoulque, RectFoulque);
+            }
+            // Set up string.
+            string measureString = "Foulquage";
+            Font stringFont = new Font("Arial", 15);
+            // Measure string.
+            SizeF stringSize = new SizeF();
+            stringSize = e.Graphics.MeasureString(measureString, stringFont);
+            // Draw string to screen.
+            e.Graphics.DrawString(measureString, stringFont, Brushes.White, new PointF(700, 100));
+
+            //coffre
+            Image imgCoffre = Properties.Resources.coffre;
+            rectCoffre = new Rectangle(700, 80, iCoffreWidth, iCoffreHeight);
+            g.DrawImage(imgCoffre, rectCoffre);
+
+            //Position du joueur            
+            RectPlayer =new Rectangle(PlayerPositionX, PlayerPositionY, 12, 12);
+            g.DrawImage(imgPlayer, RectPlayer);
+
+            //Création de tous les murs
+            ListeDeMurs.ForEach(delegate (Rectangle OneWall)
+            {
+                Image imgsprt = Properties.Resources.mur;
+            });
+
+            //Case de teleport
+            Image imgTeleporter = Properties.Resources.teleport_transp;
+            RectTeleporterInput = new Rectangle(720, 420, 60, 60);
+            RectTeleporterOutput = new Rectangle(640, 20, 60, 60);
+            g.DrawImage(imgTeleporter, RectTeleporterInput);
+            g.DrawImage(imgTeleporter, RectTeleporterOutput);
+
+            
         }
         public override void PressKey(object sender, KeyEventArgs e)
         {
@@ -237,19 +287,15 @@ namespace Cpln.Enigmos.Enigmas
             {
                 case Keys.D:
                     bToucheD = true;
-                    //PlayerPositionX+=20;
                     break;
                 case Keys.A:
                     bToucheA = true;
-                    //PlayerPositionX -=20;
                     break;
                 case Keys.W:
                     bToucheW = true;
-                    //PlayerPositionY -= 20;
                     break;
                 case Keys.S:
                     bToucheS = true;
-                    //PlayerPositionY += 20;
                     break;
             }
         }

@@ -23,8 +23,8 @@
     <hint>Pas d'indice, la solution est simple !</hint>
   </enigma>
   <enigma title="Foulque des Ténèbres">
-    <answer>simple</answer>
-    <hint>Pas d'indice, la solution est simple !</hint>
+    <answer>Foulquage</answer>
+    <hint>A=Gauche D=Droite W=Haut S=Bas | Traversez le portail pour ouvrir le coffre !</hint>
   </enigma>
   <enigma title="Charade">
     <answer>ornithorynque</answer>
