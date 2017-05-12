@@ -238,6 +238,21 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\Fantome1Recul3.png" />
+    <None Include="Resources\Fantome1Recul2.png" />
+    <None Include="Resources\Fantome1Recul1.png" />
+    <None Include="Resources\Fantome1Gauche3.png" />
+    <None Include="Resources\Fantome1Gauche2.png" />
+    <None Include="Resources\Fantome1Gauche1.png" />
+    <None Include="Resources\Fantome1Droite3.png" />
+    <None Include="Resources\Fantome1Droite2.png" />
+    <None Include="Resources\Fantome1Droite1.png" />
+    <None Include="Resources\Fantome1Avance3.png" />
+    <None Include="Resources\Fantome1Avance2.png" />
+    <None Include="Resources\Fantome1Avance1.png" />
+    <None Include="Resources\papierCoord.xml" />
+    <None Include="Resources\Murcoord.Xml" />
+    <None Include="Resources\EnnemisCoord.xml" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\souris.png" />
     <None Include="Resources\taupe - Copie.svg" />
