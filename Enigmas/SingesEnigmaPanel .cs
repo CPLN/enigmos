@@ -43,17 +43,13 @@ namespace Cpln.Enigmos.Enigmas
                 pbx.BackColor = Color.Transparent;
                 Controls.Add(pbx);
             }
-            //Initialisation des booléans
+            //Initialisation des booléans et passage de leur valeur à false
             for (int i = 0; i < tblBool.Length; i++)
             {
                 tblBool[i] = new bool();
+                tblBool[i] = false;
             }
-
-            //Affectation de la valeur à false
-            foreach (boolean bool  in tblBool)
-            {
-                
-            }
+         
             //Placement des PictureBox
             tblPbx[0].Location = new Point(200, 500);
             tblPbx[1].Location = new Point(600, 500);
@@ -85,7 +81,7 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(btnReponse[i]);
             }
             //Réponse à l'énigme
-            if (bEtatSinge1 == true && bEtatSinge2 == true && bEtatSinge3 == true)
+            if (tblBool[0] == true && tblBool[1] == true && tblBool[2] == true)
             {
                 pbxReponse = new PictureBox();
                 pbxReponse.Image = Properties.Resources.BananesWTF;
@@ -97,11 +93,13 @@ namespace Cpln.Enigmos.Enigmas
         }
             //Evènement sur le clic sur un bouton.
             private void bouton_Click(object sender, EventArgs e)
-            {  
+            {
             }
+
              private void TimerEventProcessor(object sender, EventArgs e)
             {
             }
+
         /// <summary>
         /// Permet d'activer un singe
         /// </summary>
@@ -117,6 +115,7 @@ namespace Cpln.Enigmos.Enigmas
                 tblPbx[i].Image = Properties.Resources.SingeBleuCymbalesFermees;
             }
         }
+
         /// <summary>
         /// Permet d'arrêter le mouvement d'un singe
         /// </summary>
@@ -143,7 +142,6 @@ namespace Cpln.Enigmos.Enigmas
                tChrono.Tick += new EventHandler(TimerEventProcessor);
                tChrono.Interval = 500;
                tChrono.Start();
-
             }   
          public override void Load()
         {
