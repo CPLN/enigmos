@@ -57,6 +57,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new TapeTaupeEnigmaPanel(), "Tape-taupe"));
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
+            enigmas.Add(new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur"));
 
             Enigma runEnigma = new Enigma(new RunEnigmaPanel(), "Roux run");
             enigmas.Add(runEnigma);
