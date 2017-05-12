@@ -10,7 +10,8 @@ namespace Cpln.Enigmos.Enigmas
 {
    public class CoucheCouleurEnigmaPanel : EnigmaPanel
     {
-        //Déclaration des variables
+        //Déclaration des Attributs
+
         private List<Panel> PanelCouche;
         private string[] tabCouleur;
         private char[] tabReponse;
@@ -26,12 +27,13 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         public CoucheCouleurEnigmaPanel()
         {
+            //le compteur sert à passer dans les différentes cases des tableaux.
             iCpt = 0;
             tabCouleur = new string[iLongeurReponse] { "Purple", "Orange", "Blue", "Green", "Pink", "Red", "Yellow" };
             tabReponse = new char[iLongeurReponse] { 'T', 'R', 'O', 'L', 'L', 'E', 'R' };
             PanelCouche = new List<Panel>();
 
-            //Caractéristique du label lblReset
+            //Propriétés du label lblReset
             lblReset = new Label();
             lblReset.Text = "Recommencer";
             lblReset.Click += new EventHandler(Reset);
@@ -44,21 +46,21 @@ namespace Cpln.Enigmos.Enigmas
                 panel.Size = new Size(800, 600);
                 panel.BackColor = Color.FromName(tabCouleur[i]);
                 PanelCouche.Add(panel);
-            } 
-            
-            //Caractéristique du label lblReponse
+            }
+
+            //Propriétés du label lblReponse
             lblReponse = new Label();
             lblReponse.Location = new Point(100, 50);
             lblReponse.Text = "La réponse est la suite de caractères que vous venez d'entrer.";
-            lblReponse.Width = 300;
+            lblReponse.Width = 350;
 
-            //Caractéristique de la PictureBox ptbTrolle
+            //Propriétés de la PictureBox ptbTrolle
             ptbTrolle = new PictureBox();
             ptbTrolle.Location = new Point(200, 100);
             ptbTrolle.Size = new Size(1000, 1000);
             ptbTrolle.Image = Properties.Resources.TrollFace;
             
-            //Ajoute des objet aux controls
+            //Ajoute des objets aux controls
             Controls.Add(lblReset);
             PanelCouche.ForEach(this.Controls.Add);
             Controls.Add(lblReponse);
@@ -81,17 +83,18 @@ namespace Cpln.Enigmos.Enigmas
                 } 
         }
         /// <summary>
-        /// Rend visible tous les panels et met le conteur à zéro
+        /// Appellé quand l'utlisateur clique sur le label lblReset
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Reset(object sender, EventArgs e)
         {
-            iCpt = 0;
-            foreach(Panel panel in PanelCouche)
+            //Rend visible tous les panels de la liste PanelCouche et met le conteur à zéro
+            foreach (Panel panel in PanelCouche)
             {
                 panel.Visible = true;
             }
+            iCpt = 0;
         }
     }
 
