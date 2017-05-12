@@ -10,6 +10,7 @@ namespace Cpln.Enigmos.Enigmas
 {
    public class CoucheCouleurEnigmaPanel : EnigmaPanel
     {
+        //Déclaration des variables
         private List<Panel> PanelCouche;
         private string[] tabCouleur;
         private char[] tabReponse;
@@ -18,8 +19,10 @@ namespace Cpln.Enigmos.Enigmas
         private Label lblReponse;
         private PictureBox ptbTrolle;
         private Label lblReset;
+
+
         /// <summary>
-        /// Constructeur pas défaut
+        /// Constructeur
         /// </summary>
         public CoucheCouleurEnigmaPanel()
         {
@@ -28,45 +31,60 @@ namespace Cpln.Enigmos.Enigmas
             tabReponse = new char[iLongeurReponse] { 'T', 'R', 'O', 'L', 'L', 'E', 'R' };
             PanelCouche = new List<Panel>();
 
+            //Caractéristique du label lblReset
             lblReset = new Label();
             lblReset.Text = "Recommencer";
             lblReset.Click += new EventHandler(Reset);
-            Controls.Add(lblReset);
-
+            
             //création de tous les panels en fonction de la longueur de la Réponse avec juste la couleur qui change
             for (int i = 0;i<tabCouleur.Length; i++)
             {
                 Panel panel = new Panel();
-                panel.Location = new System.Drawing.Point(0, 0);
-                panel.Size = new System.Drawing.Size(800, 600);
-                panel.BackColor = System.Drawing.Color.FromName(tabCouleur[i]);
+                panel.Location = new Point(0, 0);
+                panel.Size = new Size(800, 600);
+                panel.BackColor = Color.FromName(tabCouleur[i]);
                 PanelCouche.Add(panel);
-            }     
-            PanelCouche.ForEach(this.Controls.Add);
-
+            } 
+            
+            //Caractéristique du label lblReponse
             lblReponse = new Label();
             lblReponse.Location = new Point(100, 50);
-            lblReponse.Text = "La réponse est la suite de caractère que vous venez d'entrer.";
+            lblReponse.Text = "La réponse est la suite de caractères que vous venez d'entrer.";
             lblReponse.Width = 300;
-            Controls.Add(lblReponse);
 
+            //Caractéristique de la PictureBox ptbTrolle
             ptbTrolle = new PictureBox();
             ptbTrolle.Location = new Point(200, 100);
             ptbTrolle.Size = new Size(1000, 1000);
             ptbTrolle.Image = Properties.Resources.TrollFace;
+            
+            //Ajoute des objet aux controls
+            Controls.Add(lblReset);
+            PanelCouche.ForEach(this.Controls.Add);
+            Controls.Add(lblReponse);
             Controls.Add(ptbTrolle);
         }
-
+        /// <summary>
+        /// Cette méthode est appelé quand l'utilisateur presse une touche du clavier
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public override void PressKey(object sender, KeyEventArgs e)
         {
-            //regarde si le caractère entré est égale à la case du tableau
-                if(Convert.ToChar(e.KeyValue) == tabReponse[iCpt])
+            //regarde si le caractère entré est égale à la case du tableau tabReponse
+            if (e.KeyValue == tabReponse[iCpt])
                 {
+                    //Rend le panel invisible
                     PanelCouche[iCpt].Visible = false;
                 if(iCpt<6)
                     iCpt++;
                 } 
         }
+        /// <summary>
+        /// Rend visible tous les panels et met le conteur à zéro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Reset(object sender, EventArgs e)
         {
             iCpt = 0;
