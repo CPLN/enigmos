@@ -36,7 +36,7 @@ namespace Cpln.Enigmos.Enigmas
             //Propriétés du label lblReset
             lblReset = new Label();
             lblReset.Text = "Recommencer";
-            lblReset.Click += new EventHandler(Reset);
+            lblReset.Click += new EventHandler(lbl_Reset_Click);
             
             //création de tous les panels en fonction de la longueur de la Réponse avec juste la couleur qui change
             for (int i = 0;i<tabCouleur.Length; i++)
@@ -87,7 +87,18 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Reset(object sender, EventArgs e)
+        private void lbl_Reset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+        /// <summary>
+        /// Appelé quand l'éngime s'affiche à l'écran
+        /// </summary>
+        public override void Load()
+        {
+            Reset();
+        }
+        private void Reset()
         {
             //Rend visible tous les panels de la liste PanelCouche et met le conteur à zéro
             foreach (Panel panel in PanelCouche)
