@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <enigmas>
+  <enigma title="Rébus">
+    <answer>42</answer>
+    <hint>Devinez un mot en vous aidant des images.</hint>
+  </enigma>
   <enigma title="Le plus long mot">
     <answer>oiseaux</answer>
     <hint>C'est un animal.</hint>
@@ -17,6 +21,10 @@
   <enigma title="Où est la réponse ?">
     <answer>là-bas</answer>
     <hint>je t'ai dis là-bas, enfin !</hint>
+  </enigma>
+  <enigma title="Couche Couleur">
+    <answer>troller</answer>
+    <hint>Clavier</hint>
   </enigma>
   <enigma title="C'est simple">
     <answer>simple</answer>
