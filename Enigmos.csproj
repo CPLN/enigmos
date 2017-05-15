@@ -36,6 +36,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,6 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\CoucheCouleurEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\CodeBarreEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -98,6 +102,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\PileOuFaceEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\RebusEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
@@ -238,6 +245,12 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\TrollFace.png" />
+    <None Include="Resources\piano.jpg" />
+    <None Include="Resources\parapluie.jpg" />
+    <None Include="Resources\mamifere.jpg" />
+    <None Include="Resources\farine.jpg" />
+    <None Include="Resources\Coccinelle.jpg" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\souris.png" />
     <None Include="Resources\taupe - Copie.svg" />
