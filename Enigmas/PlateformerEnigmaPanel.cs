@@ -128,6 +128,7 @@ namespace Cpln.Enigmos.Enigmas
         public int Height { get; protected set; }
         public abstract event EventHandler Moved;
 
+        // Retourne un rectangle à partir de l'objet ce qui permet de detecter des intersection plus facilement
         public Rectangle Rectangle {
             get { return new Rectangle(X, Y, Width, Height); }
         }
@@ -136,10 +137,10 @@ namespace Cpln.Enigmos.Enigmas
         /// <summary>
         /// Constructeur de la class Boy
         /// </summary>
-        /// <param name="X"></param>
-        /// <param name="Y"></param>
-        /// <param name="Width"></param>
-        /// <param name="Height"></param>
+        /// <param name="X">Postion sur l'axe X de l'objet</param>
+        /// <param name="Y">Postion sur l'axe Y de l'objet</param>
+        /// <param name="Width">Longueur de l'objet</param>
+        /// <param name="Height">Hauteur de l'objet</param>
         protected Boy(int X, int Y, int Width, int Height) {
             this.X = X;
             this.Y = Y;
@@ -178,8 +179,6 @@ namespace Cpln.Enigmos.Enigmas
         /// <summary>
         /// Réécriture de l'evenement abstarait du timer
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         protected override void Timer_Tick(object sender, EventArgs e) {
             // Bouge de gauche à droite infiniment
             if (X < iXMax && !bMax) {
@@ -289,14 +288,12 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         /// <param name="iDirection">-1 Arrière, 1 Avanr, 0 bouge pas</param>
         public void MoveX(int iDirection) {
-            this.iDirection = iDirection;
+            this.iDirection = iDirection;   // Change la direction du déplacement ou l'arrête
         }
 
         /// <summary>
         /// Réécriture de l'evenement abstarait du timer
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         protected override void Timer_Tick(object sender, EventArgs e) {
             // Permet de faire sauter l'objet
             if (IsJumping) {
