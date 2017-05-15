@@ -307,9 +307,6 @@
   <data name="elephant" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\elephant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ombre" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ombre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="TrollFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TrollFace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -327,5 +324,8 @@
   </data>
   <data name="piano" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\piano.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ElephantOmbre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ElephantOmbre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

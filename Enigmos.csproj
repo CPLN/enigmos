@@ -245,7 +245,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
-    <None Include="Resources\elephant.png" />
+    <None Include="Resources\ElephantOmbre.png" />
+    <None Include="Resources\Elephant.png" />
     <None Include="Resources\ombre.png" />
     <None Include="Resources\TrollFace.png" />
     <None Include="Resources\piano.jpg" />

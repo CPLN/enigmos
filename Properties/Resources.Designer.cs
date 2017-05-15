@@ -290,6 +290,16 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ElephantOmbre {
+            get {
+                object obj = ResourceManager.GetObject("ElephantOmbre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
         ///&lt;enigmas&gt;
         ///  &lt;enigma title=&quot;Rébus&quot;&gt;
@@ -490,16 +500,6 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap NinePoints {
             get {
                 object obj = ResourceManager.GetObject("NinePoints", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ombre {
-            get {
-                object obj = ResourceManager.GetObject("ombre", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
