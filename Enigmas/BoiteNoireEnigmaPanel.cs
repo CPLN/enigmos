@@ -11,60 +11,71 @@ namespace Cpln.Enigmos.Enigmas
     public class BoiteNoireEnigmaPanel : EnigmaPanel
     {
         /// <summary>
-        /// Remplis les labels avec les chiffres de départ et les affiche
+        /// Remplis les Labels avec les chiffres de départ et les affiche
         /// </summary>
-        /// <param name="tChiffreAfficher">Tableau de labels</param>
-        /// <param name="tChiffre">Tableau contenant les chiffres de départ</param>
-        public void RemplirTableauChiffreEtAfficher(ref Label[] tChiffreAfficher, double[] tChiffre)
+        /// <param name="tLblChiffreAfficher">Tableau de Labels</param>
+        /// <param name="tDblChiffre">Tableau contenant les chiffres de départ</param>
+        public void RemplirTableauChiffreEtAfficher(ref Label[] tLblChiffreAfficher, double[] tDblChiffre)
         {
+            //Taille des Textbox
             int iX = 125;
             int iY = 135;
-            for (int icpt = 0; icpt < tChiffreAfficher.Length; icpt++)
+
+            //Création et mise en place des Labels
+            for (int icpt = 0; icpt < tLblChiffreAfficher.Length; icpt++)
             {
-                tChiffreAfficher[icpt] = new Label();
-                tChiffreAfficher[icpt].Text = Convert.ToString(tChiffre[icpt]);
-                tChiffreAfficher[icpt].Location = new Point(iX, iY);
-                tChiffreAfficher[icpt].Size = new Size(100, 50);
-                tChiffreAfficher[icpt].Font = new Font("Arial", 40);
-                Controls.Add(tChiffreAfficher[icpt]);
+                tLblChiffreAfficher[icpt] = new Label();
+                tLblChiffreAfficher[icpt].Text = Convert.ToString(tDblChiffre[icpt]);
+                tLblChiffreAfficher[icpt].Location = new Point(iX, iY);
+                tLblChiffreAfficher[icpt].Size = new Size(150, 50);
+                tLblChiffreAfficher[icpt].Font = new Font("Arial", 40);
+                Controls.Add(tLblChiffreAfficher[icpt]);
                 iY = iY + 70;
             }
         }
 
-        public void AfficherCaseARemplir(ref TextBox[] tChiffreATrouver)
+        /// <summary>
+        /// Afficher les Textbox permettant d'écrire les réponses de la boîte noire et remplir les deux premières
+        /// </summary>
+        /// <param name="tTbxChiffreATrouver">Tableau contenant les chiffres à afficher</param>
+        public void AfficherCaseARemplir(ref TextBox[] tTbxChiffreATrouver)
         {
+            //Taille des Textbox
             int iX = 610;
             int iY = 135;
-            
-            for (int icpt = 0; icpt < tChiffreATrouver.Length; icpt++)
+
+            //Création et mise en place des TextBox
+            for (int icpt = 0; icpt < tTbxChiffreATrouver.Length; icpt++)
             {
-                tChiffreATrouver[icpt] = new TextBox();
-                tChiffreATrouver[icpt].Location = new Point(iX, iY);
-                tChiffreATrouver[icpt].Size = new Size(80, 50);
-                tChiffreATrouver[icpt].Font = new Font("Arial", 40);
-                Controls.Add(tChiffreATrouver[icpt]);
+                tTbxChiffreATrouver[icpt] = new TextBox();
+                tTbxChiffreATrouver[icpt].Location = new Point(iX, iY);
+                tTbxChiffreATrouver[icpt].Size = new Size(100, 50);
+                tTbxChiffreATrouver[icpt].Font = new Font("Arial", 40);
+                Controls.Add(tTbxChiffreATrouver[icpt]);
                 iY = iY + 70;
             }
-            tChiffreATrouver[0].Text = "19";
-            tChiffreATrouver[1].Text = "5";
-            tChiffreATrouver[0].Enabled = false;
-            tChiffreATrouver[1].Enabled = false;
+            //Chiffres préremplis
+            tTbxChiffreATrouver[0].Text = "19";
+            tTbxChiffreATrouver[1].Text = "5";
+            tTbxChiffreATrouver[0].Enabled = false;
+            tTbxChiffreATrouver[1].Enabled = false;
         }
-
         public BoiteNoireEnigmaPanel()
         {
-            Label[] tChiffreAfficher = new Label[5];
-            TextBox[] tChiffreATrouver = new TextBox[5];    
-            double[] tChiffre = new double[] { 9, 2, 5, 9.5, 0 };
+            Label[] tLblChiffreAfficher = new Label[5];
+            TextBox[] tTbxChiffreATrouver = new TextBox[5];
+            double[] tDblChiffre = new double[] { 9, 2, 5, 9.5, 0 };
+
+            //Paramètres de la boîte noire
             Panel pnlBoiteNoire = new Panel();
             pnlBoiteNoire.Size = new Size(300, 400);
             pnlBoiteNoire.Location = new Point(250, 100);
             pnlBoiteNoire.BackColor = Color.Black;
             Controls.Add(pnlBoiteNoire);
 
-            RemplirTableauChiffreEtAfficher(ref tChiffreAfficher, tChiffre);
-            AfficherCaseARemplir(ref tChiffreATrouver);
+            //Appel des méthodes
+            RemplirTableauChiffreEtAfficher(ref tLblChiffreAfficher, tDblChiffre);
+            AfficherCaseARemplir(ref tTbxChiffreATrouver);
         }
-        
     }
 }
