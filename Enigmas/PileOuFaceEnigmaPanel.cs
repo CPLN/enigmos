@@ -10,6 +10,7 @@ namespace Cpln.Enigmos.Enigmas
 {
     public class PileOuFaceEnigmaPanel : EnigmaPanel
     {
+        private ListBox lbxCombi = new ListBox();
        private List<string> _lstCombi = new List<string>();
        public PileOuFaceEnigmaPanel()
             {
@@ -41,30 +42,38 @@ namespace Cpln.Enigmos.Enigmas
                 btnFace.TextAlign = ContentAlignment.MiddleCenter;
                 btnFace.Click += new System.EventHandler(btnFace_click);
 
-                ListBox lbxCombi = new ListBox();
+               
                 lbxCombi.DataSource = _lstCombi;
                 lbxCombi.Size = new Size(200, 50);
                 lbxCombi.Location = new Point(300, 400);
                 Controls.Add(lbxCombi);
-                
-                //TextBox tbxCombi = new TextBox();
-                //tbxCombi.Name = "tbxCombi";
-                //tbxCombi.Size = new Size(200, 50);
-                //tbxCombi.Location = new Point(300,400);
 
-                //Controls.Add(tbxCombi);
-                Controls.Add(btnPile);
+            //TextBox tbxCombi = new TextBox();
+            //tbxCombi.Name = "tbxCombi";
+            //tbxCombi.Size = new Size(200, 50);
+            //tbxCombi.Location = new Point(300,400);
+           
+            //Controls.Add(tbxCombi);
+            Controls.Add(btnPile);
                 Controls.Add(btnFace);
                 Controls.Add(lblinfo);
             }
         public void btnPile_click(object sender, EventArgs e)
         {
             _lstCombi.Add("Pile");
+            AfficheListbox();
             
         }
         public void btnFace_click(object sender, EventArgs e)
         {
             _lstCombi.Add("Face");
+            AfficheListbox();
+        }
+        public void AfficheListbox()
+        {
+            
+            lbxCombi.DataSource = _lstCombi;
+            
         }
     }
 }
