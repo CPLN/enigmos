@@ -18,7 +18,6 @@ namespace Cpln.Enigmos
         public static Enigma DebugEnigma()
         {
             return new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?");
-            return new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur");
         }
 
         /// <summary>
@@ -31,6 +30,7 @@ namespace Cpln.Enigmos
 
             enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
             enigmas.Add(new Enigma(new BeatThemAllEnigmaPanel(), "Beat them all"));
+            enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?"));
             enigmas.Add(new Enigma(new BusEnigmaPanel(), "Sens du bus"));
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
@@ -62,7 +62,6 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new TapeTaupeEnigmaPanel(), "Tape-taupe"));
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
-            enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?"));
 
             Enigma runEnigma = new Enigma(new RunEnigmaPanel(), "Roux run");
             enigmas.Add(runEnigma);
