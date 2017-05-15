@@ -1,13 +1,11 @@
 ﻿using Cpln.Enigmos.Properties;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Cpln.Enigmos.Enigmas {
+namespace Cpln.Enigmos.Enigmas
+{
     class PlateformerEnigmaPanel : EnigmaPanel {
         Hero _hero = new Hero(0, 300, 50, 50); // Le hero que le joueur incarne
         Rectangle _rWin; // La piece qui permet de gagner
@@ -75,7 +73,7 @@ namespace Cpln.Enigmos.Enigmas {
 			// Si le hero gagne en touchant la piece, il recommence et le mot de passe s'affiche
             if (_hero.Rectangle.IntersectsWith(_rWin)) {
                 _hero.Dead();
-                MessageBox.Show("Ugwemuhwem");
+                MessageBox.Show("Pass1234");
             }
         }
 		
