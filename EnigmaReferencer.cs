@@ -17,11 +17,8 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-<<<<<<< HEAD
             return new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?");
-=======
             return new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur");
->>>>>>> upstream/master
         }
 
         /// <summary>
