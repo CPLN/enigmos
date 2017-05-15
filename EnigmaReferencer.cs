@@ -30,12 +30,12 @@ namespace Cpln.Enigmos
 
             enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
             enigmas.Add(new Enigma(new BeatThemAllEnigmaPanel(), "Beat them all"));
-            enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?"));
             enigmas.Add(new Enigma(new BusEnigmaPanel(), "Sens du bus"));
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
             enigmas.Add(new Enigma(new ClicRapideEnigmaPanel(), "Clic-rapide"));
             enigmas.Add(new Enigma(new CodeBarreEnigmaPanel(), "Le code barre"));
+            enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?"));
             enigmas.Add(new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur"));
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
             enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
