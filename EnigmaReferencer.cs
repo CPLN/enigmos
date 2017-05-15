@@ -17,7 +17,9 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new PileOuFaceEnigmaPanel(), "Pile ou face");    
+            
+            return new Enigma(new PileOuFaceEnigmaPanel(), "Pile ou face");
+            
         }
 
         /// <summary>
