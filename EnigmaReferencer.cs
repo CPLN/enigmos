@@ -35,6 +35,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
             enigmas.Add(new Enigma(new ClicRapideEnigmaPanel(), "Clic-rapide"));
             enigmas.Add(new Enigma(new CodeBarreEnigmaPanel(), "Le code barre"));
+            enigmas.Add(new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur"));
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
             enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
             enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));
@@ -52,6 +53,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new PenduEnigmaPanel(), "Le jeu du pendu"));
             enigmas.Add(new Enigma(new Pendu2EnigmaPanel(), "Pendu 2"));
             enigmas.Add(new Enigma(new PhoqueEnigmaPanel(), "Chop' les poissons"));
+            enigmas.Add(new Enigma(new RebusEnigmaPanel(), "Rébus"));
             enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
             enigmas.Add(new Enigma(new ReflexeEnigmaPanel(), "Reflexe"));
             enigmas.Add(new Enigma(new SeptDifferencesEnigmaPanel(), "Le jeu des 7 différences"));
