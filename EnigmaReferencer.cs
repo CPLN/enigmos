@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur");
+            return new Enigma(new SwitchesEnigmaPanel(3), "Allumez tout");
         }
 
         /// <summary>

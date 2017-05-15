@@ -60,6 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\Components\Light.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\CoucheCouleurEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -213,6 +216,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RotatingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\SwitchesEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utils\ShuffleList.cs" />
