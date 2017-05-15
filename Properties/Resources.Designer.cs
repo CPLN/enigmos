@@ -241,6 +241,19 @@ namespace Cpln.Enigmos.Properties {
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+<<<<<<< HEAD
+=======
+        /// </summary>
+        internal static System.Drawing.Bitmap Coccinelle {
+            get {
+                object obj = ResourceManager.GetObject("Coccinelle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+>>>>>>> upstream/master
         /// </summary>
         internal static System.Drawing.Bitmap CoeurBlanc {
             get {
@@ -261,6 +274,7 @@ namespace Cpln.Enigmos.Properties {
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+<<<<<<< HEAD
         /// </summary>
         internal static System.Drawing.Bitmap Coin {
             get {
@@ -271,6 +285,8 @@ namespace Cpln.Enigmos.Properties {
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+=======
+>>>>>>> upstream/master
         /// </summary>
         internal static System.Drawing.Bitmap cristiano {
             get {
@@ -282,9 +298,15 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
         ///&lt;enigmas&gt;
+<<<<<<< HEAD
         ///  &lt;enigma title=&quot;Plateformer&quot;&gt;
         ///    &lt;answer&gt;Ugwemuhwem&lt;/answer&gt;
         ///    &lt;hint&gt;Gagne.&lt;/hint&gt;
+=======
+        ///  &lt;enigma title=&quot;Rébus&quot;&gt;
+        ///    &lt;answer&gt;42&lt;/answer&gt;
+        ///    &lt;hint&gt;Devinez un mot en vous aidant des images.&lt;/hint&gt;
+>>>>>>> upstream/master
         ///  &lt;/enigma&gt;
         ///  &lt;enigma title=&quot;Le plus long mot&quot;&gt;
         ///    &lt;answer&gt;oiseaux&lt;/answer&gt;
@@ -296,7 +318,11 @@ namespace Cpln.Enigmos.Properties {
         ///  &lt;/enigma&gt;
         ///  &lt;enigma title=&quot;Caractère caché&quot;&gt;
         ///    &lt;answer&gt;Cpln&lt;/answer&gt;
+<<<<<<< HEAD
         ///    &lt;hint&gt;&quot;Le dessin est la base de tout [le reste de la chaîne a été tronqué]&quot;;.
+=======
+        ///    &lt;hint&gt;&quot;Le dessi [le reste de la chaîne a été tronqué]&quot;;.
+>>>>>>> upstream/master
         /// </summary>
         internal static string enigmas {
             get {
@@ -316,6 +342,19 @@ namespace Cpln.Enigmos.Properties {
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+<<<<<<< HEAD
+=======
+        /// </summary>
+        internal static System.Drawing.Bitmap farine {
+            get {
+                object obj = ResourceManager.GetObject("farine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+>>>>>>> upstream/master
         /// </summary>
         internal static System.Drawing.Bitmap Fond {
             get {
@@ -446,6 +485,19 @@ namespace Cpln.Enigmos.Properties {
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+<<<<<<< HEAD
+=======
+        /// </summary>
+        internal static System.Drawing.Bitmap mamifere {
+            get {
+                object obj = ResourceManager.GetObject("mamifere", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+>>>>>>> upstream/master
         /// </summary>
         internal static System.Drawing.Bitmap Montagne {
             get {
@@ -506,6 +558,19 @@ namespace Cpln.Enigmos.Properties {
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+<<<<<<< HEAD
+=======
+        /// </summary>
+        internal static System.Drawing.Bitmap parapluie {
+            get {
+                object obj = ResourceManager.GetObject("parapluie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+>>>>>>> upstream/master
         /// </summary>
         internal static System.Drawing.Bitmap PartiJuste {
             get {
@@ -536,6 +601,19 @@ namespace Cpln.Enigmos.Properties {
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+<<<<<<< HEAD
+=======
+        /// </summary>
+        internal static System.Drawing.Bitmap piano {
+            get {
+                object obj = ResourceManager.GetObject("piano", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+>>>>>>> upstream/master
         /// </summary>
         internal static System.Drawing.Bitmap pj1 {
             get {
@@ -576,6 +654,7 @@ namespace Cpln.Enigmos.Properties {
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+<<<<<<< HEAD
         /// </summary>
         internal static System.Drawing.Bitmap Player {
             get {
@@ -586,6 +665,8 @@ namespace Cpln.Enigmos.Properties {
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+=======
+>>>>>>> upstream/master
         /// </summary>
         internal static System.Drawing.Bitmap Poisson {
             get {
@@ -676,6 +757,19 @@ namespace Cpln.Enigmos.Properties {
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+<<<<<<< HEAD
+=======
+        /// </summary>
+        internal static System.Drawing.Bitmap TrollFace {
+            get {
+                object obj = ResourceManager.GetObject("TrollFace", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+>>>>>>> upstream/master
         /// </summary>
         internal static System.Drawing.Bitmap tutorial {
             get {

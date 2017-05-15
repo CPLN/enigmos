@@ -36,6 +36,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -59,7 +60,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\CoucheCouleurEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\CodeBarreEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\MovablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\FruitsEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\InvisibleAnswerEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\LettreHaute.cs">
@@ -89,6 +102,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\PlateformerEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\RebusEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\SeptDifferencesEnigmaPanel.cs">
@@ -199,6 +215,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RotatingLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Utils\ShuffleList.cs" />
     <EmbeddedResource Include="Enigmos.resx">
       <DependentUpon>Enigmos.cs</DependentUpon>
@@ -229,6 +248,12 @@
     <None Include="Resources\Coin1.png" />
     <None Include="Resources\walkcyclevarious.png" />
     <None Include="Resources\11635.jpg" />
+    <None Include="Resources\TrollFace.png" />
+    <None Include="Resources\piano.jpg" />
+    <None Include="Resources\parapluie.jpg" />
+    <None Include="Resources\mamifere.jpg" />
+    <None Include="Resources\farine.jpg" />
+    <None Include="Resources\Coccinelle.jpg" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\souris.png" />
     <None Include="Resources\taupe - Copie.svg" />
@@ -259,17 +284,6 @@
     <None Include="Resources\cristiano.png" />
     <None Include="Resources\supermeat.jpg" />
     <None Include="Resources\Fesse.png" />
-    <None Include="img\rond.png" />
-    <None Include="image\Cross.png" />
-    <None Include="image\Circle.png" />
-    <None Include="img\croix.png" />
-    <Content Include="img\imageA.PNG" />
-    <Content Include="img\imageB.PNG" />
-    <Content Include="img\imageC.PNG" />
-    <Content Include="img\imageD.PNG" />
-    <Content Include="img\imageE.PNG" />
-    <Content Include="img\imageF.PNG" />
-    <Content Include="img\imageG.PNG" />
     <None Include="Resources\kirby3.png" />
     <None Include="Resources\kirby2.png" />
     <None Include="Resources\kirby.png" />
@@ -290,8 +304,6 @@
     <None Include="Resources\pj2.PNG" />
     <None Include="Resources\pj1.PNG" />
     <None Include="Resources\ennemi1.png" />
-    <None Include="img\image2.PNG" />
-    <None Include="img\image1.PNG" />
     <None Include="Resources\OpenDoor - Solution.png" />
     <None Include="Resources\OpenDoor_Landscape.png" />
     <None Include="Resources\OpenDoor.png" />
@@ -300,11 +312,6 @@
     <None Include="Resources\PartiJuste.png" />
     <None Include="Resources\Table.png" />
     <None Include="Resources\Verre.png" />
-    <None Include="image\Bus_Reponse3.png" />
-    <None Include="image\Bus_Reponse2.png" />
-    <None Include="image\Bus_Reponse1.png" />
-    <None Include="image\bus.jpg" />
-    <None Include="image\carre.jpg" />
     <None Include="Resources\2jzCarSound.wav" />
     <None Include="Resources\car.png" />
     <None Include="Resources\NinePoints.png" />
