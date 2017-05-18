@@ -20,7 +20,6 @@ namespace Cpln.Enigmos.Enigmas
             //Remplissage des cases du tableau d'images
             tblImg[0] = Properties.Resources.SingeBleuCymbalesFermees;
             tblImg[1] = Properties.Resources.SingeBleuCymbalesOuvertes;
-
             //Initialisation des PituresBox
             for (int i = 0; i < tblPbx.Length; i++)
             {
