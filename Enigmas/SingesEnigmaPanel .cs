@@ -86,14 +86,13 @@ namespace Cpln.Enigmos.Enigmas
             //Evènement sur le clic sur un bouton.
             private void bouton_Click(object sender, EventArgs e)
             {
-            }
-
+        }
         /// <summary>
         /// Initialise le timer, créer une intervalle d'une demi-seconde, et le démarre
         /// </summary>
         public override void Load()
         {
-          Initialiser();
+          //Initialiser();
         }
          public override void Unload()
        {
