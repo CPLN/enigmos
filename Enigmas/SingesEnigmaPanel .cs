@@ -12,7 +12,6 @@ namespace Cpln.Enigmos.Enigmas
         private Button[] btnReponse = new Button[5];
         private PictureBox[] tblPbx = new PictureBox[3];
         Image[] tblImg = new Image[2];
-        bool[] tblBool = new bool[3];
         private PictureBox pbxReponse;
 
         public SingesEnigmaPanel()
@@ -41,12 +40,6 @@ namespace Cpln.Enigmos.Enigmas
                 pbx.Size = Properties.Resources.SingeBleuCymbalesOuvertes.Size;
                 pbx.BackColor = Color.Transparent;
                 Controls.Add(pbx);
-            }
-            //Initialisation des booléans et passage de leur valeur à false
-            for (int i = 0; i < tblBool.Length; i++)
-            {
-                tblBool[i] = new bool();
-                tblBool[i] = false;
             }
          
             //Placement des PictureBox
@@ -80,7 +73,7 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(btnReponse[i]);
             }
             //Réponse à l'énigme
-            if (tblBool[0] == true && tblBool[1] == true && tblBool[2] == true)
+            //if ()
             {
                 pbxReponse = new PictureBox();
                 pbxReponse.Image = Properties.Resources.BananesWTF;
@@ -95,54 +88,10 @@ namespace Cpln.Enigmos.Enigmas
             {
             }
 
-             private void TimerEventProcessor(object sender, EventArgs e)
-            {
-            }
-
-        /// <summary>
-        /// Permet d'activer un singe
-        /// </summary>
-        /// <param name="i">Correspond au numero de la cellule du tableau ou se trouve la pbx</param>
-        public void Activer(int i)
-        {
-            if (tblPbx[i].Image == Properties.Resources.SingeBleuCymbalesFermees)
-            {
-                tblPbx[i].Image = Properties.Resources.SingeBleuCymbalesOuvertes;
-            }
-            if (tblPbx[i].Image == Properties.Resources.SingeBleuCymbalesOuvertes)
-            {
-                tblPbx[i].Image = Properties.Resources.SingeBleuCymbalesFermees;
-            }
-        }
-
-        /// <summary>
-        /// Permet d'arrêter le mouvement d'un singe
-        /// </summary>
-        /// <param name="i">Correspond au numero de la cellule du tableau ou se trouve la pbx</param>
-        private void Desactiver(int i)
-            {
-               
-            }
-
-        /// <summary>
-        /// Inverse l'état d'un singe
-        /// </summary>
-        ///  /// <param name="i">Correspond au numero de la cellule du tableau ou se trouve la pbx</param>
-        private void Inverses(int i)
-        {
-            
-        }
-
         /// <summary>
         /// Initialise le timer, créer une intervalle d'une demi-seconde, et le démarre
         /// </summary>
-        private void Initialiser()
-            {
-               tChrono.Tick += new EventHandler(TimerEventProcessor);
-               tChrono.Interval = 500;
-               tChrono.Start();
-            }   
-         public override void Load()
+        public override void Load()
         {
           Initialiser();
         }
