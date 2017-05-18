@@ -63,6 +63,9 @@
     <Compile Include="Enigmas\CoucheCouleurEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\CrypteDeLaFoulqueDesTenebresEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\CodeBarreEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -264,6 +267,20 @@
     <None Include="Resources\mamifere.jpg" />
     <None Include="Resources\farine.jpg" />
     <None Include="Resources\Coccinelle.jpg" />
+    <None Include="Resources\player_top.png" />
+    <None Include="Resources\player_right.png" />
+    <None Include="Resources\player_left.png" />
+    <None Include="Resources\player_bot.png" />
+    <None Include="Resources\coffre.png" />
+    <None Include="Resources\teleport_transp.png" />
+    <None Include="Resources\Coot_transp.png" />
+    <None Include="Resources\donjon2.png" />
+    <None Include="Resources\donjon1.png" />
+    <None Include="Resources\mur.png" />
+    <None Include="Resources\0-tileset.png" />
+    <None Include="Resources\medevial_sprite.png" />
+    <None Include="Resources\Coot-.png" />
+    <None Include="Resources\warpzoneglitchremix.png" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\souris.png" />
     <None Include="Resources\taupe - Copie.svg" />
