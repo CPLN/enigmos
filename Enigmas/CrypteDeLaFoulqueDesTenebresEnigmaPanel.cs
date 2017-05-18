@@ -15,23 +15,28 @@ namespace Cpln.Enigmos.Enigmas
         private int VitesseDeDeplacement=3;
         private Timer timer;
         private bool bToucheA, bToucheS, bToucheD, bToucheW;
-        List<Rectangle> ListeDeMurs = new List<Rectangle>();
-        Rectangle RectPlayer;
+        private List<Rectangle> ListeDeMurs = new List<Rectangle>();
+        private Rectangle RectPlayer;
         private bool bUnlocked = false;
-        Rectangle RectTeleporterInput;
-        Rectangle RectTeleporterOutput;
+        private Rectangle RectTeleporterInput;
+        private Rectangle RectTeleporterOutput;
         private bool bTeleportMessage;
-        Rectangle RectSalleCache;
-        int iTailleDeLaSalleCacheX = 120;
-        int iTailleDeLaSalleCacheY = 80;
-        Rectangle RectFoulque;
-        bool bMessageFoulque = false;
-        bool bSalleSecreteDevrouille = false;
-        Image imgPlayer = Properties.Resources.player_right;
+        private Rectangle RectSalleCache;
+        private int iTailleDeLaSalleCacheX = 120;
+        private int iTailleDeLaSalleCacheY = 80;
+        private Rectangle RectFoulque;
+        private bool bMessageFoulque = false;
+        private bool bSalleSecreteDevrouille = false;
+        private Image imgPlayer = Properties.Resources.player_right;
         private int iCoffreWidth=100, iCoffreHeight=100;
-        Rectangle rectCoffre;
+        private Rectangle rectCoffre;
+        private bool bColision;
+        private Rectangle RectClone;
 
         //Commence quand on affiche le jeu
+        /// <summary>
+        /// Fonction qui charge tous les elèment decris à l'appel du paneux
+        /// </summary>
         public override void Load()
         {
             bUnlocked = false;
@@ -81,12 +86,14 @@ namespace Cpln.Enigmos.Enigmas
             Rectangle M21 = new Rectangle(500, 100, 40, 40); ListeDeMurs.Add(M21);
             Rectangle M22 = new Rectangle(660, 400, 40, 40); ListeDeMurs.Add(M22);
         }
-        //Arrête le jeu
+        //Evenement qui se passe quand on passe au prochain paneau ou on finis cet enigme
         public override void Unload()
         {
             timer.Stop();
         }
-
+        /// <summary>
+        /// Constructeur du pannel
+        /// </summary>
         public CrypteDeLaFoulqueDesTenebresEnigmaPanel()
         {
             Width = 800;
@@ -100,30 +107,62 @@ namespace Cpln.Enigmos.Enigmas
             DoubleBuffered = true;
         }
 
-
-        private bool ColisionTest(Rectangle R1, bool b)
+        /// <summary>
+        /// Teste si le rectangle du joueur a intersecté un rectanglemur et si oui elle definie bColision à true
+        /// </summary>
+        private void TesteDeColision()
         {
             ListeDeMurs.ForEach(delegate (Rectangle RectangleTeste)
             {
-                if (R1.IntersectsWith(RectangleTeste))
+                if (RectClone.IntersectsWith(RectangleTeste))
                 {
-                    b = true;
+                    bColision = true;
                 }
             });
-            return b;
         }
+        /// <summary>
+        /// Teste la colision entre le joueur et la case de teleporte
+        /// </summary>
+        /// <param name="b">nom de variable</param>
+        private void testedecolisionTP(string b)
+        {
+            if (RectPlayer.IntersectsWith(RectTeleporterInput) && bTeleportMessage == false)
+            {
+                switch(b)
+                {
+                    case "bToucheW":
+                        bToucheW = false;
+                        break;
+                    case "bToucheS":
+                        bToucheS = false;
+                        break;
+                    case "bToucheA":
+                        bToucheA = false;
+                        break;
+                    case "bToucheD":
+                        bToucheD = false;
+                        break;
+                }
+                
+                bTeleportMessage = true;
+                MessageBox.Show("Vous n'êtes toujours pas béni par la foulque des ténèbres, trouvez où la foulque se cache!", "Teleportation interdite");
+            }
+        }
+        /// <summary>
+        /// Timer qui se update chaque 16ms~
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Tick(object sender, EventArgs e)
         {
             if (RectPlayer.IntersectsWith(rectCoffre) && bUnlocked == true)
             {
                 iCoffreHeight = 0; iCoffreWidth = 0;
             }
-            bool bColision = false;
-            //bToucheA, bToucheS, bToucheD, bToucheW
+            bColision = false;
             if (bToucheD)
             {
-                imgPlayer = Properties.Resources.player_right;
-                
+                imgPlayer = Properties.Resources.player_right;                
                 if (RectPlayer.IntersectsWith(RectFoulque) && bMessageFoulque == false && bTeleportMessage == true)
                 {
                     bMessageFoulque = true;
@@ -136,24 +175,16 @@ namespace Cpln.Enigmos.Enigmas
                     PlayerPositionX = 640;
                     PlayerPositionY = 20;
                 }
-                Rectangle RectClone = new Rectangle(PlayerPositionX+VitesseDeDeplacement, PlayerPositionY, 10, 10);
+                RectClone = new Rectangle(PlayerPositionX+VitesseDeDeplacement, PlayerPositionY, 10, 10);
                 if(RectPlayer.IntersectsWith(RectSalleCache))
                 {
                     iTailleDeLaSalleCacheX = 0;
                     iTailleDeLaSalleCacheY = 0;
                     bSalleSecreteDevrouille = true;
                 }
-                if(RectPlayer.IntersectsWith(RectTeleporterInput) && bTeleportMessage == false)
-                {
-                    bToucheD = false;
-                    bTeleportMessage = true;
-                    MessageBox.Show("Vous n'êtes toujours pas béni par la foulque des ténèbres, trouvez où la foulque se cache!", "Teleportation interdite");
-                }
-                if(ColisionTest(RectClone, bColision) == true)
-                {
-                    bColision = true;
-                }
-                if(bColision==false)
+                testedecolisionTP("bToucheD");
+                TesteDeColision();
+                if (bColision==false)
                 {
                     PlayerPositionX += VitesseDeDeplacement;
                 }           
@@ -161,17 +192,9 @@ namespace Cpln.Enigmos.Enigmas
             if (bToucheA)
             {
                 imgPlayer = Properties.Resources.player_left;
-                Rectangle RectClone = new Rectangle(PlayerPositionX-VitesseDeDeplacement, PlayerPositionY, 10, 10);
-                if (RectPlayer.IntersectsWith(RectTeleporterInput) && bTeleportMessage == false)
-                {
-                    bToucheD = false;
-                    bTeleportMessage = true;
-                    MessageBox.Show("Vous n'êtes toujours pas béni par la foulque des ténèbres, trouvez où la foulque se cache!", "Teleportation interdite");
-                }
-                if (ColisionTest(RectClone, bColision) == true)
-                {
-                    bColision = true;
-                }
+                RectClone = new Rectangle(PlayerPositionX-VitesseDeDeplacement, PlayerPositionY, 10, 10);
+                testedecolisionTP("bToucheA");
+                TesteDeColision();
                 if (bColision == false)
                 {
                     PlayerPositionX -= VitesseDeDeplacement;
@@ -180,18 +203,9 @@ namespace Cpln.Enigmos.Enigmas
             if (bToucheS)
             {
                 imgPlayer = Properties.Resources.player_bot;
-                //PlayerPositionY += VitesseDeDeplacement;
-                Rectangle RectClone = new Rectangle(PlayerPositionX, PlayerPositionY+VitesseDeDeplacement, 10, 10);
-                if (RectPlayer.IntersectsWith(RectTeleporterInput) && bTeleportMessage == false)
-                {
-                    bToucheD = false;
-                    bTeleportMessage = true;
-                    MessageBox.Show("Vous n'êtes toujours pas béni par la foulque des ténèbres, trouvez où la foulque se cache!", "Teleportation interdite");
-                }
-                if (ColisionTest(RectClone, bColision) == true)
-                {
-                    bColision = true;
-                }
+                RectClone = new Rectangle(PlayerPositionX, PlayerPositionY+VitesseDeDeplacement, 10, 10);
+                testedecolisionTP("bToucheS");
+                TesteDeColision();
                 if (bColision == false)
                 {
                     PlayerPositionY += VitesseDeDeplacement;
@@ -200,18 +214,10 @@ namespace Cpln.Enigmos.Enigmas
             if (bToucheW)
             {
                 imgPlayer = Properties.Resources.player_top;
-                Rectangle RectClone = new Rectangle(PlayerPositionX, PlayerPositionY - VitesseDeDeplacement, 10, 10);
+                RectClone = new Rectangle(PlayerPositionX, PlayerPositionY - VitesseDeDeplacement, 10, 10);
                 //PlayerPositionY -= VitesseDeDeplacement;
-                if (RectPlayer.IntersectsWith(RectTeleporterInput) && bTeleportMessage == false)
-                {
-                    bToucheD = false;
-                    bTeleportMessage = true;
-                    MessageBox.Show("Vous n'êtes toujours pas béni par la foulque des ténèbres, trouvez où la foulque se cache!", "Teleportation interdite");
-                }
-                if (ColisionTest(RectClone, bColision) == true)
-                {
-                    bColision = true;
-                }
+                testedecolisionTP("bToucheW");
+                TesteDeColision();
                 if (bColision == false)
                 {
                     PlayerPositionY -= VitesseDeDeplacement;
@@ -219,19 +225,17 @@ namespace Cpln.Enigmos.Enigmas
             }
             Invalidate();
         }
-
+        /// <summary>
+        /// Fonction qui dessine les formes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Dessiner(object sender, PaintEventArgs e)
         {
-            /*Width = 800;
-            Height = 500;*/
             Graphics g = e.Graphics;
-
             //Salle caché
             RectSalleCache = new Rectangle(660, 300, iTailleDeLaSalleCacheX, iTailleDeLaSalleCacheY);
             g.FillRectangle(Brushes.Black, RectSalleCache);
-
-            
-
             //background
             Image imgDonjon = Properties.Resources.donjon1;            
             if(bSalleSecreteDevrouille==false)
@@ -242,7 +246,6 @@ namespace Cpln.Enigmos.Enigmas
             {
                 imgDonjon = Properties.Resources.donjon2;
                 g.DrawImage(imgDonjon, 0, 0, Width, Height);
-
                 //FOULQUE DES TENEBRES
                 RectFoulque = new Rectangle(720, 300, 60, 80);
                 Image imgFoulque = Properties.Resources.Coot_transp;
@@ -256,31 +259,30 @@ namespace Cpln.Enigmos.Enigmas
             stringSize = e.Graphics.MeasureString(measureString, stringFont);
             // Draw string to screen.
             e.Graphics.DrawString(measureString, stringFont, Brushes.White, new PointF(700, 100));
-
             //coffre
             Image imgCoffre = Properties.Resources.coffre;
             rectCoffre = new Rectangle(700, 80, iCoffreWidth, iCoffreHeight);
             g.DrawImage(imgCoffre, rectCoffre);
-
             //Position du joueur            
             RectPlayer =new Rectangle(PlayerPositionX, PlayerPositionY, 12, 12);
             g.DrawImage(imgPlayer, RectPlayer);
-
             //Création de tous les murs
             ListeDeMurs.ForEach(delegate (Rectangle OneWall)
             {
                 Image imgsprt = Properties.Resources.mur;
             });
-
             //Case de teleport
             Image imgTeleporter = Properties.Resources.teleport_transp;
             RectTeleporterInput = new Rectangle(720, 420, 60, 60);
             RectTeleporterOutput = new Rectangle(640, 20, 60, 60);
             g.DrawImage(imgTeleporter, RectTeleporterInput);
-            g.DrawImage(imgTeleporter, RectTeleporterOutput);
-
-            
+            g.DrawImage(imgTeleporter, RectTeleporterOutput);            
         }
+        /// <summary>
+        /// Event qui se passe quand on presse une touche
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public override void PressKey(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -299,6 +301,11 @@ namespace Cpln.Enigmos.Enigmas
                     break;
             }
         }
+        /// <summary>
+        /// Event qui se passe quand on lâche touche
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public override void ReleaseKey(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
