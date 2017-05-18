@@ -503,16 +503,6 @@ namespace Cpln.Enigmos.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Medivial_sprite {
-            get {
-                object obj = ResourceManager.GetObject("Medivial_sprite", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
         
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.

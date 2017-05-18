@@ -322,12 +322,6 @@
   <data name="piano" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\piano.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Medivial_sprite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\0-tileset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="donjon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\donjon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -354,5 +348,8 @@
   </data>
   <data name="player_top" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\player_top.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
