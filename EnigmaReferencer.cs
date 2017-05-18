@@ -73,6 +73,5 @@ namespace Cpln.Enigmos
             enigmas.Shuffle();
             return enigmas;
         }
-
     }
 }
