@@ -336,12 +336,7 @@ namespace Cpln.Enigmos.Properties {
         ///&lt;/enigma&gt;
         ///  &lt;enigma title=&quot;Puzzle&quot;&gt;
         ///    &lt;answer&gt;jongleur&lt;/answer&gt;
-        ///    &lt;hint&gt;Remettez les pièces à leur place.&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Caractère caché&quot;&gt;
-        ///    &lt;answer&gt;Cpln&lt;/answer&gt;
-        ///    &lt;hint&gt;&quot;Le dess [le reste de la chaîne a été tronqué]&quot;;.
-        ///    &lt;hint&gt;&quot;Le dessi [le reste de la chaîne a été tronqué]&quot;;.
+        ///    &lt;hint&gt;Remettez les [le reste de la chaîne a été tronqué]&quot;;.
         /// </summary>
         internal static string enigmas {
             get {
@@ -360,11 +355,11 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 33,40,81,46,Yellow;
-        ///33,40,55,116,Lime;
-        ///33,40,144,357,Aqua;
-        ///33,40,234,140,Aqua;
-        ///33,40,299,12,Lime;
+        ///   Recherche une chaîne localisée semblable à 22,31,81,46,Yellow;
+        ///22,31,55,116,Lime;
+        ///22,31,144,357,Aqua;
+        ///22,31,234,140,Aqua;
+        ///22,31,299,12,Lime;
         ///.
         /// </summary>
         internal static string EnnemisCoord {
@@ -654,6 +649,16 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mur {
+            get {
+                object obj = ResourceManager.GetObject("mur", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à 100,114,128,92,ActiveCaption;
         ///53,207,0,-1,ActiveCaption;
         ///53,164,0,279,ActiveCaption;
@@ -668,16 +673,6 @@ namespace Cpln.Enigmos.Properties {
         internal static string Murcoord {
             get {
                 return ResourceManager.GetString("Murcoord", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap mur {
-            get {
-                object obj = ResourceManager.GetObject("mur", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

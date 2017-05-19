@@ -26,10 +26,11 @@ namespace Cpln.Enigmos.Enigmas
         //Je l'ai mis ici, car si il est dans le "tick" il se réinitialise à chaque fois
         int iPapier = 0;//compteur qui permet de determiner l'avancement du joueur dans la découverte du mot de passe
         string[] AStrCodeSecret = new string[7] { "si", "c'est", "un", "oeuf", "c'est", "un", "vin" };
-        Timer timer1 = new Timer();
+        Timer timer1 = new Timer();        
 
         public JeuDuSacEnigmaPanel()
         {
+            timer1.Tick += new EventHandler(timer1_Tick);
         }
 
         public override void Load()
@@ -37,6 +38,7 @@ namespace Cpln.Enigmos.Enigmas
             listCoordMur = RemplissageDeCord(Properties.Resources.Murcoord, listCoordMur);
             listCoordEnnemis = RemplissageDeCord(Properties.Resources.EnnemisCoord, listCoordEnnemis);
             listCoordPapier = RemplissageDeCord(Properties.Resources.papierCoord, listCoordPapier);
+            string[] aStrNomPapier = new string[7] { "pbPapier1", "pbPapier2", "pbPapier3", "pbPapier4", "pbPapier5", "pbPapier6", "pbSac" };
 
             //auomatiser tout ça par la suite
             aPBMurs = RemplissageProprietePictureBox(aPBMurs, listCoordMur);
@@ -48,22 +50,152 @@ namespace Cpln.Enigmos.Enigmas
             { Controls.Add(ennemi); }
 
             aPBPapier = RemplissageProprietePictureBox(aPBPapier, listCoordPapier);
+            int iNomPapier = 0;
             foreach (PictureBox papier in aPBPapier)
-            { Controls.Add(papier); }
+            {
+                aPBPapier[iNomPapier].Name = aStrNomPapier[iNomPapier];
+                iNomPapier++;
+                Controls.Add(papier);
+            }
 
+
+
+            //ici on initialise le sac
             aPBPapier[6].Enabled = false;
             aPBPapier[6].Visible = false;
 
+            //ici on initialise le joueur
             pbJoueur.Size = new System.Drawing.Size(33, 40);
             pbJoueur.Location = new System.Drawing.Point(91, 217);
             pbJoueur.BackColor = System.Drawing.Color.Crimson;
+            Controls.Add(pbJoueur);
 
             foreach (PictureBox ennemi in aPBEnnemis)
             {
                 //test image
                 ennemi.Image = Properties.Resources.Fantome1Avance1;
             }
+            timer1.Start();
             //int iJaaj = 2; //si on a besoin d'un point d'arrêt pour contrôler
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //PictureBox[] aPbEnnemis = new PictureBox[5] { pbEnnemi1X, pbEnnemi4Y, pbEnnemi2Y, pbEnnemi3X, pbEnnemi5X };//Contient les picture box de tout les ennemis
+            //Int32[,] aIlimitesEnnemis = new Int32[5, 2] { { 65, 185 }, { 124, 270 }, { 100, 390 }, { 128, 305 }, { 283, 380 } };//tableau qui contient les coordonées limites ou les ennemis se déplacent 
+            Int32[,] aIlimitesEnnemis = new Int32[5, 2] { { 65, 185 }, { 100, 390 }, { 128, 305 }, { 124, 270 },  { 283, 380 } };
+            Point[,] AdDeplacementEnnemis = new Point[5, 2] { // on va simplifier le tableau des déplacement, si possible
+                                                             {new Point(aPBEnnemis[0].Location.X + 2, aPBEnnemis[0].Location.Y), new Point(aPBEnnemis[0].Location.X - 2, aPBEnnemis[0].Location.Y) },
+                                                             {new Point(aPBEnnemis[1].Location.X, aPBEnnemis[1].Location.Y+2), new Point(aPBEnnemis[1].Location.X, aPBEnnemis[1].Location.Y-2) },
+                                                             {new Point(aPBEnnemis[2].Location.X, aPBEnnemis[2].Location.Y+2), new Point(aPBEnnemis[2].Location.X, aPBEnnemis[2].Location.Y-2) },
+                                                             {new Point(aPBEnnemis[3].Location.X + 2, aPBEnnemis[3].Location.Y), new Point(aPBEnnemis[3].Location.X - 2, aPBEnnemis[3].Location.Y)},
+                                                             {new Point(aPBEnnemis[4].Location.X + 2, aPBEnnemis[4].Location.Y), new Point(aPBEnnemis[4].Location.X - 2, aPBEnnemis[4].Location.Y)}
+                                                            };
+            int iCptEnnemis = -1;
+            foreach (PictureBox Ennemi in aPBEnnemis)
+            {
+                iCptEnnemis++;
+                switch (ADirectioEnnemis[iCptEnnemis, 0])
+                {
+                    case "avancer":
+                        if (DetectXY(ADirectioEnnemis, aIlimitesEnnemis, Ennemi, iCptEnnemis))
+                        { // dans ce cas, l'ennemis à atteint la limite de sa route, on le fais se retourner
+                            ADirectioEnnemis[iCptEnnemis, 0] = "reculer";
+                        }
+                        else
+                        {  //dans ce cas là, l'ennemi peut avancer normalement
+                            Ennemi.Location = AdDeplacementEnnemis[iCptEnnemis, 0];
+                        }
+                        break;
+                    case "reculer"://idem que plus haut, mais dans le cas ou l'ennemi fait le chemin retour.
+                        if (DetectXY(ADirectioEnnemis, aIlimitesEnnemis, Ennemi, iCptEnnemis))
+                        {
+                            ADirectioEnnemis[iCptEnnemis, 0] = "avancer";
+                        }
+                        else
+                        { Ennemi.Location = AdDeplacementEnnemis[iCptEnnemis, 1]; }
+
+                        break;
+                }
+                //Vérifie si l'ennemi peut voir le joueur
+                if (DetectVision(Ennemi, ADirectioEnnemis, iCptEnnemis))
+                {
+                    aPBEnnemis[iCptEnnemis].BackColor = Color.Crimson; //on change la couleur de l'ennemi qui l'a touché
+                    GameOverParVision();//game over
+                }
+                //Vérifie si l'ennemi n'entre pas en collision avec le joueur
+                if (Ennemi.Bounds.IntersectsWith(pbJoueur.Bounds))
+                {
+                    aPBEnnemis[iCptEnnemis].BackColor = Color.Crimson;
+                    GameOverParColision();//game over
+                }
+            }
+        }
+
+        public bool DetectXY(string[,] TabXY, Int32[,] TabLimites, PictureBox pbEnnemis, int iIndexEnnemis)
+        {
+            //faire un switch, et assigner la location à une variable
+            int iPositionXYEnnemi = 0;
+
+            if (TabXY[iIndexEnnemis, 1] == "X") //Selon l'axe de déplacement de l'ennemi(X ou Y) on utilise la position corespondante
+            { iPositionXYEnnemi = pbEnnemis.Location.X; }
+            if (TabXY[iIndexEnnemis, 1] == "Y")
+            { iPositionXYEnnemi = pbEnnemis.Location.Y; }
+
+            switch (TabXY[iIndexEnnemis, 0]) // là on teste que l'ennemi ne dépasse pas les limittes.
+            {
+                case "avancer":
+                    return ((iPositionXYEnnemi + 2 > TabLimites[iIndexEnnemis, 1])); //quand il avance c'est sa limite maximum qui est testé
+                    break;
+
+                case "reculer":
+                    return ((iPositionXYEnnemi - 2 < TabLimites[iIndexEnnemis, 0])); // quand il recule c'est sa limite minimum qui est testé
+                    break;
+            }
+            return false;
+        }
+
+        private bool DetectVision(PictureBox Ennemi, string[,] TabXY, int iIndexEnnemis)
+        {
+            int iAxeEnnmi = 0;
+            int iAxeJoueur = 0;
+            int iAxeJoueurrecul = 0;
+            bool bAxeInverse = false;
+            if (TabXY[iIndexEnnemis, 1] == "X") //Selon l'axe de déplacement de l'ennemi(X ou Y) on utilise la position corespondante
+            { //on va donc assigner ici tout les renseignement nécéssaire au calcul de la ligne de vue de l'ennemi
+                iAxeEnnmi = Ennemi.Location.X + Ennemi.Width;
+                iAxeJoueur = pbJoueur.Location.X;
+                iAxeJoueurrecul = pbJoueur.Location.X + pbJoueur.Width;
+                bAxeInverse = TestAlignement(Ennemi.Location.Y, pbJoueur.Location.Y, Ennemi.Height, pbJoueur.Height);
+            }
+            if (TabXY[iIndexEnnemis, 1] == "Y")
+            {//idem que plus haut mais pour l'autre Axe
+                iAxeEnnmi = Ennemi.Location.Y + Ennemi.Height;
+                iAxeJoueur = pbJoueur.Location.Y;
+                iAxeJoueurrecul = pbJoueur.Location.Y + pbJoueur.Height;
+                bAxeInverse = TestAlignement(Ennemi.Location.X, pbJoueur.Location.X, Ennemi.Width, pbJoueur.Width);
+            }
+
+            switch (TabXY[iIndexEnnemis, 0]) // là on teste que la ligne de vue de l'ennemi n'atteigne pas le joueur
+            {
+                case "avancer":
+                    if (bAxeInverse)
+                    { return ((iAxeEnnmi + 50 > iAxeJoueur && iAxeJoueur > iAxeEnnmi)); } //on vérifie si le regard de l'ennemi atteigne le joueur est que le joueur ne sois pas dérière l'ennemi
+                    break;
+
+                case "reculer":
+                    if (bAxeInverse)
+                    { return ((iAxeEnnmi - 75 < iAxeJoueurrecul && iAxeJoueurrecul < iAxeEnnmi)); } // ici la vison est plus grand car on soustrait la largeur/hauteur de l'ennemi
+                    break;
+            }
+            return false; //et si le switch ne donne aucun résultat on considère comme false.
+        }
+
+        private bool TestAlignement(int iAxeEnnemiInverse, int iAxeInverseJoueur, int LargeurHauteurEnnemi, int LargeurhauteurJoueur)
+        {
+            return (!(iAxeInverseJoueur + (LargeurhauteurJoueur / 2) < iAxeEnnemiInverse || iAxeInverseJoueur > iAxeEnnemiInverse + (LargeurHauteurEnnemi / 2)));
+            //ici on teste si le joueur est au même niveau que l'ennemi sur l'axe ou il ne se déplace pas
+            // par exemple si l'ennemi se déplace sur l'axe X, on va tester les position en Y des deux entités.         
         }
 
         private void GameOverParColision()
