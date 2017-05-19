@@ -34,10 +34,15 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
             enigmas.Add(new Enigma(new ClicRapideEnigmaPanel(), "Clic-rapide"));
+            enigmas.Add(new Enigma(new CodeBarreEnigmaPanel(), "Le code barre"));
+            enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?"));
+            enigmas.Add(new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur"));
+            enigmas.Add(new Enigma(new CrypteDeLaFoulqueDesTenebresEnigmaPanel(), "Foulque des Ténèbres"));
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
             enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
             enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));
             enigmas.Add(new Enigma(new HiddenCharacterEnigmalPanel(), "Caractère caché"));
+            enigmas.Add(new Enigma(new InvisibleAnwerEnigmaPanel(), "Invisible Answer"));
             enigmas.Add(new Enigma(new LettreHaute(), "Quelle est la plus haute ?"));
             enigmas.Add(new Enigma(new MemoireDesChiffresEnigmaPanel(), "Souviens toi"));
             enigmas.Add(new Enigma(new MorpionEnigmaPanel(), "Morpion"));
@@ -49,6 +54,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new OuEstLaReponseEnigmaPanel(), "Où est la réponse ?"));
             enigmas.Add(new Enigma(new PenduEnigmaPanel(), "Le jeu du pendu"));
             enigmas.Add(new Enigma(new PhoqueEnigmaPanel(), "Chop' les poissons"));
+            enigmas.Add(new Enigma(new RebusEnigmaPanel(), "Rébus"));
             enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
             enigmas.Add(new Enigma(new ReflexeEnigmaPanel(), "Reflexe"));
             enigmas.Add(new Enigma(new SeptDifferencesEnigmaPanel(), "Le jeu des 7 différences"));
@@ -67,6 +73,5 @@ namespace Cpln.Enigmos
             enigmas.Shuffle();
             return enigmas;
         }
-        
     }
 }
