@@ -94,7 +94,7 @@ namespace Cpln.Enigmos.Enigmas
         /// <summary>
         /// Teste si la grille est entièrement allumée. Si c'est le cas, la réponse est affichée.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Est-ce que toutes les lampes sont allumées</returns>
         public bool Check()
         {
             bool finished = true;

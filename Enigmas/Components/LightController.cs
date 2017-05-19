@@ -8,7 +8,7 @@
         /// <summary>
         /// Appelé lorsqu'une lampe change d'état.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Est-ce que l'état actuel est validé</returns>
         bool Check();
     }
 }
