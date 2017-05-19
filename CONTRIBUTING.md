@@ -1,6 +1,6 @@
 # Participer
 
-Ce projet est créé à l'attention des élèves du [CPLN](http://www.cpln.ch) (Centre Professionnel du Littoral neuchâtelois), sous la responsabilité de @SteeveDroz.
+Ce projet est créé à l'attention des élèves du [CPLN](http://www.cpln.ch) (Centre Professionnel du Littoral neuchâtelois), sous la responsabilité de [Steeve Droz](https://github.com/SteeveDroz).
 
 ## Pour les élèves du CPLN-ET
 
