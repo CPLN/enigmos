@@ -63,6 +63,7 @@
     <Compile Include="Enigmas\Components\Light.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\Components\LightController.cs" />
     <Compile Include="Enigmas\CoucheCouleurEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>

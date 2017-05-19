@@ -10,13 +10,15 @@ namespace Cpln.Enigmos.Enigmas.Components
 {
     class Light : Panel
     {
+        private LightController controller;
         private List<Light> voisins;
-        private bool allume;
+        public bool Allume { get; private set; }
 
-        public Light()
+        public Light(LightController controller)
         {
+            this.controller = controller;
             voisins = new List<Light>();
-            allume = true;
+            Allume = true;
             Width = 100;
             Height = 100;
 
@@ -32,22 +34,28 @@ namespace Cpln.Enigmos.Enigmas.Components
 
         public void Cliquer(object sender, EventArgs e)
         {
+            CliquerVoisins();
+        }
+
+        public void Dessiner(object sender, PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(Allume ? Brushes.Blue : Brushes.Gray, 0, 0, Width, Height);
+        }
+
+        public void CliquerVoisins()
+        {
             Cliquer();
-            foreach(Light voisin in voisins)
+            foreach (Light voisin in voisins)
             {
                 voisin.Cliquer();
             }
         }
 
-        public void Dessiner(object sender, PaintEventArgs e)
+        private void Cliquer()
         {
-            e.Graphics.FillRectangle(allume ? Brushes.Blue : Brushes.Gray, 0, 0, Width, Height);
-        }
-
-        public void Cliquer()
-        {
-            allume = !allume;
+            Allume = !Allume;
             Invalidate();
+            controller.Check();
         }
     }
 }
