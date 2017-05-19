@@ -42,6 +42,10 @@
     <answer>simple</answer>
     <hint>Pas d'indice, la solution est simple !</hint>
   </enigma>
+  <enigma title="Foulque des Ténèbres">
+    <answer>Foulquage</answer>
+    <hint>A=Gauche D=Droite W=Haut S=Bas | Traversez le portail pour ouvrir le coffre !</hint>
+  </enigma>
   <enigma title="Charade">
     <answer>ornithorynque</answer>
     <hint>Résolvez la charade</hint>
@@ -157,5 +161,9 @@
   <enigma title="9 Points">
     <answer>9.</answer>
     <hint>Passez par les 9 points en 4 traits</hint>
+  </enigma>
+  <enigma title="Combien de s ?">
+    <answer>poisson</answer>
+    <hint>C'est un animal.</hint>
   </enigma>
 </enigmas>

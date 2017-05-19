@@ -322,4 +322,34 @@
   <data name="piano" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\piano.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="donjon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\donjon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="donjon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\donjon2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coot_transp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Coot_transp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="teleport_transp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teleport_transp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coffre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coffre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_bot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\player_bot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\player_left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\player_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player_top" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\player_top.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
