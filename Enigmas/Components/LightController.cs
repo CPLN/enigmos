@@ -2,6 +2,6 @@
 {
     interface LightController
     {
-        void Check();
+        bool Check();
     }
 }

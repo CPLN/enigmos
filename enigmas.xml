@@ -4,6 +4,14 @@
     <answer>lumineux</answer>
     <hint>Faites en sorte que toutes les cases soient allumées</hint>
   </enigma>
+  <enigma title="Rallumez tout">
+    <answer>éblouissant</answer>
+    <hint>Faites en sorte que toutes les cases soient allumées</hint>
+  </enigma>
+  <enigma title="Plein les mirettes">
+    <answer>aveuglant</answer>
+    <hint>Faites en sorte que toutes les cases soient allumées</hint>
+  </enigma>
   <enigma title="Rébus">
     <answer>42</answer>
     <hint>Devinez un mot en vous aidant des images.</hint>

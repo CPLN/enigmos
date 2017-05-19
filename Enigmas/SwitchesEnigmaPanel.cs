@@ -72,14 +72,18 @@ namespace Cpln.Enigmos.Enigmas
         public override void Load()
         {
             Random rand = new Random();
-            for (int i = 0; i < size*size; i++)
+            do
             {
-                Light light = lights[rand.Next(size)][rand.Next(size)];
-                light.CliquerVoisins();
-            }
+                for (int i = 0; i < size * size; i++)
+                {
+                    Light light = lights[rand.Next(size)][rand.Next(size)];
+                    light.CliquerVoisins();
+                }
+            } while (Check());
+            answer.Visible = false;
         }
 
-        public void Check()
+        public bool Check()
         {
             bool finished = true;
             foreach(Light[] row in lights)
@@ -98,6 +102,7 @@ namespace Cpln.Enigmos.Enigmas
                 }
             }
             answer.Visible = finished;
+            return finished;
         }
     }
 }
