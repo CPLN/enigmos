@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Cpln.Enigmos.Enigmas.Components;
 namespace Cpln.Enigmos.Enigmas
+
 {
     public class SingesEnigmaPanel : EnigmaPanel
     {
@@ -11,14 +13,13 @@ namespace Cpln.Enigmos.Enigmas
         Timer tChrono = new Timer();
         private Button[] btnReponse = new Button[5];
         private PictureBox[] tblPbx = new PictureBox[3];
-        Image[] tblImg = new Image[2];
         private PictureBox pbxReponse;
- 
+        Image[] tblImg = new Image[2];
+        // Crée une liste de singe.
+        //List<Singe> singe = new List<Singe>();
 
         public SingesEnigmaPanel()
         {
-         
-
             //Remplissage des cases du tableau d'images
             tblImg[0] = Properties.Resources.SingeBleuCymbalesFermees;
             tblImg[1] = Properties.Resources.SingeBleuCymbalesOuvertes;
@@ -36,16 +37,10 @@ namespace Cpln.Enigmos.Enigmas
             //Image de base.
             BackgroundImage = Properties.Resources.jungle;
             Size = Properties.Resources.jungle.Size;
-            //Formatages des pictures box et insertions de l'image du singe
-            foreach (PictureBox pbx in tblPbx)
-            {
-                pbx.Image = Properties.Resources.SingeBleuCymbalesOuvertes;
-                pbx.Size = Properties.Resources.SingeBleuCymbalesOuvertes.Size;
-                pbx.BackColor = Color.Transparent;
-                Controls.Add(pbx);
-            }
-         
+
             //Placement des PictureBox
+            //A Modifier pour faire correspondre avec la liste de singe créer dans la clase Singe
+            //Singe pbxSinge = new Singe();
             tblPbx[0].Location = new Point(200, 500);
             tblPbx[1].Location = new Point(600, 500);
             tblPbx[2].Location = new Point(1000, 500);
@@ -76,7 +71,7 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(btnReponse[i]);
             }
             //Réponse à l'énigme
-            //if ()
+            //Si l'état des trois singes est à vrai
             {
                 pbxReponse = new PictureBox();
                 pbxReponse.Image = Properties.Resources.BananesWTF;
@@ -86,16 +81,37 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(pbxReponse);
             }
         }
-            //Evènement sur le clic sur un bouton.
-            private void bouton_Click(object sender, EventArgs e)
-            {
+        //Evènement sur le clic sur un bouton.
+        private void bouton_Click(object sender, EventArgs e)
+        {
+            //Créer une méthode permettant "d'orienter" chaque bouton vers la bonne action.
         }
+
+        private void TimerEventProcessor(object sender, EventArgs e)
+        {
+            //Comment différencier les singes ? 
+            //Vérifie l'Etat du singe, si il est à vrai, le sige s'anime, si il est à faux le singe s'arrête.
+
+            /*if( singe[i].bEtat == true)
+             {
+                altèrne les deux images toutes les demi-secondes.
+                pbxSinge.Image[i] = Properties.Resources.SingeBleuCymbalesOuvertes;
+             }
+             if( singe[i].bEtat == false)
+                 {
+                 pbxSinge.Image = Properties.Resources.SingeBleuCymbalesFermees;
+                 }
+             */
+        }
+
         /// <summary>
         /// Initialise le timer, créer une intervalle d'une demi-seconde, et le démarre
         /// </summary>
         public override void Load()
         {
-          //Initialiser();
+            tChrono.Tick += new EventHandler(TimerEventProcessor);
+            tChrono.Interval = 500;
+            tChrono.Start();
         }
          public override void Unload()
        {
