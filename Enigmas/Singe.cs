@@ -19,7 +19,7 @@ namespace Cpln.Enigmos.Enigmas
         public void Activer()
         {
             bEtat = true;
-        }
+        } 
         /// <summary>
         /// Permet d'arrêter le mouvement d'un singe
         /// </summary>

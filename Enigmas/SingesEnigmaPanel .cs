@@ -13,9 +13,12 @@ namespace Cpln.Enigmos.Enigmas
         private PictureBox[] tblPbx = new PictureBox[3];
         Image[] tblImg = new Image[2];
         private PictureBox pbxReponse;
+ 
 
         public SingesEnigmaPanel()
         {
+         
+
             //Remplissage des cases du tableau d'images
             tblImg[0] = Properties.Resources.SingeBleuCymbalesFermees;
             tblImg[1] = Properties.Resources.SingeBleuCymbalesOuvertes;
