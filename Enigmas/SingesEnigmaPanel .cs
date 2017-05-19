@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Cpln.Enigmos.Enigmas.Components;
+using System.Collections.Generic;
+
 namespace Cpln.Enigmos.Enigmas
 
 {
@@ -14,12 +16,14 @@ namespace Cpln.Enigmos.Enigmas
         private Button[] btnReponse = new Button[5];
         private PictureBox pbxReponse;
         // Classe non-reconnue, trouver la raison
-        //List<Singe> singe = new List<Singe>();
+        List<Singe> singe = new List<Singe>();
 
         public SingesEnigmaPanel()
         {
             //Initialisation des singes
-            //Singe pbxSinge = new Singe();
+            Singe pbxSinge1 = new Singe();
+            Singe pbxSinge2 = new Singe();
+            Singe pbxSinge3 = new Singe();
 
             //Génération du titre.
             lblEnigme.Text = "Jeu des 3 Singes";
@@ -31,10 +35,10 @@ namespace Cpln.Enigmos.Enigmas
             BackgroundImage = Properties.Resources.jungle;
             Size = Properties.Resources.jungle.Size;
 
-            //Placement des PictureBox (A Modifier pour faire correspondre avec la liste de singe créer dans la classe Singe)
-            /*PbxSinge.Location = new Point(200, 500);
-            PbxSinge.Location = new Point(600, 500);
-            PbxSinge.Location = new Point(1000, 500);*/
+            //Placement des PictureBox 
+            /*pbxSinge1.Location = new Point(200, 500);
+            pbxSinge2.Location = new Point(600, 500);
+            pbxSinge3.Location = new Point(1000, 500);*/
 
             //Création des boutons
             Button bouton = new Button();
@@ -57,19 +61,21 @@ namespace Cpln.Enigmos.Enigmas
             {
                 btnReponse[i].Width = 50;
                 btnReponse[i].Height = 30;
-                //btnReponse[i].Font = new Font(FontFamily.GenericSansSerif, 24, FontStyle.Bold);
                 btnReponse[i].FlatStyle = FlatStyle.System;
                 Controls.Add(btnReponse[i]);
             }
-            //Réponse à l'énigme
-            //Si l'état des trois singes est à vrai
+            //Réponse de l'énigme
             {
+                /*if(Singe1.BEtat == true && Singe2.BEtat == true && Singe3.BEtat == true)
+                { 
                 pbxReponse = new PictureBox();
                 pbxReponse.Image = Properties.Resources.BananesWTF;
                 pbxReponse.Size = Properties.Resources.BananesWTF.Size;
                 pbxReponse.Location = new Point(500, 100);
                 pbxReponse.BackColor = Color.Transparent;
                 Controls.Add(pbxReponse);
+                }
+                */
             }
         }
         //Evènement sur le clic sur un bouton.
@@ -81,24 +87,26 @@ namespace Cpln.Enigmos.Enigmas
         private void TimerEventProcessor(object sender, EventArgs e)
         {
             //Comment différencier les singes ? 
-            //Vérifie l'Etat du singe, si il est à vrai, le sige s'anime, si il est à faux le singe s'arrête.s
+            //Vérifie l'Etat du singe, si il est à vrai, le sige s'anime, si il est à faux le singe s'arrête.
             /*if( singeX.bEtat == true)
              {
                 Altèrne les deux images toutes les demi-secondes en fonction de BEtatCymbales.
-                Si bEtatCymbales vaut TRUE l'image affiché est le singe avec les cymbales ouvertes.
-                Si BEtatCymbales vaut FALSE c'est l'image du singe avec les cymbales fermées qui est affiché.
+                Si bEtatCymbales vaut TRUE l'image affiché est le singe avec les cymbales ouvertes,
+                puis inverse la valeur de bEtatCymbales. l'inverse si bEtatCymbales vaut false
                 *********************************************************************************************
                 (if bEtatCymbales == true)
-                pbxSinge.Image = Properties.Resources.SingeBleuCymbalesOuvertes;
-                bEtatCymbales = false;
+                  {
+                    pbxSingeX.Image = Properties.Resources.SingeBleuCymbalesOuvertes;
+                    bEtatCymbales = false;
+                  }
                 else
                 {
-                    pbxSinge.Image = Properties.Resources.SingeBleuCymbalesFermees;
+                    pbxSingeX.Image = Properties.Resources.SingeBleuCymbalesFermees;
                 }
              }
                 if( singeX.bEtat == false)
                  {
-                     pbxSinge.Image = Properties.Resources.SingeBleuCymbalesFermees;
+                     pbxSingeX.Image = Properties.Resources.SingeBleuCymbalesFermees;
                      bEtatCymbales = true;
                  }
              */
