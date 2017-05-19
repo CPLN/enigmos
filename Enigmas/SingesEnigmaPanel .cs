@@ -12,22 +12,15 @@ namespace Cpln.Enigmos.Enigmas
         Label lblEnigme = new Label();
         Timer tChrono = new Timer();
         private Button[] btnReponse = new Button[5];
-        private PictureBox[] tblPbx = new PictureBox[3];
         private PictureBox pbxReponse;
-        Image[] tblImg = new Image[2];
-        // Crée une liste de singe.
+        // Classe non-reconnue, trouver la raison
         //List<Singe> singe = new List<Singe>();
 
         public SingesEnigmaPanel()
         {
-            //Remplissage des cases du tableau d'images
-            tblImg[0] = Properties.Resources.SingeBleuCymbalesFermees;
-            tblImg[1] = Properties.Resources.SingeBleuCymbalesOuvertes;
-            //Initialisation des PituresBox
-            for (int i = 0; i < tblPbx.Length; i++)
-            {
-                tblPbx[i] = new PictureBox();
-            }
+            //Initialisation des singes
+            //Singe pbxSinge = new Singe();
+
             //Génération du titre.
             lblEnigme.Text = "Jeu des 3 Singes";
             lblEnigme.Font = new Font(FontFamily.GenericSansSerif, 16, FontStyle.Bold);
@@ -38,12 +31,10 @@ namespace Cpln.Enigmos.Enigmas
             BackgroundImage = Properties.Resources.jungle;
             Size = Properties.Resources.jungle.Size;
 
-            //Placement des PictureBox
-            //A Modifier pour faire correspondre avec la liste de singe créer dans la clase Singe
-            //Singe pbxSinge = new Singe();
-            tblPbx[0].Location = new Point(200, 500);
-            tblPbx[1].Location = new Point(600, 500);
-            tblPbx[2].Location = new Point(1000, 500);
+            //Placement des PictureBox (A Modifier pour faire correspondre avec la liste de singe créer dans la classe Singe)
+            /*PbxSinge.Location = new Point(200, 500);
+            PbxSinge.Location = new Point(600, 500);
+            PbxSinge.Location = new Point(1000, 500);*/
 
             //Création des boutons
             Button bouton = new Button();
@@ -90,16 +81,25 @@ namespace Cpln.Enigmos.Enigmas
         private void TimerEventProcessor(object sender, EventArgs e)
         {
             //Comment différencier les singes ? 
-            //Vérifie l'Etat du singe, si il est à vrai, le sige s'anime, si il est à faux le singe s'arrête.
-
-            /*if( singe[i].bEtat == true)
+            //Vérifie l'Etat du singe, si il est à vrai, le sige s'anime, si il est à faux le singe s'arrête.s
+            /*if( singeX.bEtat == true)
              {
-                altèrne les deux images toutes les demi-secondes.
-                pbxSinge.Image[i] = Properties.Resources.SingeBleuCymbalesOuvertes;
+                Altèrne les deux images toutes les demi-secondes en fonction de BEtatCymbales.
+                Si bEtatCymbales vaut TRUE l'image affiché est le singe avec les cymbales ouvertes.
+                Si BEtatCymbales vaut FALSE c'est l'image du singe avec les cymbales fermées qui est affiché.
+                *********************************************************************************************
+                (if bEtatCymbales == true)
+                pbxSinge.Image = Properties.Resources.SingeBleuCymbalesOuvertes;
+                bEtatCymbales = false;
+                else
+                {
+                    pbxSinge.Image = Properties.Resources.SingeBleuCymbalesFermees;
+                }
              }
-             if( singe[i].bEtat == false)
+                if( singeX.bEtat == false)
                  {
-                 pbxSinge.Image = Properties.Resources.SingeBleuCymbalesFermees;
+                     pbxSinge.Image = Properties.Resources.SingeBleuCymbalesFermees;
+                     bEtatCymbales = true;
                  }
              */
         }
