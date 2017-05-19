@@ -16,6 +16,11 @@ namespace Cpln.Enigmos.Enigmas
         private Light[][] lights;
         private Label answer;
 
+        /// <summary>
+        /// Constructeur qui permet de générer cette énigme
+        /// </summary>
+        /// <param name="size">Nombre de lampes par côté sur le carré généré</param>
+        /// <param name="textAnswer">Réponse à afficher lors de la résolution de l'énigme</param>
         public SwitchesEnigmaPanel(int size, string textAnswer)
         {
             this.size = size;
@@ -55,7 +60,7 @@ namespace Cpln.Enigmos.Enigmas
                         light.AjouterVoisin(lights[x][y + 1]);
                     }
 
-                    light.Location = new Point(110 * x+50, 110 * y+50);
+                    light.Location = new Point(110 * x + 50, 110 * y + 50);
                     Controls.Add(light);
                 }
             }
@@ -69,6 +74,9 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(this.answer);
         }
 
+        /// <summary>
+        /// Au chargement de l'énigme, la grille est mélangée.
+        /// </summary>
         public override void Load()
         {
             Random rand = new Random();
@@ -83,12 +91,16 @@ namespace Cpln.Enigmos.Enigmas
             answer.Visible = false;
         }
 
+        /// <summary>
+        /// Teste si la grille est entièrement allumée. Si c'est le cas, la réponse est affichée.
+        /// </summary>
+        /// <returns></returns>
         public bool Check()
         {
             bool finished = true;
-            foreach(Light[] row in lights)
+            foreach (Light[] row in lights)
             {
-                foreach(Light light in row)
+                foreach (Light light in row)
                 {
                     if (!light.Allume)
                     {
