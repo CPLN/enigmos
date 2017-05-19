@@ -63,11 +63,22 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
 
+            // Énigmes avec prérequis
+
             Enigma runEnigma = new Enigma(new RunEnigmaPanel(), "Roux run");
             enigmas.Add(runEnigma);
             Enigma runEnigmaInverse = new Enigma(new RunEnigmaPanel(true), "Roux run encore");
             runEnigmaInverse.AddPrerequisite(runEnigma);
             enigmas.Add(runEnigmaInverse);
+
+            Enigma switch1 = new Enigma(new SwitchesEnigmaPanel(3, "LUMINEUX"), "Allumez tout");
+            enigmas.Add(switch1);
+            Enigma switch2 = new Enigma(new SwitchesEnigmaPanel(4, "ÉBLOUISSANT"), "Rallumez tout");
+            switch2.AddPrerequisite(switch1);
+            enigmas.Add(switch2);
+            Enigma switch3 = new Enigma(new SwitchesEnigmaPanel(5, "AVEUGLANT"), "Plein les mirettes");
+            switch3.AddPrerequisite(switch2);
+            enigmas.Add(switch3);
 
             enigmas.Shuffle();
             return enigmas;
