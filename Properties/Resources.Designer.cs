@@ -357,8 +357,8 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à 22,31,81,46,Yellow;
         ///22,31,55,116,Lime;
-        ///22,31,144,357,Aqua;
         ///22,31,234,140,Aqua;
+        ///22,31,144,357,Aqua;
         ///22,31,299,12,Lime;
         ///.
         /// </summary>
@@ -624,6 +624,126 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap kirby3 {
             get {
                 object obj = ResourceManager.GetObject("kirby3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieAvance1 {
+            get {
+                object obj = ResourceManager.GetObject("LorieAvance1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieAvance2 {
+            get {
+                object obj = ResourceManager.GetObject("LorieAvance2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieAvance3 {
+            get {
+                object obj = ResourceManager.GetObject("LorieAvance3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieDroite1 {
+            get {
+                object obj = ResourceManager.GetObject("LorieDroite1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieDroite2 {
+            get {
+                object obj = ResourceManager.GetObject("LorieDroite2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieDroite3 {
+            get {
+                object obj = ResourceManager.GetObject("LorieDroite3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieGauche1 {
+            get {
+                object obj = ResourceManager.GetObject("LorieGauche1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieGauche2 {
+            get {
+                object obj = ResourceManager.GetObject("LorieGauche2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieGauche3 {
+            get {
+                object obj = ResourceManager.GetObject("LorieGauche3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieRecul1 {
+            get {
+                object obj = ResourceManager.GetObject("LorieRecul1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieRecul2 {
+            get {
+                object obj = ResourceManager.GetObject("LorieRecul2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LorieRecul3 {
+            get {
+                object obj = ResourceManager.GetObject("LorieRecul3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -929,6 +1049,26 @@ namespace Cpln.Enigmos.Properties {
             get {
                 object obj = ResourceManager.GetObject("souris", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Properties.Resources.Fantome1Avance1;
+        ///Properties.Resources.Fantome1Avance2;
+        ///Properties.Resources.Fantome1Avance3;
+        ///Properties.Resources.Fantome1Recul1;
+        ///Properties.Resources.Fantome1Recul2;
+        ///Properties.Resources.Fantome1Recul3;
+        ///Properties.Resources.Fantome1Gauche1;
+        ///Properties.Resources.Fantome1Gauche2;
+        ///Properties.Resources.Fantome1Gauche3;
+        ///Properties.Resources.Fantome1Droite1;
+        ///Properties.Resources.Fantome1Droite2;
+        ///Properties.Resources.Fantome1Droite3;.
+        /// </summary>
+        internal static string SpriteEnnemiType1 {
+            get {
+                return ResourceManager.GetString("SpriteEnnemiType1", resourceCulture);
             }
         }
         

@@ -397,4 +397,43 @@
   <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LorieAvance1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieAvance1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieAvance2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieAvance2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieAvance3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieAvance3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieDroite1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieDroite1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieDroite2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieDroite2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieDroite3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieDroite3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieGauche1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieGauche1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieGauche2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieGauche2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieGauche3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieGauche3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieRecul1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieRecul1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieRecul2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieRecul2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieRecul3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieRecul3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpriteEnnemiType1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SpriteEnnemiType1.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

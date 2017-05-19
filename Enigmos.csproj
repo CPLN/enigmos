@@ -251,6 +251,19 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\LorieRecul3.png" />
+    <None Include="Resources\LorieRecul2.png" />
+    <None Include="Resources\LorieRecul1.png" />
+    <None Include="Resources\LorieGauche3.png" />
+    <None Include="Resources\LorieGauche2.png" />
+    <None Include="Resources\LorieGauche1.png" />
+    <None Include="Resources\LorieDroite3.png" />
+    <None Include="Resources\LorieDroite2.png" />
+    <None Include="Resources\LorieDroite1.png" />
+    <None Include="Resources\LorieAvance3.png" />
+    <None Include="Resources\LorieAvance2.png" />
+    <None Include="Resources\LorieAvance1.png" />
+    <None Include="Resources\SpriteEnnemiType1.xml" />
     <None Include="Resources\Fantome1Recul3.png" />
     <None Include="Resources\Fantome1Recul2.png" />
     <None Include="Resources\Fantome1Recul1.png" />
