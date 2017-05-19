@@ -13,7 +13,6 @@ namespace Cpln.Enigmos.Enigmas
     
     class UnderKeyboardEnigmaPanel : EnigmaPanel
     {
-        
         private ShuffleList<Touche> touches;
         private ShuffleList<int> placement;
         private ShuffleList<string> caractere;
@@ -29,7 +28,7 @@ namespace Cpln.Enigmos.Enigmas
         private int place = 0;
         private string strNom;
 
-        public void CreerClavier (List<Touche>touches)
+        public void CreerClavier(List<Touche> touches)
         {
             iLocX = iLocalisationX;
             iLocY = iLocalisationY;
@@ -69,7 +68,7 @@ namespace Cpln.Enigmos.Enigmas
             lblPresser = new Label();
             lblPresser.Text = "PRESSER";
             Controls.Add(lblPresser);
-            lblPresser.Location = new  Point (375, 60);
+            lblPresser.Location = new Point(375, 60);
             touches = new ShuffleList<Touche>();
 
             reset = new Button();
@@ -80,7 +79,7 @@ namespace Cpln.Enigmos.Enigmas
 
             for (char i = 'A'; i <= 'Z'; i++)
             {
-                if (i == 'S' || i == 'R' || i == 'E' || i == 'P' )
+                if (i == 'S' || i == 'R' || i == 'E' || i == 'P')
                 {
                     continue;
                 }
@@ -106,14 +105,14 @@ namespace Cpln.Enigmos.Enigmas
             //    {
             //        continue; // recommence la boucle
             //    }
-               
+
             //    if ("P" == touches[i].Nom | "R" == touches[i].Nom | "E" == touches[i].Nom| "S" == touches[i].Nom) // verifie si à la position ou il est il y a la lettre P,R,E ou S
             //    {
             //        strNom = touches[placement[place]].Nom; // on récupère la lettre de la touche à la place de la liste placement
             //        touches[placement[place]].Nom = caractere[place] ; // on met dans touche une lettre de la liste caractere
             //        touches[i].Nom = strNom; // on met dans l'emplacement i la lettre que on avais récuperer
             //        place++; // on incrémente place pour le prochain tour de bloucle
-                    
+
             //    }
             //}
 
