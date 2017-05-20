@@ -15,6 +15,7 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
     {
         Timer timer = new Timer();
         Panel cursor = new Panel();
+        int iY = 0;
 
         /// <summary>
         /// Constructeur : Définition/instanciation des valeurs par défaut.
@@ -42,8 +43,14 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
             timer.Tick += timer_Tick;
 
             //Définition de l'interval (ms) de rafraichissement
-            timer.Interval = 10;
+            timer.Interval = 1;
+
+            //Le curseur bouge par défaut
+            timer.Start();
             #endregion
+
+            //Ajout du curseur dans la forme
+            Controls.Add(cursor);
         }
 
         /// <summary>
@@ -51,7 +58,18 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
         /// </summary>
         void timer_Tick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if(cursor.Location.Y >= 346)
+            {
+                //Monter
+                iY = -7;
+            }
+            else if (cursor.Location.Y <= 0)
+            {
+                //Descendre
+                iY = 7;
+            }
+
+            cursor.Top += iY;
         }
     }
 }
