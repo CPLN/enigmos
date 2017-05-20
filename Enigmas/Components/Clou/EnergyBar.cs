@@ -85,9 +85,60 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
 
             //Replace le curseur sur la base de la barre
             cursor.Location = new Point(0, 346);
+        }
 
+        /// <summary>
+        /// Lance l'animation du curseur
+        /// </summary>
+        public void StartCursor()
+        {
             //Relance le timer
             timer.Start();
+        }
+
+        /// <summary>
+        /// Stop le curseur et capture sa position
+        /// </summary>
+        /// <returns>La puissance du coup</returns>
+        public int CaptureCursorPower()
+        {
+            //Stop le timer
+            timer.Stop();
+
+            //Capture la position du curseur et définit la puissance du coup en fonction de sa position
+            if(cursor.Location.Y < 0 || cursor.Location.Y >= 0 && cursor.Location.Y <= 89)
+            {
+                ResetCursorPosition();
+
+                //20 de puissance
+                return 20;
+            }
+            else if(cursor.Location.Y >= 90 && cursor.Location.Y <= 179)
+            {
+                ResetCursorPosition();
+
+                //15 de puissance
+                return 15;
+            }
+            else if(cursor.Location.Y >= 180 && cursor.Location.Y <= 269)
+            {
+                ResetCursorPosition();
+
+                //10 de puissance
+                return 10;
+            }
+            else if(cursor.Location.Y >= 270 && cursor.Location.Y <= 356 || cursor.Location.Y > 356)
+            {
+                ResetCursorPosition();
+
+                //5 de puissance
+                return 5;
+            }
+            else
+            {
+                ResetCursorPosition();
+                return 0;
+            }
         }
     }
 }
