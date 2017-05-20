@@ -36,6 +36,9 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
 
             //Définition de la couleur du curseur
             cursor.BackColor = Color.Black;
+
+            //Le curseur se positionne par défaut sur la base de la barre
+            cursor.Location = new Point(0, 346);
             #endregion
 
             #region Timer propriétés
@@ -70,6 +73,21 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
             }
 
             cursor.Top += iY;
+        }
+
+        /// <summary>
+        /// Reset la position du curseur
+        /// </summary>
+        public void ResetCursorPosition()
+        {
+            //Stop le timer
+            timer.Stop();
+
+            //Replace le curseur sur la base de la barre
+            cursor.Location = new Point(0, 346);
+
+            //Relance le timer
+            timer.Start();
         }
     }
 }
