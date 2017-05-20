@@ -12,5 +12,13 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
     /// </summary>
     class EnergyBar : PictureBox
     {
+        /// <summary>
+        /// Constructeur : Définition/instanciation des valeurs par défaut.
+        /// </summary>
+        public EnergyBar()
+        {
+            //Définition de l'image source
+            BackgroundImage = Properties.Resources.bar;
+        }
     }
 }
