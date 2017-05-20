@@ -261,6 +261,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\barResized.png" />
     <None Include="Resources\bar.png" />
     <None Include="Resources\TrollFace.png" />
     <None Include="Resources\piano.jpg" />

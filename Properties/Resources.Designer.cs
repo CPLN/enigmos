@@ -92,9 +92,9 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bar {
+        internal static System.Drawing.Bitmap barResized {
             get {
-                object obj = ResourceManager.GetObject("bar", resourceCulture);
+                object obj = ResourceManager.GetObject("barResized", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -332,6 +332,10 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
         ///&lt;enigmas&gt;
+        ///  &lt;enigma title=&quot;Jeu du clou&quot;&gt;
+        ///    &lt;answer&gt;C&apos;est de la frappe !&lt;/answer&gt;
+        ///    &lt;hint&gt;Soyez le premier à infliger le coup fatal au clou.&lt;/hint&gt;
+        ///  &lt;/enigma&gt;
         ///  &lt;enigma title=&quot;Allumez tout&quot;&gt;
         ///    &lt;answer&gt;lumineux&lt;/answer&gt;
         ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hint&gt;
@@ -339,11 +343,7 @@ namespace Cpln.Enigmos.Properties {
         ///  &lt;enigma title=&quot;Rallumez tout&quot;&gt;
         ///    &lt;answer&gt;éblouissant&lt;/answer&gt;
         ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Plein les mirettes&quot;&gt;
-        ///    &lt;answer&gt;aveuglant&lt;/answer&gt;
-        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hint&gt;
-        ///   [rest of string was truncated]&quot;;.
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string enigmas {
             get {
