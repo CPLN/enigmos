@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <enigmas>
+  <enigma title="Jeu du clou">
+    <answer>C'est de la frappe !</answer>
+    <hint>Soyez le premier à infliger le coup fatal au clou.</hint>
+  </enigma>
   <enigma title="Allumez tout">
     <answer>lumineux</answer>
     <hint>Faites en sorte que toutes les cases soient allumées</hint>
