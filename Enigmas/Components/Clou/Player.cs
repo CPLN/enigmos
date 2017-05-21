@@ -11,9 +11,18 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
     /// </summary>
     class Player
     {
+        /// <summary>
+        /// Propriété indiquant si c'est le tour du joueur courant ou pas.
+        /// </summary>
+        public bool IsTurn { get; set; }
+
+        /// <summary>
+        /// Constructeur : Définition/instanciation des valeurs par défaut.
+        /// </summary>
         public Player()
         {
-
+            //Par défaut, c'est toujours le joueur humain qui commence.
+            IsTurn = true;
         }
     }
 }
