@@ -24,5 +24,17 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
             //Par défaut, c'est toujours le joueur humain qui commence.
             IsTurn = true;
         }
+
+        #region Méthodes
+        /// <summary>
+        /// Donne un coup sur le clou
+        /// </summary>
+        /// <param name="nail">Le clou de la partie</param>
+        /// <param name="power">La puissanc du coup</param>
+        public void Blow(Nail nail, int power)
+        {
+
+        }
+        #endregion
     }
 }
