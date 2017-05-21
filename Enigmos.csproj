@@ -66,6 +66,9 @@
     <Compile Include="Enigmas\Components\Clou\EnergyBar.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\Components\Clou\Nail.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\Light.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -261,6 +264,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\nailResized.png" />
     <None Include="Resources\barResized.png" />
     <None Include="Resources\bar.png" />
     <None Include="Resources\TrollFace.png" />
