@@ -33,7 +33,7 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
         /// <param name="power">La puissanc du coup</param>
         public void Blow(Nail nail, int power)
         {
-
+            nail.Down(power);
         }
         #endregion
     }
