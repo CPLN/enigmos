@@ -25,9 +25,10 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
         /// Calcul le coup à porter sur le clou
         /// </summary>
         /// <param name="nail">Le clou de la partie</param>
-        public void CalculateBlowPower(Nail nail)
+        /// <returns>La puissance du coup à porter</returns>
+        public int CalculateBlowPower(Nail nail)
         {
-
+            
         }
         #endregion
     }
