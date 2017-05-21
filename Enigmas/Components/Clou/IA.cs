@@ -28,7 +28,26 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
         /// <returns>La puissance du coup à porter</returns>
         public int CalculateBlowPower(Nail nail)
         {
-            
+            if (nail.PixelsRemaining - 72 > 72)
+            {
+                return 20;
+            }
+            else if (nail.PixelsRemaining - 54 > 54)
+            {
+                return 15;
+            }
+            else if(nail.PixelsRemaining - 36 > 36)
+            {
+                return 10;
+            }
+            else if(nail.PixelsRemaining -18 > 18)
+            {
+                return 5;
+            }
+            else
+            {
+                return 20;
+            }
         }
         #endregion
     }
