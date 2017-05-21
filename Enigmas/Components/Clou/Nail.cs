@@ -42,7 +42,7 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
         /// Descend le clou lorsqu'il est frappé
         /// </summary>
         /// <param name="power">La puissance du coup</param>
-        public void Blow(int power)
+        public void Down(int power)
         {
             //Descend le clou en fonction de la puissance et met
             //à jour la propriété PixelsRemaining
