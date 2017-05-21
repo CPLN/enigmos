@@ -13,6 +13,16 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
     /// </summary>
     class Nail : PictureBox
     {
+        int pixelsRemaining = 356;
+
+        /// <summary>
+        /// Propriété indiquant le nombre de pixels qu'il reste à planter.
+        /// </summary>
+        public int PixelsRemaining 
+        {
+            get { return pixelsRemaining; }
+        }
+
         /// <summary>
         /// Constructeur : Définition/instanciation des valeurs par défaut.
         /// </summary>
@@ -26,5 +36,16 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
             Size = new Size(101, 356);
             #endregion
         }
+
+        #region Méthodes
+        /// <summary>
+        /// Descend le clou lorsqu'il est frappé
+        /// </summary>
+        /// <param name="power">La puissance du coup</param>
+        public void Blow(int power)
+        {
+
+        }
+        #endregion
     }
 }
