@@ -44,7 +44,30 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
         /// <param name="power">La puissance du coup</param>
         public void Blow(int power)
         {
+            //Descend le clou en fonction de la puissance et met
+            //à jour la propriété PixelsRemaining
+            switch(power)
+            {
+                case 5:
+                    Top += 18;
+                    pixelsRemaining -= 18;
+                break;
 
+                case 10:
+                    Top += 36;
+                    pixelsRemaining -= 36;
+                break;
+
+                case 15:
+                    Top += 54;
+                    pixelsRemaining -= 54;
+                break;
+
+                case 20:
+                    Top += 72;
+                    pixelsRemaining -= 72;
+                break;
+            }
         }
         #endregion
     }
