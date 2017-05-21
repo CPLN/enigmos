@@ -16,7 +16,19 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
         /// </summary>
         public IA()
         {
+            //Par défaut, ce n'est pas le tour de l'IA
+            base.IsTurn = false;
+        }
+
+        #region Méthodes
+        /// <summary>
+        /// Calcul le coup à porter sur le clou
+        /// </summary>
+        /// <param name="nail">Le clou de la partie</param>
+        public void CalculateBlowPower(Nail nail)
+        {
 
         }
+        #endregion
     }
 }
