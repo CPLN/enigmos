@@ -56,25 +56,7 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
             Controls.Add(cursor);
         }
 
-        /// <summary>
-        /// Mouvement du curseur le long de la barre d'énergie
-        /// </summary>
-        void timer_Tick(object sender, EventArgs e)
-        {
-            if(cursor.Location.Y >= 346)
-            {
-                //Monter
-                iY = -7;
-            }
-            else if (cursor.Location.Y <= 0)
-            {
-                //Descendre
-                iY = 7;
-            }
-
-            cursor.Top += iY;
-        }
-
+        #region Méthodes
         /// <summary>
         /// Reset la position du curseur
         /// </summary>
@@ -140,5 +122,27 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
                 return 0;
             }
         }
+        #endregion
+
+        #region Evènements
+        /// <summary>
+        /// Mouvement du curseur le long de la barre d'énergie
+        /// </summary>
+        void timer_Tick(object sender, EventArgs e)
+        {
+            if(cursor.Location.Y >= 346)
+            {
+                //Monter
+                iY = -7;
+            }
+            else if (cursor.Location.Y <= 0)
+            {
+                //Descendre
+                iY = 7;
+            }
+
+            cursor.Top += iY;
+        }
+        #endregion
     }
 }
