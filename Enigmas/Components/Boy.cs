@@ -9,10 +9,10 @@ namespace Cpln.Enigmos.Enigmas.Components
     /// </summary>
     public abstract class Boy
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public int X { get; set; }      // Position X de l'objet
+        public int Y { get; set; }      // Position Y de l'objet
+        public int Width { get; set; }  // Longueur de l'objet
+        public int Height { get; set; } // Hauteur de l'objet
 
         // Retourne un rectangle à partir de l'objet ce qui permet de detecter des intersection plus facilement
         public Rectangle Rectangle
@@ -35,6 +35,7 @@ namespace Cpln.Enigmos.Enigmas.Components
             this.Height = Height;
         }
 
+        // Méthode de test lors d'un mouvement
         public abstract void Move();
     }
 }

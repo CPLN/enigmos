@@ -13,15 +13,15 @@ namespace Cpln.Enigmos.Enigmas.Components
     /// </summary>
     public class Hero : Boy
     {
-        public bool IsJumping { get; set; } // True = Entrain de sauter, False = Saute pas
-        public bool JumpFinish { get; set; } // True = A fini de monter, False = Redescent
-        public Bitmap Texture { get; set; } // Texture actuelle de l'objet
+        public bool IsJumping { get; set; }         // True = Entrain de sauter, False = Saute pas
+        public bool JumpFinish { get; set; }        // True = A fini de monter, False = Redescent
+        public Bitmap Texture { get; set; }         // Texture actuelle de l'objet
 
-        private Bitmap[] Textures = new Bitmap[6]; // Textures de l'objet
-        private int iJump; // Haut du daut maximale
-        private int iTexture = 0; // Index de la texture, fait référence au tableau des texture
-        private int iIntervalTexture = 0; // Interval en ms de chagement de texture
-        private int iDirection; // La direction du déplacemet du l'objet, 1 = Droite, -1 Gauche, 0 = Bouge pas
+        private Bitmap[] Textures = new Bitmap[6];  // Textures de l'objet
+        private int iJump;                          // Haut du daut maximale
+        private int iTexture = 0;                   // Index de la texture, fait référence au tableau des texture
+        private int iIntervalTexture = 0;           // Interval en ms de chagement de texture
+        private int iDirection;                     // La direction du déplacemet du l'objet, 1 = Droite, -1 Gauche, 0 = Bouge pas
 
         /// <summary>
         /// Constructeur de Hero
@@ -111,7 +111,7 @@ namespace Cpln.Enigmos.Enigmas.Components
         /// <param name="iDirection">-1 Arrière, 1 Avanr, 0 bouge pas</param>
         public void MoveX(int iDirection)
         {
-            this.iDirection = iDirection;   // Change la direction du déplacement ou l'arrête
+            this.iDirection = iDirection;   // Change la direction du déplacement(1, -1) ou l'arrête(0)
         }
 
         public override void Move()

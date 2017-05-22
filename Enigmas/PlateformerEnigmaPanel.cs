@@ -9,18 +9,20 @@ using System.Windows.Forms;
 namespace Cpln.Enigmos.Enigmas
 {
     class PlateformerEnigmaPanel : EnigmaPanel {
-        Hero _hero = new Hero(0, 300, 50, 50); // Le hero que le joueur incarne
-        Rectangle _rWin; // La piece qui permet de gagner
-        Rectangle[] _tPlateformes;
-        Badboy[] _tBadboys;
-        Timer tmr = new Timer() { Enabled = true, Interval = 1 };
+        Hero _hero = new Hero(0, 300, 50, 50);      // Le hero que le joueur incarne
+        Rectangle _rWin;                            // La piece qui permet de gagner
+        Rectangle[] _tPlateformes;                  // Toute les plateformes du jeu
+        Badboy[] _tBadboys;                         // Tout les ennemis
+        Timer _tmr = new Timer() { Interval = 1 };  // Timer du jeu
 
         public PlateformerEnigmaPanel() {
 			// Taille du jeu
             Width = 1500;
             Height = 900;
+
+            // Evenements
             Paint += PlateformerEnigmaPanel_Paint;
-            tmr.Tick += Tmr_Tick;
+            _tmr.Tick += Tmr_Tick;
 			
 			// Toutes les plateformes du jeu
             _tPlateformes = new Rectangle[] {
@@ -42,17 +44,11 @@ namespace Cpln.Enigmos.Enigmas
 			
 			// Piece qui permettera de gagner
             _rWin = new Rectangle(_tPlateformes.Last().X + _tPlateformes.Last().Width - 30, _tPlateformes.Last().Y - 30, 30, 30);
-
-            _hero.Jump(true);
-        }
-
-        public override void Load()
-        {
-            _hero.Dead();
         }
 
         private void Tmr_Tick(object sender, EventArgs e)
         {
+            // bouge le joueur en effectuant les test de déplacement
             _hero.Move();
             foreach (Rectangle _r in _tPlateformes)
             {
@@ -75,6 +71,7 @@ namespace Cpln.Enigmos.Enigmas
                 }
             }
 
+            // Bouge les ennemis et test les collisions avec le joueur
             foreach (Badboy _bb in _tBadboys)
             {
                 _bb.Move();
@@ -89,6 +86,7 @@ namespace Cpln.Enigmos.Enigmas
                 MessageBox.Show("Pass1234");
             }
 
+            // Redéssine
             Invalidate();
         }
 		
@@ -130,6 +128,19 @@ namespace Cpln.Enigmos.Enigmas
 				_hero.MoveX(0);
 				break;
 			}
+        }
+
+        // Active le timer quand le jeu est affiché et remet le joueur au point de départ
+        public override void Load()
+        {
+            _hero.Dead();
+            _tmr.Start();
+        }
+
+        // Stop le timer quand l'énigme n'est plus affichée
+        public override void Unload()
+        {
+            _tmr.Stop();
         }
     }
 }
