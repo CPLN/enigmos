@@ -12,28 +12,35 @@ namespace Cpln.Enigmos.Enigmas
         public Pendu2EnigmaPanel()
         {
             #region Ajout image pendu
-            PictureBox imagePendu = new PictureBox();
-            imagePendu.Image = Properties.Resources.pendu1;
-            imagePendu.Size = new Size(350, 350);
-            imagePendu.SizeMode = PictureBoxSizeMode.StretchImage;
-            imagePendu.Location = new Point(400, 55);
-            Controls.Add(imagePendu);
+            PictureBox pbxImagePendu = new PictureBox();
+            pbxImagePendu.Image = Properties.Resources.pendu1;
+            pbxImagePendu.Size = new Size(350, 350);
+            pbxImagePendu.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxImagePendu.Location = new Point(400, 55);
+            Controls.Add(pbxImagePendu);
             #endregion
             #region Ajout textbox proposition lettre
-            TextBox propositionLettre = new TextBox();
-            propositionLettre.Font = new Font(propositionLettre.Font.FontFamily, 25.0F);
-            propositionLettre.MaxLength=1;
-            propositionLettre.Width = 60;
-            propositionLettre.Location = new Point(50, 400);
-            Controls.Add(propositionLettre);
+            TextBox tbxPropositionLettre = new TextBox();
+            tbxPropositionLettre.Font = new Font(tbxPropositionLettre.Font.FontFamily, 25.0F);
+            tbxPropositionLettre.MaxLength=1;
+            tbxPropositionLettre.Width = 60;
+            tbxPropositionLettre.Location = new Point(50, 400);
+            Controls.Add(tbxPropositionLettre);
             #endregion
             #region Ajout bouton proposition lettrer
-            Button proposerLettre = new Button();
-            proposerLettre.Text = "Proposer lettre";
-            proposerLettre.Font = new Font(propositionLettre.Font.FontFamily, 20.0F);
-            proposerLettre.Size = new Size(240, 46);
-            proposerLettre.Location = new Point(120, 400);
-            Controls.Add(proposerLettre);
+            Button btnProposerLettre = new Button();
+            btnProposerLettre.Text = "Proposer lettre";
+            btnProposerLettre.Font = new Font(tbxPropositionLettre.Font.FontFamily, 20.0F);
+            btnProposerLettre.Size = new Size(240, 46);
+            btnProposerLettre.Location = new Point(120, 400);
+            Controls.Add(btnProposerLettre);
+            #endregion
+            #region Ajout label mot
+            Label lblMot = new Label();
+            lblMot.Font = new Font(lblMot.Font.FontFamily, 25.0F);
+            lblMot.Text = "Label";
+            lblMot.Location = new Point(100, 400);
+            Controls.Add(lblMot);
             #endregion
         }
 
