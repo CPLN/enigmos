@@ -33,7 +33,7 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
             BackgroundImage = Properties.Resources.nailCorrected;
 
             //Définition de la taille de l'image
-            Size = new Size(101, 356);
+            Size = new Size(100, 322);
             #endregion
         }
 
