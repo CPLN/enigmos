@@ -31,16 +31,15 @@ namespace Cpln.Enigmos.Enigmas
             for (int i=0;i<_tButton.Length;i++)
             {
                 //Design des boutons
-                _tButton[i].Font =
-                _tButton[i].Font = new Font("Century Gothic",12, FontStyle.Bold);
+                _tButton[i].ForeColor = Color.White;
+                _tButton[i].BackColor = Color.FromArgb(26, 189, 155);
+                _tButton[i].Font = new Font("Century Gothic",14, FontStyle.Bold);
                 _tButton[i].FlatStyle = FlatStyle.Flat;
-                _tButton[i].ForeColor = Color.DimGray;
                 _tButton[i].Width=110;
                 _tButton[i].Height = 60;
                 _tButton[i].Location = new Point(200 + 120 * i, 500);
                 _tButton[i].Click += Btn_Click;
                 Controls.Add(_tButton[i]);
-
             }
         }
         /// <summary>
