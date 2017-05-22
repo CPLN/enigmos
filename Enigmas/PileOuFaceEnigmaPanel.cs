@@ -16,10 +16,10 @@ namespace Cpln.Enigmos.Enigmas
        private Button btnPile = new Button();
        private Button btnFace = new Button();
        private Button btnLanceSuite = new Button();
+       private Label lblinfo = new Label();
        public PileOuFaceEnigmaPanel()
             {
                 
-                Label lblinfo = new Label();
                 lblinfo.Text = "Choisi une combinaison!";
                 lblinfo.Name = "lblinfo";           
                 lblinfo.Size = new Size(200, 50);
@@ -76,7 +76,15 @@ namespace Cpln.Enigmos.Enigmas
         }
         public void btnLanceSuite_Click(object sender, EventArgs e)
         {
-
+            btnFace.Visible = false;
+            btnPile.Visible = false;
+            btnLanceSuite.Enabled = false;
+            btnLanceSuite.Visible = false;
+            lbxCombi.Location = new Point(20, 20);
+            lblinfo.Visible = false;
+           
+            
+            
         }
         public void btnPile_click(object sender, EventArgs e)
         {
