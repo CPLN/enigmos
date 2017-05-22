@@ -38,7 +38,7 @@ namespace Cpln.Enigmos.Enigmas
             {
                 //Design des boutons
                 _tButton[i].ForeColor = Color.White;
-                _tButton[i].BackColor = Color.FromArgb(26, 189, 155);
+                _tButton[i].BackColor = Color.FromArgb(38, 175, 145);
                 _tButton[i].Font = new Font("Century Gothic",14, FontStyle.Bold);
                 _tButton[i].FlatStyle = FlatStyle.Flat;
                 _tButton[i].Width=110;
