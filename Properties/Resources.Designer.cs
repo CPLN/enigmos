@@ -804,9 +804,9 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tableResized {
+        internal static System.Drawing.Bitmap tableCorrect {
             get {
-                object obj = ResourceManager.GetObject("tableResized", resourceCulture);
+                object obj = ResourceManager.GetObject("tableCorrect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
