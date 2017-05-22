@@ -170,4 +170,8 @@
     <answer>poisson</answer>
     <hint>C'est un animal.</hint>
   </enigma>
+  <enigma title="Compteur">
+    <answer>temps</answer>
+    <hint>Presser sur la barre espace quand vous pensez avoir atteint le temps défini</hint>
+  </enigma>
 </enigmas>
