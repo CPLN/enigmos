@@ -17,6 +17,8 @@ namespace Cpln.Enigmos.Enigmas
         PictureBox _pbx1 = new PictureBox();
         //Compteur d'essaie
         int iCompteur = 0;
+        //Tableau de bouton de choix
+        Button[] _tButton = new Button[] { new Button { Text = "Raie Manta" }, new Button { Text = "Papillon" }, new Button { Text = "Eléphant" } };
         public DevineAnimalEnigmaPanel()
         {
             //Déclaration PictureBox
@@ -27,7 +29,6 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(_pbx1);
 
             //Déclaration Button
-            Button[] _tButton = new Button[] { new Button {Text= "Raie Manta" }, new Button { Text = "Papillon" }, new Button { Text = "Eléphant" } };
             for (int i=0;i<_tButton.Length;i++)
             {
                 //Design des boutons
@@ -51,24 +52,30 @@ namespace Cpln.Enigmos.Enigmas
         {
             Button btnClick = (Button)sender;
             //Si le bouton le Joueur a cliqué sur le bouton éléphant
-                if (btnClick.Text == "Eléphant")
+            if (btnClick.Text == "Eléphant")
+            {
+                //On affiche l'image de l'éléphant
+                _pbx1.BackgroundImage = Resources.elephant;
+                MessageBox.Show("Effectivement c'est bien un éléphant\nLa réponse est \"éléphant\"");
+                //Désactivation des boutons lors d'une victoire
+                foreach (Button b in _tButton)
+                    b.Enabled = false;
+            }
+            else
+            {
+                if (iCompteur < NB_ESSAIE)
                 {
-                    //On affiche l'image de l'éléphant
-                    _pbx1.BackgroundImage = Resources.elephant;
-                    MessageBox.Show("Effectivement c'est bien un éléphant\nLa réponse est \"éléphant\"");
+                    iCompteur++;
+                    MessageBox.Show("Faux");
                 }
                 else
                 {
-                    if (iCompteur < NB_ESSAIE)
-                    {
-                        iCompteur++;
-                        MessageBox.Show("Faux");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Vous avez malheuresement plus d'essaie, passez cette énigme");
-                    }
+                    MessageBox.Show("Vous avez malheuresement plus d'essaie, passez cette énigme");
+                    //Désactivation des boutons lors que le joueur n'a plus d'essaie
+                    foreach (Button b in _tButton)
+                        b.Enabled = false;
                 }
+            }
         }
     }
 }
