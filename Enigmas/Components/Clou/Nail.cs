@@ -49,23 +49,23 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
             switch(power)
             {
                 case 5:
-                    Top += 18;
-                    pixelsRemaining -= 18;
+                    Top += 17;
+                    pixelsRemaining -= 17;
                 break;
 
                 case 10:
-                    Top += 36;
-                    pixelsRemaining -= 36;
+                    Top += 33;
+                    pixelsRemaining -= 33;
                 break;
 
                 case 15:
-                    Top += 54;
-                    pixelsRemaining -= 54;
+                    Top += 49;
+                    pixelsRemaining -= 49;
                 break;
 
                 case 20:
-                    Top += 72;
-                    pixelsRemaining -= 72;
+                    Top += 65;
+                    pixelsRemaining -= 65;
                 break;
             }
         }
