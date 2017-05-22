@@ -12,23 +12,28 @@ namespace Cpln.Enigmos.Enigmas
     public class DevineAnimalEnigmaPanel:EnigmaPanel
     {
         //Maximum d'essaie
-        const int NB_ESSAIE = 1;
+        const int NB_ESSAI = 2;
         //Image à deviner
         PictureBox _pbx1 = new PictureBox();
+        //Essai(s) restant(s) affiché à l'écran
+        Label _lblEssai = new Label { Text="Essai(s) restant(s): "+NB_ESSAI, Width=200, Font=new Font("Century Gothic", 14, FontStyle.Bold)};
         //Compteur d'essaie
-        int iCompteur = 0;
+        int iCompteur = 1;
         //Tableau de bouton de choix
         Button[] _tButton = new Button[] { new Button { Text = "Raie Manta" }, new Button { Text = "Papillon" }, new Button { Text = "Eléphant" } };
         public DevineAnimalEnigmaPanel()
         {
-            //Déclaration PictureBox
+            //Affichage des essaie(s) restant(s)
+            Controls.Add(_lblEssai);
+
+            //Affichage PictureBox
             _pbx1.BackgroundImage = Resources.ElephantOmbre;
             _pbx1.Width = 243;
             _pbx1.Height = 275;
             _pbx1.Location = new Point(250, 100);
             Controls.Add(_pbx1);
 
-            //Déclaration Button
+            //Affichage Button
             for (int i=0;i<_tButton.Length;i++)
             {
                 //Design des boutons
@@ -50,6 +55,8 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         private void Btn_Click(object sender, EventArgs e)
         {
+            //Affichage essai(s) restant(s)
+            _lblEssai.Text = "Essai(s) restant(s): " + (NB_ESSAI - iCompteur).ToString();
             Button btnClick = (Button)sender;
             //Si le bouton le Joueur a cliqué sur le bouton éléphant
             if (btnClick.Text == "Eléphant")
@@ -62,12 +69,10 @@ namespace Cpln.Enigmos.Enigmas
                     b.Enabled = false;
             }
             else
-            {
-                if (iCompteur < NB_ESSAIE)
-                {
-                    iCompteur++;
+            {            
+                iCompteur++;   
+                if (iCompteur <= NB_ESSAI)
                     MessageBox.Show("Faux");
-                }
                 else
                 {
                     MessageBox.Show("Vous avez malheuresement plus d'essaie, passez cette énigme");
