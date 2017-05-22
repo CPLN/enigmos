@@ -61,6 +61,10 @@ namespace Cpln.Enigmos.Enigmas
             lblFausseLettre.Location = new Point(120, 350);
             Controls.Add(lblFausseLettre);
             #endregion
+            
+        }
+        public override void Load()
+        {
             NouvellePartie();
         }
         string Mot;
@@ -150,21 +154,14 @@ namespace Cpln.Enigmos.Enigmas
         private void Gagner()
         {
             MessageBox.Show("Vous avez gagné\nLa réponse est marsupilami", "Bravo", MessageBoxButtons.OK);
-            
+            btnProposerLettre.Enabled = false;
 
 
         }
         private void Perdu()
         {
-            if (MessageBox.Show("Vous avez perdu, le vrai mot étai " + Mot + "\nRecommencez ?", "Mince", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                NouvellePartie();
-
-            }
-            else
-            {
-                
-            }
+            MessageBox.Show("Vous avez perdu, le vrai mot étai " + Mot + "\nRecommencez !", "Mince", MessageBoxButtons.OK);
+            NouvellePartie();
 
 
         }
