@@ -10,6 +10,8 @@ namespace Cpln.Enigmos.Enigmas
 {
     public class BoiteNoireEnigmaPanel : EnigmaPanel
     {
+        //Attributs
+        private TextBox[] tTbxChiffreATrouver;
         /// <summary>
         /// Remplis les Labels avec les chiffres de départ et les affiche
         /// </summary>
@@ -33,7 +35,6 @@ namespace Cpln.Enigmos.Enigmas
                 iY = iY + 70;
             }
         }
-
         /// <summary>
         /// Afficher les Textbox permettant d'écrire les réponses de la boîte noire et remplir les deux premières
         /// </summary>
@@ -60,7 +61,6 @@ namespace Cpln.Enigmos.Enigmas
             tTbxChiffreATrouver[0].Enabled = false;
             tTbxChiffreATrouver[1].Enabled = false;
         }
-        TextBox[] tTbxChiffreATrouver;
         public BoiteNoireEnigmaPanel()
         {
             Label[] tLblChiffreAfficher = new Label[5];
