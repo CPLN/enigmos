@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new SwitchesEnigmaPanel(3, "LUMINEUX"), "Allumez tout");
+            return null;
         }
 
         /// <summary>
@@ -30,6 +30,7 @@ namespace Cpln.Enigmos
 
             enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
             enigmas.Add(new Enigma(new BeatThemAllEnigmaPanel(), "Beat them all"));
+            enigmas.Add(new Enigma(new BoiteNoireEnigmaPanel(), "Boite noire"));
             enigmas.Add(new Enigma(new BusEnigmaPanel(), "Sens du bus"));
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
