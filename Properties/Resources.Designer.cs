@@ -322,21 +322,18 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
         ///&lt;enigmas&gt;
-        ///  &lt;enigma title=&quot;Rébus&quot;&gt;
-        ///    &lt;answer&gt;42&lt;/answer&gt;
-        ///    &lt;hint&gt;Devinez un mot en vous aidant des images.&lt;/hint&gt;
+        ///  &lt;enigma title=&quot;Allumez tout&quot;&gt;
+        ///    &lt;answer&gt;lumineux&lt;/answer&gt;
+        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hint&gt;
         ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Le plus long mot&quot;&gt;
-        ///    &lt;answer&gt;oiseaux&lt;/answer&gt;
-        ///    &lt;hint&gt;C&apos;est un animal.&lt;/hint&gt;
+        ///  &lt;enigma title=&quot;Rallumez tout&quot;&gt;
+        ///    &lt;answer&gt;éblouissant&lt;/answer&gt;
+        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hint&gt;
         ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Puzzle&quot;&gt;
-        ///    &lt;answer&gt;jongleur&lt;/answer&gt;
-        ///    &lt;hint&gt;Remettez les pièces à leur place.&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Caractère caché&quot;&gt;
-        ///    &lt;answer&gt;Cpln&lt;/answer&gt;
-        ///    &lt;hint&gt;&quot;Le dessi [le reste de la chaîne a été tronqué]&quot;;.
+        ///  &lt;enigma title=&quot;Plein les mirettes&quot;&gt;
+        ///    &lt;answer&gt;aveuglant&lt;/answer&gt;
+        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hint&gt;
+        ///   [le reste de la chaîne a été tronqué]&quot;;.
         /// </summary>
         internal static string enigmas {
             get {
@@ -620,6 +617,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap piano {
             get {
                 object obj = ResourceManager.GetObject("piano", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pileouface {
+            get {
+                object obj = ResourceManager.GetObject("Pileouface", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

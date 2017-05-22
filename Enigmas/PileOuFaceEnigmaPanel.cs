@@ -17,6 +17,8 @@ namespace Cpln.Enigmos.Enigmas
        private Button btnFace = new Button();
        private Button btnLanceSuite = new Button();
        private Label lblinfo = new Label();
+       private Timer t1 = new Timer();
+      
        public PileOuFaceEnigmaPanel()
             {
                 
@@ -64,6 +66,8 @@ namespace Cpln.Enigmos.Enigmas
                 btnLanceSuite.Enabled = false;
                 btnLanceSuite.Visible = false;
 
+                
+
                 Controls.Add(btnPile);
                 Controls.Add(btnFace);
                 Controls.Add(lblinfo);
@@ -82,7 +86,8 @@ namespace Cpln.Enigmos.Enigmas
             btnLanceSuite.Visible = false;
             lbxCombi.Location = new Point(20, 20);
             lblinfo.Visible = false;
-           
+            lbxCombi.Font = new Font("Arial", 9);
+            
             
             
         }
