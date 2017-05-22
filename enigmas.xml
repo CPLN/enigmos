@@ -4,6 +4,18 @@
     <answer>Pass1234</answer>
     <hint>Gagne.</hint>
   </enigma>
+  <enigma title="Allumez tout">
+    <answer>lumineux</answer>
+    <hint>Faites en sorte que toutes les cases soient allumées</hint>
+  </enigma>
+  <enigma title="Rallumez tout">
+    <answer>éblouissant</answer>
+    <hint>Faites en sorte que toutes les cases soient allumées</hint>
+  </enigma>
+  <enigma title="Plein les mirettes">
+    <answer>aveuglant</answer>
+    <hint>Faites en sorte que toutes les cases soient allumées</hint>
+  </enigma>
   <enigma title="Rébus">
     <answer>42</answer>
     <hint>Devinez un mot en vous aidant des images.</hint>
@@ -33,6 +45,10 @@
   <enigma title="C'est simple">
     <answer>simple</answer>
     <hint>Pas d'indice, la solution est simple !</hint>
+  </enigma>
+  <enigma title="Foulque des Ténèbres">
+    <answer>Foulquage</answer>
+    <hint>A=Gauche D=Droite W=Haut S=Bas | Traversez le portail pour ouvrir le coffre !</hint>
   </enigma>
   <enigma title="Charade">
     <answer>ornithorynque</answer>

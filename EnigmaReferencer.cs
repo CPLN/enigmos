@@ -17,7 +17,11 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
+<<<<<<< HEAD
             return new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?");
+=======
+            return new Enigma(new SwitchesEnigmaPanel(3, "LUMINEUX"), "Allumez tout");
+>>>>>>> upstream/master
         }
 
         /// <summary>
@@ -67,6 +71,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CodeBarreEnigmaPanel(), "Le code barre"));
             enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?"));
             enigmas.Add(new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur"));
+            enigmas.Add(new Enigma(new CrypteDeLaFoulqueDesTenebresEnigmaPanel(), "Foulque des Ténèbres"));
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
             enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
             enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));
@@ -93,15 +98,25 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
 
+            // Énigmes avec prérequis
+
             Enigma runEnigma = new Enigma(new RunEnigmaPanel(), "Roux run");
             enigmas.Add(runEnigma);
             Enigma runEnigmaInverse = new Enigma(new RunEnigmaPanel(true), "Roux run encore");
             runEnigmaInverse.AddPrerequisite(runEnigma);
             enigmas.Add(runEnigmaInverse);
 
+            Enigma switch1 = new Enigma(new SwitchesEnigmaPanel(3, "LUMINEUX"), "Allumez tout");
+            enigmas.Add(switch1);
+            Enigma switch2 = new Enigma(new SwitchesEnigmaPanel(4, "ÉBLOUISSANT"), "Rallumez tout");
+            switch2.AddPrerequisite(switch1);
+            enigmas.Add(switch2);
+            Enigma switch3 = new Enigma(new SwitchesEnigmaPanel(5, "AVEUGLANT"), "Plein les mirettes");
+            switch3.AddPrerequisite(switch2);
+            enigmas.Add(switch3);
+
             enigmas.Shuffle();
             return enigmas;
         }
-        
     }
 }
