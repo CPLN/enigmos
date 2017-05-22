@@ -14,25 +14,29 @@ namespace Cpln.Enigmos.Enigmas
     /// </summary>
     class ClouEnigmaPanel : EnigmaPanel
     {
+        PictureBox table = new PictureBox { BackgroundImage = Properties.Resources.tableCorrect, Size = new Size(960, 480) };
         EnergyBar bar = new EnergyBar();
         Nail nail = new Nail();
         IA ia = new IA();
-        Label test = new Label();
+        Player player = new Player();
 
         public ClouEnigmaPanel()
         {
-            test.Location = new Point(150, 150);
-            //test.
-            nail.Location = new Point(44, 0);
+            bar.Location = new Point(700, 25);
+            nail.Location = new Point(300, 43);
+            table.Location = new Point(0, 400); 
+
             Controls.Add(bar);
             Controls.Add(nail);
-            Controls.Add(test);
+            Controls.Add(table);
         }
 
         public override void PressKey(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
             {
+                table.BringToFront();
+
                 //player
                 nail.Down(bar.CaptureCursorPower());
 
