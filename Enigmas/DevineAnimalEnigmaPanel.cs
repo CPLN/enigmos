@@ -13,30 +13,30 @@ namespace Cpln.Enigmos.Enigmas
     {
         //Maximum d'essaie
         const int NB_ESSAI = 2;
+
         //Image à deviner
-        PictureBox _pbx1 = new PictureBox();
+        PictureBox _pbx1 = new PictureBox {BackgroundImage=Resources.ElephantOmbre, Width=243, Height=275, Location=new Point(250,100) };
+
         //Essai(s) restant(s) affiché à l'écran
         Label _lblEssai = new Label { Text="Essai(s) restant(s): "+NB_ESSAI, Width=200, Font=new Font("Century Gothic", 14, FontStyle.Bold)};
+
         //Compteur d'essaie
         int iCompteur = 1;
+
         //Tableau de bouton de choix
-        Button[] _tButton = new Button[] { new Button { Text = "Raie Manta" }, new Button { Text = "Papillon" }, new Button { Text = "Eléphant" } };
+        Button[] _tButton = new Button[] {new Button { Text = "Raie Manta" }, new Button { Text = "Papillon" }, new Button { Text = "Eléphant" } };
+
         public DevineAnimalEnigmaPanel()
         {
             //Affichage des essaie(s) restant(s)
             Controls.Add(_lblEssai);
 
             //Affichage PictureBox
-            _pbx1.BackgroundImage = Resources.ElephantOmbre;
-            _pbx1.Width = 243;
-            _pbx1.Height = 275;
-            _pbx1.Location = new Point(250, 100);
             Controls.Add(_pbx1);
 
-            //Affichage Button
+            //Affichage et design des boutons
             for (int i=0;i<_tButton.Length;i++)
             {
-                //Design des boutons
                 _tButton[i].ForeColor = Color.White;
                 _tButton[i].BackColor = Color.FromArgb(38, 175, 145);
                 _tButton[i].Font = new Font("Century Gothic",14, FontStyle.Bold);
@@ -57,13 +57,18 @@ namespace Cpln.Enigmos.Enigmas
         {
             //Affichage essai(s) restant(s)
             _lblEssai.Text = "Essai(s) restant(s): " + (NB_ESSAI - iCompteur).ToString();
+
             Button btnClick = (Button)sender;
+
             //Si le bouton le Joueur a cliqué sur le bouton éléphant
             if (btnClick.Text == "Eléphant")
             {
                 //On affiche l'image de l'éléphant
                 _pbx1.BackgroundImage = Resources.elephant;
+
+                //Message de victoire
                 MessageBox.Show("Effectivement c'est bien un éléphant\nLa réponse est \"éléphant\"");
+
                 //Désactivation des boutons lors d'une victoire
                 foreach (Button b in _tButton)
                     b.Enabled = false;
@@ -71,11 +76,14 @@ namespace Cpln.Enigmos.Enigmas
             else
             {            
                 iCompteur++;   
+
                 if (iCompteur <= NB_ESSAI)
                     MessageBox.Show("Faux");
                 else
                 {
+                    //Message de défaite
                     MessageBox.Show("Vous avez malheuresement plus d'essaie, passez cette énigme");
+
                     //Désactivation des boutons lors que le joueur n'a plus d'essaie
                     foreach (Button b in _tButton)
                         b.Enabled = false;
