@@ -38,7 +38,7 @@ namespace Cpln.Enigmos.Enigmas
         /// Afficher les Textbox permettant d'écrire les réponses de la boîte noire et remplir les deux premières
         /// </summary>
         /// <param name="tTbxChiffreATrouver">Tableau contenant les chiffres à afficher</param>
-        public void AfficherCaseARemplir(ref TextBox[] tTbxChiffreATrouver)
+        public void AfficherCaseARemplir()
         {
             //Taille des Textbox
             int iX = 610;
@@ -60,10 +60,11 @@ namespace Cpln.Enigmos.Enigmas
             tTbxChiffreATrouver[0].Enabled = false;
             tTbxChiffreATrouver[1].Enabled = false;
         }
+        TextBox[] tTbxChiffreATrouver;
         public BoiteNoireEnigmaPanel()
         {
             Label[] tLblChiffreAfficher = new Label[5];
-            TextBox[] tTbxChiffreATrouver = new TextBox[5];
+            tTbxChiffreATrouver = new TextBox[5];
             double[] tDblChiffre = new double[] { 9, 2, 5, 9.5, 0 };
 
             //Paramètres de la boîte noire
@@ -75,7 +76,14 @@ namespace Cpln.Enigmos.Enigmas
 
             //Appel des méthodes
             RemplirTableauChiffreEtAfficher(ref tLblChiffreAfficher, tDblChiffre);
-            AfficherCaseARemplir(ref tTbxChiffreATrouver);
+            AfficherCaseARemplir();
+        }
+        public override void Load()
+        { 
+            for (int icpt = 2; icpt < tTbxChiffreATrouver.Length; icpt++)
+            {
+                tTbxChiffreATrouver[icpt].Text = "";
+            }
         }
     }
 }
