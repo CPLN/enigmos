@@ -30,7 +30,7 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
         {
             #region Pbx propriétés
             //Définition de l'image source
-            BackgroundImage = Properties.Resources.nailResized;
+            BackgroundImage = Properties.Resources.nailCorrected;
 
             //Définition de la taille de l'image
             Size = new Size(101, 356);

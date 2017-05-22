@@ -534,9 +534,9 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap nailResized {
+        internal static System.Drawing.Bitmap nailCorrected {
             get {
-                object obj = ResourceManager.GetObject("nailResized", resourceCulture);
+                object obj = ResourceManager.GetObject("nailCorrected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
