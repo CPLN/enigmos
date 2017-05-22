@@ -16,7 +16,7 @@ namespace Cpln.Enigmos.Enigmas
         Timer _tmr = new Timer() { Interval = 1 };  // Timer du jeu
 
         public PlateformerEnigmaPanel() {
-			// Taille du jeu
+            // Taille du jeu
             Width = 1500;
             Height = 900;
 
@@ -24,7 +24,7 @@ namespace Cpln.Enigmos.Enigmas
             Paint += PlateformerEnigmaPanel_Paint;
             _tmr.Tick += Tmr_Tick;
 			
-			// Toutes les plateformes du jeu
+            // Toutes les plateformes du jeu
             _tPlateformes = new Rectangle[] {
                 new Rectangle(0, Height - 50, 200, 50),
                 new Rectangle(250, Height - 200, 200, 30),
@@ -36,13 +36,13 @@ namespace Cpln.Enigmos.Enigmas
                 new Rectangle(Width - 70, 50, 70, 10)
             };
 			
-			// Tout les ennemis du jeu
+            // Tout les ennemis du jeu
             _tBadboys = new Badboy[] {
                 new Badboy(_tPlateformes[_tPlateformes.Length - 3], 40, 2),
                 new Badboy(_tPlateformes[1], 30, 4)
             };
 			
-			// Piece qui permettera de gagner
+            // Piece qui permettera de gagner
             _rWin = new Rectangle(_tPlateformes.Last().X + _tPlateformes.Last().Width - 30, _tPlateformes.Last().Y - 30, 30, 30);
         }
 
@@ -90,7 +90,7 @@ namespace Cpln.Enigmos.Enigmas
             Invalidate();
         }
 		
-		// Dessine tout le jeu
+        // Dessine tout le jeu
         private void PlateformerEnigmaPanel_Paint(object sender, PaintEventArgs e) {
             e.Graphics.FillRectangles(Brushes.ForestGreen, _tPlateformes);
             e.Graphics.FillRectangle(Brushes.LightGray, _hero.Rectangle);
@@ -99,20 +99,20 @@ namespace Cpln.Enigmos.Enigmas
             foreach(Badboy _bb in _tBadboys) { e.Graphics.FillRectangle(Brushes.Black, _bb.Rectangle); }
         }
 		
-		// Quand une touche est pressée
+        // Quand une touche est pressée
         public override void PressKey(object sender, KeyEventArgs e) {
             switch (e.KeyCode) {
-				// Recule
+                // Recule
                 case Keys.D:
                 _hero.MoveX(1);
                 break;
 				
-				// Avance
+                // Avance
                 case Keys.A:
                 _hero.MoveX(-1);
                 break;
 				
-				// Saute
+                // Saute
                 case Keys.W:
                 case Keys.Space:
                 _hero.Jump(false);
@@ -120,7 +120,7 @@ namespace Cpln.Enigmos.Enigmas
             }
         }
 		
-		// Si une touche du déplacament X est levée, de déplacement s'arrête
+        // Si une touche du déplacament X est levée, de déplacement s'arrête
         public override void ReleaseKey(object sender, KeyEventArgs e) {
             switch (e.KeyCode) {
                 case Keys.A:
