@@ -43,32 +43,32 @@ namespace Cpln.Enigmos.Enigmas
             }
         }
         /// <summary>
-        /// Evènement lors d'un click
+        /// Evènement lors d'un click sur un bouton
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Btn_Click(object sender, EventArgs e)
         {
             Button btnClick = (Button)sender;
-
-            if (iCompteur<NB_ESSAIE)
-            {
+            //Si le bouton le Joueur a cliqué sur le bouton éléphant
                 if (btnClick.Text == "Eléphant")
                 {
+                    //On affiche l'image de l'éléphant
                     _pbx1.BackgroundImage = Resources.elephant;
                     MessageBox.Show("Effectivement c'est bien un éléphant\nLa réponse est \"éléphant\"");
                 }
                 else
                 {
-                    iCompteur++;
-                    MessageBox.Show("Faux");
+                    if (iCompteur < NB_ESSAIE)
+                    {
+                        iCompteur++;
+                        MessageBox.Show("Faux");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vous avez malheuresement plus d'essaie, passez cette énigme");
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Vous avez malheuresement plus d'essaie, passez cette énigme");
-            }
-
         }
     }
 }
