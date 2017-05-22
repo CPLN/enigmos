@@ -60,6 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\Components\ImagePendu.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\Light.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -258,6 +261,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <Content Include="Resources\listeMotPendu.txt" />
+    <None Include="Resources\mot.txt" />
     <None Include="Resources\pendu3.png" />
     <None Include="Resources\pendu2.png" />
     <None Include="Resources\pendu1.png" />
