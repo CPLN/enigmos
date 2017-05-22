@@ -71,6 +71,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\Clou\Player.cs" />
+    <Compile Include="Enigmas\BoiteNoireEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\Light.cs">
       <SubType>Component</SubType>
     </Compile>
