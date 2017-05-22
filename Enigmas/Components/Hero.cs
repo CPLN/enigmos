@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace Cpln.Enigmos.Enigmas.Components
 {
-
     /// <summary>
     /// L'objet que l'utilisateur jouera, il hérite de la classe abstraite Boy
     /// </summary>
@@ -17,7 +16,6 @@ namespace Cpln.Enigmos.Enigmas.Components
         public bool IsJumping { get; set; } // True = Entrain de sauter, False = Saute pas
         public bool JumpFinish { get; set; } // True = A fini de monter, False = Redescent
         public Bitmap Texture { get; set; } // Texture actuelle de l'objet
-        public override event EventHandler Moved; // Evenement qui se déclenche quand l'objet bouge
 
         private Bitmap[] Textures = new Bitmap[6]; // Textures de l'objet
         private int iJump; // Haut du daut maximale
@@ -94,9 +92,6 @@ namespace Cpln.Enigmos.Enigmas.Components
         {
             base.X += X;
             base.Y += Y;
-
-            // Invoque l'evenement Moved
-            Moved?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -108,8 +103,6 @@ namespace Cpln.Enigmos.Enigmas.Components
         {
             base.X = X;
             base.Y = Y;
-
-            Moved?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -121,10 +114,7 @@ namespace Cpln.Enigmos.Enigmas.Components
             this.iDirection = iDirection;   // Change la direction du déplacement ou l'arrête
         }
 
-        /// <summary>
-        /// Réécriture de l'evenement abstarait du timer
-        /// </summary>
-        protected override void Timer_Tick(object sender, EventArgs e)
+        public override void Move()
         {
             // Permet de faire sauter l'objet
             if (IsJumping)

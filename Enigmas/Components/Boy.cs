@@ -9,18 +9,16 @@ namespace Cpln.Enigmos.Enigmas.Components
     /// </summary>
     public abstract class Boy
     {
-        public int X { get; protected set; }
-        public int Y { get; protected set; }
-        public int Width { get; protected set; }
-        public int Height { get; protected set; }
-        public abstract event EventHandler Moved;
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
 
         // Retourne un rectangle à partir de l'objet ce qui permet de detecter des intersection plus facilement
         public Rectangle Rectangle
         {
             get { return new Rectangle(X, Y, Width, Height); }
         }
-        protected Timer Timer { get; set; } = new Timer() { Enabled = true, Interval = 1 };
 
         /// <summary>
         /// Constructeur de la class Boy
@@ -35,11 +33,8 @@ namespace Cpln.Enigmos.Enigmas.Components
             this.Y = Y;
             this.Width = Width;
             this.Height = Height;
-
-            Timer.Tick += Timer_Tick;
         }
 
-        // L'evenement de Tick du timer, à overrider
-        protected abstract void Timer_Tick(object sender, EventArgs e);
+        public abstract void Move();
     }
 }

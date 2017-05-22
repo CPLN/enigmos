@@ -1,6 +1,7 @@
 ﻿using Cpln.Enigmos.Enigmas.Components;
 using Cpln.Enigmos.Properties;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,13 +13,14 @@ namespace Cpln.Enigmos.Enigmas
         Rectangle _rWin; // La piece qui permet de gagner
         Rectangle[] _tPlateformes;
         Badboy[] _tBadboys;
+        Timer tmr = new Timer() { Enabled = true, Interval = 1 };
 
         public PlateformerEnigmaPanel() {
 			// Taille du jeu
             Width = 1500;
             Height = 900;
-            _hero.Moved += new EventHandler(_hero_Moved);
             Paint += PlateformerEnigmaPanel_Paint;
+            tmr.Tick += Tmr_Tick;
 			
 			// Toutes les plateformes du jeu
             _tPlateformes = new Rectangle[] {
@@ -37,45 +39,57 @@ namespace Cpln.Enigmos.Enigmas
                 new Badboy(_tPlateformes[_tPlateformes.Length - 3], 40, 2),
                 new Badboy(_tPlateformes[1], 30, 4)
             };
-            foreach(Badboy _bb in _tBadboys) { _bb.Moved += _bb_Moved; } // Assigne à tous les Badboys l'evenement _bb_Moved
 			
 			// Piece qui permettera de gagner
             _rWin = new Rectangle(_tPlateformes.Last().X + _tPlateformes.Last().Width - 30, _tPlateformes.Last().Y - 30, 30, 30);
 
             _hero.Jump(true);
         }
-		
-		// Evemement qui se déclenche que un des ennemis bouge
-        private void _bb_Moved(object sender, EventArgs e) {
-            Badboy _bbThis = (Badboy)sender;
-			
-			// Quand le hero intersect un des ennemis, il meurt
-            if (_hero.Rectangle.IntersectsWith(_bbThis.Rectangle))
-                _hero.Dead();
 
-            Invalidate();
+        public override void Load()
+        {
+            _hero.Dead();
         }
-		
-		// Evemement qui se déclanche le joueur bouge
-        private void _hero_Moved(object sender, EventArgs e) {
-            foreach (Rectangle _r in _tPlateformes) {
-                if (_hero.Rectangle.Bottom == _r.Top && (_hero.Rectangle.Right > _r.Left && _hero.Rectangle.Left < _r.Right) && _hero.JumpFinish) { // Saut avec intersection sur une plateforme
+
+        private void Tmr_Tick(object sender, EventArgs e)
+        {
+            _hero.Move();
+            foreach (Rectangle _r in _tPlateformes)
+            {
+                if (_hero.Rectangle.Bottom == _r.Top && (_hero.Rectangle.Right > _r.Left && _hero.Rectangle.Left < _r.Right) && _hero.JumpFinish)
+                { 
+                    // Saut avec intersection sur une plateforme
                     _hero.IsJumping = false;
                     break;
-                } else if (_hero.Rectangle.Bottom == _r.Top && !(_hero.Rectangle.Right > _r.Left && _hero.Rectangle.Left < _r.Right) && !_hero.IsJumping) { // Gravité
+                }
+                else if (_hero.Rectangle.Bottom == _r.Top && !(_hero.Rectangle.Right > _r.Left && _hero.Rectangle.Left < _r.Right) && !_hero.IsJumping)
+                { 
+                    // Gravité
                     _hero.JumpFinish = true;
                     _hero.IsJumping = true;
-                } else if (_hero.Y >= Width) {  // Tombe en bas
+                }
+                else if (_hero.Y >= Width)
+                {  
+                    // Tombe en bas
                     _hero.SetPosition(0, 0);
                 }
             }
-            Invalidate();
-			
-			// Si le hero gagne en touchant la piece, il recommence et le mot de passe s'affiche
-            if (_hero.Rectangle.IntersectsWith(_rWin)) {
+
+            foreach (Badboy _bb in _tBadboys)
+            {
+                _bb.Move();
+                if (_hero.Rectangle.IntersectsWith(_bb.Rectangle))
+                    _hero.Dead();
+            }
+
+            // Si le hero gagne en touchant la piece, il recommence et le mot de passe s'affiche
+            if (_hero.Rectangle.IntersectsWith(_rWin))
+            {
                 _hero.Dead();
                 MessageBox.Show("Pass1234");
             }
+
+            Invalidate();
         }
 		
 		// Dessine tout le jeu
