@@ -25,33 +25,26 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
         /// Calcul le coup à porter sur le clou
         /// </summary>
         /// <param name="nail">Le clou de la partie</param>
+        /// <param name="ennemyPlayer">L'adversaire de la partie</param>
         /// <returns>La puissance du coup à porter</returns>
-        public int CalculateBlowPower(Nail nail)
+        public int CalculateBlowPower(Nail nail, Player ennemyPlayer)
         {
-            if(nail.PixelsRemaining <= 72)
+            switch(ennemyPlayer.LastTurnPower)
             {
-                return 20;
+                case 5:
+                    return 20;
+
+                case 10:
+                    return 10;
+
+                case 15:
+                    return 15;
+
+                case 20:
+                    return 5;
             }
-            else if(nail.PixelsRemaining - 72 > 72)
-            {
-                return 20;
-            }
-            else if(nail.PixelsRemaining - 54 > 72)
-            {
-                return 15;
-            }
-            else if(nail.PixelsRemaining - 36 > 72)
-            {
-                return 10;
-            }
-            else if(nail.PixelsRemaining - 18 > 72)
-            {
-                return 5;
-            }
-            else
-            {
-                return 5;
-            }
+
+            return 20;
         }
         #endregion
     }
