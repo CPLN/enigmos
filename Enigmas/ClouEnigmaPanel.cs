@@ -15,12 +15,14 @@ namespace Cpln.Enigmos.Enigmas
     class ClouEnigmaPanel : EnigmaPanel
     {
         //Définition/instanciation des valeurs par défaut.
-        private Label status = new Label { Location = new Point(15, 15), Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold), Text = "Manche: 1/3 - Gagné: 0/3", Height = 36, Width=300 };
+        private Label status = new Label { Location = new Point(15, 15), Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold), Height = 50, Width=300 };
         private PictureBox table = new PictureBox { BackgroundImage = Properties.Resources.tableCorrect, Size = new Size(960, 480), Location = new Point(0, 400) };
         private EnergyBar bar = new EnergyBar { Location = new Point(700, 25) };
         private Nail nail = new Nail { Location = new Point(370, 77) };
         private IA ia = new IA();
         private Player player = new Player();
+
+        private int round = 1;
 
         /// <summary>
         /// Constructeur: ajout des contrôles sur l'affichage
@@ -31,35 +33,142 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(nail);
             Controls.Add(table);
             Controls.Add(status);
+
+            UpdateStatusLabel();
         }
 
+        #region Méthodes
+        /// <summary>
+        /// Met à jour les informations du label indiquant le status du jeu.
+        /// </summary>
+        public void UpdateStatusLabel()
+        {
+            if(player.IsTurn)
+            {
+                status.Text = "Manche: " + round + "/3 - Gagné: " + player.WinnedRound + "/3\nTour: Joueur";
+            }
+            else if(ia.IsTurn)
+            {
+                status.Text = "Manche: " + round + "/3 - Gagné: " + player.WinnedRound +"/3\nTour: IA";
+            }
+        }
+
+        /// <summary>
+        /// Switches les propriétés "Turns" des joueurs.
+        /// </summary>
+        /// <param name="isPlayerTurn">Le tour est au joueur ?</param>
+        public void UpdateTurns(bool isPlayerTurn)
+        {
+            if(isPlayerTurn)
+            {
+                player.IsTurn = true;
+                ia.IsTurn = false;
+            }
+            else
+            {
+                player.IsTurn = false;
+                ia.IsTurn = true;
+            }
+        }
+
+        /// <summary>
+        /// Détermine si un joueur gagné la manche.
+        /// </summary>
+        /// <returns>Vrai ou faux</returns>
+        public bool HasWin()
+        {
+            //Teste si le clou est totalement enfoncé dans la table
+            if (nail.Location.Y >= 399)
+            {
+                //Teste quel joueur a gagné la manche
+                if(player.IsTurn)
+                {
+                    player.WinnedRound++;
+                }
+                else
+                {
+                    ia.WinnedRound++;
+                }
+
+                //Teste si c'était la dernière manche
+                if(round == 3)
+                {
+                    //Si le joueur a gagné au moins 2 manches, il a gagné le jeu
+                    if(player.WinnedRound >= 2)
+                    {
+                        UpdateStatusLabel();
+                        MessageBox.Show("La réponse est : C'est de la frappe !", "Bravo !");
+                        return true;
+                    }
+                    else
+                    {
+                        //Perdu, on restaure les valeurs de variables, l'utilisateur recommence
+                        player.WinnedRound = 0;
+                        ia.WinnedRound = 0;
+                        round = 0;
+                    }
+                }
+
+                round++;
+                UpdateStatusLabel();
+                bar.StartCursor();
+                nail.ResetPosition();
+
+                return true;
+            }
+
+            return false;
+        }
+        #endregion
+
         #region Evènements
+        /// <summary>
+        /// Frappe le clou quand la touche espace est enfoncée, c'est ici que les manches se calculent.
+        /// </summary>
         public override void PressKey(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
             {
+                //Ramène l'image de la table devant le clou.
                 table.BringToFront();
 
-                //player
+                //Le joueur tape le clou
                 player.Blow(nail, bar.CaptureCursorPower());
 
-                if (nail.Location.Y >= 399)
+                //Vérifie si le joueur a gagné
+                if (HasWin())
                 {
-                    MessageBox.Show("tu a gagné !");
+                    //Stop l'éxecution de la méthode
+                    return;
                 }
 
+                //C'est au tour de l'IA de jouer
+                UpdateTurns(false);
+                
+                //Update l'UI
+                UpdateStatusLabel();
+
+                //Force l'interface à se refresh avant que l'IA réfléchisse.
+                Application.DoEvents();
+
+                //L'IA réféchit...
                 System.Threading.Thread.Sleep(1000);
 
-                //ia
+                //L'IA frappe le clou                
                 ia.Blow(nail, ia.CalculateBlowPower(nail, player));
-                //nail.Down(ia.CalculateBlowPower(nail, player));
 
-                //qui a gagne ?
-                if (nail.Location.Y >= 399)
+                //Vérifie si l'IA a gagnée
+                if (HasWin())
                 {
-                    MessageBox.Show("l'ia a gagné !");
+                    //Stop l'éxecution de la méthode
+                    return;
                 }
 
+                //C'est au tour du joueur de jouer
+                UpdateTurns(true);
+                UpdateStatusLabel();
+
+                //Relance le curseur sur la barre d'énergie
                 bar.StartCursor();
             }
         }
