@@ -151,7 +151,7 @@ namespace Cpln.Enigmos.Enigmas
                 //Force l'interface à se refresh avant que l'IA réfléchisse.
                 Application.DoEvents();
 
-                //L'IA réféchit...
+                //Simule le temps de réflexion de l'IA
                 System.Threading.Thread.Sleep(1000);
 
                 //L'IA frappe le clou                
