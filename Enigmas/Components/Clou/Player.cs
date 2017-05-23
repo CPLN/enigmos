@@ -12,6 +12,11 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
     class Player
     {
         /// <summary>
+        /// Propriété indiquant la puissance de frappe du dernier tour.
+        /// </summary>
+        public int LastTurnPower { get; set; }
+
+        /// <summary>
         /// Propriété indiquant si c'est le tour du joueur courant ou pas.
         /// </summary>
         public bool IsTurn { get; set; }
@@ -27,13 +32,14 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
 
         #region Méthodes
         /// <summary>
-        /// Donne un coup sur le clou
+        /// Donne un coup sur le clou, enregistre dans la propriété LastTurnPower la puissance du coup.
         /// </summary>
         /// <param name="nail">Le clou de la partie</param>
         /// <param name="power">La puissanc du coup</param>
         public void Blow(Nail nail, int power)
         {
             nail.Down(power);
+            LastTurnPower = power;
         }
         #endregion
     }
