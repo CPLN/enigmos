@@ -14,23 +14,26 @@ namespace Cpln.Enigmos.Enigmas
     /// </summary>
     class ClouEnigmaPanel : EnigmaPanel
     {
-        PictureBox table = new PictureBox { BackgroundImage = Properties.Resources.tableCorrect, Size = new Size(960, 480) };
-        EnergyBar bar = new EnergyBar();
-        Nail nail = new Nail();
-        IA ia = new IA();
-        Player player = new Player();
+        //Définition/instanciation des valeurs par défaut.
+        private Label status = new Label { Location = new Point(15, 15), Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold), Text = "Manche: 1/3 - Gagné: 0/3", Height = 36, Width=300 };
+        private PictureBox table = new PictureBox { BackgroundImage = Properties.Resources.tableCorrect, Size = new Size(960, 480), Location = new Point(0, 400) };
+        private EnergyBar bar = new EnergyBar { Location = new Point(700, 25) };
+        private Nail nail = new Nail { Location = new Point(370, 77) };
+        private IA ia = new IA();
+        private Player player = new Player();
 
+        /// <summary>
+        /// Constructeur: ajout des contrôles sur l'affichage
+        /// </summary>
         public ClouEnigmaPanel()
         {
-            bar.Location = new Point(700, 25);
-            nail.Location = new Point(300, 43);
-            table.Location = new Point(0, 400); 
-
             Controls.Add(bar);
             Controls.Add(nail);
             Controls.Add(table);
+            Controls.Add(status);
         }
 
+        #region Evènements
         public override void PressKey(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
@@ -38,9 +41,9 @@ namespace Cpln.Enigmos.Enigmas
                 table.BringToFront();
 
                 //player
-                nail.Down(bar.CaptureCursorPower());
+                player.Blow(nail, bar.CaptureCursorPower());
 
-                if (nail.Location.Y >= 356)
+                if (nail.Location.Y >= 399)
                 {
                     MessageBox.Show("tu a gagné !");
                 }
@@ -48,11 +51,11 @@ namespace Cpln.Enigmos.Enigmas
                 System.Threading.Thread.Sleep(1000);
 
                 //ia
-                nail.Down(ia.CalculateBlowPower(nail));
-
+                ia.Blow(nail, ia.CalculateBlowPower(nail, player));
+                //nail.Down(ia.CalculateBlowPower(nail, player));
 
                 //qui a gagne ?
-                if (nail.Location.Y >= 356)
+                if (nail.Location.Y >= 399)
                 {
                     MessageBox.Show("l'ia a gagné !");
                 }
@@ -60,5 +63,6 @@ namespace Cpln.Enigmos.Enigmas
                 bar.StartCursor();
             }
         }
+        #endregion
     }
 }
