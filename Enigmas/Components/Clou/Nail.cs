@@ -13,16 +13,6 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
     /// </summary>
     class Nail : PictureBox
     {
-        int pixelsRemaining = 356;
-
-        /// <summary>
-        /// Propriété indiquant le nombre de pixels qu'il reste à planter.
-        /// </summary>
-        public int PixelsRemaining 
-        {
-            get { return pixelsRemaining; }
-        }
-
         /// <summary>
         /// Constructeur : Définition/instanciation des valeurs par défaut.
         /// </summary>
@@ -50,22 +40,18 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
             {
                 case 5:
                     Top += 17;
-                    pixelsRemaining -= 17;
                 break;
 
                 case 10:
                     Top += 33;
-                    pixelsRemaining -= 33;
                 break;
 
                 case 15:
                     Top += 49;
-                    pixelsRemaining -= 49;
                 break;
 
                 case 20:
                     Top += 65;
-                    pixelsRemaining -= 65;
                 break;
             }
         }
