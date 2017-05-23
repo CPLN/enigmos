@@ -55,6 +55,14 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
                 break;
             }
         }
+
+        /// <summary>
+        /// Restaure la poistion du clou à sa position initiale.
+        /// </summary>
+        public void ResetPosition()
+        {
+            Location = new Point(370, 77);
+        }
         #endregion
     }
 }
