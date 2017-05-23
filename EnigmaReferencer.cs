@@ -35,6 +35,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
             enigmas.Add(new Enigma(new ClicRapideEnigmaPanel(), "Clic-rapide"));
+            enigmas.Add(new Enigma(new ClouEnigmaPanel(), "Jeu du clou"));
             enigmas.Add(new Enigma(new CodeBarreEnigmaPanel(), "Le code barre"));
             enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?"));
             enigmas.Add(new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur"));
