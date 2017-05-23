@@ -12,6 +12,11 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
     class Player
     {
         /// <summary>
+        /// Propriété indiquant le nombre de manches gagnés du joueur
+        /// </summary>
+        public int WinnedRound { get; set; }
+
+        /// <summary>
         /// Propriété indiquant la puissance de frappe du dernier tour.
         /// </summary>
         public int LastTurnPower { get; set; }
