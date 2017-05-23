@@ -2,7 +2,7 @@
 <enigmas>
   <enigma title="Jeu du clou">
     <answer>C'est de la frappe !</answer>
-    <hint>Soyez le premier à infliger le coup fatal au clou.</hint>
+    <hint>Soyez le premier à enfoncer le clou entièrement dans la table ! Utilisez la touche espace pour frapper !</hint>
   </enigma>
   <enigma title="Allumez tout">
     <answer>lumineux</answer>
