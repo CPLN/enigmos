@@ -13,9 +13,9 @@ namespace Cpln.Enigmos.Enigmas.Components.Clou
     /// </summary>
     class EnergyBar : PictureBox
     {
-        Timer timer = new Timer();
-        Panel cursor = new Panel();
-        int iY = 0;
+        private Timer timer = new Timer();
+        private Panel cursor = new Panel();
+        private int iY = 0;
 
         /// <summary>
         /// Constructeur : Définition/instanciation des valeurs par défaut.
