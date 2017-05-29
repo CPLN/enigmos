@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new PlateformerEnigmaPanel(), "Plateformer");
+            return new Enigma(new CompteurEnigmaPanel(), "Compteur");
         }
 
         /// <summary>
@@ -38,6 +38,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new ClouEnigmaPanel(), "Jeu du clou"));
             enigmas.Add(new Enigma(new CodeBarreEnigmaPanel(), "Le code barre"));
             enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?"));
+            enigmas.Add(new Enigma(new CompteurEnigmaPanel(), "Compteur"));
             enigmas.Add(new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur"));
             enigmas.Add(new Enigma(new CrypteDeLaFoulqueDesTenebresEnigmaPanel(), "Foulque des Ténèbres"));
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
