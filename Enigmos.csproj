@@ -60,6 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\Components\Badboy.cs" />
+    <Compile Include="Enigmas\Components\Boy.cs" />
+    <Compile Include="Enigmas\Components\Hero.cs" />
     <Compile Include="Enigmas\BoiteNoireEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -112,6 +115,9 @@
     </Compile>
     <Compile Include="Enigmas\Components\Direction.cs" />
     <Compile Include="Enigmas\Components\Ennemi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\PlateformerEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\RebusEnigmaPanel.cs">
@@ -258,6 +264,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\Coin1.png" />
+    <None Include="Resources\walkcyclevarious.png" />
+    <None Include="Resources\11635.jpg" />
     <None Include="Resources\TrollFace.png" />
     <None Include="Resources\piano.jpg" />
     <None Include="Resources\parapluie.jpg" />
