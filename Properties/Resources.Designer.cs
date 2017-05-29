@@ -272,6 +272,16 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Coin {
+            get {
+                object obj = ResourceManager.GetObject("Coin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap coffre {
             get {
                 object obj = ResourceManager.GetObject("coffre", resourceCulture);
@@ -322,6 +332,9 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
         ///&lt;enigmas&gt;
+        ///  &lt;enigma title=&quot;Plateformer&quot;&gt;
+        ///    &lt;answer&gt;Ugwemuhwem&lt;/answer&gt;
+        ///    &lt;hint&gt;Gagne.&lt;/hint&gt;
         ///  &lt;enigma title=&quot;Rébus&quot;&gt;
         ///    &lt;answer&gt;42&lt;/answer&gt;
         ///    &lt;hint&gt;Devinez un mot en vous aidant des images.&lt;/hint&gt;
@@ -336,6 +349,7 @@ namespace Cpln.Enigmos.Properties {
         ///  &lt;/enigma&gt;
         ///  &lt;enigma title=&quot;Caractère caché&quot;&gt;
         ///    &lt;answer&gt;Cpln&lt;/answer&gt;
+        ///    &lt;hint&gt;&quot;Le dessin est la base de tout [le reste de la chaîne a été tronqué]&quot;;.
         ///    &lt;hint&gt;&quot;Le dessi [le reste de la chaîne a été tronqué]&quot;;.
         /// </summary>
         internal static string enigmas {
@@ -660,6 +674,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap pj4 {
             get {
                 object obj = ResourceManager.GetObject("pj4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player {
+            get {
+                object obj = ResourceManager.GetObject("Player", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
