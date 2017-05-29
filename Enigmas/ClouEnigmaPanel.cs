@@ -181,7 +181,7 @@ namespace Cpln.Enigmos.Enigmas
         {
             ia.WinnedRound = 0;
             player.WinnedRound = 0;
-            round = 0;
+            round = 1;
             UpdateStatusLabel();
             bar.StartCursor();
             nail.ResetPosition();
