@@ -19,6 +19,7 @@ namespace Cpln.Enigmos.Enigmas
             // Taille du jeu
             Width = 1500;
             Height = 900;
+            DoubleBuffered = true;
 
             // Evenements
             Paint += PlateformerEnigmaPanel_Paint;
