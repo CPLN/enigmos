@@ -23,6 +23,7 @@ namespace Cpln.Enigmos.Enigmas
        private PictureBox pbxGif = new PictureBox();
        private Button btnJeu = new Button();
        private int iFinDuJeu = 0;
+        private Random r1 = new Random();
              
        public PileOuFaceEnigmaPanel()
             {
@@ -59,9 +60,9 @@ namespace Cpln.Enigmos.Enigmas
                 lbxCombi.Font = new Font("Arial", 8);
 
                 lbxCombi2.Size = new Size(200, 50);
-                lbxCombi2.Location = new Point(500, 400);
+                lbxCombi2.Location = new Point(580, 20);
                 lbxCombi2.Name = "lbxCombi2";
-                lbxCombi2.Font = new Font("Arial", 8);
+                lbxCombi2.Font = new Font("Arial", 9);
                 lbxCombi2.Visible = false;
 
                 btnLanceSuite.Text = "Let's go!";
@@ -119,6 +120,12 @@ namespace Cpln.Enigmos.Enigmas
             btnJeu.Enabled = true;
             btnJeu.Visible = true;
             iFinDuJeu++;
+            string strRandomChoix = ChoixRandom();
+            bool bTest = TestChoixRandom(strRandomChoix);
+            if (bTest)
+            {
+                
+            }
             SelectChangement();
             
             if (TestBonNombre(iFinDuJeu))
@@ -138,7 +145,6 @@ namespace Cpln.Enigmos.Enigmas
             lbxCombi.Font = new Font("Arial", 9);
             lbxCombi2.Visible = true;
             lbxCombi2.DataSource = _lstCombi2;
-            
             pbxGif.Visible = true;
             pbxGif.Enabled = true;           
             t1.Enabled = true;
@@ -198,7 +204,36 @@ namespace Cpln.Enigmos.Enigmas
               {
                  lbxCombi2.SetSelected(iSelect + 1, true);
                  lbxCombi.SetSelected(iSelect + 1, true);
-              }                                                                                  
+              }
+            else
+            {
+                lbxCombi2.SetSelected(iSelect, true);
+                lbxCombi.SetSelected(iSelect, true);
+            }                                                                                  
         }
+        public string ChoixRandom()
+        {           
+            if (r1.Next(1) == 0)
+            {
+                return "Pile";
+            }
+            else
+            {
+                return "Face";
+            }
+        }
+        public bool TestChoixRandom(string strchoix)
+        {
+
+            if (strchoix == Convert.ToString(lbxCombi.SelectedItems))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
     }
 }
