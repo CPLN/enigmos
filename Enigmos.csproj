@@ -69,8 +69,7 @@
     <Compile Include="Enigmas\Components\Clou\EnergyBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\Components\Clou\IA.cs" />
-	
+    <Compile Include="Enigmas\Components\Clou\IA.cs" />	
     <Compile Include="Enigmas\Components\Clou\Nail.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -17,15 +17,9 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
             return new Enigma(new Pendu2EnigmaPanel(), "Pendu 2");
-=======
-            return null;
->>>>>>> upstream/master
-=======
-            return new Enigma(new PlateformerEnigmaPanel(), "Plateformer");
->>>>>>> upstream/master
+			return null;
+            
         }
 
         /// <summary>
