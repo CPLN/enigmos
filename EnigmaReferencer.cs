@@ -43,6 +43,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
             enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));
             enigmas.Add(new Enigma(new HiddenCharacterEnigmalPanel(), "Caractère caché"));
+            enigmas.Add(new Enigma(new InvisibleAnwerEnigmaPanel(), "Invisible Answer"));
             enigmas.Add(new Enigma(new LettreHaute(), "Quelle est la plus haute ?"));
             enigmas.Add(new Enigma(new MemoireDesChiffresEnigmaPanel(), "Souviens toi"));
             enigmas.Add(new Enigma(new MorpionEnigmaPanel(), "Morpion"));
@@ -55,6 +56,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new PenduEnigmaPanel(), "Le jeu du pendu"));
             enigmas.Add(new Enigma(new PhoqueEnigmaPanel(), "Chop' les poissons"));
             enigmas.Add(new Enigma(new PlateformerEnigmaPanel(), "Plateformer"));
+            enigmas.Add(new Enigma(new RebusEnigmaPanel(), "Rébus"));
             enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
             enigmas.Add(new Enigma(new ReflexeEnigmaPanel(), "Reflexe"));
             enigmas.Add(new Enigma(new SeptDifferencesEnigmaPanel(), "Le jeu des 7 différences"));
@@ -63,7 +65,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new TapeTaupeEnigmaPanel(), "Tape-taupe"));
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
-            
+
             // Énigmes avec prérequis
 
             Enigma runEnigma = new Enigma(new RunEnigmaPanel(), "Roux run");
