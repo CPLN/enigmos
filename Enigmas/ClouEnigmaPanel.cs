@@ -152,7 +152,7 @@ namespace Cpln.Enigmos.Enigmas
                 Application.DoEvents();
 
                 //Simule le temps de réflexion de l'IA
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(2000);
 
                 //L'IA frappe le clou                
                 ia.Blow(nail, ia.CalculateBlowPower(nail, player));
