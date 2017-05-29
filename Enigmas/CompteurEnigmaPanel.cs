@@ -94,14 +94,6 @@ namespace Cpln.Enigmos.Enigmas
                 if (iTempsJoueur >= iTempsMin && iTempsJoueur <= iTempsMax)
                 {  
                     MessageBox.Show("Bravo la réponse est: temps\n\nVous avez fait : " + iSec.ToString() + ":" + iDix.ToString() + iCent.ToString() + iMili.ToString(), "Bravo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                }else if(iTempsJoueur > iTempsMax)
-                {
-                    lblStart.Enabled = true;
-
-                    //Affichage du temps à atteindre
-                    iTemps = rTempsAleatoire.Next(5, 15);
-                    lblTemps.Text = iTemps.ToString();
-                    MessageBox.Show(iSec.ToString()+":"+iDix.ToString()+iCent.ToString()+iMili.ToString(), "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }else
                 {
                     lblStart.Enabled = true;
