@@ -11,19 +11,19 @@ namespace Cpln.Enigmos.Enigmas
 {
     public class DevineAnimalEnigmaPanel:EnigmaPanel
     {
-        //Maximum d'essaie
+        //Nombre maximum d'essai(s)
         const int NB_ESSAI = 2;
 
-        //Image à deviner
-        PictureBox _pbx1 = new PictureBox {BackgroundImage=Resources.ElephantOmbre, Width=243, Height=275, Location=new Point(250,100) };
-
         //Essai(s) restant(s) affiché à l'écran
-        Label _lblEssai = new Label { Text="Essai(s) restant(s): "+NB_ESSAI, Width=200, Font=new Font("Century Gothic", 14, FontStyle.Bold)};
+        Label _lblEssai = new Label { Text = "Essai(s) restant(s): " + NB_ESSAI, Width = 200, Font = new Font("Century Gothic", 14, FontStyle.Bold) };
 
-        //Compteur d'essaie
-        int iCompteur = 1;
+        //Image à deviner
+        PictureBox _pbx1 = new PictureBox {BackgroundImage=Resources.ElephantOmbre, Width=243, Height=275, Location=new Point(250,100)};
 
-        //Tableau de bouton de choix
+        //Compteur d'essai
+        int iCompteurEssai = 1;
+
+        //Tableau de boutons utilisé pour les choix
         Button[] _tButton = new Button[] {new Button { Text = "Raie Manta" }, new Button { Text = "Papillon" }, new Button { Text = "Eléphant" } };
 
         public DevineAnimalEnigmaPanel()
@@ -56,11 +56,12 @@ namespace Cpln.Enigmos.Enigmas
         private void Btn_Click(object sender, EventArgs e)
         {
             //Affichage essai(s) restant(s)
-            _lblEssai.Text = "Essai(s) restant(s): " + (NB_ESSAI - iCompteur).ToString();
+            _lblEssai.Text = "Essai(s) restant(s): " + (NB_ESSAI - iCompteurEssai).ToString();
 
+            //Le bouton sur le quel le joueur a cliqué
             Button btnClick = (Button)sender;
 
-            //Si le bouton le Joueur a cliqué sur le bouton éléphant
+            //Si le bouton cliqué est le bouton éléphant
             if (btnClick.Text == "Eléphant")
             {
                 //On affiche l'image de l'éléphant
@@ -75,16 +76,19 @@ namespace Cpln.Enigmos.Enigmas
             }
             else
             {            
-                iCompteur++;   
+                iCompteurEssai++;
 
-                if (iCompteur <= NB_ESSAI)
+                if (iCompteurEssai <= NB_ESSAI)
+                {
+                    //Affichage d'un message lorsque le joueur a cliqué sur le mauvais bouton
                     MessageBox.Show("Faux");
+                }
                 else
                 {
                     //Message de défaite
                     MessageBox.Show("Vous avez malheuresement plus d'essaie, passez cette énigme");
 
-                    //Désactivation des boutons lors que le joueur n'a plus d'essaie
+                    //Désactivation des boutons lors que le joueur n'a plus d'essai
                     foreach (Button b in _tButton)
                         b.Enabled = false;
                 }
