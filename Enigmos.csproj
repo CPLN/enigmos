@@ -282,7 +282,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
-<<<<<<< HEAD
     <Content Include="Resources\listeMotPendu.txt" />
     <None Include="Resources\mot.txt" />
     <None Include="Resources\pendu3.png" />
@@ -294,7 +293,6 @@
     <None Include="Resources\pendu6.png" />
     <None Include="Resources\pendu5.png" />
     <None Include="Resources\pendu4.png" />
-=======
     <None Include="Resources\nailCorrected.png" />
     <None Include="Resources\tableCorrect.png" />
     <None Include="Resources\tableResized.png" />
@@ -304,7 +302,6 @@
     <None Include="Resources\Coin1.png" />
     <None Include="Resources\walkcyclevarious.png" />
     <None Include="Resources\11635.jpg" />
->>>>>>> upstream/master
     <None Include="Resources\TrollFace.png" />
     <None Include="Resources\piano.jpg" />
     <None Include="Resources\parapluie.jpg" />
