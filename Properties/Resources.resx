@@ -304,6 +304,12 @@
   <data name="tutorial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tutorial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Coin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Coin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Player" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\walkcyclevarious.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="TrollFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TrollFace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -351,5 +357,14 @@
   </data>
   <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barResized" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barResized.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tableCorrect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tableCorrect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nailCorrected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nailCorrected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
