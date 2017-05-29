@@ -13,9 +13,31 @@ namespace Cpln.Enigmos.Enigmas
     {
         private int iTemps = 0;
         private Label lblTemps = new Label();
-        private Button btnStart = new Button();
+        private Label lblStart = new Label();
         private Random rTempsAleatoire = new Random();
         private Stopwatch stopwatch;
+        private int iSec = 0;
+        private int iDix = 0;
+        private int iCent = 0;
+        private int iMili = 0;
+
+        /// <summary>
+        /// Tranfome le temps pour l'affichage
+        /// </summary>
+        /// <param name="iTempsEcoule">Temps que le joueur a mis pour presser sur la barre espace</param>
+        public void TransformerTemps(int iTempsEcoule)
+        {
+            int iTempsModif = iTempsEcoule;
+            iSec = Convert.ToInt32(iTempsModif / 1000);
+            iTempsModif = iTempsModif - iSec * 1000;
+            iDix = Convert.ToInt32(iTempsModif / 100);
+            iTempsModif = iTempsModif - iDix * 100;
+            iCent = Convert.ToInt32(iTempsModif / 10);
+            iTempsModif = iTempsModif - iCent * 10;
+            iMili = Convert.ToInt32(iTempsModif / 1);
+            iTempsModif = iTempsModif - iMili;
+        }
+
         public CompteurEnigmaPanel()
         {
             //Mise en place du bouton et du label
@@ -26,13 +48,14 @@ namespace Cpln.Enigmos.Enigmas
             lblTemps.AutoSize = false;
             lblTemps.TextAlign=ContentAlignment.MiddleCenter;
             Controls.Add(lblTemps);
-            btnStart.Size = new Size(200, 50);
-            btnStart.Location = new Point(300, 400);
-            btnStart.Font = new Font("Arial", 30);
-            btnStart.Text = "Start";
-            Controls.Add(btnStart);
-            btnStart.Click+=new EventHandler(btnStart_Click);
-
+            lblStart.Size = new Size(200, 50);
+            lblStart.Location = new Point(300, 400);
+            lblStart.Font = new Font("Arial", 30);
+            lblStart.BackColor = Color.Beige;
+            lblStart.Text = "Start";
+            lblStart.TextAlign = ContentAlignment.MiddleCenter;
+            Controls.Add(lblStart);
+            lblStart.Click+=new EventHandler(lblStart_Click);
         }
 
         /// <summary>
@@ -40,14 +63,15 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnStart_Click(object sender, EventArgs e)
+        private void lblStart_Click(object sender, EventArgs e)
         {
             //Débloquer le bouton
-            btnStart.Enabled = false;
+            lblStart.Enabled = false;
 
             //Démarrer le timer
             stopwatch = Stopwatch.StartNew();
         }
+
         /// <summary>
         /// Pression sur une touche
         /// </summary>
@@ -55,21 +79,29 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         public override void PressKey(object sender, KeyEventArgs e)
         {
-            int iTempsMax = iTemps * 2000 + 150;
-            int iTempsMin = iTemps * 2000 - 150;
+            int iTempsMax = iTemps * 1000 + 150;
+            int iTempsMin = iTemps * 1000 - 150;
             //Contrôle pression barre espace
-              if (e.KeyCode == Keys.Space)
+            if (e.KeyCode == Keys.Space)
             {
                 //Fin du timer
                 int iTempsJoueur = Convert.ToInt32(stopwatch.ElapsedMilliseconds);
-
+                //Transformation du temps
+                TransformerTemps(iTempsJoueur);
                 //Teste de gain
                 if (iTempsJoueur >= iTempsMin && iTempsJoueur <= iTempsMax)
-                {
-                    MessageBox.Show("Bravo la réponse est: temps", "Bravo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                {  
+                    MessageBox.Show("Bravo la réponse est: temps\n\nVous avez fait : " + iSec.ToString() + ":" + iDix.ToString() + iCent.ToString() + iMili.ToString(), "Bravo",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }else if(iTempsJoueur > iTempsMax)
                 {
-                    btnStart.Enabled = true;
+                    lblStart.Enabled = true;
+                    iTemps = rTempsAleatoire.Next(5, 15);
+                    MessageBox.Show("Temps écouler !! Vous avez fait : "+iSec.ToString()+":"+iDix.ToString()+iCent.ToString()+iMili.ToString(), "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }else
+                {
+                    lblStart.Enabled = true;
+                    iTemps = rTempsAleatoire.Next(5, 15);
+                    MessageBox.Show("Temps trop court !! Vous avez fait : " + iSec.ToString() + ":" + iDix.ToString() + iCent.ToString() + iMili.ToString(), "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -83,7 +115,7 @@ namespace Cpln.Enigmos.Enigmas
             iTemps=rTempsAleatoire.Next(5, 15);
 
             //Débloquer le bouton
-            btnStart.Enabled = true;
+            lblStart.Enabled = true;
 
             //Affichage du temps à atteindre
             lblTemps.Text = iTemps.ToString();
