@@ -1,10 +1,5 @@
 ﻿using Cpln.Enigmos.Enigmas.Components.Clou;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
@@ -34,6 +29,7 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(table);
             Controls.Add(status);
 
+            //Mise à jour du label de l'interface
             UpdateStatusLabel();
         }
 
@@ -45,16 +41,16 @@ namespace Cpln.Enigmos.Enigmas
         {
             if(player.IsTurn)
             {
-                status.Text = "Manche: " + round + "/3 - Gagné: " + player.WinnedRound + "/3\nTour: Joueur";
+                status.Text = "Manche(s): " + round + "/3 - Gagné(s): " + player.WinnedRound + "/3\nTour: Joueur";
             }
             else if(ia.IsTurn)
             {
-                status.Text = "Manche: " + round + "/3 - Gagné: " + player.WinnedRound +"/3\nTour: IA";
+                status.Text = "Manche(s): " + round + "/3 - Gagné(s): " + player.WinnedRound +"/3\nTour: IA";
             }
         }
 
         /// <summary>
-        /// Switches les propriétés "Turns" des joueurs.
+        /// Switch les propriétés "Turns" des joueurs.
         /// </summary>
         /// <param name="isPlayerTurn">Le tour est au joueur ?</param>
         public void UpdateTurns(bool isPlayerTurn)
@@ -90,7 +86,8 @@ namespace Cpln.Enigmos.Enigmas
                     ia.WinnedRound++;
                 }
 
-                //Teste si c'était la dernière manche
+                //Teste si c'était la dernière manche, le joueur joue de toute façon les 3 manches même s'il a gagné
+                //les deux premières, car on interrompt pas le fun !
                 if(round == 3)
                 {
                     //Si le joueur a gagné au moins 2 manches, il a gagné le jeu
@@ -109,6 +106,7 @@ namespace Cpln.Enigmos.Enigmas
                     }
                 }
 
+                //On augmente le nombre de tours et on update l'UI
                 round++;
                 UpdateStatusLabel();
                 bar.StartCursor();
@@ -129,6 +127,7 @@ namespace Cpln.Enigmos.Enigmas
         {
             if (e.KeyCode == Keys.Space)
             {
+                #region Tour joueur
                 //Ramène l'image de la table devant le clou.
                 table.BringToFront();
 
@@ -144,7 +143,8 @@ namespace Cpln.Enigmos.Enigmas
 
                 //C'est au tour de l'IA de jouer
                 UpdateTurns(false);
-                
+                #endregion
+                #region Tour UI
                 //Update l'UI
                 UpdateStatusLabel();
 
@@ -170,6 +170,7 @@ namespace Cpln.Enigmos.Enigmas
 
                 //Relance le curseur sur la barre d'énergie
                 bar.StartCursor();
+                #endregion
             }
         }
         #endregion
