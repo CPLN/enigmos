@@ -261,8 +261,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
-    <None Include="Resources\jeu_04.gif" />
-    <None Include="Resources\PileOuFace.bmp" />
+    <None Include="Resources\PileOUface.gif" />
     <None Include="Resources\TrollFace.png" />
     <None Include="Resources\piano.jpg" />
     <None Include="Resources\parapluie.jpg" />

@@ -18,6 +18,9 @@ namespace Cpln.Enigmos.Enigmas
        private Button btnLanceSuite = new Button();
        private Label lblinfo = new Label();
        private Timer t1 = new Timer();
+       private PictureBox pbxGif = new PictureBox();
+       private Button btnJeu = new Button();
+       
       
        public PileOuFaceEnigmaPanel()
             {
@@ -29,9 +32,7 @@ namespace Cpln.Enigmos.Enigmas
                 lblinfo.Location = new Point(300, 200);
                 lblinfo.BackColor = Color.Red;
                 lblinfo.TextAlign = ContentAlignment.MiddleCenter;
-                
-                        
-               
+                                                     
                 btnPile.Text = "Pile";
                 btnPile.Name = "btnPile";
                 btnPile.Font = new Font("Arial", 12);
@@ -66,14 +67,45 @@ namespace Cpln.Enigmos.Enigmas
                 btnLanceSuite.Enabled = false;
                 btnLanceSuite.Visible = false;
 
+            btnJeu.Text = "Suite";
+            btnJeu.Name = "btnJeu";
+            btnJeu.Font = new Font("Arial", 12);
+            btnJeu.Size = new Size(100, 50);
+            btnJeu.Location = new Point(200, 200);
+            btnJeu.BackColor = Color.Green;
+            btnJeu.TextAlign = ContentAlignment.MiddleCenter;
+            btnJeu.Click += new System.EventHandler(btnJeu_click);
                 
+                t1.Interval = 250;
+                t1.Enabled = false;
+                t1.Tick += new System.EventHandler(t1_tick);
+
+                pbxGif.Image = Properties.Resources.Pileouface;
+                pbxGif.Size = pbxGif.Image.Size;
+                pbxGif.Location = new Point(400, 400);
+                pbxGif.Visible = false;
+                pbxGif.Enabled = false;
 
                 Controls.Add(btnPile);
                 Controls.Add(btnFace);
                 Controls.Add(lblinfo);
                 Controls.Add(lbxCombi);
-                Controls.Add(btnLanceSuite);          
+                Controls.Add(btnLanceSuite);
+                Controls.Add(pbxGif);        
         }
+
+        public void btnJeu_click(object sender, EventArgs e)
+        {
+            
+        }
+
+        public void t1_tick(object sender, EventArgs e)
+        {
+            t1.Enabled = false;
+            pbxGif.Visible = false;
+            pbxGif.Enabled = false;
+        }
+
         public override void Load()
         {
 
@@ -88,6 +120,10 @@ namespace Cpln.Enigmos.Enigmas
             lblinfo.Visible = false;
             lbxCombi.Font = new Font("Arial", 9);
             
+            pbxGif.Visible = true;
+            pbxGif.Enabled = true;
+            
+            t1.Enabled = true;
             
             
         }
