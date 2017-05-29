@@ -95,13 +95,19 @@ namespace Cpln.Enigmos.Enigmas
                 }else if(iTempsJoueur > iTempsMax)
                 {
                     lblStart.Enabled = true;
+
+                    //Affichage du temps à atteindre
                     iTemps = rTempsAleatoire.Next(5, 15);
-                    MessageBox.Show("Temps écouler !! Vous avez fait : "+iSec.ToString()+":"+iDix.ToString()+iCent.ToString()+iMili.ToString(), "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lblTemps.Text = iTemps.ToString();
+                    MessageBox.Show("Temps écouler !!\nVous avez fait : "+iSec.ToString()+":"+iDix.ToString()+iCent.ToString()+iMili.ToString(), "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }else
                 {
                     lblStart.Enabled = true;
+
+                    //Affichage du temps à atteindre
                     iTemps = rTempsAleatoire.Next(5, 15);
-                    MessageBox.Show("Temps trop court !! Vous avez fait : " + iSec.ToString() + ":" + iDix.ToString() + iCent.ToString() + iMili.ToString(), "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lblTemps.Text = iTemps.ToString();
+                    MessageBox.Show("Temps trop court !!\nVous avez fait : " + iSec.ToString() + ":" + iDix.ToString() + iCent.ToString() + iMili.ToString(), "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
