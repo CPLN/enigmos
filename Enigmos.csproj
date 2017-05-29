@@ -63,6 +63,21 @@
     <Compile Include="Enigmas\Components\ImagePendu.cs">
 	  <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\ClouEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Clou\EnergyBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Clou\IA.cs" />
+	
+    <Compile Include="Enigmas\Components\Clou\Nail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Clou\Player.cs" />
+    <Compile Include="Enigmas\Components\Badboy.cs" />
+    <Compile Include="Enigmas\Components\Boy.cs" />
+    <Compile Include="Enigmas\Components\Hero.cs" />
     <Compile Include="Enigmas\BoiteNoireEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -118,6 +133,9 @@
     </Compile>
     <Compile Include="Enigmas\Components\Direction.cs" />
     <Compile Include="Enigmas\Components\Ennemi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\PlateformerEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\RebusEnigmaPanel.cs">
@@ -264,6 +282,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+<<<<<<< HEAD
     <Content Include="Resources\listeMotPendu.txt" />
     <None Include="Resources\mot.txt" />
     <None Include="Resources\pendu3.png" />
@@ -275,6 +294,17 @@
     <None Include="Resources\pendu6.png" />
     <None Include="Resources\pendu5.png" />
     <None Include="Resources\pendu4.png" />
+=======
+    <None Include="Resources\nailCorrected.png" />
+    <None Include="Resources\tableCorrect.png" />
+    <None Include="Resources\tableResized.png" />
+    <None Include="Resources\nailResized.png" />
+    <None Include="Resources\barResized.png" />
+    <None Include="Resources\bar.png" />
+    <None Include="Resources\Coin1.png" />
+    <None Include="Resources\walkcyclevarious.png" />
+    <None Include="Resources\11635.jpg" />
+>>>>>>> upstream/master
     <None Include="Resources\TrollFace.png" />
     <None Include="Resources\piano.jpg" />
     <None Include="Resources\parapluie.jpg" />

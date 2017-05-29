@@ -101,6 +101,7 @@ namespace Cpln.Enigmos
                 }
             }
             tbxAnswer.Text = "";
+            active.Focus();
         }
 
         /// <summary>

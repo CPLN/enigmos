@@ -18,9 +18,13 @@ namespace Cpln.Enigmos
         public static Enigma DebugEnigma()
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             return new Enigma(new Pendu2EnigmaPanel(), "Pendu 2");
 =======
             return null;
+>>>>>>> upstream/master
+=======
+            return new Enigma(new PlateformerEnigmaPanel(), "Plateformer");
 >>>>>>> upstream/master
         }
 
@@ -39,6 +43,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
             enigmas.Add(new Enigma(new ClicRapideEnigmaPanel(), "Clic-rapide"));
+            enigmas.Add(new Enigma(new ClouEnigmaPanel(), "Jeu du clou"));
             enigmas.Add(new Enigma(new CodeBarreEnigmaPanel(), "Le code barre"));
             enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?"));
             enigmas.Add(new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur"));
@@ -60,6 +65,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new PenduEnigmaPanel(), "Le jeu du pendu"));
             enigmas.Add(new Enigma(new Pendu2EnigmaPanel(), "Pendu 2"));
             enigmas.Add(new Enigma(new PhoqueEnigmaPanel(), "Chop' les poissons"));
+            enigmas.Add(new Enigma(new PlateformerEnigmaPanel(), "Plateformer"));
             enigmas.Add(new Enigma(new RebusEnigmaPanel(), "Rébus"));
             enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
             enigmas.Add(new Enigma(new ReflexeEnigmaPanel(), "Reflexe"));
