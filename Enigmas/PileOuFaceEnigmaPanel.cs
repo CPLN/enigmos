@@ -11,7 +11,9 @@ namespace Cpln.Enigmos.Enigmas
     public class PileOuFaceEnigmaPanel : EnigmaPanel
     {
        private ListBox lbxCombi = new ListBox();
+       private ListBox lbxCombi2 = new ListBox();
        private List<string> _lstCombi = new List<string>();
+       private List<string> _lstCombi2 = new List<string>();
        private int iLancement = 0;
        private Button btnPile = new Button();
        private Button btnFace = new Button();
@@ -21,7 +23,7 @@ namespace Cpln.Enigmos.Enigmas
        private PictureBox pbxGif = new PictureBox();
        private Button btnJeu = new Button();
        private int iFinDuJeu = 0;
-      
+             
        public PileOuFaceEnigmaPanel()
             {
                 
@@ -55,6 +57,12 @@ namespace Cpln.Enigmos.Enigmas
                 lbxCombi.Location = new Point(300, 400);
                 lbxCombi.Name = "lbxCombi";
                 lbxCombi.Font = new Font("Arial", 8);
+
+                lbxCombi2.Size = new Size(200, 50);
+                lbxCombi2.Location = new Point(500, 400);
+                lbxCombi2.Name = "lbxCombi2";
+                lbxCombi2.Font = new Font("Arial", 8);
+                lbxCombi2.Visible = false;
 
                 btnLanceSuite.Text = "Let's go!";
                 btnLanceSuite.Name = "btnLanceSuite";
@@ -92,6 +100,7 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(btnFace);
                 Controls.Add(lblinfo);
                 Controls.Add(lbxCombi);
+                Controls.Add(lbxCombi2);
                 Controls.Add(btnLanceSuite);
                 Controls.Add(btnJeu);              
                 Controls.Add(pbxGif);        
@@ -127,6 +136,8 @@ namespace Cpln.Enigmos.Enigmas
             lbxCombi.Location = new Point(20, 20);
             lblinfo.Visible = false;
             lbxCombi.Font = new Font("Arial", 9);
+            lbxCombi2.Visible = true;
+            lbxCombi2.DataSource = _lstCombi2;
             
             pbxGif.Visible = true;
             pbxGif.Enabled = true;           
@@ -135,7 +146,7 @@ namespace Cpln.Enigmos.Enigmas
         }
         public void btnPile_click(object sender, EventArgs e)
         {
-            AfficheListbox("Pile");
+            DataListbox("Pile");
             iLancement++;
             if (TestBonNombre(iLancement))
             {
@@ -144,7 +155,7 @@ namespace Cpln.Enigmos.Enigmas
         }
         public void btnFace_click(object sender, EventArgs e)
         {
-            AfficheListbox("Face");
+            DataListbox("Face");
             iLancement++;
             if (TestBonNombre(iLancement))
             {
@@ -158,12 +169,21 @@ namespace Cpln.Enigmos.Enigmas
             btnLanceSuite.Visible = true;
             btnLanceSuite.Enabled = true;
         }
-        public void AfficheListbox(string strChoix)
-        {               
-             _lstCombi.Add(strChoix);
+        public void DataListbox(string strChoix)
+        {            
+            if (strChoix == "Pile")
+            {
+                _lstCombi.Add(strChoix);
+                _lstCombi2.Add("Face");
+            }
+            else
+            {
+                _lstCombi.Add(strChoix);
+                _lstCombi2.Add("Pile");
+            }   
+            
              lbxCombi.DataSource = null;
-             lbxCombi.DataSource = _lstCombi;                                     
-                
+             lbxCombi.DataSource = _lstCombi;                                                                 
         }
         public bool TestBonNombre(int iLance)
         {
@@ -171,10 +191,14 @@ namespace Cpln.Enigmos.Enigmas
         }
         public void SelectChangement()
         {          
-                int iSelect = lbxCombi.SelectedIndex;
-                lbxCombi.SetSelected(iSelect, false);
-                lbxCombi.SetSelected(iSelect + 1, true);
-                          
+            int iSelect = lbxCombi.SelectedIndex;
+            lbxCombi2.SetSelected(iSelect, false);
+            lbxCombi.SetSelected(iSelect, false); 
+            if (iSelect < 2)
+              {
+                 lbxCombi2.SetSelected(iSelect + 1, true);
+                 lbxCombi.SetSelected(iSelect + 1, true);
+              }                                                                                  
         }
     }
 }
