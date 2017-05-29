@@ -173,6 +173,19 @@ namespace Cpln.Enigmos.Enigmas
                 #endregion
             }
         }
+
+        /// <summary>
+        /// Lors du chargement, on restaure avec les valeurs par défaut.
+        /// </summary>
+        public override void Load()
+        {
+            ia.WinnedRound = 0;
+            player.WinnedRound = 0;
+            round = 0;
+            UpdateStatusLabel();
+            bar.StartCursor();
+            nail.ResetPosition();
+        }
         #endregion
     }
 }
