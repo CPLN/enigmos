@@ -71,20 +71,20 @@ namespace Cpln.Enigmos.Enigmas
         string MotCache;
         int cptErreur = 0;
         List<string> lettreProposee = new List<string>();
+        
         public void NouvellePartie()
         {
             lettreProposee.Clear();
             lblFausseLettre.Text = null;
 
-           
             cptErreur = 0;
             pbxImagePendu.SetImage(cptErreur);
-            //Lecture fichier dans une liste
-            string resource_data = Properties.Resources.listeMotPendu;
+            
+            string resource_data = Properties.Resources.listeMotPendu; //Lecture fichier dans une liste
             List<string> lMot = resource_data.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             Random rdm = new Random();
-
+            
             Mot = lMot[rdm.Next(0, lMot.Count)];
 
 
