@@ -40,7 +40,7 @@ namespace Cpln.Enigmos.Enigmas
 
         public CompteurEnigmaPanel()
         {
-            //Mise en place du bouton et du label
+            //Mise en place des labels
             lblTemps.Size = new Size(200, 200);
             lblTemps.Location = new Point(300, 200);
             lblTemps.BackColor = Color.Red;
@@ -65,7 +65,7 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         private void lblStart_Click(object sender, EventArgs e)
         {
-            //Débloquer le bouton
+            //Bloquer le label
             lblStart.Enabled = false;
 
             //Démarrer le timer
@@ -86,8 +86,10 @@ namespace Cpln.Enigmos.Enigmas
             {
                 //Fin du timer
                 int iTempsJoueur = Convert.ToInt32(stopwatch.ElapsedMilliseconds);
+
                 //Transformation du temps
                 TransformerTemps(iTempsJoueur);
+
                 //Teste de gain
                 if (iTempsJoueur >= iTempsMin && iTempsJoueur <= iTempsMax)
                 {  
@@ -120,7 +122,7 @@ namespace Cpln.Enigmos.Enigmas
             //Temps aléatoire
             iTemps=rTempsAleatoire.Next(5, 15);
 
-            //Débloquer le bouton
+            //Débloquer le label
             lblStart.Enabled = true;
 
             //Affichage du temps à atteindre
