@@ -16,10 +16,9 @@ namespace Cpln.Enigmos
         /// <remarks>Lorsque le programme est en mode RELEASE, cette méthode n'est pas appelée.</remarks>
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
-        {            
-            return new Enigma(new PileOuFaceEnigmaPanel(), "Pile ou face");           
-        }
-
+        {
+            return new Enigma(new PileOuFaceEnigmaPanel(), "Pile ou face");
+        }         
         /// <summary>
         /// Cette méthode crée une liste contenant les différentes énigmes et la mélange avant de la retourner.
         /// </summary>
@@ -30,6 +29,7 @@ namespace Cpln.Enigmos
 
             enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
             enigmas.Add(new Enigma(new BeatThemAllEnigmaPanel(), "Beat them all"));
+            enigmas.Add(new Enigma(new BoiteNoireEnigmaPanel(), "Boite noire"));
             enigmas.Add(new Enigma(new BusEnigmaPanel(), "Sens du bus"));
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
