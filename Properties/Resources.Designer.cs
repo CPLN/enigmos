@@ -92,6 +92,16 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap barResized {
+            get {
+                object obj = ResourceManager.GetObject("barResized", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Batiment {
             get {
                 object obj = ResourceManager.GetObject("Batiment", resourceCulture);
@@ -329,29 +339,6 @@ namespace Cpln.Enigmos.Properties {
             }
         }
         
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
-        ///&lt;enigmas&gt;
-        ///  &lt;enigma title=&quot;Plateformer&quot;&gt;
-        ///    &lt;answer&gt;Ugwemuhwem&lt;/answer&gt;
-        ///    &lt;hint&gt;Gagne.&lt;/hint&gt;
-        ///  &lt;enigma title=&quot;Rébus&quot;&gt;
-        ///    &lt;answer&gt;42&lt;/answer&gt;
-        ///    &lt;hint&gt;Devinez un mot en vous aidant des images.&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Le plus long mot&quot;&gt;
-        ///    &lt;answer&gt;oiseaux&lt;/answer&gt;
-        ///    &lt;hint&gt;C&apos;est un animal.&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Puzzle&quot;&gt;
-        ///    &lt;answer&gt;jongleur&lt;/answer&gt;
-        ///    &lt;hint&gt;Remettez les pièces à leur place.&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Caractère caché&quot;&gt;
-        ///    &lt;answer&gt;Cpln&lt;/answer&gt;
-        ///    &lt;hint&gt;&quot;Le dessin est la base de tout [le reste de la chaîne a été tronqué]&quot;;.
-        ///    &lt;hint&gt;&quot;Le dessi [le reste de la chaîne a été tronqué]&quot;;.
-        /// </summary>
         internal static string enigmas {
             get {
                 return ResourceManager.GetString("enigmas", resourceCulture);
@@ -534,6 +521,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap mur {
             get {
                 object obj = ResourceManager.GetObject("mur", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nailCorrected {
+            get {
+                object obj = ResourceManager.GetObject("nailCorrected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -804,6 +801,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap Table {
             get {
                 object obj = ResourceManager.GetObject("Table", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tableCorrect {
+            get {
+                object obj = ResourceManager.GetObject("tableCorrect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

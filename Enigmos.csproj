@@ -60,6 +60,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\ClouEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Clou\EnergyBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Clou\IA.cs" />
+    <Compile Include="Enigmas\Components\Clou\Nail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Clou\Player.cs" />
     <Compile Include="Enigmas\Components\Badboy.cs" />
     <Compile Include="Enigmas\Components\Boy.cs" />
     <Compile Include="Enigmas\Components\Hero.cs" />
@@ -264,6 +275,12 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\nailCorrected.png" />
+    <None Include="Resources\tableCorrect.png" />
+    <None Include="Resources\tableResized.png" />
+    <None Include="Resources\nailResized.png" />
+    <None Include="Resources\barResized.png" />
+    <None Include="Resources\bar.png" />
     <None Include="Resources\Coin1.png" />
     <None Include="Resources\walkcyclevarious.png" />
     <None Include="Resources\11635.jpg" />
