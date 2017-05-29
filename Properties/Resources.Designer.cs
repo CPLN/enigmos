@@ -282,6 +282,16 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Coin {
+            get {
+                object obj = ResourceManager.GetObject("Coin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap coffre {
             get {
                 object obj = ResourceManager.GetObject("coffre", resourceCulture);
@@ -329,22 +339,6 @@ namespace Cpln.Enigmos.Properties {
             }
         }
         
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
-        ///&lt;enigmas&gt;
-        ///  &lt;enigma title=&quot;Jeu du clou&quot;&gt;
-        ///    &lt;answer&gt;C&apos;est de la frappe !&lt;/answer&gt;
-        ///    &lt;hint&gt;Soyez le premier à infliger le coup fatal au clou.&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Allumez tout&quot;&gt;
-        ///    &lt;answer&gt;lumineux&lt;/answer&gt;
-        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Rallumez tout&quot;&gt;
-        ///    &lt;answer&gt;éblouissant&lt;/answer&gt;
-        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hint&gt;
-        /// [le reste de la chaîne a été tronqué]&quot;;.
-        /// </summary>
         internal static string enigmas {
             get {
                 return ResourceManager.GetString("enigmas", resourceCulture);
@@ -677,6 +671,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap pj4 {
             get {
                 object obj = ResourceManager.GetObject("pj4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player {
+            get {
+                object obj = ResourceManager.GetObject("Player", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
