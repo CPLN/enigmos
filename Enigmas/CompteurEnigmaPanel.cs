@@ -79,8 +79,8 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         public override void PressKey(object sender, KeyEventArgs e)
         {
-            int iTempsMax = iTemps * 1000 + 150;
-            int iTempsMin = iTemps * 1000 - 150;
+            int iTempsMax = iTemps * 1000 + 250;
+            int iTempsMin = iTemps * 1000 - 250;
             //Contrôle pression barre espace
             if (e.KeyCode == Keys.Space)
             {
@@ -99,7 +99,7 @@ namespace Cpln.Enigmos.Enigmas
                     //Affichage du temps à atteindre
                     iTemps = rTempsAleatoire.Next(5, 15);
                     lblTemps.Text = iTemps.ToString();
-                    MessageBox.Show("Temps écouler !!\nVous avez fait : "+iSec.ToString()+":"+iDix.ToString()+iCent.ToString()+iMili.ToString(), "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(iSec.ToString()+":"+iDix.ToString()+iCent.ToString()+iMili.ToString(), "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }else
                 {
                     lblStart.Enabled = true;
@@ -107,7 +107,7 @@ namespace Cpln.Enigmos.Enigmas
                     //Affichage du temps à atteindre
                     iTemps = rTempsAleatoire.Next(5, 15);
                     lblTemps.Text = iTemps.ToString();
-                    MessageBox.Show("Temps trop court !!\nVous avez fait : " + iSec.ToString() + ":" + iDix.ToString() + iCent.ToString() + iMili.ToString(), "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(iSec.ToString() + ":" + iDix.ToString() + iCent.ToString() + iMili.ToString(), "Fin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
