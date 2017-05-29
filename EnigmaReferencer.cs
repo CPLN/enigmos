@@ -18,8 +18,6 @@ namespace Cpln.Enigmos
         public static Enigma DebugEnigma()
         {
             return new Enigma(new Pendu2EnigmaPanel(), "Pendu 2");
-			return null;
-            
         }
 
         /// <summary>

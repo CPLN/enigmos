@@ -282,9 +282,9 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Coin {
+        internal static System.Drawing.Bitmap coffre {
             get {
-                object obj = ResourceManager.GetObject("Coin", resourceCulture);
+                object obj = ResourceManager.GetObject("coffre", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -292,9 +292,9 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap coffre {
+        internal static System.Drawing.Bitmap Coin {
             get {
-                object obj = ResourceManager.GetObject("coffre", resourceCulture);
+                object obj = ResourceManager.GetObject("Coin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -339,24 +339,21 @@ namespace Cpln.Enigmos.Properties {
             }
         }
         
-
         /// <summary>
         ///   Recherche une chaîne localisée semblable à &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
         ///&lt;enigmas&gt;
+        ///  &lt;enigma title=&quot;Jeu du clou&quot;&gt;
+        ///    &lt;answer&gt;C&apos;est de la frappe !&lt;/answer&gt;
+        ///    &lt;hint&gt;Soyez le premier à enfoncer le clou entièrement dans la table ! Utilisez la touche espace pour frapper !&lt;/hint&gt;
+        ///   &lt;/enigma&gt;
+        ///  &lt;enigma title=&quot;Plateformer&quot;&gt;
+        ///    &lt;answer&gt;Pass1234&lt;/answer&gt;
+        ///    &lt;hint&gt;Gagne.&lt;/hint&gt;
+        ///  &lt;/enigma&gt;
         ///  &lt;enigma title=&quot;Allumez tout&quot;&gt;
         ///    &lt;answer&gt;lumineux&lt;/answer&gt;
-        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Rallumez tout&quot;&gt;
-        ///    &lt;answer&gt;éblouissant&lt;/answer&gt;
-        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Plein les mirettes&quot;&gt;
-        ///    &lt;answer&gt;aveuglant&lt;/answer&gt;
-        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hint&gt;
-        ///   [le reste de la chaîne a été tronqué]&quot;;.
+        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hin [le reste de la chaîne a été tronqué]&quot;;.
         /// </summary>
-
         internal static string enigmas {
             get {
                 return ResourceManager.GetString("enigmas", resourceCulture);
