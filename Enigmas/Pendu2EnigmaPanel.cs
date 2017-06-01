@@ -81,7 +81,7 @@ namespace Cpln.Enigmos.Enigmas
             pbxImagePendu.SetImage(cptErreur);
             
             string resource_data = Properties.Resources.listeMotPendu; //Lecture fichier dans une liste
-            List<string> lMot = resource_data.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> lMot = resource_data.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             Random rdm = new Random();
             
@@ -132,8 +132,9 @@ namespace Cpln.Enigmos.Enigmas
                     cptErreur++;
                     pbxImagePendu.SetImage(cptErreur);
                     lblFausseLettre.Text += Proposition + "  ";
-                    lettreProposee.Add(Proposition);
+                    
                 }
+                lettreProposee.Add(Proposition);
                 MotCache = NouveauMotCache;
                 lblMotCache.Text = MotCache;
                 tbxPropositionLettre.Text = "";
