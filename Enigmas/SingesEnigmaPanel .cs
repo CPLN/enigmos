@@ -13,7 +13,7 @@ namespace Cpln.Enigmos.Enigmas
         Label Reponse = new Label();
         Label lblEnigme = new Label();
         Timer tChrono = new Timer();
-        private Button[] btnReponse = new Button[5];
+        private Button[] btnReponse = new Button[6];
         private List<PictureBox> Tpbx = new List<PictureBox>();
         List<Singe> Tsinge = new List<Singe>();
         
@@ -56,9 +56,10 @@ namespace Cpln.Enigmos.Enigmas
             btnReponse[2].Location = new Point(750, 800);
             btnReponse[3].Location = new Point(900, 850);
             btnReponse[4].Location = new Point(1050, 800);
+            btnReponse[5].Location = new Point(750, 900);
 
             //Attribution d'une taille pour les boutons
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 btnReponse[i].Width = 50;
                 btnReponse[i].Height = 30;
