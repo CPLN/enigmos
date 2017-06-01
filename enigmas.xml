@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <enigmas>
+  <enigma title="Jeu du clou">
+    <answer>C'est de la frappe !</answer>
+    <hint>Soyez le premier à enfoncer le clou entièrement dans la table ! Utilisez la touche espace pour frapper !</hint>
+   </enigma>
+  <enigma title="Plateformer">
+    <answer>Pass1234</answer>
+    <hint>Gagne.</hint>
+  </enigma>
   <enigma title="Allumez tout">
     <answer>lumineux</answer>
     <hint>Faites en sorte que toutes les cases soient allumées</hint>
@@ -118,6 +126,10 @@
 	  <answer>oxygene</answer>
 	  <hint>La corde, ça fait mal au cou</hint>
 	</enigma>
+  <enigma title="Pendu 2">
+    <answer>Marsupilami</answer>
+    <hint>Soyez vifs</hint>
+  </enigma>
   <enigma title="Reflexe">
     <answer>Bon réflexe</answer>
     <hint>Recliquer sur le bouton commencer au dernier moment</hint>
@@ -173,5 +185,9 @@
   <enigma title="Combien de s ?">
     <answer>poisson</answer>
     <hint>C'est un animal.</hint>
+  </enigma>
+  <enigma title="Compteur">
+    <answer>temps</answer>
+    <hint>Presser sur la barre espace quand vous pensez avoir atteint le temps défini</hint>
   </enigma>
 </enigmas>

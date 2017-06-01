@@ -99,7 +99,7 @@ namespace Cpln.Enigmos.Enigmas
         public int RandomIndex()
         {
             Random r = new Random();
-            return r.Next(0, 4);
+            return r.Next(0, lImg.Count);
         }
 
         /// <summary>
