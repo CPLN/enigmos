@@ -172,21 +172,23 @@ namespace Cpln.Enigmos.Enigmas
                 pbxGif.Visible = false;
                 pbxGif.Enabled = false;
 
-               // Controls.Add(lblReponseGauche);
-               // Controls.Add(lblReponsefinal);
-               // Controls.Add(lblReponseDroite);
-               // Controls.Add(btnRecommencer);
-               // Controls.Add(btnRepFinal);
-               // Controls.Add(btnRepDroite);
-               // Controls.Add(btnRepGauche);
-               // Controls.Add(btnPile);
-               // Controls.Add(btnFace);
-               // Controls.Add(lblinfo);
-               // Controls.Add(lbxCombi);
-               // Controls.Add(lbxCombi2);
-               // Controls.Add(btnLanceSuite);
-               // Controls.Add(btnJeu);              
-               //Controls.Add(pbxGif);        
+            // Controls.Add(lblReponseGauche);
+            // Controls.Add(lblReponsefinal);
+            // Controls.Add(lblReponseDroite);
+            // Controls.Add(btnRecommencer);
+            // Controls.Add(btnRepFinal);
+            // Controls.Add(btnRepDroite);
+            // Controls.Add(btnRepGauche);
+            // Controls.Add(btnPile);
+            // Controls.Add(btnFace);
+            // Controls.Add(lblinfo);
+            // Controls.Add(lbxCombi);
+            // Controls.Add(lbxCombi2);
+            // Controls.Add(btnLanceSuite);
+            // Controls.Add(btnJeu);              
+            //Controls.Add(pbxGif); 
+            Unload();
+            Load();
         }
         private void btnRepFinal_click(object sender, EventArgs e)
         {
@@ -210,8 +212,7 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Remove(lbxCombi2);
             Controls.Remove(btnLanceSuite);
             Controls.Remove(btnJeu);
-            Controls.Remove(pbxGif);       
-              
+            Controls.Remove(pbxGif);                    
             Invalidate();
 
         }
