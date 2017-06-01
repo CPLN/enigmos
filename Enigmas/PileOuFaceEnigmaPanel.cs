@@ -21,12 +21,16 @@ namespace Cpln.Enigmos.Enigmas
        private Button btnLanceSuite = new Button();
        private Button btnRepGauche = new Button();
        private Button btnRepDroite = new Button();
-        private Button btnRecommencer = new Button();
+       private Button btnRecommencer = new Button();
        private Button btnRepFinal = new Button();
        private Label lblinfo = new Label();
+       private Label lblReponsefinal = new Label();
+       private Label lblReponseGauche = new Label();
+       private Label lblReponseDroite = new Label();
        private Timer t1 = new Timer();
        private PictureBox pbxGif = new PictureBox();
        private Button btnJeu = new Button();
+       private int iNbrReponseJuste = 0;
        private int iFinDuJeu = 0;
        private System.Drawing.SolidBrush myBrushFaux = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
        private System.Drawing.SolidBrush myBrushVrai = new System.Drawing.SolidBrush(System.Drawing.Color.Green);
@@ -44,7 +48,31 @@ namespace Cpln.Enigmos.Enigmas
                 lblinfo.Location = new Point(300, 200);
                 lblinfo.BackColor = Color.Red;
                 lblinfo.TextAlign = ContentAlignment.MiddleCenter;
-                                                     
+
+                lblReponsefinal.Text = "Pile poil";
+                lblReponsefinal.Name = "lblReponseFinal";
+                lblReponsefinal.Size = new Size(350, 350);
+                lblReponsefinal.Font = new Font("Arial", 16);
+                lblReponsefinal.Location = new Point(375, 300);               
+                lblReponsefinal.TextAlign = ContentAlignment.MiddleCenter;
+                lblReponsefinal.Visible = false;
+
+                lblReponseGauche.Text = "Deuxième mot :Poil";
+                lblReponseGauche.Name = "lblReponseGauche";
+                lblReponseGauche.Size = new Size(200, 200);
+                lblReponseGauche.Font = new Font("Arial", 16);
+                lblReponseGauche.Location = new Point(200, 200);
+                lblReponseGauche.TextAlign = ContentAlignment.MiddleCenter;
+                lblReponseGauche.Visible = false;
+
+                lblReponseDroite.Text = "Premier mot :Pile";
+                lblReponseDroite.Name = "lblReponseGauche";
+                lblReponseDroite.Size = new Size(200, 200);
+                lblReponseDroite.Font = new Font("Arial", 16);
+                lblReponseDroite.Location = new Point(200, 200);
+                lblReponseDroite.TextAlign = ContentAlignment.MiddleCenter;
+                lblReponseDroite.Visible = false;
+
                 btnPile.Text = "Pile";
                 btnPile.Name = "btnPile";
                 btnPile.Font = new Font("Arial", 12);
@@ -52,14 +80,46 @@ namespace Cpln.Enigmos.Enigmas
                 btnPile.Location = new Point(200, 400);
                 btnPile.TextAlign = ContentAlignment.MiddleCenter;
                 btnPile.Click += new System.EventHandler(btnPile_click);
+   
+                btnRepGauche.Text = "Réponse 1";
+                btnRepGauche.Name = "btnRepGauche";
+                btnRepGauche.Font = new Font("Arial", 12);
+                btnRepGauche.Size = new Size(100, 50);
+                btnRepGauche.Location = new Point(200, 500);
+                btnRepGauche.TextAlign = ContentAlignment.MiddleCenter;
+                btnRepGauche.Click += new System.EventHandler(btnRepGauche_click);
+                btnRepGauche.Visible = false;
+                btnRepGauche.Enabled = false;
 
-                btnPile.Text = "Pile";
-                btnPile.Name = "btnPile";
-                btnPile.Font = new Font("Arial", 12);
-                btnPile.Size = new Size(100, 50);
-                btnPile.Location = new Point(200, 400);
-                btnPile.TextAlign = ContentAlignment.MiddleCenter;
-                btnPile.Click += new System.EventHandler(btnPile_click);
+                btnRepDroite.Text = "Réponse 2";
+                btnRepDroite.Name = "btnRepDroite";
+                btnRepDroite.Font = new Font("Arial", 12);
+                btnRepDroite.Size = new Size(100, 50);
+                btnRepDroite.Location = new Point(500, 500);
+                btnRepDroite.TextAlign = ContentAlignment.MiddleCenter;
+                btnRepDroite.Click += new System.EventHandler(btnRepDroite_click);
+                btnRepDroite.Visible = false;
+                btnRepDroite.Enabled = false;
+
+                btnRecommencer.Text = "Recommencer";
+                btnRecommencer.Name = "btnRecommencer";
+                btnRecommencer.Font = new Font("Arial", 12);
+                btnRecommencer.Size = new Size(150, 50);
+                btnRecommencer.Location = new Point(325, 500);
+                btnRecommencer.TextAlign = ContentAlignment.MiddleCenter;
+                btnRecommencer.Click += new System.EventHandler(btnRecommencer_click);
+                btnRecommencer.Enabled = false;
+                btnRecommencer.Visible = false;
+
+                btnRepFinal.Text = "Réponse final";
+                btnRepFinal.Name = "btnRepFinal";
+                btnRepFinal.Font = new Font("Arial", 12);
+                btnRepFinal.Size = new Size(150, 50);
+                btnRepFinal.Location = new Point(325, 500);
+                btnRepFinal.TextAlign = ContentAlignment.MiddleCenter;
+                btnRepFinal.Click += new System.EventHandler(btnRepFinal_click);
+                btnRepFinal.Enabled = false;
+                btnRepFinal.Visible = false;
 
                 btnFace.Text = "Face";
                 btnFace.Name = "btnFace";
@@ -113,6 +173,13 @@ namespace Cpln.Enigmos.Enigmas
                 pbxGif.Visible = false;
                 pbxGif.Enabled = false;
 
+                Controls.Add(lblReponseGauche);
+                Controls.Add(lblReponsefinal);
+                Controls.Add(lblReponseDroite);
+                Controls.Add(btnRecommencer);
+                Controls.Add(btnRepFinal);
+                Controls.Add(btnRepDroite);
+                Controls.Add(btnRepGauche);
                 Controls.Add(btnPile);
                 Controls.Add(btnFace);
                 Controls.Add(lblinfo);
@@ -122,7 +189,28 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(btnJeu);              
                 Controls.Add(pbxGif);        
         }
-
+        private void btnRepFinal_click(object sender, EventArgs e)
+        {
+            lblReponsefinal.Visible = true;
+            btnRecommencer.Visible = true;
+            btnRecommencer.Enabled = true;
+        }
+        private void btnRecommencer_click(object sender, EventArgs e)
+        {
+            
+        }
+        private void btnRepDroite_click(object sender, EventArgs e)
+        {
+            lblReponseDroite.Visible = true;
+            btnRecommencer.Visible = true;
+            btnRecommencer.Enabled = true;
+        }
+        private void btnRepGauche_click(object sender, EventArgs e)
+        {
+            lblReponseGauche.Visible = true;
+            btnRecommencer.Visible = true;
+            btnRecommencer.Enabled = true;
+        }
         public void btnJeu_click(object sender, EventArgs e)
         {
             t1.Enabled = true;
@@ -140,11 +228,12 @@ namespace Cpln.Enigmos.Enigmas
             bool bTest = TestChoixRandom(strRandomChoix);
             switch (iFinDuJeu)
                 {
-                //800x600               
+                             
                 case 1:
                         if (bTest)
                         {
                             formGraphics.FillRectangle(myBrushVrai, new Rectangle(315,450, 50, 50));
+                            iNbrReponseJuste++;
                         }
                         else
                         {
@@ -155,6 +244,7 @@ namespace Cpln.Enigmos.Enigmas
                         if (bTest)
                         {
                             formGraphics.FillRectangle(myBrushVrai, new Rectangle(375, 450, 50, 50));
+                            iNbrReponseJuste++;
                         }
                         else
                         {
@@ -165,6 +255,7 @@ namespace Cpln.Enigmos.Enigmas
                         if (bTest)
                         {
                             formGraphics.FillRectangle(myBrushVrai, new Rectangle(435, 450, 50, 50));
+                            iNbrReponseJuste++;
                         }
                         else
                         {
@@ -178,11 +269,25 @@ namespace Cpln.Enigmos.Enigmas
                 }
             SelectChamps();          
             if (TestBonNombre(iFinDuJeu))
-            {
-                //Quand la partie est fini
+            {            
                 btnJeu.Enabled = false;
-
-
+                if (iNbrReponseJuste < 2)
+                {
+                    btnRecommencer.Visible = true;
+                    btnRecommencer.Enabled = true;
+                }
+                else if (iNbrReponseJuste == 2)
+                {
+                    btnRepDroite.Visible = true;
+                    btnRepDroite.Enabled = true;
+                    btnRepGauche.Visible = true;
+                    btnRepGauche.Enabled = true;
+                }
+                else
+                {
+                    btnRepFinal.Visible = true;
+                    btnRepFinal.Enabled = true;
+                }
             }
         }
        
