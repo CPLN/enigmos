@@ -45,27 +45,63 @@ namespace Cpln.Enigmos.Enigmas
             Button bouton = new Button();
             bouton.Size = new Size(50, 80);
             //bouton.Click += new EventHandler(bouton_Click);
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < btnReponse.Length; i++)
             {
-                Controls.Remove(btnReponse[i]);
                 btnReponse[i] = new Button();
             }
             //Placement des boutons
-            btnReponse[0].Location = new Point(450, 800);
-            btnReponse[1].Location = new Point(600, 850);
-            btnReponse[2].Location = new Point(750, 800);
-            btnReponse[3].Location = new Point(900, 850);
-            btnReponse[4].Location = new Point(1050, 800);
-            btnReponse[5].Location = new Point(750, 900);
+            TableLayoutPanel centrage = new TableLayoutPanel();
+
+            centrage.ColumnCount = 3;
+            centrage.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
+            centrage.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+            centrage.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
+
+            centrage.Location = new Point(0, 800);
+            centrage.Size = new Size(Width, 130);
+            centrage.BackColor = Color.Transparent;
+
+            TableLayoutPanel table = new TableLayoutPanel();
 
             //Attribution d'une taille pour les boutons
             for (int i = 0; i < 6; i++)
             {
                 btnReponse[i].Width = 50;
                 btnReponse[i].Height = 30;
-                btnReponse[i].FlatStyle = FlatStyle.System;
-                Controls.Add(btnReponse[i]);
+                btnReponse[i].Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                btnReponse[i].FlatStyle = FlatStyle.Flat;
+                btnReponse[i].BackgroundImage = Properties.Resources.banane;
             }
+
+            table.ColumnCount = 5;
+            table.RowCount = 3;
+
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            table.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+
+            table.BackColor = Color.Transparent;
+            table.Width = 650;
+            table.Height = 130;
+            table.Padding = new Padding(0);
+            table.Margin = new Padding(0);
+
+            table.Controls.Add(btnReponse[0], 0, 0);
+            table.Controls.Add(btnReponse[1], 2, 0);
+            table.Controls.Add(btnReponse[2], 4, 0);
+            table.Controls.Add(btnReponse[3], 1, 1);
+            table.Controls.Add(btnReponse[4], 3, 1);
+            table.Controls.Add(btnReponse[5], 2, 2);
+            table.Location = new Point(450, 800);
+
+            centrage.Controls.Add(table, 1, 0);
+            Controls.Add(centrage);
 
             /*Réponse de l'énigme            
             if(Singe1.BEtat == true && Singe2.BEtat == true && Singe3.BEtat == true)*/
