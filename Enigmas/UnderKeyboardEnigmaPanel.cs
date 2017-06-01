@@ -13,12 +13,12 @@ namespace Cpln.Enigmos.Enigmas
     
     class UnderKeyboardEnigmaPanel : EnigmaPanel
     {
-        private ShuffleList<Touche> touches;
-        private ShuffleList<int> placement;
-        private ShuffleList<string> caractere;
+        private List<Touche> ListeTouche;
+        private List<int> placement;
+        private ShuffleList<char> caractere;
+        private ShuffleList<char> toutestouches;
         private Button reset;
         private Label lblPresser;
-        private ShuffleList<char> toutestouches;
         private int iWidth = 70;
         private int iHeight = 70;
         private int iLocalisationX = 190;
@@ -27,12 +27,15 @@ namespace Cpln.Enigmos.Enigmas
         private int iLocX;
         private int place = 0;
         private string strNom;
-
+        /// <summary>
+        /// crée un clavier avec 26 touches
+        /// </summary>
+        /// <param name="touches"></param>
         public void CreerClavier(List<Touche> touches)
         {
-            iLocX = iLocalisationX;
-            iLocY = iLocalisationY;
-            for (int i = 0; i < 25; i++)
+            iLocX = iLocalisationX; //la localisation de la touche en X
+            iLocY = iLocalisationY; //la localisation de la touche en Y
+            for (int i = 0; i <= 25; i++) // 
             {
                 iLocX += iWidth;
                 if (i % 7 == 0)
@@ -48,26 +51,25 @@ namespace Cpln.Enigmos.Enigmas
                 touche.Location = new Point(iLocX, iLocY);
             }
         }
-
         public UnderKeyboardEnigmaPanel()
         {
-            placement = new ShuffleList<int>();
-            caractere = new ShuffleList<string>();
+            placement = new List<int>(); 
+            caractere = new ShuffleList<char>();
             toutestouches = new ShuffleList<char>();
             placement.Add(3);
             placement.Add(17);
             placement.Add(21);
             placement.Add(25);
-            caractere.Add("P");
-            caractere.Add("R");
-            caractere.Add("E");
-            caractere.Add("S");
+            caractere.Add('S');
+            caractere.Add('P');
+            caractere.Add('R');
+            caractere.Add('E');
 
             lblPresser = new Label();
             lblPresser.Text = "PRESSER";
             Controls.Add(lblPresser);
             lblPresser.Location = new Point(375, 60);
-            touches = new ShuffleList<Touche>();
+            ListeTouche = new List<Touche>();
 
             reset = new Button();
             Controls.Add(reset);
@@ -77,47 +79,43 @@ namespace Cpln.Enigmos.Enigmas
 
             for (char i = 'A'; i <= 'Z'; i++)
             {
-                if (i == 'S' || i == 'R' || i == 'E' || i == 'P')
+             if (i == 'S' || i == 'R' || i == 'E' || i == 'P')
                 {
                     continue;
                 }
                 toutestouches.Add(i);
-                Touche touche = new Touche("" + i, iWidth, iHeight);
-                Controls.Add(touche);
-                touches.Add(touche);
+
             }
+
             toutestouches.Shuffle();
             caractere.Shuffle();
-            touches.Shuffle();
-            CreerClavier(touches);
-            for (int i = 0; i <= toutestouches.Count; i++)
+
+            while (placement.Count > 0)
+            {
+                int place = placement[0];
+                placement.RemoveAt(0);
+
+                char lettre = caractere[0];
+                caractere.RemoveAt(0);
+                toutestouches.Insert(place, lettre);
+            }
+
+            for (int i=0; i <= 25;i++)
             {
                 Touche touche = new Touche("" + toutestouches[i], iWidth, iHeight);
                 Controls.Add(touche);
-                touches.Add(touche);
+                ListeTouche.Add(touche);
             }
-           // 3 17 21 25 sont les emplacements réserver pour les lettres a placé
-            for (int i = 0; i < 26; i++)
-            {
-                if (placement.Contains(i)) // vérifie si la boucle est sur un emplacement réserver pour une lettre
-                {
-                    continue; // recommence la boucle
-                }
-
-                if ("P" == touches[i].Nom | "R" == touches[i].Nom | "E" == touches[i].Nom | "S" == touches[i].Nom) // verifie si à la position ou il est il y a la lettre P,R,E ou S
-                {
-                    strNom = touches[placement[place]].Nom; // on récupère la lettre de la touche à la place de la liste placement
-                    touches[placement[place]].Nom = caractere[place]; // on met dans touche une lettre de la liste caractere
-                    touches[i].Nom = strNom; // on met dans l'emplacement i la lettre que on avais récuperer
-                    place++; // on incrémente place pour le prochain tour de bloucle
-
-                }
-            }
-
+            CreerClavier(ListeTouche);
         }
+        /// <summary>
+        /// Cette methode sert à remettre toute les touches à leur places
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Reset(object sender, EventArgs e)
         {
-            CreerClavier(touches);
+            CreerClavier(ListeTouche);
         }
     }
 }
