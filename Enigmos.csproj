@@ -60,11 +60,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enigmas\ClouEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Clou\EnergyBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Clou\IA.cs" />
+    <Compile Include="Enigmas\Components\Clou\Nail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\Clou\Player.cs" />
+    <Compile Include="Enigmas\Components\Badboy.cs" />
+    <Compile Include="Enigmas\Components\Boy.cs" />
+    <Compile Include="Enigmas\Components\Hero.cs" />
+    <Compile Include="Enigmas\BoiteNoireEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\Light.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\LightController.cs" />
-    <Compile Include="Enigmas\Components\Singe.cs" />
+    <Compile Include="Enigmas\Components\Singe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\CompteurEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\CoucheCouleurEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -110,6 +132,9 @@
     </Compile>
     <Compile Include="Enigmas\Components\Direction.cs" />
     <Compile Include="Enigmas\Components\Ennemi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\PlateformerEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\RebusEnigmaPanel.cs">
@@ -269,6 +294,15 @@
     <None Include="Resources\SingeRougeCymbalesOuvertes.png" />
     <None Include="Resources\SingeRougeCymbaleFermees.png" />
     <None Include="Resources\SingesBackground.png" />
+    <None Include="Resources\nailCorrected.png" />
+    <None Include="Resources\tableCorrect.png" />
+    <None Include="Resources\tableResized.png" />
+    <None Include="Resources\nailResized.png" />
+    <None Include="Resources\barResized.png" />
+    <None Include="Resources\bar.png" />
+    <None Include="Resources\Coin1.png" />
+    <None Include="Resources\walkcyclevarious.png" />
+    <None Include="Resources\11635.jpg" />
     <None Include="Resources\TrollFace.png" />
     <None Include="Resources\piano.jpg" />
     <None Include="Resources\parapluie.jpg" />

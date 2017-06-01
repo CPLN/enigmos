@@ -1,16 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas.Components
 {
-    class Singe
+    class Singe : PictureBox
     {
+        const int POSITION_Y = 500;
+
         //Attributs
-        private bool bEtat;
-        private bool bEtatCymbales;
+        public bool bEtat { get;set;}
+
+        //Constructeur
+        public Singe(int PositionX)
+        {
+            bEtat = false;
+
+            Image = Properties.Resources.SingeBleuCymbalesFermees;
+            Size = Image.Size;
+            BackColor = Color.Transparent;
+            Location = new Point(PositionX, POSITION_Y);
+        }
 
         //Méthodes
 
@@ -33,14 +47,7 @@ namespace Cpln.Enigmos.Enigmas.Components
         /// </summary>
         private void Inverser()
         {
-            if (bEtat == true)
-            {
-                bEtat = false;
-            }
-            if (bEtat == false)
-            {
-                bEtat = true;
-            }
+            bEtat = !bEtat;
         }
     }
 }
