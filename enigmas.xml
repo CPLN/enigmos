@@ -126,6 +126,10 @@
 	  <answer>oxygene</answer>
 	  <hint>La corde, ça fait mal au cou</hint>
 	</enigma>
+  <enigma title="Pendu 2">
+    <answer>Marsupilami</answer>
+    <hint>Soyez vifs</hint>
+  </enigma>
   <enigma title="Reflexe">
     <answer>Bon réflexe</answer>
     <hint>Recliquer sur le bouton commencer au dernier moment</hint>

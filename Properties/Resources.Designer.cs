@@ -282,9 +282,9 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Coin {
+        internal static System.Drawing.Bitmap coffre {
             get {
-                object obj = ResourceManager.GetObject("Coin", resourceCulture);
+                object obj = ResourceManager.GetObject("coffre", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -292,9 +292,9 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap coffre {
+        internal static System.Drawing.Bitmap Coin {
             get {
-                object obj = ResourceManager.GetObject("coffre", resourceCulture);
+                object obj = ResourceManager.GetObject("Coin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -339,6 +339,21 @@ namespace Cpln.Enigmos.Properties {
             }
         }
         
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
+        ///&lt;enigmas&gt;
+        ///  &lt;enigma title=&quot;Jeu du clou&quot;&gt;
+        ///    &lt;answer&gt;C&apos;est de la frappe !&lt;/answer&gt;
+        ///    &lt;hint&gt;Soyez le premier à enfoncer le clou entièrement dans la table ! Utilisez la touche espace pour frapper !&lt;/hint&gt;
+        ///   &lt;/enigma&gt;
+        ///  &lt;enigma title=&quot;Plateformer&quot;&gt;
+        ///    &lt;answer&gt;Pass1234&lt;/answer&gt;
+        ///    &lt;hint&gt;Gagne.&lt;/hint&gt;
+        ///  &lt;/enigma&gt;
+        ///  &lt;enigma title=&quot;Allumez tout&quot;&gt;
+        ///    &lt;answer&gt;lumineux&lt;/answer&gt;
+        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hin [le reste de la chaîne a été tronqué]&quot;;.
+        /// </summary>
         internal static string enigmas {
             get {
                 return ResourceManager.GetString("enigmas", resourceCulture);
@@ -496,6 +511,62 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à elephant
+        ///ornithorynque
+        ///dauphin
+        ///girafe
+        ///leopard
+        ///chevreuil
+        ///bouquetin
+        ///autruche
+        ///kangourou
+        ///hippopotame
+        ///guepard
+        ///hippocampe
+        ///dromadaire
+        ///herisson
+        ///allemagne
+        ///autriche
+        ///dannemark
+        ///luxembourg
+        ///ecrivain
+        ///abeille
+        ///chatouiller
+        ///client
+        ///ecriture
+        ///alcoolique
+        ///suicide
+        ///attentat
+        ///depression
+        ///medicament
+        ///overdose
+        ///cocaine
+        ///methamphetamine
+        ///desomorphine
+        ///cancer
+        ///tumeur
+        ///mort
+        ///telespectateur
+        ///population
+        ///nature
+        ///multiplication
+        ///addition
+        ///division
+        ///soustraction
+        ///revendeur
+        ///doublure
+        ///feuille
+        ///victime
+        ///lubrifiant
+        ///foot [le reste de la chaîne a été tronqué]&quot;;.
+        /// </summary>
+        internal static string listeMotPendu {
+            get {
+                return ResourceManager.GetString("listeMotPendu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap mamifere {
@@ -611,6 +682,96 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap paysage {
             get {
                 object obj = ResourceManager.GetObject("paysage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu0 {
+            get {
+                object obj = ResourceManager.GetObject("pendu0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu1 {
+            get {
+                object obj = ResourceManager.GetObject("pendu1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu2 {
+            get {
+                object obj = ResourceManager.GetObject("pendu2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu3 {
+            get {
+                object obj = ResourceManager.GetObject("pendu3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu4 {
+            get {
+                object obj = ResourceManager.GetObject("pendu4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu5 {
+            get {
+                object obj = ResourceManager.GetObject("pendu5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu6 {
+            get {
+                object obj = ResourceManager.GetObject("pendu6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu7 {
+            get {
+                object obj = ResourceManager.GetObject("pendu7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu8 {
+            get {
+                object obj = ResourceManager.GetObject("pendu8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
