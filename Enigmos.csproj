@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enigmas\Components\ImagePendu.cs">
-	  <SubType>Component</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\ClouEnigmaPanel.cs">
       <SubType>Component</SubType>
@@ -69,7 +69,7 @@
     <Compile Include="Enigmas\Components\Clou\EnergyBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\Components\Clou\IA.cs" />	
+    <Compile Include="Enigmas\Components\Clou\IA.cs" />
     <Compile Include="Enigmas\Components\Clou\Nail.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -137,11 +137,10 @@
     <Compile Include="Enigmas\Components\Ennemi.cs">
       <SubType>Component</SubType>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Enigmas\PileOuFaceEnigmaPanel.cs">
-=======
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\PlateformerEnigmaPanel.cs">
->>>>>>> upstream/master
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\RebusEnigmaPanel.cs">
@@ -288,9 +287,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
-<<<<<<< HEAD
-    <None Include="Resources\PileOUface.gif" />
-=======
     <Content Include="Resources\listeMotPendu.txt" />
     <None Include="Resources\mot.txt" />
     <None Include="Resources\pendu3.png" />
@@ -311,10 +307,10 @@
     <None Include="Resources\Coin1.png" />
     <None Include="Resources\walkcyclevarious.png" />
     <None Include="Resources\11635.jpg" />
->>>>>>> upstream/master
     <None Include="Resources\TrollFace.png" />
     <None Include="Resources\piano.jpg" />
     <None Include="Resources\parapluie.jpg" />
+    <None Include="Resources\PileOUface.gif" />
     <None Include="Resources\mamifere.jpg" />
     <None Include="Resources\farine.jpg" />
     <None Include="Resources\Coccinelle.jpg" />

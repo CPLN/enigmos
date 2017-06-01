@@ -10,6 +10,7 @@ namespace Cpln.Enigmos.Enigmas
 {
     public class PileOuFaceEnigmaPanel : EnigmaPanel
     {
+       private static Random r1 = new Random();
        private ListBox lbxCombi = new ListBox();
        private ListBox lbxCombi2 = new ListBox();
        private List<string> _lstCombi = new List<string>();
@@ -18,16 +19,24 @@ namespace Cpln.Enigmos.Enigmas
        private Button btnPile = new Button();
        private Button btnFace = new Button();
        private Button btnLanceSuite = new Button();
+       private Button btnRepGauche = new Button();
+       private Button btnRepDroite = new Button();
+        private Button btnRecommencer = new Button();
+       private Button btnRepFinal = new Button();
        private Label lblinfo = new Label();
        private Timer t1 = new Timer();
        private PictureBox pbxGif = new PictureBox();
        private Button btnJeu = new Button();
        private int iFinDuJeu = 0;
-        private Random r1 = new Random();
-             
-       public PileOuFaceEnigmaPanel()
+       private System.Drawing.SolidBrush myBrushFaux = new System.Drawing.SolidBrush(System.Drawing.Color.Red);
+       private System.Drawing.SolidBrush myBrushVrai = new System.Drawing.SolidBrush(System.Drawing.Color.Green);
+       private System.Drawing.Graphics formGraphics;
+
+        public PileOuFaceEnigmaPanel()
             {
-                
+                r1 = new Random();
+                formGraphics = this.CreateGraphics();
+
                 lblinfo.Text = "Choisi une combinaison!";
                 lblinfo.Name = "lblinfo";           
                 lblinfo.Size = new Size(200, 50);
@@ -44,7 +53,14 @@ namespace Cpln.Enigmos.Enigmas
                 btnPile.TextAlign = ContentAlignment.MiddleCenter;
                 btnPile.Click += new System.EventHandler(btnPile_click);
 
-                
+                btnPile.Text = "Pile";
+                btnPile.Name = "btnPile";
+                btnPile.Font = new Font("Arial", 12);
+                btnPile.Size = new Size(100, 50);
+                btnPile.Location = new Point(200, 400);
+                btnPile.TextAlign = ContentAlignment.MiddleCenter;
+                btnPile.Click += new System.EventHandler(btnPile_click);
+
                 btnFace.Text = "Face";
                 btnFace.Name = "btnFace";
                 btnFace.Font = new Font("Arial", 12);
@@ -80,7 +96,7 @@ namespace Cpln.Enigmos.Enigmas
                 btnJeu.Name = "btnJeu";
                 btnJeu.Font = new Font("Arial", 12);
                 btnJeu.Size = new Size(100, 50);
-                btnJeu.Location = new Point(300, 350);
+                btnJeu.Location = new Point(350, 350);
                 btnJeu.BackColor = Color.Red;
                 btnJeu.TextAlign = ContentAlignment.MiddleCenter;
                 btnJeu.Click += new System.EventHandler(btnJeu_click);
@@ -93,7 +109,7 @@ namespace Cpln.Enigmos.Enigmas
 
                 pbxGif.Image = Properties.Resources.Pileouface;
                 pbxGif.Size = pbxGif.Image.Size;
-                pbxGif.Location = new Point(300, 200);
+                pbxGif.Location = new Point(350, 200);
                 pbxGif.Visible = false;
                 pbxGif.Enabled = false;
 
@@ -122,18 +138,54 @@ namespace Cpln.Enigmos.Enigmas
             iFinDuJeu++;
             string strRandomChoix = ChoixRandom();
             bool bTest = TestChoixRandom(strRandomChoix);
-            if (bTest)
-            {
+            switch (iFinDuJeu)
+                {
+                //800x600               
+                case 1:
+                        if (bTest)
+                        {
+                            formGraphics.FillRectangle(myBrushVrai, new Rectangle(315,450, 50, 50));
+                        }
+                        else
+                        {
+                            formGraphics.FillRectangle(myBrushFaux, new Rectangle(315, 450, 50, 50));
+                        }
+                    break;
+                    case 2:
+                        if (bTest)
+                        {
+                            formGraphics.FillRectangle(myBrushVrai, new Rectangle(375, 450, 50, 50));
+                        }
+                        else
+                        {
+                            formGraphics.FillRectangle(myBrushFaux, new Rectangle(375, 450, 50, 50));
+                        }
+                    break;
+                    case 3:
+                        if (bTest)
+                        {
+                            formGraphics.FillRectangle(myBrushVrai, new Rectangle(435, 450, 50, 50));
+                        }
+                        else
+                        {
+                            formGraphics.FillRectangle(myBrushFaux, new Rectangle(435, 450, 50, 50));
+                        }
+                    break;
+                   
+                    default:
+                        break;
                 
-            }
-            SelectChangement();
-            
+                }
+            SelectChamps();          
             if (TestBonNombre(iFinDuJeu))
             {
                 //Quand la partie est fini
                 btnJeu.Enabled = false;
+
+
             }
-        }       
+        }
+       
         public void btnLanceSuite_Click(object sender, EventArgs e)
         {
             btnFace.Visible = false;
@@ -195,7 +247,7 @@ namespace Cpln.Enigmos.Enigmas
         {
             return iLance >= 3;
         }
-        public void SelectChangement()
+        public void SelectChamps()
         {          
             int iSelect = lbxCombi.SelectedIndex;
             lbxCombi2.SetSelected(iSelect, false);
@@ -206,14 +258,15 @@ namespace Cpln.Enigmos.Enigmas
                  lbxCombi.SetSelected(iSelect + 1, true);
               }
             else
-            {
+              {
                 lbxCombi2.SetSelected(iSelect, true);
                 lbxCombi.SetSelected(iSelect, true);
-            }                                                                                  
+              }                                                                                  
         }
         public string ChoixRandom()
-        {           
-            if (r1.Next(1) == 0)
+        {
+               
+            if (r1.Next(0,2)==0)
             {
                 return "Pile";
             }
@@ -221,11 +274,12 @@ namespace Cpln.Enigmos.Enigmas
             {
                 return "Face";
             }
+            
         }
         public bool TestChoixRandom(string strchoix)
         {
-
-            if (strchoix == Convert.ToString(lbxCombi.SelectedItems))
+            string strRandom = Convert.ToString(lbxCombi.SelectedItem);
+            if (strchoix == strRandom)
             {
                 return true;
             }
