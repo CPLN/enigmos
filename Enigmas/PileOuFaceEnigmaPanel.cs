@@ -128,8 +128,7 @@ namespace Cpln.Enigmos.Enigmas
                 btnFace.Location = new Point(500, 400);
                 btnFace.TextAlign = ContentAlignment.MiddleCenter;
                 btnFace.Click += new System.EventHandler(btnFace_click);
-
-                
+               
                 lbxCombi.Size = new Size(200, 50);
                 lbxCombi.Location = new Point(300, 400);
                 lbxCombi.Name = "lbxCombi";
@@ -173,21 +172,21 @@ namespace Cpln.Enigmos.Enigmas
                 pbxGif.Visible = false;
                 pbxGif.Enabled = false;
 
-                Controls.Add(lblReponseGauche);
-                Controls.Add(lblReponsefinal);
-                Controls.Add(lblReponseDroite);
-                Controls.Add(btnRecommencer);
-                Controls.Add(btnRepFinal);
-                Controls.Add(btnRepDroite);
-                Controls.Add(btnRepGauche);
-                Controls.Add(btnPile);
-                Controls.Add(btnFace);
-                Controls.Add(lblinfo);
-                Controls.Add(lbxCombi);
-                Controls.Add(lbxCombi2);
-                Controls.Add(btnLanceSuite);
-                Controls.Add(btnJeu);              
-                Controls.Add(pbxGif);        
+               // Controls.Add(lblReponseGauche);
+               // Controls.Add(lblReponsefinal);
+               // Controls.Add(lblReponseDroite);
+               // Controls.Add(btnRecommencer);
+               // Controls.Add(btnRepFinal);
+               // Controls.Add(btnRepDroite);
+               // Controls.Add(btnRepGauche);
+               // Controls.Add(btnPile);
+               // Controls.Add(btnFace);
+               // Controls.Add(lblinfo);
+               // Controls.Add(lbxCombi);
+               // Controls.Add(lbxCombi2);
+               // Controls.Add(btnLanceSuite);
+               // Controls.Add(btnJeu);              
+               //Controls.Add(pbxGif);        
         }
         private void btnRepFinal_click(object sender, EventArgs e)
         {
@@ -195,9 +194,49 @@ namespace Cpln.Enigmos.Enigmas
             btnRecommencer.Visible = true;
             btnRecommencer.Enabled = true;
         }
+        public override void Unload()
+        {
+            Controls.Remove(lblReponseGauche);
+            Controls.Remove(lblReponsefinal);
+            Controls.Remove(lblReponseDroite);
+            Controls.Remove(btnRecommencer);
+            Controls.Remove(btnRepFinal);
+            Controls.Remove(btnRepDroite);
+            Controls.Remove(btnRepGauche);
+            Controls.Remove(btnPile);
+            Controls.Remove(btnFace);
+            Controls.Remove(lblinfo);
+            Controls.Remove(lbxCombi);
+            Controls.Remove(lbxCombi2);
+            Controls.Remove(btnLanceSuite);
+            Controls.Remove(btnJeu);
+            Controls.Remove(pbxGif);       
+              
+            Invalidate();
+
+        }
+        public override void Load()
+        {
+            Controls.Add(lblReponseGauche);
+            Controls.Add(lblReponsefinal);
+            Controls.Add(lblReponseDroite);
+            Controls.Add(btnRecommencer);
+            Controls.Add(btnRepFinal);
+            Controls.Add(btnRepDroite);
+            Controls.Add(btnRepGauche);
+            Controls.Add(btnPile);
+            Controls.Add(btnFace);
+            Controls.Add(lblinfo);
+            Controls.Add(lbxCombi);
+            Controls.Add(lbxCombi2);
+            Controls.Add(btnLanceSuite);
+            Controls.Add(btnJeu);
+            Controls.Add(pbxGif);
+        }
         private void btnRecommencer_click(object sender, EventArgs e)
         {
-            
+            Unload();
+            Load();                 
         }
         private void btnRepDroite_click(object sender, EventArgs e)
         {
