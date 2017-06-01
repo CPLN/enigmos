@@ -32,7 +32,7 @@ namespace Cpln.Enigmos.Enigmas
         {
             iLocX = iLocalisationX;
             iLocY = iLocalisationY;
-            for (int i = 0; i < 26; i++)
+            for (int i = 0; i < 25; i++)
             {
                 iLocX += iWidth;
                 if (i % 7 == 0)
@@ -44,10 +44,8 @@ namespace Cpln.Enigmos.Enigmas
                 {
                     iLocX += iWidth;
                 }
-
                 Touche touche = touches[i];
                 touche.Location = new Point(iLocX, iLocY);
-
             }
         }
 
@@ -84,9 +82,9 @@ namespace Cpln.Enigmos.Enigmas
                     continue;
                 }
                 toutestouches.Add(i);
-                //Touche touche = new Touche("" + i, iWidth, iHeight);
-                //Controls.Add(touche);
-                //touches.Add(touche);
+                Touche touche = new Touche("" + i, iWidth, iHeight);
+                Controls.Add(touche);
+                touches.Add(touche);
             }
             toutestouches.Shuffle();
             caractere.Shuffle();
@@ -98,23 +96,23 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(touche);
                 touches.Add(touche);
             }
-            //3 17 21 25
-            //for (int i = 0; i < 26; i++)
-            //{
-            //   if (placement.Contains(i)) // vérifie si la boucle est sur un emplacement réserver pour une lettre
-            //    {
-            //        continue; // recommence la boucle
-            //    }
+           // 3 17 21 25 sont les emplacements réserver pour les lettres a placé
+            for (int i = 0; i < 26; i++)
+            {
+                if (placement.Contains(i)) // vérifie si la boucle est sur un emplacement réserver pour une lettre
+                {
+                    continue; // recommence la boucle
+                }
 
-            //    if ("P" == touches[i].Nom | "R" == touches[i].Nom | "E" == touches[i].Nom| "S" == touches[i].Nom) // verifie si à la position ou il est il y a la lettre P,R,E ou S
-            //    {
-            //        strNom = touches[placement[place]].Nom; // on récupère la lettre de la touche à la place de la liste placement
-            //        touches[placement[place]].Nom = caractere[place] ; // on met dans touche une lettre de la liste caractere
-            //        touches[i].Nom = strNom; // on met dans l'emplacement i la lettre que on avais récuperer
-            //        place++; // on incrémente place pour le prochain tour de bloucle
+                if ("P" == touches[i].Nom | "R" == touches[i].Nom | "E" == touches[i].Nom | "S" == touches[i].Nom) // verifie si à la position ou il est il y a la lettre P,R,E ou S
+                {
+                    strNom = touches[placement[place]].Nom; // on récupère la lettre de la touche à la place de la liste placement
+                    touches[placement[place]].Nom = caractere[place]; // on met dans touche une lettre de la liste caractere
+                    touches[i].Nom = strNom; // on met dans l'emplacement i la lettre que on avais récuperer
+                    place++; // on incrémente place pour le prochain tour de bloucle
 
-            //    }
-            //}
+                }
+            }
 
         }
         private void Reset(object sender, EventArgs e)
