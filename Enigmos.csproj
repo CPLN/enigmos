@@ -284,6 +284,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\UnderImage.png" />
     <None Include="Resources\nailCorrected.png" />
     <None Include="Resources\tableCorrect.png" />
     <None Include="Resources\tableResized.png" />

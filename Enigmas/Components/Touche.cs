@@ -39,6 +39,7 @@ namespace Cpln.Enigmos.Enigmas.Components
 
         private void Dessin(object sender, PaintEventArgs e)
         {
+            
             Brush brushPanel = new SolidBrush(couleurPanel);
             Brush brushPolice = new SolidBrush(couleurPolice);
 
