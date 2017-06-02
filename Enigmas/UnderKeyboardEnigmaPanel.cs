@@ -107,6 +107,10 @@ namespace Cpln.Enigmos.Enigmas
                 ListeTouche.Add(touche);
             }
             CreerClavier(ListeTouche);
+
+            Image BackImage = Properties.Resources.UnderImage;
+
+
         }
         /// <summary>
         /// Cette methode sert à remettre toute les touches à leur places
