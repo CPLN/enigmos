@@ -25,8 +25,8 @@ namespace Cpln.Enigmos.Enigmas
         private int iLocalisationY = 150;
         private int iLocY;
         private int iLocX;
-        private int place = 0;
-        private string strNom;
+        //private int place = 0;
+        //private string strNom;
         /// <summary>
         /// crée un clavier avec 26 touches
         /// </summary>
@@ -56,6 +56,7 @@ namespace Cpln.Enigmos.Enigmas
             placement = new List<int>(); 
             caractere = new ShuffleList<char>();
             toutestouches = new ShuffleList<char>();
+            ListeTouche = new List<Touche>();
             placement.Add(3);
             placement.Add(17);
             placement.Add(21);
@@ -65,11 +66,8 @@ namespace Cpln.Enigmos.Enigmas
             caractere.Add('R');
             caractere.Add('E');
 
-            lblPresser = new Label();
-            lblPresser.Text = "PRESSER";
+            lblPresser = new Label() { Text = "PRESSER", Location = new Point(375, 60) };
             Controls.Add(lblPresser);
-            lblPresser.Location = new Point(375, 60);
-            ListeTouche = new List<Touche>();
 
             reset = new Button();
             Controls.Add(reset);
@@ -108,9 +106,14 @@ namespace Cpln.Enigmos.Enigmas
             }
             CreerClavier(ListeTouche);
 
-            Image BackImage = Properties.Resources.UnderImage;
-
-
+            Bitmap BackImage = new Bitmap(Properties.Resources.UnderImage, 50, 50);
+            BackgroundImage = BackImage;
+            PictureBox UnderImage = new PictureBox() {Size = new Size(490, 280), Image = Properties.Resources.UnderImage,SizeMode = PictureBoxSizeMode.StretchImage, Location = new Point(190, 220) };
+            PictureBox CoinG = new PictureBox() { Size = new Size(50,50), Image = Properties.Resources.UnderImage, SizeMode = PictureBoxSizeMode.StretchImage, Location = new Point(200, 440) };
+            PictureBox CoinD = new PictureBox() { Size = new Size(50, 50), Image = Properties.Resources.UnderImage, SizeMode = PictureBoxSizeMode.StretchImage, Location = new Point(620, 440) };
+            Controls.Add(CoinG);
+            Controls.Add(CoinD);
+            Controls.Add(UnderImage);
         }
         /// <summary>
         /// Cette methode sert à remettre toute les touches à leur places
