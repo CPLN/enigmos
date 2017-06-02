@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enigmas\Components\ImagePendu.cs">
-	  <SubType>Component</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\ClouEnigmaPanel.cs">
       <SubType>Component</SubType>
@@ -69,7 +69,7 @@
     <Compile Include="Enigmas\Components\Clou\EnergyBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\Components\Clou\IA.cs" />	
+    <Compile Include="Enigmas\Components\Clou\IA.cs" />
     <Compile Include="Enigmas\Components\Clou\Nail.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -80,6 +80,7 @@
     <Compile Include="Enigmas\BoiteNoireEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\Components\Interaction.cs" />
     <Compile Include="Enigmas\Components\Light.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -290,6 +291,11 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\SingeDjembeG.png" />
+    <None Include="Resources\SingeDjembeD .png" />
+    <None Include="Resources\SingeDeDosNA.png" />
+    <None Include="Resources\SingeDeDosBA.png" />
+    <None Include="Resources\SingeDeDos - NA.png" />
     <None Include="Resources\ZMneiWS.gif" />
     <None Include="Resources\SingeBleuCymbaleFermees.png" />
     <None Include="Resources\SingeBleuCymbalesOuvertes.png" />
@@ -300,6 +306,8 @@
     <None Include="Resources\SingeRougeCymbalesOuvertes.png" />
     <None Include="Resources\SingeRougeCymbaleFermees.png" />
     <None Include="Resources\SingesBackground.png" />
+    <None Include="Resources\banane-thumb.png" />
+    <None Include="Resources\depositphotos_66251549-stock-photo-reset-circular-icon-on-white.jpg" />
     <Content Include="Resources\listeMotPendu.txt" />
     <None Include="Resources\mot.txt" />
     <None Include="Resources\pendu3.png" />

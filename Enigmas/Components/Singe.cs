@@ -9,15 +9,20 @@ using System.Windows.Forms;
 namespace Cpln.Enigmos.Enigmas.Components
 {
     class Singe : PictureBox
-    {
+    {  //Attributs
         const int POSITION_Y = 500;
 
-        //Attributs
-        public bool bEtat { get;set;}
+        //Propriétés
+        public bool bEtatInstruments { get;set;}
+        public bool bEtat { get; set; }
+        public Image ImgInactif { get; set; }
+        public Image ImgActif { get; set; }
+
 
         //Constructeur
-        public Singe(int PositionX)
+        public Singe(int PositionX, Image imgA, Image imgI)
         {
+            bEtatInstruments = false;
             bEtat = false;
 
             Image = Properties.Resources.SingeBleuCymbalesFermees;
@@ -33,21 +38,48 @@ namespace Cpln.Enigmos.Enigmas.Components
         /// </summary>
         public void Activer()
         {
+            bEtatInstruments = true;
             bEtat = true;
         }
         /// <summary>
         /// Permet d'arrêter le mouvement d'un singe
         /// </summary>
-        private void Desactiver()
+        public void Desactiver()
         {
+            bEtatInstruments = false;
             bEtat = false;
         }
         /// <summary>
         /// Inverse l'état d'un singe
         /// </summary>
-        private void Inverser()
+        public void Inverser()
         {
+            bEtatInstruments = !bEtatInstruments;
             bEtat = !bEtat;
+        }
+
+        /// <summary>
+        /// Permet d'alterner les images du singe en fournissant la bonne image selon s'il est actif ou non.
+        /// </summary>
+        public void Alterner()
+        {
+            if (bEtat)
+            {
+                if (bEtatInstruments)
+                {
+                    Image = ImgActif;
+                    bEtatInstruments = false;
+                }
+                else
+                {
+                    Image = ImgInactif;
+                    bEtatInstruments = true;
+                }
+            }
+            else
+            {
+                Image = Properties.Resources.SingeBleuCymbalesFermees;
+            }
         }
     }
 }

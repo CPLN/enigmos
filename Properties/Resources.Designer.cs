@@ -92,6 +92,16 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap banane_thumb {
+            get {
+                object obj = ResourceManager.GetObject("banane_thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BananesWTF {
             get {
                 object obj = ResourceManager.GetObject("BananesWTF", resourceCulture);
@@ -939,6 +949,16 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap reset {
+            get {
+                object obj = ResourceManager.GetObject("reset", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SeptDifference1 {
             get {
                 object obj = ResourceManager.GetObject("SeptDifference1", resourceCulture);
@@ -972,6 +992,46 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap SingeBleuCymbalesOuvertes {
             get {
                 object obj = ResourceManager.GetObject("SingeBleuCymbalesOuvertes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SingeDeDosBA {
+            get {
+                object obj = ResourceManager.GetObject("SingeDeDosBA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SingeDeDosNA {
+            get {
+                object obj = ResourceManager.GetObject("SingeDeDosNA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SingeDjembeD {
+            get {
+                object obj = ResourceManager.GetObject("SingeDjembeD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SingeDjembeG {
+            get {
+                object obj = ResourceManager.GetObject("SingeDjembeG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

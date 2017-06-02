@@ -13,17 +13,18 @@ namespace Cpln.Enigmos.Enigmas
         Label Reponse = new Label();
         Label lblEnigme = new Label();
         Timer tChrono = new Timer();
-        private Button[] btnReponse = new Button[6];
+        private PictureBox[] pbxReponse = new PictureBox[6];
         private List<PictureBox> Tpbx = new List<PictureBox>();
         List<Singe> Tsinge = new List<Singe>();
-        
+        private Interaction[][] interactions = new Interaction[6][];
+
 
         public SingesEnigmaPanel()
         {
             //Initialisation des singes + placement
-            Tsinge.Add(new Singe(200));
-            Tsinge.Add(new Singe(600));
-            Tsinge.Add(new Singe(1000));
+            Tsinge.Add(new Singe(200, Properties.Resources.SingeDjembeD, Properties.Resources.SingeDjembeG));
+            Tsinge.Add(new Singe(600, Properties.Resources.SingeBleuCymbalesOuvertes, Properties.Resources.SingeBleuCymbalesFermees));
+            Tsinge.Add(new Singe(1000, Properties.Resources.SingeBleuCymbalesOuvertes, Properties.Resources.SingeBleuCymbalesFermees));
 
             //PictureBox
             foreach (Singe S in Tsinge)
@@ -42,12 +43,12 @@ namespace Cpln.Enigmos.Enigmas
             Size = Properties.Resources.jungle.Size;
 
             //Création des boutons
-            Button bouton = new Button();
-            bouton.Size = new Size(50, 80);
-            //bouton.Click += new EventHandler(bouton_Click);
-            for (int i = 0; i < btnReponse.Length; i++)
+            PictureBox pbx = new PictureBox();
+            pbx.Size = new Size(50, 80);
+            for (int i = 0; i < pbxReponse.Length; i++)
             {
-                btnReponse[i] = new Button();
+                pbxReponse[i] = new PictureBox();
+                pbxReponse[i].Click += new EventHandler(pbxReponse_Click);
             }
             //Placement des boutons
             TableLayoutPanel centrage = new TableLayoutPanel();
@@ -66,12 +67,14 @@ namespace Cpln.Enigmos.Enigmas
             //Attribution d'une taille pour les boutons
             for (int i = 0; i < 6; i++)
             {
-                btnReponse[i].Width = 50;
-                btnReponse[i].Height = 30;
-                btnReponse[i].Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
-                btnReponse[i].FlatStyle = FlatStyle.Flat;
-                btnReponse[i].BackgroundImage = Properties.Resources.banane;
+                pbxReponse[i].SizeMode = PictureBoxSizeMode.AutoSize;
+                pbxReponse[i].Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                pbxReponse[i].BackgroundImage = Properties.Resources.troisBananes;
+                //pbxReponse[i].BackColor = Color.Transparent;
+                pbxReponse[5].BackgroundImage = Properties.Resources.reset;
             }
+
+            
 
             table.ColumnCount = 5;
             table.RowCount = 3;
@@ -92,35 +95,98 @@ namespace Cpln.Enigmos.Enigmas
             table.Padding = new Padding(0);
             table.Margin = new Padding(0);
 
-            table.Controls.Add(btnReponse[0], 0, 0);
-            table.Controls.Add(btnReponse[1], 2, 0);
-            table.Controls.Add(btnReponse[2], 4, 0);
-            table.Controls.Add(btnReponse[3], 1, 1);
-            table.Controls.Add(btnReponse[4], 3, 1);
-            table.Controls.Add(btnReponse[5], 2, 2);
+            table.Controls.Add(pbxReponse[0], 0, 0);
+            table.Controls.Add(pbxReponse[1], 2, 0);
+            table.Controls.Add(pbxReponse[2], 4, 0);
+            table.Controls.Add(pbxReponse[3], 1, 1);
+            table.Controls.Add(pbxReponse[4], 3, 1);
+            table.Controls.Add(pbxReponse[5], 2, 2);
             table.Location = new Point(450, 800);
 
             centrage.Controls.Add(table, 1, 0);
             Controls.Add(centrage);
 
-            /*Réponse de l'énigme            
-            if(Singe1.BEtat == true && Singe2.BEtat == true && Singe3.BEtat == true)*/
-                
-        }
-        //Evènement sur le clic sur un bouton.
+            for (int i = 0; i < interactions.Length; i++)
+            {
+                interactions[i] = new Interaction[3];
+            }
 
+            interactions[0][0] = Interaction.ACTIVER;
+            interactions[0][1] = Interaction.DESACTIVER;
+            interactions[0][2] = Interaction.RIEN;
+
+            interactions[1][0] = Interaction.RIEN;
+            interactions[1][1] = Interaction.ACTIVER;
+            interactions[1][2] = Interaction.RIEN;
+
+            interactions[2][0] = Interaction.DESACTIVER;
+            interactions[2][1] = Interaction.RIEN;
+            interactions[2][2] = Interaction.ACTIVER;
+
+            interactions[3][0] = Interaction.DESACTIVER;
+            interactions[3][1] = Interaction.ACTIVER;
+            interactions[3][2] = Interaction.RIEN;
+
+            interactions[4][0] = Interaction.RIEN;
+            interactions[4][1] = Interaction.ACTIVER;
+            interactions[4][2] = Interaction.DESACTIVER;
+
+            interactions[5][0] = Interaction.DESACTIVER;
+            interactions[5][1] = Interaction.DESACTIVER;
+            interactions[5][2] = Interaction.DESACTIVER;
+        }
+
+        //Evènement sur click des pbx.
+        private void pbxReponse_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < pbxReponse.Length; i++)
+            {
+                if (pbxReponse[i] == sender)
+                {
+                    ChangerSinges(interactions[i]);
+                    break;
+                }
+            }
+
+            //Réponse de l'énigme            
+            if (Tsinge[0].bEtat && Tsinge[1].bEtat && Tsinge[2].bEtat)
+            {
+                tChrono.Stop();
+                Tsinge[0].Image = Properties.Resources.SingeDeDosBA;
+                Tsinge[1].Image = Properties.Resources.SingeDeDosNA;
+                Tsinge[2].Image = Properties.Resources.SingeDeDosNA;
+            }
+        }
+
+        private void ChangerSinges(Interaction[] interaction)
+        {
+            for (int i = 0; i < interaction.Length; i++)
+            {
+                switch (interaction[i])
+                {
+                    case Interaction.ACTIVER:
+                        Tsinge[i].Activer();
+                        break;
+
+                    case Interaction.DESACTIVER:
+                        Tsinge[i].Desactiver();
+                        break;
+
+                    case Interaction.INVERSER:
+                        Tsinge[i].Inverser();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
 
         private void TimerEventProcessor(object sender, EventArgs e)
         {
-            if (Tsinge[0].bEtat)
+            foreach (Singe S in Tsinge)
             {
-                Tsinge[0].Image = Properties.Resources.SingeBleuCymbalesOuvertes;
-                Tsinge[0].bEtat = false;
-            }
-            else
-            {
-                Tsinge[0].Image = Properties.Resources.SingeBleuCymbalesFermees;
-                Tsinge[0].bEtat = true;
+                S.Alterner();
             }
         }
 
@@ -133,10 +199,10 @@ namespace Cpln.Enigmos.Enigmas
             tChrono.Interval = 500;
             tChrono.Start();
         }
-         public override void Unload()
-       {
-          tChrono.Stop();
-       }
+        public override void Unload()
+        {
+            tChrono.Stop();
+        }
     }
 }
 
