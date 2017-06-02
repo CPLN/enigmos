@@ -53,11 +53,11 @@ namespace Cpln.Enigmos.Enigmas
                 lblReponsefinal.Name = "lblReponseFinal";
                 lblReponsefinal.Size = new Size(350, 350);
                 lblReponsefinal.Font = new Font("Arial", 16);
-                lblReponsefinal.Location = new Point(375, 300);               
+                lblReponsefinal.Location = new Point(200, 200);               
                 lblReponsefinal.TextAlign = ContentAlignment.MiddleCenter;
                 lblReponsefinal.Visible = false;
 
-                lblReponseGauche.Text = "Deuxième mot :Poil";
+                lblReponseGauche.Text = "Premier mot :Pile";
                 lblReponseGauche.Name = "lblReponseGauche";
                 lblReponseGauche.Size = new Size(200, 200);
                 lblReponseGauche.Font = new Font("Arial", 16);
@@ -65,7 +65,7 @@ namespace Cpln.Enigmos.Enigmas
                 lblReponseGauche.TextAlign = ContentAlignment.MiddleCenter;
                 lblReponseGauche.Visible = false;
 
-                lblReponseDroite.Text = "Premier mot :Pile";
+                lblReponseDroite.Text = "Deuxième mot :Face";
                 lblReponseDroite.Name = "lblReponseGauche";
                 lblReponseDroite.Size = new Size(200, 200);
                 lblReponseDroite.Font = new Font("Arial", 16);
@@ -137,7 +137,7 @@ namespace Cpln.Enigmos.Enigmas
                 lbxCombi2.Size = new Size(200, 50);
                 lbxCombi2.Location = new Point(580, 20);
                 lbxCombi2.Name = "lbxCombi2";
-                lbxCombi2.Font = new Font("Arial", 9);
+                lbxCombi2.Font = new Font("Arial", 8);
                 lbxCombi2.Visible = false;
 
                 btnLanceSuite.Text = "Let's go!";
@@ -172,73 +172,63 @@ namespace Cpln.Enigmos.Enigmas
                 pbxGif.Visible = false;
                 pbxGif.Enabled = false;
 
-            // Controls.Add(lblReponseGauche);
-            // Controls.Add(lblReponsefinal);
-            // Controls.Add(lblReponseDroite);
-            // Controls.Add(btnRecommencer);
-            // Controls.Add(btnRepFinal);
-            // Controls.Add(btnRepDroite);
-            // Controls.Add(btnRepGauche);
-            // Controls.Add(btnPile);
-            // Controls.Add(btnFace);
-            // Controls.Add(lblinfo);
-            // Controls.Add(lbxCombi);
-            // Controls.Add(lbxCombi2);
-            // Controls.Add(btnLanceSuite);
-            // Controls.Add(btnJeu);              
-            //Controls.Add(pbxGif); 
-            Unload();
+                Controls.Add(lblReponseGauche);
+                Controls.Add(lblReponsefinal);
+                Controls.Add(lblReponseDroite);
+                Controls.Add(btnRecommencer);
+                Controls.Add(btnRepFinal);
+                Controls.Add(btnRepDroite);
+                Controls.Add(btnRepGauche);
+                Controls.Add(btnPile);
+                Controls.Add(btnFace);
+                Controls.Add(lblinfo);
+                Controls.Add(lbxCombi);
+                Controls.Add(lbxCombi2);
+                Controls.Add(btnLanceSuite);
+                Controls.Add(btnJeu);
+                Controls.Add(pbxGif);
+
+        }
+        public override void Load()
+        {
+            iFinDuJeu = 0;
+            iLancement = 0;
+            iNbrReponseJuste = 0;
+            btnFace.Visible = true;
+            btnFace.Enabled = true;
+            btnPile.Visible = true;
+            btnPile.Enabled = true;
+            pbxGif.Visible = false;
+            btnRepGauche.Visible = false;
+            btnRepDroite.Visible = false;
+            lblReponseDroite.Visible = false;
+            lblReponseGauche.Visible = false;
+            formGraphics.Clear(Color.White);
+            _lstCombi.Clear();
+            _lstCombi2.Clear();
+            lbxCombi.Visible = true;
+            lbxCombi.Location = new Point(300, 400);
+            lbxCombi.DataSource = null;
+            lbxCombi.DataSource = _lstCombi;
+            lbxCombi2.Visible = false;
+            lbxCombi2.DataSource = null;
+            lbxCombi2.DataSource = _lstCombi2;
+            btnRecommencer.Visible = false;
+            lblinfo.Visible = true;
+            btnJeu.Visible = false;
+            
+        }
+        private void btnRecommencer_click(object sender, EventArgs e)
+        {
             Load();
         }
+
         private void btnRepFinal_click(object sender, EventArgs e)
         {
             lblReponsefinal.Visible = true;
             btnRecommencer.Visible = true;
             btnRecommencer.Enabled = true;
-        }
-        public override void Unload()
-        {
-            Controls.Remove(lblReponseGauche);
-            Controls.Remove(lblReponsefinal);
-            Controls.Remove(lblReponseDroite);
-            Controls.Remove(btnRecommencer);
-            Controls.Remove(btnRepFinal);
-            Controls.Remove(btnRepDroite);
-            Controls.Remove(btnRepGauche);
-            Controls.Remove(btnPile);
-            Controls.Remove(btnFace);
-            Controls.Remove(lblinfo);
-            Controls.Remove(lbxCombi);
-            Controls.Remove(lbxCombi2);
-            Controls.Remove(btnLanceSuite);
-            Controls.Remove(btnJeu);
-            Controls.Remove(pbxGif);                    
-            Invalidate();
-
-        }
-        public override void Load()
-        {
-            Controls.Add(lblReponseGauche);
-            Controls.Add(lblReponsefinal);
-            Controls.Add(lblReponseDroite);
-            Controls.Add(btnRecommencer);
-            Controls.Add(btnRepFinal);
-            Controls.Add(btnRepDroite);
-            Controls.Add(btnRepGauche);
-            Controls.Add(btnPile);
-            Controls.Add(btnFace);
-            Controls.Add(lblinfo);
-            Controls.Add(lbxCombi);
-            Controls.Add(lbxCombi2);
-            Controls.Add(btnLanceSuite);
-            Controls.Add(btnJeu);
-            Controls.Add(pbxGif);
-        }
-        private void btnRecommencer_click(object sender, EventArgs e)
-        {
-            Unload();
-            Load();                 
-        }
+        }                     
         private void btnRepDroite_click(object sender, EventArgs e)
         {
             lblReponseDroite.Visible = true;
@@ -341,11 +331,15 @@ namespace Cpln.Enigmos.Enigmas
             lblinfo.Visible = false;
             lbxCombi.Font = new Font("Arial", 9);
             lbxCombi2.Visible = true;
+            lbxCombi2.DataSource = null;
             lbxCombi2.DataSource = _lstCombi2;
+            lbxCombi.SelectedIndex = 0;
+            lbxCombi2.SelectedIndex = 0;
             pbxGif.Visible = true;
             pbxGif.Enabled = true;           
             t1.Enabled = true;
-                 
+            lbxCombi.SelectedIndex = 0;
+
         }
         public void btnPile_click(object sender, EventArgs e)
         {
