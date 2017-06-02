@@ -92,6 +92,16 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap barResized {
+            get {
+                object obj = ResourceManager.GetObject("barResized", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Batiment {
             get {
                 object obj = ResourceManager.GetObject("Batiment", resourceCulture);
@@ -282,6 +292,16 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Coin {
+            get {
+                object obj = ResourceManager.GetObject("Coin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Coot_transp {
             get {
                 object obj = ResourceManager.GetObject("Coot_transp", resourceCulture);
@@ -322,21 +342,17 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une chaîne localisée semblable à &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;no&quot; ?&gt;
         ///&lt;enigmas&gt;
-        ///  &lt;enigma title=&quot;Rébus&quot;&gt;
-        ///    &lt;answer&gt;42&lt;/answer&gt;
-        ///    &lt;hint&gt;Devinez un mot en vous aidant des images.&lt;/hint&gt;
+        ///  &lt;enigma title=&quot;Jeu du clou&quot;&gt;
+        ///    &lt;answer&gt;C&apos;est de la frappe !&lt;/answer&gt;
+        ///    &lt;hint&gt;Soyez le premier à enfoncer le clou entièrement dans la table ! Utilisez la touche espace pour frapper !&lt;/hint&gt;
+        ///   &lt;/enigma&gt;
+        ///  &lt;enigma title=&quot;Plateformer&quot;&gt;
+        ///    &lt;answer&gt;Pass1234&lt;/answer&gt;
+        ///    &lt;hint&gt;Gagne.&lt;/hint&gt;
         ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Le plus long mot&quot;&gt;
-        ///    &lt;answer&gt;oiseaux&lt;/answer&gt;
-        ///    &lt;hint&gt;C&apos;est un animal.&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Puzzle&quot;&gt;
-        ///    &lt;answer&gt;jongleur&lt;/answer&gt;
-        ///    &lt;hint&gt;Remettez les pièces à leur place.&lt;/hint&gt;
-        ///  &lt;/enigma&gt;
-        ///  &lt;enigma title=&quot;Caractère caché&quot;&gt;
-        ///    &lt;answer&gt;Cpln&lt;/answer&gt;
-        ///    &lt;hint&gt;&quot;Le dessi [le reste de la chaîne a été tronqué]&quot;;.
+        ///  &lt;enigma title=&quot;Allumez tout&quot;&gt;
+        ///    &lt;answer&gt;lumineux&lt;/answer&gt;
+        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hin [le reste de la chaîne a été tronqué]&quot;;.
         /// </summary>
         internal static string enigmas {
             get {
@@ -495,6 +511,62 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à elephant
+        ///ornithorynque
+        ///dauphin
+        ///girafe
+        ///leopard
+        ///chevreuil
+        ///bouquetin
+        ///autruche
+        ///kangourou
+        ///hippopotame
+        ///guepard
+        ///hippocampe
+        ///dromadaire
+        ///herisson
+        ///allemagne
+        ///autriche
+        ///dannemark
+        ///luxembourg
+        ///ecrivain
+        ///abeille
+        ///chatouiller
+        ///client
+        ///ecriture
+        ///alcoolique
+        ///suicide
+        ///attentat
+        ///depression
+        ///medicament
+        ///overdose
+        ///cocaine
+        ///methamphetamine
+        ///desomorphine
+        ///cancer
+        ///tumeur
+        ///mort
+        ///telespectateur
+        ///population
+        ///nature
+        ///multiplication
+        ///addition
+        ///division
+        ///soustraction
+        ///revendeur
+        ///doublure
+        ///feuille
+        ///victime
+        ///lubrifiant
+        ///foot [le reste de la chaîne a été tronqué]&quot;;.
+        /// </summary>
+        internal static string listeMotPendu {
+            get {
+                return ResourceManager.GetString("listeMotPendu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap mamifere {
@@ -520,6 +592,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap mur {
             get {
                 object obj = ResourceManager.GetObject("mur", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nailCorrected {
+            get {
+                object obj = ResourceManager.GetObject("nailCorrected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -607,6 +689,96 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pendu0 {
+            get {
+                object obj = ResourceManager.GetObject("pendu0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu1 {
+            get {
+                object obj = ResourceManager.GetObject("pendu1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu2 {
+            get {
+                object obj = ResourceManager.GetObject("pendu2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu3 {
+            get {
+                object obj = ResourceManager.GetObject("pendu3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu4 {
+            get {
+                object obj = ResourceManager.GetObject("pendu4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu5 {
+            get {
+                object obj = ResourceManager.GetObject("pendu5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu6 {
+            get {
+                object obj = ResourceManager.GetObject("pendu6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu7 {
+            get {
+                object obj = ResourceManager.GetObject("pendu7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pendu8 {
+            get {
+                object obj = ResourceManager.GetObject("pendu8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Phoque1 {
             get {
                 object obj = ResourceManager.GetObject("Phoque1", resourceCulture);
@@ -660,6 +832,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap pj4 {
             get {
                 object obj = ResourceManager.GetObject("pj4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Player {
+            get {
+                object obj = ResourceManager.GetObject("Player", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -780,6 +962,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap Table {
             get {
                 object obj = ResourceManager.GetObject("Table", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tableCorrect {
+            get {
+                object obj = ResourceManager.GetObject("tableCorrect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

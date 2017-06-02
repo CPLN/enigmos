@@ -30,12 +30,15 @@ namespace Cpln.Enigmos
 
             enigmas.Add(new Enigma(new AppuieReponseEnigmaPanel(), "Appuie sur la réponse"));
             enigmas.Add(new Enigma(new BeatThemAllEnigmaPanel(), "Beat them all"));
+            enigmas.Add(new Enigma(new BoiteNoireEnigmaPanel(), "Boite noire"));
             enigmas.Add(new Enigma(new BusEnigmaPanel(), "Sens du bus"));
             enigmas.Add(new Enigma(new CaseVideEnigmaPanel(), "Et ben non"));
             enigmas.Add(new Enigma(new CharadeEnigmaPanel(), "Charade"));
             enigmas.Add(new Enigma(new ClicRapideEnigmaPanel(), "Clic-rapide"));
+            enigmas.Add(new Enigma(new ClouEnigmaPanel(), "Jeu du clou"));
             enigmas.Add(new Enigma(new CodeBarreEnigmaPanel(), "Le code barre"));
             enigmas.Add(new Enigma(new CombienDeSEnigmaPanel(), "Combien de s ?"));
+            enigmas.Add(new Enigma(new CompteurEnigmaPanel(), "Compteur"));
             enigmas.Add(new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur"));
             enigmas.Add(new Enigma(new CrypteDeLaFoulqueDesTenebresEnigmaPanel(), "Foulque des Ténèbres"));
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
@@ -53,7 +56,9 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new OpenDoorEnigmaPanel(), "Ouvrez la porte !"));
             enigmas.Add(new Enigma(new OuEstLaReponseEnigmaPanel(), "Où est la réponse ?"));
             enigmas.Add(new Enigma(new PenduEnigmaPanel(), "Le jeu du pendu"));
+            enigmas.Add(new Enigma(new Pendu2EnigmaPanel(), "Pendu 2"));
             enigmas.Add(new Enigma(new PhoqueEnigmaPanel(), "Chop' les poissons"));
+            enigmas.Add(new Enigma(new PlateformerEnigmaPanel(), "Plateformer"));
             enigmas.Add(new Enigma(new RebusEnigmaPanel(), "Rébus"));
             enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
             enigmas.Add(new Enigma(new ReflexeEnigmaPanel(), "Reflexe"));
@@ -64,11 +69,22 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
 
+            // Énigmes avec prérequis
+
             Enigma runEnigma = new Enigma(new RunEnigmaPanel(), "Roux run");
             enigmas.Add(runEnigma);
             Enigma runEnigmaInverse = new Enigma(new RunEnigmaPanel(true), "Roux run encore");
             runEnigmaInverse.AddPrerequisite(runEnigma);
             enigmas.Add(runEnigmaInverse);
+
+            Enigma switch1 = new Enigma(new SwitchesEnigmaPanel(3, "LUMINEUX"), "Allumez tout");
+            enigmas.Add(switch1);
+            Enigma switch2 = new Enigma(new SwitchesEnigmaPanel(4, "ÉBLOUISSANT"), "Rallumez tout");
+            switch2.AddPrerequisite(switch1);
+            enigmas.Add(switch2);
+            Enigma switch3 = new Enigma(new SwitchesEnigmaPanel(5, "AVEUGLANT"), "Plein les mirettes");
+            switch3.AddPrerequisite(switch2);
+            enigmas.Add(switch3);
 
             enigmas.Shuffle();
             return enigmas;
