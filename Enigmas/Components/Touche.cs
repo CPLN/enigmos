@@ -75,6 +75,10 @@ namespace Cpln.Enigmos.Enigmas.Components
             this.couleurPanel = Color.Gray;
             Invalidate();
         }
+        public override string ToString()
+        {
+            return Nom;
+        }
     }
 }
 
