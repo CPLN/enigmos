@@ -53,14 +53,23 @@ namespace Cpln.Enigmos.Enigmas
         }
         public UnderKeyboardEnigmaPanel()
         {
+            /* 
+             * instanciation des listes qui sont nécessaire pour le code :
+            - placement est une liste qui va savoir à quelle place il faut mettre les lettres que l'on aura reservées
+            - caractere est une liste qui se mélange et qui va contenir les caractères a ne pas utiliser car on veut leurs donner des emplacements reservées
+            - toutestouches est une liste qui se mélange et qui contient tout les lettres de l'alphabet hors-mis les celles qui sont dans la liste caractère
+            - Listetouche sera la liste final ou on introduira dans l'ordre toute les lettres pour pouvoir en faire une Touche
+             */
             placement = new List<int>(); 
             caractere = new ShuffleList<char>();
             toutestouches = new ShuffleList<char>();
             ListeTouche = new List<Touche>();
+            // Ajout des emplacements reservées dans la liste placement
             placement.Add(3);
             placement.Add(17);
             placement.Add(21);
             placement.Add(25);
+            // Ajout des lettres reservées dans la liste caractere
             caractere.Add('S');
             caractere.Add('P');
             caractere.Add('R');
@@ -82,11 +91,10 @@ namespace Cpln.Enigmos.Enigmas
                     continue;
                 }
                 toutestouches.Add(i);
-
             }
 
-            toutestouches.Shuffle();
-            caractere.Shuffle();
+            toutestouches.Shuffle(); // Mélange la liste des lettres toutetouches
+            caractere.Shuffle(); // Mélange la liste des lettres reservées caractere
 
             while (placement.Count > 0)
             {
