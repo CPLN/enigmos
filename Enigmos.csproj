@@ -254,7 +254,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RotatingLabel.cs">
+    <Compile Include="Utils\RotatingLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\SwitchesEnigmaPanel.cs">
