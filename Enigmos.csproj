@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enigmas\Components\ImagePendu.cs">
-	  <SubType>Component</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\ClouEnigmaPanel.cs">
       <SubType>Component</SubType>
@@ -69,7 +69,7 @@
     <Compile Include="Enigmas\Components\Clou\EnergyBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\Components\Clou\IA.cs" />	
+    <Compile Include="Enigmas\Components\Clou\IA.cs" />
     <Compile Include="Enigmas\Components\Clou\Nail.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -251,7 +251,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RotatingLabel.cs">
+    <Compile Include="Utils\RotatingLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\SwitchesEnigmaPanel.cs">
