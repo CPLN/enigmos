@@ -85,6 +85,7 @@ namespace Cpln.Enigmos.Enigmas
             if (e.KeyCode == Keys.Space)
             {
                 //Fin du timer
+                stopwatch.Stop();
                 int iTempsJoueur = Convert.ToInt32(stopwatch.ElapsedMilliseconds);
 
                 //Transformation du temps
