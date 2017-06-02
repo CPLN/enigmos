@@ -13,7 +13,12 @@ namespace Cpln.Enigmos.Enigmas
     public class FormesEnFoliesEnigmaPanel : EnigmaPanel 
     {
         int Compteur = 0;
+        int CompteurForme = 0;
+        int CompteurCouleur = 1;
         Timer Timer1 = new Timer();
+
+        Label lblForme = new Label();
+        Label lblCouleur = new Label();
 
         List<Panel> lstForme = new List<Panel>(); // Création d'une liste qui contiendra tous les panels (formes)
 
@@ -31,6 +36,12 @@ namespace Cpln.Enigmos.Enigmas
 
         public FormesEnFoliesEnigmaPanel()
         {
+            lblCouleur.Text = "COULEUR";
+            lblCouleur.Location = new Point(371, 100);
+
+            lblForme.Text = "FORME";
+            lblForme.Location = new Point(371, 100);
+
             Timer1.Interval = 300; // 1 milliseconde
             Timer1.Tick += new EventHandler(Timer_Tick);
             Timer1.Enabled = true;
@@ -40,17 +51,19 @@ namespace Cpln.Enigmos.Enigmas
             AjoutDansListe(triangle);
             
             ellipse1.Location = new Point(350, 350);
-            ellipse1.Size = new Size(200, 200);
+            ellipse1.Size = new Size(400, 400);
             AjoutDansListe(ellipse1);
 
             Controls.Add(btnDifferent);
             btnDifferent.Location = new Point(421, 111);
             btnDifferent.Text = "Différent";
+            btnDifferent.Width = 100;
             btnDifferent.Click += new EventHandler(ClicSurBouton);
             
             Controls.Add(btnIdentique);
             btnIdentique.Location = new Point(321, 111);
             btnIdentique.Text = "Identique";
+            btnIdentique.Width = 100;
             btnIdentique.Click += new EventHandler(ClicSurBouton);
 
             Carre1 = AjoutPanelCarre(100, 250, 250, Carre1);
@@ -59,10 +72,10 @@ namespace Cpln.Enigmos.Enigmas
             Carre2 = AjoutPanelCarre(100, 350, 350, Carre2);
             Carre2.BackColor = Color.Black;
 
-            Rectangle1 = AjoutPanelRectangle(100, 200, 350, 350, Rectangle1);
+            Rectangle1 = AjoutPanelRectangle(120, 210, 350, 350, Rectangle1);
             Rectangle1.BackColor = Color.Beige;
 
-            Rectangle2 = AjoutPanelRectangle(100, 200, 350, 350, Rectangle2);
+            Rectangle2 = AjoutPanelRectangle(120, 210, 350, 350, Rectangle2);
             Rectangle2.BackColor = Color.Chartreuse;
         }
 
@@ -82,6 +95,8 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Add(lstForme[Compteur]);
                 //Supprime la 1ère forme
                 Controls.Remove(lstForme[Compteur -1]);
+                //Ajoute le label forme en dessus des boutons
+                Controls.Add(lblForme);
                 //Incrémente le compteur 
                 Compteur++;
                 //Arrête le timer après avoir afficher les 2 premières formes
@@ -93,60 +108,67 @@ namespace Cpln.Enigmos.Enigmas
         //Evènement lorsqu'il y a un clic sur un bouton
         private void ClicSurBouton(object sender, EventArgs e)
         {
-            //Donner à Actuel (forme actuellement afficher sur l'appli) la valeur de lstForme à la position du Compteur
-            Panel Actuel = lstForme[Compteur -1];
-            //Panel précédent va prendre la valeur de la forme précédemment afficher
-            Panel Precedent = lstForme[Compteur - 2];
-            //Prochain va prendre la valeur du prochain élément qui va s'afficher
-            Panel Prochain = lstForme[Compteur];
-
-            Compteur++;
-
-            //Est-ce que c'est bien btnDifferent qui à été cliqué
-            if (Convert.ToString(sender) == "Différent")
+            //On regarde si le CompteurForme est plus grand que le CompteurCouleur
+            if(CompteurForme < CompteurCouleur)
             {
-                //Supprime la forme actuelle
-                Controls.Remove(Actuel);
-                if (Compteur > 1)
+                //On test si le bouton qui à été appuyé est le bouton "différent"
+                if(sender==btnDifferent)
                 {
-                    //Regarde si la couleur de la forme actuelle est la même que la précédente, si elle est pareille il a perdu et recommence
-                    if (Precedent.BackColor == Actuel.BackColor)
+                    //Enlève le label Couleur qui doit être sur l'énigme
+                    Controls.Remove(lblCouleur);
+                    //Ajoute le label Forme
+                    Controls.Add(lblForme);
+                    //Si la largeur de la forme précédente et celle actuellement identique alors le test est réussi
+                    if (lstForme[Compteur - 1].Width == lstForme[Compteur - 2].Width)
                     {
-                        //Supprime la forme actuelle
-                        Controls.Remove(Actuel);
-                        //Remet le compteur à zéro
+                        //Si ils sont égaux alors on va enlever la forme actuelle
+                        Controls.Remove(lstForme[Compteur - 1]);
+                        //On remet le compteur à zéro de la liste des formes
                         Compteur = 0;
-                        //Relance le timer ce qui fait tout recommencer
+                        //On remet le compteur Forme à zéro
+                        CompteurForme = 0;
+                        //On remet le compteur couleur à 1
+                        CompteurCouleur = 1;
+                        //On relance le timer1
                         Timer1.Start();
+                    }
+                    else //Si le test est faut on va faire tout ce qu'il y a en dessous
+                    {
+                        //On ajoute la prochaine forme de la liste
+                        Controls.Add(lstForme[Compteur]);
+                        //On supprime celle qu'il y a actuellement
+                        Controls.Remove(lstForme[Compteur - 1]);
+                        //On augment le compteur forme de 2
+                        CompteurForme += 2;
+                    }
+                }
+                else //Si le bouton qui à été cliqué n'est pas le bouton "différent" on va faire tout ce qu'il y a dans le "else"
+                {
+                    //On test si la largeur de la forme précédente est égale à la forme actuelle
+                    if(lstForme[Compteur - 1].Width == lstForme[Compteur - 2].Width)
+                    {
+                        Controls.Add(lstForme[Compteur]);
+                        Controls.Remove(lstForme[Compteur - 1]);
                     }
                     else
                     {
-                        //Sinon il supprime l'actuelle et ajoute la prochaine forme
-                        Controls.Remove(Actuel);
-                        Controls.Add(Prochain);
+                        Controls.Remove(lstForme[Compteur - 1]);
+                        Compteur = 0;
+                        Timer1.Start();
                     }
                 }
+                        
             }
             else
             {
-                if (Compteur > 1)
+                
+                if(sender==btnDifferent)
                 {
-                    if (Actuel.BackColor == Precedent.BackColor)
-                    {
-                        Controls.Add(Prochain);
-                        Controls.Remove(Actuel);
-                    }
-                    else
-                    {
-                        //Supprime la forme actuelle
-                        Controls.Remove(Actuel);
-                        //Remet le compteur à zéro
-                        Compteur = 0;
-                        //Relance le timer ce qui fait tout recommencer
-                        Timer1.Start();
-                    }
+                    Controls.Remove(lblForme);
                 }
             }
+
+            Compteur++;
         }
 
         public Panel AjoutPanelCarre(int cote, int positionX, int positionY, Panel p)
@@ -172,8 +194,6 @@ namespace Cpln.Enigmos.Enigmas
             lstForme.Add(p);
             return p;
         }
-
-        
 
     }
 }
