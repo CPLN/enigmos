@@ -130,4 +130,8 @@
     <answer>9.</answer>
     <hint>Passez par les 9 points en 4 traits</hint>
   </enigma>
+  <enigma title="Mémorise">
+    <answer>we</answer>
+    <hint>Mémorisez le chiffre</hint>
+  </enigma>
 </enigmas>

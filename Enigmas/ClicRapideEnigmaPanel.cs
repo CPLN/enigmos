@@ -10,7 +10,7 @@ namespace Cpln.Enigmos.Enigmas
         private Button btnACliquer = new Button();
         private Timer timer = new Timer();
         private Label lblNbClics = new Label();
-        FontFamily fontFamily = new FontFamily("Berlin Sans FB");
+        FontFamily fontFamily = new FontFamily("Berlin Sans FB"); 
         const int SEC = 10;
         int iComptSec = 0, iComptClics = 0;
         bool bVert = false;
