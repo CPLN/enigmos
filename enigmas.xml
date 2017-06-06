@@ -186,4 +186,8 @@
     <answer>temps</answer>
     <hint>Presser sur la barre espace quand vous pensez avoir atteint le temps défini</hint>
   </enigma>
+  <enigma title="Mémorise">
+    <answer>we</answer>
+    <hint>Mémorisez le chiffre</hint>
+  </enigma>
 </enigmas>

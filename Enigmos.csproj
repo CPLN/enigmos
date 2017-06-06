@@ -121,6 +121,9 @@
     <Compile Include="Enigmas\Pendu2EnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\MemorisationChiffreEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\PenduEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>

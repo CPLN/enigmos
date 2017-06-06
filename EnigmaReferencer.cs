@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new Pendu2EnigmaPanel(), "Pendu 2");
+            return new Enigma(new MemorisationChiffreEnigmaPanel(), "Mémorise");
         }
 
         /// <summary>
@@ -48,6 +48,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new InvisibleAnwerEnigmaPanel(), "Invisible Answer"));
             enigmas.Add(new Enigma(new LettreHaute(), "Quelle est la plus haute ?"));
             enigmas.Add(new Enigma(new MemoireDesChiffresEnigmaPanel(), "Souviens toi"));
+            enigmas.Add(new Enigma(new MemorisationChiffreEnigmaPanel(), "Mémorise"));
             enigmas.Add(new Enigma(new MorpionEnigmaPanel(), "Morpion"));
             enigmas.Add(new Enigma(new NbrCarresEnigmaPanel(), "Nombre de carrés"));
             enigmas.Add(new Enigma(new NfsEnigmaPanel(), "Need For Speed"));
