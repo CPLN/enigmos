@@ -14,7 +14,6 @@ namespace Cpln.Enigmos.Enigmas
         Label lblEnigme = new Label();
         Timer tChrono = new Timer();
         private PictureBox[] pbxReponse = new PictureBox[6];
-        private List<PictureBox> Tpbx = new List<PictureBox>();
         List<Singe> Tsinge = new List<Singe>();
         private Interaction[][] interactions = new Interaction[6][];
 
@@ -22,9 +21,11 @@ namespace Cpln.Enigmos.Enigmas
         public SingesEnigmaPanel()
         {
             //Initialisation des singes + placement
-            Tsinge.Add(new Singe(200, Properties.Resources.SingeDjembeD, Properties.Resources.SingeDjembeG));
-            Tsinge.Add(new Singe(600, Properties.Resources.SingeBleuCymbalesOuvertes, Properties.Resources.SingeBleuCymbalesFermees));
-            Tsinge.Add(new Singe(1000, Properties.Resources.SingeBleuCymbalesOuvertes, Properties.Resources.SingeBleuCymbalesFermees));
+            Tsinge.Add(new Singe(200, Properties.Resources.SingeBleuCymbalesOuvertes, Properties.Resources.SingeBleuCymbalesFermees, Properties.Resources.SingeDeDosBA));
+            //TODO : Changer ressources
+            Tsinge.Add(new Singe(600, Properties.Resources.SingeDjembeD, Properties.Resources.SingeDjembeG, Properties.Resources.SingeDeDosNA));
+            //TODO : Changer ressources
+            Tsinge.Add(new Singe(1000, Properties.Resources.SingeBleuCymbalesOuvertes, Properties.Resources.SingeBleuCymbalesFermees, Properties.Resources.SingeDeDosNA));
 
             //PictureBox
             foreach (Singe S in Tsinge)
@@ -43,13 +44,17 @@ namespace Cpln.Enigmos.Enigmas
             Size = Properties.Resources.jungle.Size;
 
             //Création des boutons
-            PictureBox pbx = new PictureBox();
-            pbx.Size = new Size(50, 80);
             for (int i = 0; i < pbxReponse.Length; i++)
             {
                 pbxReponse[i] = new PictureBox();
                 pbxReponse[i].Click += new EventHandler(pbxReponse_Click);
+                pbxReponse[i].Size = new Size(Properties.Resources.Bananas.Width, Properties.Resources.Bananas.Height);
+                pbxReponse[i].BackgroundImage = Properties.Resources.Bananas;
+                pbxReponse[i].BackColor = Color.Transparent;
             }
+            pbxReponse[5].BackgroundImage = Properties.Resources.reset;
+            pbxReponse[5].Size = new Size(Properties.Resources.reset.Width, Properties.Resources.reset.Height);
+
             //Placement des boutons
             TableLayoutPanel centrage = new TableLayoutPanel();
 
@@ -58,40 +63,27 @@ namespace Cpln.Enigmos.Enigmas
             centrage.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
             centrage.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
 
-            centrage.Location = new Point(0, 800);
-            centrage.Size = new Size(Width, 130);
+            centrage.Location = new Point(0, 720);
+            centrage.Size = new Size(Width, 300);
             centrage.BackColor = Color.Transparent;
 
-            TableLayoutPanel table = new TableLayoutPanel();
-
-            //Attribution d'une taille pour les boutons
-            for (int i = 0; i < 6; i++)
-            {
-                pbxReponse[i].SizeMode = PictureBoxSizeMode.AutoSize;
-                pbxReponse[i].Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
-                pbxReponse[i].BackgroundImage = Properties.Resources.troisBananes;
-                //pbxReponse[i].BackColor = Color.Transparent;
-                pbxReponse[5].BackgroundImage = Properties.Resources.reset;
-            }
-
-            
+            TableLayoutPanel table = new TableLayoutPanel();            
 
             table.ColumnCount = 5;
             table.RowCount = 3;
 
-            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
-            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
-            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
-            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
-            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
-
-            table.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
-            table.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
-            table.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            for (int i = 0; i < table.ColumnCount; i++)
+            {
+                table.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, Properties.Resources.troisBananes.Width));
+            }
+            for (int i = 0; i < table.RowCount; i++)
+            {
+                table.RowStyles.Add(new RowStyle(SizeType.Absolute, Properties.Resources.troisBananes.Height));
+            }
 
             table.BackColor = Color.Transparent;
             table.Width = 650;
-            table.Height = 130;
+            table.Height = 300;
             table.Padding = new Padding(0);
             table.Margin = new Padding(0);
 
@@ -152,9 +144,8 @@ namespace Cpln.Enigmos.Enigmas
             if (Tsinge[0].bEtat && Tsinge[1].bEtat && Tsinge[2].bEtat)
             {
                 tChrono.Stop();
-                Tsinge[0].Image = Properties.Resources.SingeDeDosBA;
-                Tsinge[1].Image = Properties.Resources.SingeDeDosNA;
-                Tsinge[2].Image = Properties.Resources.SingeDeDosNA;
+                Tsinge.ForEach(x => x.AfficherReponse());
+                //TODO : Play de la musique
             }
         }
 
@@ -184,10 +175,7 @@ namespace Cpln.Enigmos.Enigmas
 
         private void TimerEventProcessor(object sender, EventArgs e)
         {
-            foreach (Singe S in Tsinge)
-            {
-                S.Alterner();
-            }
+            Tsinge.ForEach(x => x.Animer()); //Foreach permettant d'effectuer une suite d'instructions
         }
 
         /// <summary>
@@ -198,10 +186,12 @@ namespace Cpln.Enigmos.Enigmas
             tChrono.Tick += new EventHandler(TimerEventProcessor);
             tChrono.Interval = 500;
             tChrono.Start();
+            TimerEventProcessor(null, null); //Evite la latence entre le moment ou le bouton est pressé et le moment ou le singe s'actionne
         }
         public override void Unload()
         {
             tChrono.Stop();
+            //TODO : Arreter la musique si nécessaire
         }
     }
 }

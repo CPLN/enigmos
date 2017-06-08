@@ -10,22 +10,27 @@ namespace Cpln.Enigmos.Enigmas.Components
 {
     class Singe : PictureBox
     {  //Attributs
-        const int POSITION_Y = 500;
+        protected const int POSITION_Y = 450;
 
         //Propriétés
-        public bool bEtatInstruments { get;set;}
         public bool bEtat { get; set; }
-        public Image ImgInactif { get; set; }
-        public Image ImgActif { get; set; }
+        protected bool bEtatInstruments { get;set;}
+        protected Image ImgInactif { get; set; }
+        protected Image ImgActif { get; set; }
+        protected Image ImgReponse { get; set; }
 
 
         //Constructeur
-        public Singe(int PositionX, Image imgA, Image imgI)
+        public Singe(int PositionX, Image imgA, Image imgI, Image imgR)
         {
             bEtatInstruments = false;
             bEtat = false;
 
-            Image = Properties.Resources.SingeBleuCymbalesFermees;
+            ImgInactif = imgI;
+            ImgActif = imgA;
+            ImgReponse = imgR;
+
+            Image = ImgInactif;
             Size = Image.Size;
             BackColor = Color.Transparent;
             Location = new Point(PositionX, POSITION_Y);
@@ -59,9 +64,17 @@ namespace Cpln.Enigmos.Enigmas.Components
         }
 
         /// <summary>
-        /// Permet d'alterner les images du singe en fournissant la bonne image selon s'il est actif ou non.
+        /// Permet d'afficher la réponse de l'énigme.
         /// </summary>
-        public void Alterner()
+        public void AfficherReponse()
+        {
+            Image = ImgReponse;
+        }
+
+        /// <summary>
+        /// Permet d'alterner les images du singe en fournissant la bonne image selon si il est actif ou non.
+        /// </summary>
+        public void Animer()
         {
             if (bEtat)
             {
@@ -78,8 +91,9 @@ namespace Cpln.Enigmos.Enigmas.Components
             }
             else
             {
-                Image = Properties.Resources.SingeBleuCymbalesFermees;
+                Image = ImgInactif;
             }
+
         }
     }
 }
