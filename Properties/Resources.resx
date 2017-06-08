@@ -307,10 +307,10 @@
   <data name="jungle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\jungle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SingeBleuCymbalesOuvertes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="SingeCymbalesOuvertes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SingeBleuCymbalesOuvertes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SingeBleuCymbalesFermees" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="SingeCymbalesFermees" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SingeBleuCymbaleFermees.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pendu0" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -423,5 +423,20 @@
   </data>
   <data name="reset" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeViolonPause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeViolonPause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeDjembePause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeDjembePause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeCymbalePause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeCymbalePause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeViolonActif1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeViolonActif1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeViolonActif2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeViolonActif2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

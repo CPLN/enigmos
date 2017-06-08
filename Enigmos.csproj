@@ -291,6 +291,13 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\SingeViolonActif2.png" />
+    <None Include="Resources\SingeViolonActif1.png" />
+    <None Include="Resources\SingeCymbalePause.png" />
+    <None Include="Resources\SingeDjembePause.png" />
+    <None Include="Resources\SingeViolonPause.png" />
+    <None Include="Resources\Sam Blans - Shout Out Gaia Beat 2.wav" />
+    <None Include="Resources\Sam Blans - Shout Out Gaia Beat 2.mp3" />
     <None Include="Resources\reset.png" />
     <None Include="Resources\TroisBananes.png" />
     <None Include="Resources\SingeDjembeG.png" />

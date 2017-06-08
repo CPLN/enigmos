@@ -16,18 +16,20 @@ namespace Cpln.Enigmos.Enigmas.Components
         public bool bEtat { get; set; }
         protected bool bEtatInstruments { get;set;}
         protected Image ImgInactif { get; set; }
-        protected Image ImgActif { get; set; }
+        protected Image ImgActif1 { get; set; }
+        protected Image ImgActif2 { get; set; }
         protected Image ImgReponse { get; set; }
 
 
         //Constructeur
-        public Singe(int PositionX, Image imgA, Image imgI, Image imgR)
+        public Singe(int PositionX, Image imgA1, Image imgA2, Image imgI, Image imgR)
         {
             bEtatInstruments = false;
             bEtat = false;
 
             ImgInactif = imgI;
-            ImgActif = imgA;
+            ImgActif1 = imgA1;
+            ImgActif2 = imgA2;
             ImgReponse = imgR;
 
             Image = ImgInactif;
@@ -79,13 +81,22 @@ namespace Cpln.Enigmos.Enigmas.Components
             if (bEtat)
             {
                 if (bEtatInstruments)
-                {
-                    Image = ImgActif;
+                {   if (Image == ImgActif1)
+                        Image = ImgActif2;
+                    else
+                    {
+                        Image = ImgActif1;
+                    }
                     bEtatInstruments = false;
                 }
                 else
                 {
-                    Image = ImgInactif;
+                    if (Image == ImgActif1)
+                        Image = ImgActif2;
+                    else
+                    {
+                        Image = ImgActif1;
+                    }
                     bEtatInstruments = true;
                 }
             }

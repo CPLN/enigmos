@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using Cpln.Enigmos.Enigmas.Components;
 using System.Collections.Generic;
+using System.Media;
+using System.IO;
 
 namespace Cpln.Enigmos.Enigmas
 
@@ -21,11 +23,9 @@ namespace Cpln.Enigmos.Enigmas
         public SingesEnigmaPanel()
         {
             //Initialisation des singes + placement
-            Tsinge.Add(new Singe(200, Properties.Resources.SingeBleuCymbalesOuvertes, Properties.Resources.SingeBleuCymbalesFermees, Properties.Resources.SingeDeDosBA));
-            //TODO : Changer ressources
-            Tsinge.Add(new Singe(600, Properties.Resources.SingeDjembeD, Properties.Resources.SingeDjembeG, Properties.Resources.SingeDeDosNA));
-            //TODO : Changer ressources
-            Tsinge.Add(new Singe(1000, Properties.Resources.SingeBleuCymbalesOuvertes, Properties.Resources.SingeBleuCymbalesFermees, Properties.Resources.SingeDeDosNA));
+            Tsinge.Add(new Singe(200, Properties.Resources.SingeCymbalesOuvertes, Properties.Resources.SingeCymbalesFermees, Properties.Resources.SingeCymbalePause, Properties.Resources.SingeDeDosBA));
+            Tsinge.Add(new Singe(600, Properties.Resources.SingeDjembeD, Properties.Resources.SingeDjembeG, Properties.Resources.SingeDjembePause, Properties.Resources.SingeDeDosNA));
+            Tsinge.Add(new Singe(1000, Properties.Resources.SingeViolonActif1, Properties.Resources.SingeViolonActif2, Properties.Resources.SingeViolonPause, Properties.Resources.SingeDeDosNA));
 
             //PictureBox
             foreach (Singe S in Tsinge)
@@ -145,7 +145,9 @@ namespace Cpln.Enigmos.Enigmas
             {
                 tChrono.Stop();
                 Tsinge.ForEach(x => x.AfficherReponse());
-                //TODO : Play de la musique
+                //Play de la musique
+                /*Stream str = Properties.Resources.Sam_Blans___Shout_Out_Gaia_Beat_2;
+                SoundPlayer snd = new SoundPlayer(str);*/
             }
         }
 
