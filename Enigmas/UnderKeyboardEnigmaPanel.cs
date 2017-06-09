@@ -13,34 +13,34 @@ namespace Cpln.Enigmos.Enigmas
     
     class UnderKeyboardEnigmaPanel : EnigmaPanel
     {
-        private List<Touche> ListeTouche;
-        private List<int> placement;
-        private ShuffleList<char> caractere;
-        private ShuffleList<char> toutestouches;
-        private Button reset;
-        private Label lblPresser;
-        private int iWidth = 70;
-        private int iHeight = 70;
-        private int iLocalisationX = 150;
-        private int iLocalisationY = 150;
-        private int iLocY;
-        private int iLocX;
-        //private int place = 0;
+        private List<Touche> ListeTouche; // Contient la liste de Touche définitive
+        private List<int> placement; // Contient les numéros des emplacement qu'il faut réservé pour certaine lettre
+        private ShuffleList<char> caractere; // Liste qu'on mélange et qui contient les lettres avec un emplacement réserver dans la liste ListeTouche
+        private ShuffleList<char> toutestouches; // Liste qu'on mélage et qui contient les lettres
+        private Button reset; // Bouton pour remettre la localistation des touches au même endroit que au début de l'énigme
+        private Label lblPresser; //Label qui indique la clé de l'énigme
+        private int iWidth = 70; // Largeur des touches
+        private int iHeight = 70; // Hauteur des touches
+        private int iLocalisationX = 150; // Localistation de débart des touches en X
+        private int iLocalisationY = 150; // Localistation de débart des touches en Y
+        private int iLocY; // Localisation tampon pour calculer l'emplacement des touches en X
+        private int iLocX; // Localisation tampon pour calculer l'emplacement des touches en Y
+
         //private string strNom;
         /// <summary>
-        /// place les touches avec 26 touches
+        /// Place les 26 touches 
         /// </summary>
         public void PlaceTouche()
         {
             iLocX = iLocalisationX; //la localisation de la touche en X
             iLocY = iLocalisationY; //la localisation de la touche en Y
-            for (int i = 0; i <= 25; i++) // 
+            for (int i = 0; i <= 25; i++) 
             {
-                iLocX += iWidth;
-                if (i % 7 == 0)
+                iLocX += iWidth; // on ajoute en X la largeur de la touche pour pouvoir la placer l'une à coté de l'autre
+                if (i % 7 == 0) // si il y en a 7 on va à la ligne
                 {
-                    iLocX = iLocalisationX;
-                    iLocY += iHeight;
+                    iLocX = iLocalisationX; // on remet X a la localisation de base
+                    iLocY += iHeight; // On Ajoute la Hauteur en Y ce qui permet de descendre la touche et de refaire une ligne en dessous de l'autre
                 }
                 if (i == 21)
                 {
@@ -103,7 +103,7 @@ namespace Cpln.Enigmos.Enigmas
             caractere.Add('R');
             caractere.Add('E');
 
-            lblPresser = new Label() { Text = "PRESSER", Location = new Point(335, 60), TextAlign = ContentAlignment.MiddleCenter, Font = new Font(arial,10) };
+            lblPresser = new Label() { Text = "PRESSER", Location = new Point(335, 60), TextAlign = ContentAlignment.MiddleCenter/*, Font = new Font(,10)*/ };
             Controls.Add(lblPresser);
 
             // boucle qui va ajouter dans le tableau toutetouches toute les lettre de l'alphabet
@@ -137,7 +137,9 @@ namespace Cpln.Enigmos.Enigmas
             }
             PlaceTouche();
         }
-
+        /// <summary>
+        /// Supprime ce que contient la liste touche quand on change d'énigme
+        /// </summary>
         public override void Unload()
         {
             foreach(Touche touche in ListeTouche)
