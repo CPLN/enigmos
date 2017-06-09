@@ -16,7 +16,12 @@ namespace Cpln.Enigmos.Enigmas.Components
         private Color couleurPolice;
 
         public string Nom { get; set; }
-
+        /// <summary>
+        /// Crée une Touche
+        /// </summary>
+        /// <param name="nom">Nom de la touche</param>
+        /// <param name="Width">Largeur de la touche</param>
+        /// <param name="Height">Hauteur de la touche</param>
         public Touche(string nom,int Width, int Height)
         {
             this.Nom = nom;            
@@ -36,7 +41,11 @@ namespace Cpln.Enigmos.Enigmas.Components
             DoubleBuffered = true;
         }
 
-
+        /// <summary>
+        /// Dessine la touche
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Dessin(object sender, PaintEventArgs e)
         {
             Brush brushPanel = new SolidBrush(couleurPanel);
@@ -50,34 +59,49 @@ namespace Cpln.Enigmos.Enigmas.Components
             e.Graphics.FillEllipse(brushPanel, 0,Height-20, 20, 20);
             e.Graphics.FillEllipse(brushPanel, Width-20, 0, 20, 20);
             e.Graphics.FillEllipse(brushPanel, Width-20, Height-20, 20, 20);
-            e.Graphics.DrawString(Nom, new Font("Arial", 12), brushPolice, 2, 2);
+            e.Graphics.DrawString(Nom, new Font("Arial", 14), brushPolice, 2, 2);
         }
+        /// <summary>
+        /// Change la couleur de la touche en gris quand la souris la survol
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SourisEntre(object sender, EventArgs e)
         {
             this.couleurPanel = Color.Gray;
             Invalidate();
         }
-
+        /// <summary>
+        /// Remet la couleur de la touche en noir quand la souris ne survol plus la touche
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SourisSort(object sender, EventArgs e)
         {
             this.couleurPanel = Color.Black;
             Invalidate();
         }
+        /// <summary>
+        /// Change la couleur de la touche et de la police quand le clique de la souris est enfoncé
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SourisDown(object sender, MouseEventArgs e)
         {
             this.couleurPolice = Color.Black;
             this.couleurPanel = Color.LightGray;
             Invalidate();
         }
+        /// <summary>
+        /// Change la couleur de la touche et de la police quand le clique de la souris est relaché
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SourisUp(object sender, MouseEventArgs e)
         {
             this.couleurPolice = Color.White;
             this.couleurPanel = Color.Gray;
             Invalidate();
-        }
-        public override string ToString()
-        {
-            return Nom;
         }
     }
 }
