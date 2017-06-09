@@ -37,17 +37,18 @@ namespace Cpln.Enigmos.Enigmas
             for (int i = 0; i <= 25; i++) 
             {
                 iLocX += iWidth; // on ajoute en X la largeur de la touche pour pouvoir la placer l'une à coté de l'autre
-                if (i % 7 == 0) // si il y en a 7 on va à la ligne
+                if (i % 7 == 0) // si il y en a 7
                 {
+                    // Ces des commande nous permettes de faire un "Retour à la ligne" avec les touches
                     iLocX = iLocalisationX; // on remet X a la localisation de base
                     iLocY += iHeight; // On Ajoute la Hauteur en Y ce qui permet de descendre la touche et de refaire une ligne en dessous de l'autre
                 }
-                if (i == 21)
+                if (i == 21) // Si on est sur la case 21 on décale la première touche en X de une case parce que il y a moins de lettre sur la dernière ligne et nous voulons centrer le toute
                 {
-                    iLocX += iWidth;
+                    iLocX += iWidth; // On ajoute en X sa largeur
                 }
-                Touche touche = ListeTouche[i];
-                touche.Location = new Point(iLocX, iLocY);
+                Touche touche = ListeTouche[i]; // on appelle la classe Touche et on lui donne en paramètre la touche de ListeTouche avec l'ID i
+                touche.Location = new Point(iLocX, iLocY); // on place la touche à son emplacement calculer auparavent
             }
         }
         /// <summary>
