@@ -349,7 +349,10 @@ namespace Cpln.Enigmos.Properties {
         ///  &lt;enigma title=&quot;Plateformer&quot;&gt;
         ///    &lt;answer&gt;Pass1234&lt;/answer&gt;
         ///    &lt;hint&gt;Gagne.&lt;/hint&gt;
-        ///  &lt;/enigma&gt
+        ///  &lt;/enigma&gt;
+        ///  &lt;enigma title=&quot;Allumez tout&quot;&gt;
+        ///    &lt;answer&gt;lumineux&lt;/answer&gt;
+        ///    &lt;hint&gt;Faites en sorte que toutes les cases soient allumées&lt;/hin [le reste de la chaîne a été tronqué]&quot;;.
         /// </summary>
         internal static string enigmas {
             get {
@@ -368,12 +371,11 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 22,31,81,46,Yellow;
-        ///22,31,55,116,Lime;
-        ///22,31,234,140,Aqua;
-        ///22,31,144,357,Aqua;
-        ///22,31,299,12,Lime;
-        ///.
+        ///   Recherche une chaîne localisée semblable à 16,24,81,46,Transparent;
+        ///16,24,55,116,Transparent;
+        ///16,24,234,140,Transparent;
+        ///16,24,144,357,Transparent;
+        ///16,24,299,12,Transparent;.
         /// </summary>
         internal static string EnnemisCoord {
             get {
@@ -497,6 +499,126 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap Fantome1Recul3 {
             get {
                 object obj = ResourceManager.GetObject("Fantome1Recul3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Avance1 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Avance1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Avance2 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Avance2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Avance3 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Avance3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Droite1 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Droite1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Droite2 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Droite2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Droite3 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Droite3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Gauche1 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Gauche1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Gauche2 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Gauche2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Gauche3 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Gauche3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Recul1 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Recul1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Recul2 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Recul2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fantome2Recul3 {
+            get {
+                object obj = ResourceManager.GetObject("Fantome2Recul3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -848,16 +970,20 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 100,114,128,92,ActiveCaption;
-        ///53,207,0,-1,ActiveCaption;
-        ///53,164,0,279,ActiveCaption;
-        ///89,26,224,92,ActiveCaption;
-        ///72,114,305,92,ActiveCaption;
-        ///100,81,128,270,ActiveCaption;
-        ///72,81,305,270,ActiveCaption;
-        ///87,173,374,270,ActiveCaption;
-        ///53,99,224,-1,ActiveCaption;
-        ///.
+        ///   Recherche une chaîne localisée semblable à 100,114,128,92,Black;
+        ///53,207,0,-1,Black;
+        ///53,164,0,279,Black;
+        ///89,26,224,92,Black;
+        ///72,114,305,92,Black;
+        ///100,81,128,270,Black;
+        ///72,81,305,270,Black;
+        ///87,173,374,270,Black;
+        ///53,99,224,-1,Black;
+        ///461,30,0,440,Black;
+        ///461,5,0,0,Black;
+        ///10,470,460,0,Black;
+        ///340,600,470,0,Black;
+        ///800,340,0,470,Black;.
         /// </summary>
         internal static string Murcoord {
             get {
@@ -932,8 +1058,7 @@ namespace Cpln.Enigmos.Properties {
         ///27,27,315,357,DarkOrange;
         ///27,27,272,124,DarkOrange;
         ///27,27,422,12,DarkOrange;
-        ///27,27,145,25,Fuchsia;
-        ///.
+        ///27,27,145,25,Fuchsia;.
         /// </summary>
         internal static string papierCoord {
             get {
@@ -947,6 +1072,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap parapluie {
             get {
                 object obj = ResourceManager.GetObject("parapluie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap parquet {
+            get {
+                object obj = ResourceManager.GetObject("parquet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1197,6 +1332,76 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap raisins {
             get {
                 object obj = ResourceManager.GetObject("raisins", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SacAsauce1 {
+            get {
+                object obj = ResourceManager.GetObject("SacAsauce1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SacAsauce2 {
+            get {
+                object obj = ResourceManager.GetObject("SacAsauce2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SacAsauce3 {
+            get {
+                object obj = ResourceManager.GetObject("SacAsauce3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SacAsauce4 {
+            get {
+                object obj = ResourceManager.GetObject("SacAsauce4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SacAsauce5 {
+            get {
+                object obj = ResourceManager.GetObject("SacAsauce5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SacAsauce6 {
+            get {
+                object obj = ResourceManager.GetObject("SacAsauce6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SacAsauce7 {
+            get {
+                object obj = ResourceManager.GetObject("SacAsauce7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
