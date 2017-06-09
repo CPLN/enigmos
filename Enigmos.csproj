@@ -100,9 +100,6 @@
     <Compile Include="Enigmas\CoucheCouleurEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Enigmas\CombienDeSEnigmaPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Enigmas\CrypteDeLaFoulqueDesTenebresEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
