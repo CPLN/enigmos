@@ -296,6 +296,7 @@ namespace Cpln.Enigmos.Enigmas
 
         /// <summary>
         /// message s'affichant lorsque le jeu détecte qu'il y a eu collision entre un ennemi et le joueur
+        /// puis , qui repositionne le joueur au point de départ
         /// </summary>
         private void GameOverParColision()
         {
@@ -303,13 +304,14 @@ namespace Cpln.Enigmos.Enigmas
             DialogResult DlgGameOver = MessageBox.Show("touché!","G a m e  O v e r!",MessageBoxButtons.OK);
             if (DlgGameOver == DialogResult.OK)
             {
-                pbGhostJoueur.Location = new System.Drawing.Point(95, 228);
+                pbJoueur.Location = new System.Drawing.Point(95, 228);
+                pbGhostJoueur.Location = new Point(pbJoueur.Location.X - 3, pbJoueur.Location.Y - 3);
                 timer1.Start();
-            }
-          
+            }          
         }
         /// <summary>
         ///  message s'affichant lorsque le jeu détecte qu'un ennemi a vu le joueur
+        ///  puis , qui repositionne le joueur au point de départ
         /// </summary>
         private void GameOverParVision()
         {
@@ -317,7 +319,8 @@ namespace Cpln.Enigmos.Enigmas
             DialogResult DlgGameOver = MessageBox.Show("Vous avez été vu!!", "G a m e  O v e r!", MessageBoxButtons.OK);
             if (DlgGameOver == DialogResult.OK)
             {
-                pbGhostJoueur.Location = new System.Drawing.Point(95, 228);
+                pbJoueur.Location = new System.Drawing.Point(95, 228);
+                pbGhostJoueur.Location = new Point(pbJoueur.Location.X - 3, pbJoueur.Location.Y - 3);
                 timer1.Start();
             }
         }
