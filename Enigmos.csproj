@@ -112,6 +112,9 @@
     <Compile Include="Enigmas\FruitsEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\JeuDuSacEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\InvisibleAnswerEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -300,6 +303,60 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\SolParquetReworkGrisBrunSmol.png" />
+    <None Include="Resources\SacAsauce7.png" />
+    <None Include="Resources\SacAsauce6.png" />
+    <None Include="Resources\SacAsauce5.png" />
+    <None Include="Resources\SacAsauce4.png" />
+    <None Include="Resources\SacAsauce3.png" />
+    <None Include="Resources\SacAsauce2.png" />
+    <None Include="Resources\SacAsauce1.png" />
+    <None Include="Resources\parquet.png" />
+    <None Include="Resources\texturepalace-2013-04-25-metal-23.jpg" />
+    <None Include="Resources\LorieRecul3.png" />
+    <None Include="Resources\LorieRecul2.png" />
+    <None Include="Resources\LorieRecul1.png" />
+    <None Include="Resources\LorieGauche3.png" />
+    <None Include="Resources\LorieGauche2.png" />
+    <None Include="Resources\LorieGauche1.png" />
+    <None Include="Resources\LorieDroite3.png" />
+    <None Include="Resources\LorieDroite2.png" />
+    <None Include="Resources\LorieDroite1.png" />
+    <None Include="Resources\LorieAvance3.png" />
+    <None Include="Resources\LorieAvance2.png" />
+    <None Include="Resources\LorieAvance1.png" />
+    <None Include="Resources\SpriteEnnemiType1.xml" />
+    <None Include="Resources\Fantome1Recul3.png" />
+    <None Include="Resources\Fantome1Recul2.png" />
+    <None Include="Resources\Fantome1Recul1.png" />
+    <None Include="Resources\Fantome1Gauche3.png" />
+    <None Include="Resources\Fantome1Gauche2.png" />
+    <None Include="Resources\Fantome1Gauche1.png" />
+    <None Include="Resources\Fantome1Droite3.png" />
+    <None Include="Resources\Fantome1Droite2.png" />
+    <None Include="Resources\Fantome1Droite1.png" />
+    <None Include="Resources\Fantome1Avance3.png" />
+    <None Include="Resources\Fantome1Avance2.png" />
+    <None Include="Resources\Fantome1Avance1.png" />
+    <None Include="Resources\papierCoord.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Murcoord.Xml" />
+    <None Include="Resources\EnnemisCoord.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Fantome2Avance1.png" />
+    <None Include="Resources\Fantome2Avance2.png" />
+    <None Include="Resources\Fantome2Avance3.png" />
+    <None Include="Resources\Fantome2Droite1.png" />
+    <None Include="Resources\Fantome2Droite2.png" />
+    <None Include="Resources\Fantome2Droite3.png" />
+    <None Include="Resources\Fantome2Gauche1.png" />
+    <None Include="Resources\Fantome2Gauche2.png" />
+    <None Include="Resources\Fantome2Gauche3.png" />
+    <None Include="Resources\Fantome2Recul1.png" />
+    <None Include="Resources\Fantome2Recul2.png" />
+    <None Include="Resources\Fantome2Recul3.png" />
     <None Include="Resources\SingeViolonActif2.png" />
     <None Include="Resources\SingeViolonActif1.png" />
     <None Include="Resources\SingeCymbalePause.png" />
