@@ -41,6 +41,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CompteurEnigmaPanel(), "Compteur"));
             enigmas.Add(new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur"));
             enigmas.Add(new Enigma(new CrypteDeLaFoulqueDesTenebresEnigmaPanel(), "Foulque des Ténèbres"));
+            //enigmas.Add(new Enigma(new DevineAnimalEnigmaPanel(), "Devine l'animal !")); À rajouter lorsque les bugs seront réglés.
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
             enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
             enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));
@@ -48,9 +49,11 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new InvisibleAnwerEnigmaPanel(), "Invisible Answer"));
             enigmas.Add(new Enigma(new LettreHaute(), "Quelle est la plus haute ?"));
             enigmas.Add(new Enigma(new MemoireDesChiffresEnigmaPanel(), "Souviens toi"));
+            //enigmas.Add(new Enigma(new MemorisationChiffreEnigmaPanel(), "Mémorise")); À rajouter lorsque les bugs seront réglés.
             enigmas.Add(new Enigma(new MorpionEnigmaPanel(), "Morpion"));
             enigmas.Add(new Enigma(new NbrCarresEnigmaPanel(), "Nombre de carrés"));
             enigmas.Add(new Enigma(new NfsEnigmaPanel(), "Need For Speed"));
+            enigmas.Add(new Enigma(new PileOuFaceEnigmaPanel(), "Pile ou face"));
             enigmas.Add(new Enigma(new NinePointsEnigmaPanel(), "9 Points"));
             enigmas.Add(new Enigma(new OiseauxEnigmaPanel(), "Le plus long mot"));
             enigmas.Add(new Enigma(new OpenDoorEnigmaPanel(), "Ouvrez la porte !"));
@@ -69,6 +72,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
             enigmas.Add(new Enigma(new UnderKeyboardEnigmaPanel(), "Hugo von Hofmannsthal"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
+
 
             // Énigmes avec prérequis
 

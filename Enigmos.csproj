@@ -86,10 +86,14 @@
     <Compile Include="Enigmas\BoiteNoireEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\Components\Interaction.cs" />
     <Compile Include="Enigmas\Components\Light.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\LightController.cs" />
+    <Compile Include="Enigmas\Components\Singe.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\CompteurEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -108,7 +112,13 @@
     <Compile Include="Enigmas\Components\MovablePanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\DevineAnimalEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\FruitsEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\JeuDuSacEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\InvisibleAnswerEnigmaPanel.cs">
@@ -127,6 +137,9 @@
     <Compile Include="Enigmas\Pendu2EnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\MemorisationChiffreEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\PenduEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -143,6 +156,9 @@
     <Compile Include="Enigmas\Components\Ennemi.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\PileOuFaceEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\PlateformerEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -154,6 +170,9 @@
     </Compile>
     <Compile Include="Enigmas\Components\Graph.cs" />
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\SingesEnigmaPanel .cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\TrouverEnigmaPanel.cs">
@@ -293,6 +312,82 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\SolParquetReworkGrisBrunSmol.png" />
+    <None Include="Resources\SacAsauce7.png" />
+    <None Include="Resources\SacAsauce6.png" />
+    <None Include="Resources\SacAsauce5.png" />
+    <None Include="Resources\SacAsauce4.png" />
+    <None Include="Resources\SacAsauce3.png" />
+    <None Include="Resources\SacAsauce2.png" />
+    <None Include="Resources\SacAsauce1.png" />
+    <None Include="Resources\parquet.png" />
+    <None Include="Resources\texturepalace-2013-04-25-metal-23.jpg" />
+    <None Include="Resources\LorieRecul3.png" />
+    <None Include="Resources\LorieRecul2.png" />
+    <None Include="Resources\LorieRecul1.png" />
+    <None Include="Resources\LorieGauche3.png" />
+    <None Include="Resources\LorieGauche2.png" />
+    <None Include="Resources\LorieGauche1.png" />
+    <None Include="Resources\LorieDroite3.png" />
+    <None Include="Resources\LorieDroite2.png" />
+    <None Include="Resources\LorieDroite1.png" />
+    <None Include="Resources\LorieAvance3.png" />
+    <None Include="Resources\LorieAvance2.png" />
+    <None Include="Resources\LorieAvance1.png" />
+    <None Include="Resources\SpriteEnnemiType1.xml" />
+    <None Include="Resources\Fantome1Recul3.png" />
+    <None Include="Resources\Fantome1Recul2.png" />
+    <None Include="Resources\Fantome1Recul1.png" />
+    <None Include="Resources\Fantome1Gauche3.png" />
+    <None Include="Resources\Fantome1Gauche2.png" />
+    <None Include="Resources\Fantome1Gauche1.png" />
+    <None Include="Resources\Fantome1Droite3.png" />
+    <None Include="Resources\Fantome1Droite2.png" />
+    <None Include="Resources\Fantome1Droite1.png" />
+    <None Include="Resources\Fantome1Avance3.png" />
+    <None Include="Resources\Fantome1Avance2.png" />
+    <None Include="Resources\Fantome1Avance1.png" />
+    <None Include="Resources\papierCoord.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Murcoord.Xml" />
+    <None Include="Resources\EnnemisCoord.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Fantome2Avance1.png" />
+    <None Include="Resources\Fantome2Avance2.png" />
+    <None Include="Resources\Fantome2Avance3.png" />
+    <None Include="Resources\Fantome2Droite1.png" />
+    <None Include="Resources\Fantome2Droite2.png" />
+    <None Include="Resources\Fantome2Droite3.png" />
+    <None Include="Resources\Fantome2Gauche1.png" />
+    <None Include="Resources\Fantome2Gauche2.png" />
+    <None Include="Resources\Fantome2Gauche3.png" />
+    <None Include="Resources\Fantome2Recul1.png" />
+    <None Include="Resources\Fantome2Recul2.png" />
+    <None Include="Resources\Fantome2Recul3.png" />
+    <None Include="Resources\SingeViolonActif2.png" />
+    <None Include="Resources\SingeViolonActif1.png" />
+    <None Include="Resources\SingeCymbalePause.png" />
+    <None Include="Resources\SingeDjembePause.png" />
+    <None Include="Resources\SingeViolonPause.png" />
+    <None Include="Resources\Sam Blans - Shout Out Gaia Beat 2.wav" />
+    <None Include="Resources\Sam Blans - Shout Out Gaia Beat 2.mp3" />
+    <None Include="Resources\reset.png" />
+    <None Include="Resources\TroisBananes.png" />
+    <None Include="Resources\SingeDjembeG.png" />
+    <None Include="Resources\SingeDjembeD .png" />
+    <None Include="Resources\SingeDeDosNA.png" />
+    <None Include="Resources\SingeDeDosBA.png" />
+    <None Include="Resources\ZMneiWS.gif" />
+    <None Include="Resources\SingeBleuCymbaleFermees.png" />
+    <None Include="Resources\SingeBleuCymbalesOuvertes.png" />
+    <None Include="Resources\jungle.png" />
+    <None Include="Resources\SingeTrumpet.png" />
+    <None Include="Resources\SingesBackground.png" />
+    <None Include="Resources\depositphotos_66251549-stock-photo-reset-circular-icon-on-white.jpg" />
+    <None Include="Resources\13081.png" />
+    <None Include="Resources\174698.png" />
     <Content Include="Resources\listeMotPendu.txt" />
     <None Include="Resources\UnderImage.png" />
     <None Include="Resources\mot.txt" />
@@ -305,6 +400,9 @@
     <None Include="Resources\pendu6.png" />
     <None Include="Resources\pendu5.png" />
     <None Include="Resources\pendu4.png" />
+    <None Include="Resources\ElephantOmbre.png" />
+    <None Include="Resources\Elephant.png" />
+    <None Include="Resources\ombre.png" />
     <None Include="Resources\nailCorrected.png" />
     <None Include="Resources\tableCorrect.png" />
     <None Include="Resources\tableResized.png" />
@@ -317,6 +415,7 @@
     <None Include="Resources\TrollFace.png" />
     <None Include="Resources\piano.jpg" />
     <None Include="Resources\parapluie.jpg" />
+    <None Include="Resources\PileOUface.gif" />
     <None Include="Resources\mamifere.jpg" />
     <None Include="Resources\farine.jpg" />
     <None Include="Resources\Coccinelle.jpg" />
@@ -330,7 +429,6 @@
     <None Include="Resources\donjon2.png" />
     <None Include="Resources\donjon1.png" />
     <None Include="Resources\mur.png" />
-    <None Include="Resources\0-tileset.png" />
     <None Include="Resources\medevial_sprite.png" />
     <None Include="Resources\Coot-.png" />
     <None Include="Resources\warpzoneglitchremix.png" />
