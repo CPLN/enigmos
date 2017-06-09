@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new Pendu2EnigmaPanel(), "Pendu 2");
+            return new Enigma(new SingesEnigmaPanel(), "Les 3 singes");
         }
 
         /// <summary>

@@ -42,6 +42,10 @@
     <answer>là-bas</answer>
     <hint>je t'ai dis là-bas, enfin !</hint>
   </enigma>
+  <enigma title="Les 3 singes">
+    <answer>Bananas</answer>
+    <hint>Chaque boutons active/désactive l'état d'un singe, essaye de les activer tous en même temps</hint>
+  </enigma>
   <enigma title="Couche Couleur">
     <answer>troller</answer>
     <hint>Clavier</hint>

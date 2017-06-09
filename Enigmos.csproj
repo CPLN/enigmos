@@ -80,10 +80,14 @@
     <Compile Include="Enigmas\BoiteNoireEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\Components\Interaction.cs" />
     <Compile Include="Enigmas\Components\Light.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\LightController.cs" />
+    <Compile Include="Enigmas\Components\Singe.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\CompteurEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -157,6 +161,9 @@
     </Compile>
     <Compile Include="Enigmas\Components\Graph.cs" />
     <Compile Include="Enigmas\CharadeEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\SingesEnigmaPanel .cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\TrouverEnigmaPanel.cs">
@@ -293,6 +300,28 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\SingeViolonActif2.png" />
+    <None Include="Resources\SingeViolonActif1.png" />
+    <None Include="Resources\SingeCymbalePause.png" />
+    <None Include="Resources\SingeDjembePause.png" />
+    <None Include="Resources\SingeViolonPause.png" />
+    <None Include="Resources\Sam Blans - Shout Out Gaia Beat 2.wav" />
+    <None Include="Resources\Sam Blans - Shout Out Gaia Beat 2.mp3" />
+    <None Include="Resources\reset.png" />
+    <None Include="Resources\TroisBananes.png" />
+    <None Include="Resources\SingeDjembeG.png" />
+    <None Include="Resources\SingeDjembeD .png" />
+    <None Include="Resources\SingeDeDosNA.png" />
+    <None Include="Resources\SingeDeDosBA.png" />
+    <None Include="Resources\ZMneiWS.gif" />
+    <None Include="Resources\SingeBleuCymbaleFermees.png" />
+    <None Include="Resources\SingeBleuCymbalesOuvertes.png" />
+    <None Include="Resources\jungle.png" />
+    <None Include="Resources\SingeTrumpet.png" />
+    <None Include="Resources\SingesBackground.png" />
+    <None Include="Resources\depositphotos_66251549-stock-photo-reset-circular-icon-on-white.jpg" />
+    <None Include="Resources\13081.png" />
+    <None Include="Resources\174698.png" />
     <Content Include="Resources\listeMotPendu.txt" />
     <None Include="Resources\mot.txt" />
     <None Include="Resources\pendu3.png" />
@@ -333,7 +362,6 @@
     <None Include="Resources\donjon2.png" />
     <None Include="Resources\donjon1.png" />
     <None Include="Resources\mur.png" />
-    <None Include="Resources\0-tileset.png" />
     <None Include="Resources\medevial_sprite.png" />
     <None Include="Resources\Coot-.png" />
     <None Include="Resources\warpzoneglitchremix.png" />
