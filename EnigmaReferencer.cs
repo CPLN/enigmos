@@ -56,6 +56,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new OpenDoorEnigmaPanel(), "Ouvrez la porte !"));
             enigmas.Add(new Enigma(new OuEstLaReponseEnigmaPanel(), "Où est la réponse ?"));
             enigmas.Add(new Enigma(new PenduEnigmaPanel(), "Le jeu du pendu"));
+            enigmas.Add(new Enigma(new Pendu2EnigmaPanel(), "Pendu 2"));
             enigmas.Add(new Enigma(new PhoqueEnigmaPanel(), "Chop' les poissons"));
             enigmas.Add(new Enigma(new PlateformerEnigmaPanel(), "Plateformer"));
             enigmas.Add(new Enigma(new RebusEnigmaPanel(), "Rébus"));
