@@ -63,6 +63,9 @@
     <Compile Include="Enigmas\Components\Ellipse.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\Components\Forme.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\Components\Triangle.cs">
       <SubType>Component</SubType>
     </Compile>

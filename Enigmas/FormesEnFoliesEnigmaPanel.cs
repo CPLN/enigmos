@@ -12,167 +12,216 @@ namespace Cpln.Enigmos.Enigmas
 {
     public class FormesEnFoliesEnigmaPanel : EnigmaPanel 
     {
-        int Compteur = 0;
-        int CompteurForme = 0;
-        int CompteurCouleur = 1;
-        Timer Timer1 = new Timer();
+        int iDecompteTimer = 10;
+        int iCompteur = 0;
+        int iTimer2 = 0;
 
-        Label lblForme = new Label();
-        Label lblCouleur = new Label();
+        Timer Timer1 = new Timer();
+        Timer Timer2 = new Timer();
+
+        Label lblFormeCouleur = new Label();
+        Label lblTime = new Label();
 
         List<Panel> lstForme = new List<Panel>(); // Création d'une liste qui contiendra tous les panels (formes)
 
         Button btnDifferent = new Button(); // Création du bouton différent
         Button btnIdentique = new Button(); // Création du bouton identique
 
-        Panel Carre1 = new Panel(); // Création du panel qui sera carré
-        Panel Carre2 = new Panel(); // Création d'un deuxième panel qui sera carré
+        Panel pnlCarre1 = new Panel(); // Création du panel qui sera carré
+        Panel pnlCarre2 = new Panel(); // Création d'un deuxième panel qui sera carré
+        Panel pnlCarre3 = new Panel();
 
-        Panel Rectangle1 = new Panel();
-        Panel Rectangle2 = new Panel();
+        Panel pnlRectangle1 = new Panel();
+        Panel pnlRectangle2 = new Panel();
+        Panel pnlRectangle3 = new Panel();
 
         Ellipse ellipse1 = new Ellipse();
         Ellipse ellipse2 = new Ellipse();
 
         public FormesEnFoliesEnigmaPanel()
         {
-            lblCouleur.Text = "COULEUR";
-            lblCouleur.Location = new Point(371, 100);
+            lblFormeCouleur.Location = new Point(371, 100);
+            lblTime.Location = new Point(380, 200);
+            lblTime.Size = new Size(100, 100);
+            lblTime.Font = new Font("Arial", 30 , FontStyle.Bold);
 
-            lblForme.Text = "FORME";
-            lblForme.Location = new Point(371, 100);
-
-            Timer1.Interval = 300; // 1 milliseconde
+            Timer1.Interval = 1000; // 1 milliseconde
             Timer1.Tick += new EventHandler(Timer_Tick);
             Timer1.Enabled = true;
+
+            Timer2.Interval = 500;
+            Timer2.Tick += new EventHandler(Timer2_Tick);
+            
 
             Triangle triangle = new Triangle(100, 50); // Création du panel qui sera un triangle, avec une base de 100 et un sommet à 50 (en haut milieu du panel)
             triangle.Location = new Point(350, 350);
             AjoutDansListe(triangle);
             
-            ellipse1.Location = new Point(350, 350);
-            ellipse1.Size = new Size(400, 400);
+            ellipse1.Location = new Point(300, 300);
+            ellipse1.Size = new Size(220, 220);
             AjoutDansListe(ellipse1);
 
             Controls.Add(btnDifferent);
             btnDifferent.Location = new Point(421, 111);
             btnDifferent.Text = "Différent";
             btnDifferent.Width = 100;
-            btnDifferent.Click += new EventHandler(ClicSurBouton);
+            btnDifferent.Click += new EventHandler(ClicSurBoutonDifferent);
             
             Controls.Add(btnIdentique);
             btnIdentique.Location = new Point(321, 111);
             btnIdentique.Text = "Identique";
             btnIdentique.Width = 100;
-            btnIdentique.Click += new EventHandler(ClicSurBouton);
+            btnIdentique.Click += new EventHandler(ClicSurBoutonIdentique);
 
-            Carre1 = AjoutPanelCarre(100, 250, 250, Carre1);
-            Carre1.BackColor = Color.Blue;
-
-            Carre2 = AjoutPanelCarre(100, 350, 350, Carre2);
-            Carre2.BackColor = Color.Black;
-
-            Rectangle1 = AjoutPanelRectangle(120, 210, 350, 350, Rectangle1);
-            Rectangle1.BackColor = Color.Beige;
-
-            Rectangle2 = AjoutPanelRectangle(120, 210, 350, 350, Rectangle2);
-            Rectangle2.BackColor = Color.Chartreuse;
+            AjoutPanelCarre(100, 350, 350, Color.Green, pnlCarre1);
+            AjoutPanelRectangle(120, 210, 350, 350, Color.Blue, pnlRectangle3);
+            AjoutPanelCarre(100, 350, 350, Color.Blue, pnlCarre2);
+            AjoutPanelRectangle(120, 210, 350, 350, Color.Yellow,pnlRectangle1);
+            AjoutPanelCarre(100, 350, 350, Color.Blue,pnlCarre3);
+            AjoutPanelRectangle(120, 210, 350, 350, Color.Green, pnlRectangle2);
         }
 
         //Timer qui va afficher les 2 premières formes automatiquement
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if(Compteur <= 0)
+            if(iCompteur <= 0)
             {
                 //Affiche la première forme
-                Controls.Add(lstForme[Compteur]);
+                Controls.Add(lstForme[iCompteur]);
                 //Incrémente le compteur
-                Compteur++;
+                iCompteur++;
             }
             else
             {
                 //Ajoute la 2ème forme
-                Controls.Add(lstForme[Compteur]);
+                Controls.Add(lstForme[iCompteur]);
                 //Supprime la 1ère forme
-                Controls.Remove(lstForme[Compteur -1]);
+                Controls.Remove(lstForme[iCompteur -1]);
                 //Ajoute le label forme en dessus des boutons
-                Controls.Add(lblForme);
+                Controls.Add(lblFormeCouleur);
+                lblFormeCouleur.Text = "Forme ?";
                 //Incrémente le compteur 
-                Compteur++;
+                iCompteur++;
+                Timer2.Enabled = true;
                 //Arrête le timer après avoir afficher les 2 premières formes
-                Timer1.Stop();
+                Timer1.Stop();    
             }
 
         }
 
-        //Evènement lorsqu'il y a un clic sur un bouton
-        private void ClicSurBouton(object sender, EventArgs e)
+        private void Timer2_Tick(object sender, EventArgs e)
         {
-            //On regarde si le CompteurForme est plus grand que le CompteurCouleur
-            if(CompteurForme < CompteurCouleur)
+            if(iTimer2<=10)
             {
-                //On test si le bouton qui à été appuyé est le bouton "différent"
-                if(sender==btnDifferent)
-                {
-                    //Enlève le label Couleur qui doit être sur l'énigme
-                    Controls.Remove(lblCouleur);
-                    //Ajoute le label Forme
-                    Controls.Add(lblForme);
-                    //Si la largeur de la forme précédente et celle actuellement identique alors le test est réussi
-                    if (lstForme[Compteur - 1].Width == lstForme[Compteur - 2].Width)
-                    {
-                        //Si ils sont égaux alors on va enlever la forme actuelle
-                        Controls.Remove(lstForme[Compteur - 1]);
-                        //On remet le compteur à zéro de la liste des formes
-                        Compteur = 0;
-                        //On remet le compteur Forme à zéro
-                        CompteurForme = 0;
-                        //On remet le compteur couleur à 1
-                        CompteurCouleur = 1;
-                        //On relance le timer1
-                        Timer1.Start();
-                    }
-                    else //Si le test est faut on va faire tout ce qu'il y a en dessous
-                    {
-                        //On ajoute la prochaine forme de la liste
-                        Controls.Add(lstForme[Compteur]);
-                        //On supprime celle qu'il y a actuellement
-                        Controls.Remove(lstForme[Compteur - 1]);
-                        //On augment le compteur forme de 2
-                        CompteurForme += 2;
-                    }
-                }
-                else //Si le bouton qui à été cliqué n'est pas le bouton "différent" on va faire tout ce qu'il y a dans le "else"
-                {
-                    //On test si la largeur de la forme précédente est égale à la forme actuelle
-                    if(lstForme[Compteur - 1].Width == lstForme[Compteur - 2].Width)
-                    {
-                        Controls.Add(lstForme[Compteur]);
-                        Controls.Remove(lstForme[Compteur - 1]);
-                    }
-                    else
-                    {
-                        Controls.Remove(lstForme[Compteur - 1]);
-                        Compteur = 0;
-                        Timer1.Start();
-                    }
-                }
-                        
+                Controls.Add(lblTime);
+                lblTime.Text = Convert.ToString(iDecompteTimer);
             }
             else
             {
-                
-                if(sender==btnDifferent)
-                {
-                    Controls.Remove(lblForme);
-                }
+                Timer2.Stop();
+                iTimer2 = 0;
+
             }
 
-            Compteur++;
+            iDecompteTimer--;
+            iTimer2++;
         }
 
-        public Panel AjoutPanelCarre(int cote, int positionX, int positionY, Panel p)
+        //Evènement lorsqu'il y a un clic sur un bouton
+        private void ClicSurBoutonDifferent(object sender, EventArgs e)
         {
+            int iTailleListe = lstForme.Capacity;
+            if (iCompteur <= iTailleListe)
+            {
+                if (lblFormeCouleur.Text == "Forme ?" || iCompteur == 2)
+                {
+                    lblFormeCouleur.Text = "Couleur ?";
+
+                    if (lstForme[iCompteur - 2].Width == lstForme[iCompteur - 1].Width)
+                    {
+                        Controls.Remove(lstForme[iCompteur - 1]);
+                        iCompteur = 0;
+                        Timer1.Start();
+                    }
+                    else
+                    {
+                        Controls.Add(lstForme[iCompteur]);
+                        Controls.Remove(lstForme[iCompteur - 1]);
+                        iCompteur++;
+                    }
+                }
+                else
+                {
+                    lblFormeCouleur.Text = "Forme ?";
+
+                    if (lstForme[iCompteur - 2].BackColor == lstForme[iCompteur - 1].BackColor)
+                    {
+                        Controls.Remove(lstForme[iCompteur - 1]);
+                        iCompteur = 0;
+                        Timer1.Start();
+                    }
+                    else
+                    {
+                        Controls.Add(lstForme[iCompteur]);
+                        Controls.Remove(lstForme[iCompteur - 1]);
+                        iCompteur++;
+                    }
+                }
+
+            }
+               
+        }
+
+        private void ClicSurBoutonIdentique(object sender, EventArgs e)
+        {
+            if (lblFormeCouleur.Text == "Forme ?" || iCompteur == 2)
+            {
+                lblFormeCouleur.Text = "Couleur ?";
+
+                if (lstForme[iCompteur - 2].Width == lstForme[iCompteur - 1].Width)
+                {
+
+                    Controls.Add(lstForme[iCompteur]);
+                    Controls.Remove(lstForme[iCompteur - 1]);
+                    iCompteur++;
+                }
+                else
+                {
+                    Controls.Remove(lstForme[iCompteur - 1]);
+                    iCompteur = 0;
+                    Timer1.Start();
+                }
+            }
+            else
+            {
+                lblFormeCouleur.Text = "Forme ?";
+
+                if (lstForme[iCompteur - 2].BackColor == lstForme[iCompteur - 1].BackColor)
+                {
+                    Controls.Add(lstForme[iCompteur]);
+                    Controls.Remove(lstForme[iCompteur - 1]);
+                    iCompteur++;
+                }
+                else
+                {
+                    Controls.Remove(lstForme[iCompteur - 1]);
+                    iCompteur = 0;
+                    Timer1.Start();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Permet de choisir la taille carée d'un panel
+        /// </summary>
+        /// <param name="cote">Détermine la taille du côté du panel</param>
+        /// <param name="positionX"></param>
+        /// <param name="positionY"></param>
+        /// <param name="p">Contient le panel qui va être modifié</param>
+        /// <returns>p</returns>
+        public Panel AjoutPanelCarre(int cote, int positionX, int positionY, Color couleur, Panel p)
+        {
+            p.BackColor = couleur;
             p.Size = new Size(cote, cote);
             p.Location = new Point(positionX, positionY);
             AjoutDansListe(p);
@@ -180,8 +229,18 @@ namespace Cpln.Enigmos.Enigmas
             return p;
         }
 
-        public Panel AjoutPanelRectangle(int hauteur, int largeur, int positionX, int positionY, Panel p)
+        /// <summary>
+        /// Permet de donner une forme rectangulaire à un panel
+        /// </summary>
+        /// <param name="hauteur">Détermine la hauteur qu'aura le rectangle</param>
+        /// <param name="largeur">Détermine la largeur qu'aura le rectangle</param>
+        /// <param name="positionX">Détermine la position qu'aura le panel sur l'axe X</param>
+        /// <param name="positionY">Détermine la position qu'aura le panel sur l'axe Y</param>
+        /// <param name="p">Contient le panel qui va devenir rectangulaire</param>
+        /// <returns>p</returns>
+        public Panel AjoutPanelRectangle(int hauteur, int largeur, int positionX, int positionY, Color couleur, Panel p)
         {
+            p.BackColor = couleur;
             p.Size = new Size(largeur, hauteur);
             p.Location = new Point(positionX, positionY);
             AjoutDansListe(p);
@@ -189,6 +248,11 @@ namespace Cpln.Enigmos.Enigmas
             return p;
         }
 
+        /// <summary>
+        /// Permet d'ajouter un panel dans la liste de panel "lstForme", pour ceux qui ne sont ni rectangle ni carré
+        /// </summary>
+        /// <param name="p">Contient le panel à ajouter dans la liste</param>
+        /// <returns>p</returns>
         public Panel AjoutDansListe(Panel p)
         {
             lstForme.Add(p);
