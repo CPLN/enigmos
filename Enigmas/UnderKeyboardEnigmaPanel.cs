@@ -38,7 +38,7 @@ namespace Cpln.Enigmos.Enigmas
                 iLocX += iWidth;
                 if (i % 7 == 0) 
                 {
-                    // Ces des commande nous permettes de faire un "Retour à la ligne" avec les touches
+                    // Ces deux commandes nous permettes de faire un "Retour à la ligne" avec les touches
                     iLocX = iLocalisationX;
                     iLocY += iHeight;
                 }
@@ -127,7 +127,7 @@ namespace Cpln.Enigmos.Enigmas
                 Touche touche = new Touche("" + toutestouches[i], iWidth, iHeight);
                 Controls.Add(touche);
                 listeTouche.Add(touche);
-                touche.BringToFront(); // Fait passer le contrôle au premier rang de l'ordre de plan.
+                touche.BringToFront(); // Fait passer le contrôle au premier rang dans l'ordre de plan.
             }
             PlaceTouche();
         }
