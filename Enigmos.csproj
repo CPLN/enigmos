@@ -11,6 +11,7 @@
     <AssemblyName>Enigmos</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publier\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -64,10 +64,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\Touche.cs">
-	      <SubType>Component</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\ImagePendu.cs">
-	      <SubType>Component</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\ClouEnigmaPanel.cs">
       <SubType>Component</SubType>
@@ -290,7 +290,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
-	<Content Include="Resources\listeMotPendu.txt" />
+    <Content Include="Resources\listeMotPendu.txt" />
     <None Include="Resources\UnderImage.png" />
     <None Include="Resources\mot.txt" />
     <None Include="Resources\pendu3.png" />
