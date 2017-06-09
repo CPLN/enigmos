@@ -1,5 +1,7 @@
 ﻿using Cpln.Enigmos.Enigmas.Components.Clou;
+using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
@@ -18,6 +20,7 @@ namespace Cpln.Enigmos.Enigmas
         private Player player = new Player();
 
         private int round = 1;
+        private bool isKeyDown;
 
         /// <summary>
         /// Constructeur: ajout des contrôles sur l'affichage
@@ -111,6 +114,7 @@ namespace Cpln.Enigmos.Enigmas
                 UpdateStatusLabel();
                 bar.StartCursor();
                 nail.ResetPosition();
+                isKeyDown = false;
 
                 return true;
             }
@@ -123,10 +127,12 @@ namespace Cpln.Enigmos.Enigmas
         /// <summary>
         /// Frappe le clou quand la touche espace est enfoncée, c'est ici que les manches se calculent.
         /// </summary>
-        public override void PressKey(object sender, KeyEventArgs e)
+        public override async void PressKey(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Space)
+            if (e.KeyCode == Keys.Space && !isKeyDown)
             {
+                isKeyDown = true;
+
                 #region Tour joueur
                 //Ramène l'image de la table devant le clou.
                 table.BringToFront();
@@ -148,11 +154,8 @@ namespace Cpln.Enigmos.Enigmas
                 //Update l'UI
                 UpdateStatusLabel();
 
-                //Force l'interface à se refresh avant que l'IA réfléchisse.
-                Application.DoEvents();
-
                 //Simule le temps de réflexion de l'IA
-                System.Threading.Thread.Sleep(2000);
+                await Task.Delay(2000);
 
                 //L'IA frappe le clou                
                 ia.Blow(nail, ia.CalculateBlowPower(nail, player));
@@ -171,6 +174,8 @@ namespace Cpln.Enigmos.Enigmas
                 //Relance le curseur sur la barre d'énergie
                 bar.StartCursor();
                 #endregion
+
+                isKeyDown = false;
             }
         }
 
@@ -182,6 +187,7 @@ namespace Cpln.Enigmos.Enigmas
             ia.WinnedRound = 0;
             player.WinnedRound = 0;
             round = 1;
+            isKeyDown = false;
             UpdateStatusLabel();
             bar.StartCursor();
             nail.ResetPosition();
