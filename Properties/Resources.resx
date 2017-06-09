@@ -517,9 +517,6 @@
   <data name="Fantome2Recul3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fantome2Recul3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="parquet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\parquet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="SacAsauce1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SacAsauce1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

@@ -1079,16 +1079,6 @@ namespace Cpln.Enigmos.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap parquet {
-            get {
-                object obj = ResourceManager.GetObject("parquet", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap PartiJuste {
             get {
                 object obj = ResourceManager.GetObject("PartiJuste", resourceCulture);

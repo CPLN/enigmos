@@ -300,7 +300,13 @@ namespace Cpln.Enigmos.Enigmas
         private void GameOverParColision()
         {
             timer1.Stop();
-            MessageBox.Show("touché!");
+            DialogResult DlgGameOver = MessageBox.Show("touché!","G a m e  O v e r!",MessageBoxButtons.OK);
+            if (DlgGameOver == DialogResult.OK)
+            {
+                pbGhostJoueur.Location = new System.Drawing.Point(95, 228);
+                timer1.Start();
+            }
+          
         }
         /// <summary>
         ///  message s'affichant lorsque le jeu détecte qu'un ennemi a vu le joueur
@@ -308,7 +314,12 @@ namespace Cpln.Enigmos.Enigmas
         private void GameOverParVision()
         {
             timer1.Stop();
-            MessageBox.Show("Vous avez été vu!\n G a m e  O v e r!");
+            DialogResult DlgGameOver = MessageBox.Show("Vous avez été vu!!", "G a m e  O v e r!", MessageBoxButtons.OK);
+            if (DlgGameOver == DialogResult.OK)
+            {
+                pbGhostJoueur.Location = new System.Drawing.Point(95, 228);
+                timer1.Start();
+            }
         }
 
         public override void PressKey(object sender, KeyEventArgs e)
