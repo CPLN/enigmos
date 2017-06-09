@@ -287,6 +287,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+    <None Include="Resources\SolParquetReworkGrisBrunSmol.png" />
     <None Include="Resources\SacAsauce7.png" />
     <None Include="Resources\SacAsauce6.png" />
     <None Include="Resources\SacAsauce5.png" />
@@ -321,9 +322,13 @@
     <None Include="Resources\Fantome1Avance3.png" />
     <None Include="Resources\Fantome1Avance2.png" />
     <None Include="Resources\Fantome1Avance1.png" />
-    <None Include="Resources\papierCoord.xml" />
+    <None Include="Resources\papierCoord.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\Murcoord.Xml" />
-    <None Include="Resources\EnnemisCoord.xml" />
+    <None Include="Resources\EnnemisCoord.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\Fantome2Avance1.png" />
     <None Include="Resources\Fantome2Avance2.png" />
     <None Include="Resources\Fantome2Avance3.png" />

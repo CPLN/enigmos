@@ -1052,13 +1052,13 @@ namespace Cpln.Enigmos.Properties {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à 27,27,191,12,DarkOrange;
-        ///27,27,0,217,DarkOrange;
-        ///27,27,182,403,DarkOrange;
-        ///27,27,315,357,DarkOrange;
-        ///27,27,272,124,DarkOrange;
-        ///27,27,422,12,DarkOrange;
-        ///27,27,145,25,Fuchsia;.
+        ///   Recherche une chaîne localisée semblable à 27,27,191,12,Transparent;
+        ///27,27,0,217,Transparent;
+        ///27,27,182,403,Transparent;
+        ///27,27,315,357,Transparent;
+        ///27,27,272,124,Transparent;
+        ///27,27,422,12,Transparent;
+        ///27,27,145,25,Transparent;.
         /// </summary>
         internal static string papierCoord {
             get {
@@ -1422,6 +1422,16 @@ namespace Cpln.Enigmos.Properties {
         internal static System.Drawing.Bitmap SeptDifference2 {
             get {
                 object obj = ResourceManager.GetObject("SeptDifference2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SolParquetReworkGrisBrunSmol {
+            get {
+                object obj = ResourceManager.GetObject("SolParquetReworkGrisBrunSmol", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
