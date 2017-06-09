@@ -18,7 +18,7 @@ namespace Cpln.Enigmos.Enigmas
         Random RandoDifficulte = new Random();
         Random RandoAnimal = new Random();
 
-        //déclaration des varaibles
+        //déclaration des variables
         private int iCompteur = 0;
         private int iAxeX;
         private int iAxeY;
