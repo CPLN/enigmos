@@ -349,6 +349,15 @@
   <data name="papierCoord" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\papierCoord.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="jungle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jungle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeCymbalesOuvertes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeBleuCymbalesOuvertes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeCymbalesFermees" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeBleuCymbaleFermees.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pendu0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pendu0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -376,6 +385,9 @@
   <data name="pendu8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pendu8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="elephant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\elephant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Coin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Coin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -399,6 +411,9 @@
   </data>
   <data name="piano" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\piano.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ElephantOmbre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ElephantOmbre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="donjon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\donjon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -468,6 +483,9 @@
   </data>
   <data name="SpriteEnnemiType1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SpriteEnnemiType1.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Pileouface" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PileOUface.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="listeMotPendu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\listeMotPendu.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -543,5 +561,37 @@
   </data>
   <data name="SolParquetReworkGrisBrunSmol" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SolParquetReworkGrisBrunSmol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SingeDeDosBA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeDeDosBA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeDeDosNA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeDeDosNA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeDjembeD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeDjembeD .png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeDjembeG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeDjembeG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bananas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13081.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reset" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeViolonPause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeViolonPause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeDjembePause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeDjembePause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeCymbalePause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeCymbalePause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeViolonActif1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeViolonActif1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeViolonActif2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeViolonActif2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

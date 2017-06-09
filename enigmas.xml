@@ -46,6 +46,10 @@
     <answer>là-bas</answer>
     <hint>je t'ai dis là-bas, enfin !</hint>
   </enigma>
+  <enigma title="Les 3 singes">
+    <answer>Bananas</answer>
+    <hint>Chaque boutons active/désactive l'état d'un singe, essaye de les activer tous en même temps</hint>
+  </enigma>
   <enigma title="Couche Couleur">
     <answer>troller</answer>
     <hint>Clavier</hint>
@@ -178,6 +182,14 @@
     <answer>9.</answer>
     <hint>Passez par les 9 points en 4 traits</hint>
   </enigma>
+  <enigma title="Devine l'animal !">
+    <answer>éléphant</answer>
+    <hint>L'ombre d'un doute</hint>
+  </enigma>
+  <enigma title="Pile ou face">
+    <answer>pile poil</answer>
+    <hint>1er partie :Choisi t'as combinaison de 3 (Pile ou face).  2ème partie: Les carrées de couleur t'indique les éléments gagnants de ta combinaison</hint>
+  </enigma>
   <enigma title="Boite noire">
     <answer>skate</answer>
     <hint>Touver les lettres corresondantes aux chiffres et mettez les dans le bon ordre (A=1,B=2,...)</hint>
@@ -189,5 +201,9 @@
   <enigma title="Compteur">
     <answer>temps</answer>
     <hint>Presser sur la barre espace quand vous pensez avoir atteint le temps défini</hint>
+  </enigma>
+  <enigma title="Mémorise">
+    <answer>we</answer>
+    <hint>Mémorisez le chiffre</hint>
   </enigma>
 </enigmas>

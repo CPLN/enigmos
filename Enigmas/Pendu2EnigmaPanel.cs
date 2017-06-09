@@ -26,7 +26,7 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(pbxImagePendu);
             #endregion
             #region Textbox proposition lettre
-            
+
             tbxPropositionLettre.Font = new Font(tbxPropositionLettre.Font.FontFamily, 25.0F);
             tbxPropositionLettre.MaxLength = 1;
             tbxPropositionLettre.Width = 60;
@@ -34,7 +34,7 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(tbxPropositionLettre);
             #endregion
             #region Bouton proposition lettrer
-            
+
             btnProposerLettre.Text = "Proposer lettre";
             btnProposerLettre.Font = new Font(tbxPropositionLettre.Font.FontFamily, 20.0F);
             btnProposerLettre.Size = new Size(240, 46);
@@ -43,7 +43,7 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(btnProposerLettre);
             #endregion
             #region Label mot
-            
+
             lblMotCache.Font = new Font(lblMotCache.Font.FontFamily, 25.0F);
             lblMotCache.Text = "Label";
             lblMotCache.Height = 40;
@@ -52,7 +52,7 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(lblMotCache);
             #endregion
             #region Label fausse lettre
-            
+
             lblFausseLettre.Font = new Font(lblMotCache.Font.FontFamily, 17.0F);
             lblFausseLettre.Text = "Label";
             lblFausseLettre.Height = 40;
@@ -61,7 +61,7 @@ namespace Cpln.Enigmos.Enigmas
             lblFausseLettre.Location = new Point(120, 350);
             Controls.Add(lblFausseLettre);
             #endregion
-            
+
         }
         public override void Load()
         {
@@ -71,7 +71,7 @@ namespace Cpln.Enigmos.Enigmas
         string MotCache;
         int cptErreur = 0;
         List<string> lettreProposee = new List<string>();
-        
+
         public void NouvellePartie()
         {
             lettreProposee.Clear();
@@ -79,12 +79,12 @@ namespace Cpln.Enigmos.Enigmas
 
             cptErreur = 0;
             pbxImagePendu.SetImage(cptErreur);
-            
+
             string resource_data = Properties.Resources.listeMotPendu; //Lecture fichier dans une liste
             List<string> lMot = resource_data.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
             Random rdm = new Random();
-            
+
             Mot = lMot[rdm.Next(0, lMot.Count)];
 
 
@@ -132,7 +132,7 @@ namespace Cpln.Enigmos.Enigmas
                     cptErreur++;
                     pbxImagePendu.SetImage(cptErreur);
                     lblFausseLettre.Text += Proposition + "  ";
-                    
+
                 }
                 lettreProposee.Add(Proposition);
                 MotCache = NouveauMotCache;
@@ -151,7 +151,7 @@ namespace Cpln.Enigmos.Enigmas
             tbxPropositionLettre.Text = null;
         }
 
-        
+
         private void Gagner()
         {
             MessageBox.Show("Vous avez gagné\nLa réponse est marsupilami", "Bravo", MessageBoxButtons.OK);
