@@ -64,7 +64,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\Touche.cs">
-      <SubType>Component</SubType>
+	      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enigmas\Components\ImagePendu.cs">
+	      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\ClouEnigmaPanel.cs">
       <SubType>Component</SubType>
@@ -118,6 +121,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\Components\Etat.cs" />
+    <Compile Include="Enigmas\Pendu2EnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\PenduEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -251,7 +257,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RotatingLabel.cs">
+    <Compile Include="Utils\RotatingLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Enigmas\SwitchesEnigmaPanel.cs">
@@ -284,7 +290,18 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Exceptions\Enigmas.png" />
+	<Content Include="Resources\listeMotPendu.txt" />
     <None Include="Resources\UnderImage.png" />
+    <None Include="Resources\mot.txt" />
+    <None Include="Resources\pendu3.png" />
+    <None Include="Resources\pendu2.png" />
+    <None Include="Resources\pendu1.png" />
+    <None Include="Resources\pendu0.png" />
+    <None Include="Resources\pendu8.png" />
+    <None Include="Resources\pendu7.png" />
+    <None Include="Resources\pendu6.png" />
+    <None Include="Resources\pendu5.png" />
+    <None Include="Resources\pendu4.png" />
     <None Include="Resources\nailCorrected.png" />
     <None Include="Resources\tableCorrect.png" />
     <None Include="Resources\tableResized.png" />

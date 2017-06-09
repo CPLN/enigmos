@@ -1,4 +1,5 @@
 ﻿using Cpln.Enigmos.Enigmas.Components;
+using Cpln.Enigmos.Enigmas.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
