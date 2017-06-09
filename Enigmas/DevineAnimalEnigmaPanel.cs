@@ -12,11 +12,11 @@ namespace Cpln.Enigmos.Enigmas
     //DAVID DARMANGER
     //2M4I2C
 
-    public class DevineAnimalEnigmaPanel:EnigmaPanel
+    public class DevineAnimalEnigmaPanel : EnigmaPanel
     {
         //Label qui affichera les essai(s) restant(s)
         Label _lblEssai = new Label { Text = "Essai(s) restant(s): " + NB_ESSAI, Width = 200, Font = new Font("Century Gothic", 14, FontStyle.Bold) };
-        
+
         public override void Load()
         {
             _lblEssai.Text = "Essai(s) restant(s): " + NB_ESSAI;
@@ -44,10 +44,10 @@ namespace Cpln.Enigmos.Enigmas
         int iCompteurEssai = 1;
 
         //PictureBox qui contiendra l'image à deviner
-        PictureBox _pbxElephant = new PictureBox {BackgroundImage=Resources.ElephantOmbre, Width=243, Height=275, Location=new Point(250,100)};
-        
+        PictureBox _pbxElephant = new PictureBox { BackgroundImage = Resources.ElephantOmbre, Width = 243, Height = 275, Location = new Point(250, 100) };
+
         //Tableau de boutons utilisé pour les choix
-        Button[] _tBoutonChoix = new Button[] {new Button { Text = "Raie Manta" }, new Button { Text = "Papillon" }, new Button { Text = "Eléphant" } };
+        Button[] _tBoutonChoix = new Button[] { new Button { Text = "Raie Manta" }, new Button { Text = "Papillon" }, new Button { Text = "Eléphant" } };
 
         public DevineAnimalEnigmaPanel()
         {
@@ -58,13 +58,13 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(_pbxElephant);
 
             //Construction et affichage des boutons de choix
-            for (int i=0;i<_tBoutonChoix.Length;i++)
+            for (int i = 0; i < _tBoutonChoix.Length; i++)
             {
                 _tBoutonChoix[i].ForeColor = Color.White;
                 _tBoutonChoix[i].BackColor = Color.FromArgb(38, 175, 145);
-                _tBoutonChoix[i].Font = new Font("Century Gothic",14, FontStyle.Bold);
+                _tBoutonChoix[i].Font = new Font("Century Gothic", 14, FontStyle.Bold);
                 _tBoutonChoix[i].FlatStyle = FlatStyle.Flat;
-                _tBoutonChoix[i].Width=110;
+                _tBoutonChoix[i].Width = 110;
                 _tBoutonChoix[i].Height = 60;
                 _tBoutonChoix[i].Location = new Point(200 + 120 * i, 500);
                 _tBoutonChoix[i].Click += Btn_Click;
@@ -96,7 +96,7 @@ namespace Cpln.Enigmos.Enigmas
                 DesactivationBouton(_tBoutonChoix);
             }
             else
-            {            
+            {
                 iCompteurEssai++;
 
                 if (iCompteurEssai <= NB_ESSAI)

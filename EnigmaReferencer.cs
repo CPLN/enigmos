@@ -41,7 +41,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new CompteurEnigmaPanel(), "Compteur"));
             enigmas.Add(new Enigma(new CoucheCouleurEnigmaPanel(), "Couche Couleur"));
 			enigmas.Add(new Enigma(new CrypteDeLaFoulqueDesTenebresEnigmaPanel(), "Foulque des Ténèbres"));
-            enigmas.Add(new Enigma(new DevineAnimalEnigmaPanel(), "Devine l'animal !"));
+            //enigmas.Add(new Enigma(new DevineAnimalEnigmaPanel(), "Devine l'animal !")); À rajouter lorsque les bugs seront réglés.
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
             enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
             enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));
