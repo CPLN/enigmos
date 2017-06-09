@@ -143,6 +143,9 @@
     <Compile Include="Enigmas\Components\Ennemi.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Enigmas\PileOuFaceEnigmaPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Enigmas\PlateformerEnigmaPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -316,6 +319,7 @@
     <None Include="Resources\TrollFace.png" />
     <None Include="Resources\piano.jpg" />
     <None Include="Resources\parapluie.jpg" />
+    <None Include="Resources\PileOUface.gif" />
     <None Include="Resources\mamifere.jpg" />
     <None Include="Resources\farine.jpg" />
     <None Include="Resources\Coccinelle.jpg" />
