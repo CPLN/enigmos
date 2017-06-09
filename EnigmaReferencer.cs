@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new JeuDuSacEnigmaPanel(), "Jeu du sac");
+            return new Enigma(new UnderKeyboardEnigmaPanel(), "Hugo von Hofmannsthal");
         }
 
         /// <summary>
@@ -70,6 +70,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
             enigmas.Add(new Enigma(new TapeTaupeEnigmaPanel(), "Tape-taupe"));
             enigmas.Add(new Enigma(new TrouverEnigmaPanel(), "Trouver Cristiano"));
+            enigmas.Add(new Enigma(new UnderKeyboardEnigmaPanel(), "Hugo von Hofmannsthal"));
             enigmas.Add(new Enigma(new ZombieInvasionEnigmaPanel(), "ZombieInvasion"));
 
 
@@ -93,5 +94,6 @@ namespace Cpln.Enigmos
             enigmas.Shuffle();
             return enigmas;
         }
+        
     }
 }
