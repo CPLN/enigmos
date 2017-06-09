@@ -145,9 +145,7 @@ namespace Cpln.Enigmos.Enigmas
             {
                 tChrono.Stop();
                 Tsinge.ForEach(x => x.AfficherReponse());
-                //Play de la musique
-                /*Stream str = Properties.Resources.Sam_Blans___Shout_Out_Gaia_Beat_2;
-                SoundPlayer snd = new SoundPlayer(str);*/
+                //TODO Play de la musique
             }
         }
 
