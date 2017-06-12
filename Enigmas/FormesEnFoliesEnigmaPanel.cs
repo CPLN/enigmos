@@ -16,6 +16,8 @@ namespace Cpln.Enigmos.Enigmas
         int iCompteur = 0;
         int iTimer2 = 0;
 
+        string text = "La réponse est la couleur qui revient le plus souvent sur les formes";
+
         Timer Timer1 = new Timer();
         Timer Timer2 = new Timer();
 
@@ -31,10 +33,14 @@ namespace Cpln.Enigmos.Enigmas
         Panel pnlCarre1 = new Panel(); // Création du panel qui sera carré
         Panel pnlCarre2 = new Panel(); // Création d'un deuxième panel qui sera carré
         Panel pnlCarre3 = new Panel();
+        Panel pnlCarre4 = new Panel();
+        Panel pnlCarre5 = new Panel();
 
         Panel pnlRectangle1 = new Panel();
         Panel pnlRectangle2 = new Panel();
         Panel pnlRectangle3 = new Panel();
+        Panel pnlRectangle4 = new Panel();
+        Panel pnlRectangle5 = new Panel();
 
         Ellipse ellipse1 = new Ellipse();
         Ellipse ellipse2 = new Ellipse();
@@ -45,12 +51,6 @@ namespace Cpln.Enigmos.Enigmas
             lblTime.Location = new Point(380, 200);
             lblTime.Size = new Size(100, 100);
             lblTime.Font = new Font("Arial", 30 , FontStyle.Bold);
-
-            lblReponse.Text = "réponse est la couleur qui revient le plus souvent sur les formes";
-            lblTime.Size = new Size(6000,50);
-            lblReponse.Font = new Font("Arial", 14, FontStyle.Bold);
-            lblReponse.Location = new Point(100, 200);
-            lblReponse.BackColor = Color.Blue;
 
             Timer1.Interval = 1000; // 1000 millisecondes = 1 seconde
             Timer1.Tick += new EventHandler(Timer_Tick);
@@ -85,6 +85,7 @@ namespace Cpln.Enigmos.Enigmas
             AjoutPanelCarre(100, 350, 350, Color.Blue, pnlCarre2);
             AjoutPanelRectangle(120, 210, 350, 350, Color.Yellow,pnlRectangle1);
             AjoutPanelCarre(100, 350, 350, Color.Blue,pnlCarre3);
+            AjoutPanelCarre(100,350,350, Color.Yellow, pnlCarre4)
             AjoutPanelRectangle(120, 210, 350, 350, Color.Green, pnlRectangle2);
         }
 
@@ -198,9 +199,10 @@ namespace Cpln.Enigmos.Enigmas
                 Controls.Remove(lstForme[iCompteur - 1]);
                 Controls.Remove(lblFormeCouleur);
                 Controls.Remove(lblTime);
-                //Timer1.Enabled = false;
+                Timer1.Enabled = false;
                 Timer2.Enabled = false;
-                Controls.Add(lblReponse);
+                
+                MessageBox.Show(text);
             }
                
         }
