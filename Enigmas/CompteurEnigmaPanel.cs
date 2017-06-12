@@ -9,7 +9,7 @@ using System.Diagnostics;
 
 namespace Cpln.Enigmos.Enigmas
 {
-    public class CompteurEnigmaPanel:EnigmaPanel
+    public class CompteurEnigmaPanel : EnigmaPanel
     {
         private int iTemps = 0;
         private Label lblTemps = new Label();
@@ -46,7 +46,7 @@ namespace Cpln.Enigmos.Enigmas
             lblTemps.BackColor = Color.Red;
             lblTemps.Font = new Font("Arial", 30);
             lblTemps.AutoSize = false;
-            lblTemps.TextAlign=ContentAlignment.MiddleCenter;
+            lblTemps.TextAlign = ContentAlignment.MiddleCenter;
             Controls.Add(lblTemps);
             lblStart.Size = new Size(200, 50);
             lblStart.Location = new Point(300, 400);
@@ -55,7 +55,7 @@ namespace Cpln.Enigmos.Enigmas
             lblStart.Text = "Start";
             lblStart.TextAlign = ContentAlignment.MiddleCenter;
             Controls.Add(lblStart);
-            lblStart.Click+=new EventHandler(lblStart_Click);
+            lblStart.Click += new EventHandler(lblStart_Click);
         }
 
         /// <summary>
@@ -93,9 +93,10 @@ namespace Cpln.Enigmos.Enigmas
 
                 //Teste de gain
                 if (iTempsJoueur >= iTempsMin && iTempsJoueur <= iTempsMax)
-                {  
-                    MessageBox.Show("Bravo la réponse est: temps\n\nVous avez fait : " + iSec.ToString() + ":" + iDix.ToString() + iCent.ToString() + iMili.ToString(), "Bravo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                }else
+                {
+                    MessageBox.Show("Bravo la réponse est: temps\n\nVous avez fait : " + iSec.ToString() + ":" + iDix.ToString() + iCent.ToString() + iMili.ToString(), "Bravo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
                 {
                     lblStart.Enabled = true;
 
@@ -113,7 +114,7 @@ namespace Cpln.Enigmos.Enigmas
         public override void Load()
         {
             //Temps aléatoire
-            iTemps=rTempsAleatoire.Next(5, 15);
+            iTemps = rTempsAleatoire.Next(5, 15);
 
             //Débloquer le label
             lblStart.Enabled = true;

@@ -304,6 +304,60 @@
   <data name="tutorial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tutorial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EnnemisCoord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnnemisCoord.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Fantome1Avance1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Avance1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome1Avance2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Avance2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome1Avance3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Avance3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome1Droite1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Droite1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome1Droite2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Droite2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome1Droite3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Droite3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome1Gauche1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Gauche1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome1Gauche2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Gauche2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome1Gauche3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Gauche3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome1Recul1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Recul1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome1Recul2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Recul2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome1Recul3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome1Recul3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Murcoord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Murcoord.Xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="papierCoord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\papierCoord.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="jungle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jungle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeCymbalesOuvertes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeBleuCymbalesOuvertes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeCymbalesFermees" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeBleuCymbaleFermees.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pendu0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pendu0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -330,7 +384,10 @@
   </data>
   <data name="pendu8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pendu8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
- </data>
+  </data>
+  <data name="elephant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\elephant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Coin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Coin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -354,6 +411,9 @@
   </data>
   <data name="piano" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\piano.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ElephantOmbre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ElephantOmbre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="donjon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\donjon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -385,9 +445,51 @@
   <data name="mur" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LorieAvance1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieAvance1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieAvance2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieAvance2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieAvance3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieAvance3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieDroite1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieDroite1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieDroite2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieDroite2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieDroite3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieDroite3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieGauche1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieGauche1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieGauche2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieGauche2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieGauche3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieGauche3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieRecul1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieRecul1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieRecul2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieRecul2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LorieRecul3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LorieRecul3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpriteEnnemiType1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SpriteEnnemiType1.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Pileouface" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PileOUface.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="listeMotPendu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\listeMotPendu.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-	</data>
+  </data>
   <data name="barResized" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\barResized.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -396,5 +498,104 @@
   </data>
   <data name="nailCorrected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nailCorrected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UnderImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UnderImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Avance1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Avance1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Avance2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Avance2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Avance3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Avance3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Droite1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Droite1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Droite2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Droite2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Droite3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Droite3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Gauche1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Gauche1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Gauche2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Gauche2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Gauche3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Gauche3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Recul1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Recul1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Recul2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Recul2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fantome2Recul3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fantome2Recul3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="parquet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\parquet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SacAsauce1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SacAsauce1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SacAsauce2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SacAsauce2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SacAsauce3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SacAsauce3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SacAsauce4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SacAsauce4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SacAsauce5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SacAsauce5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SacAsauce6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SacAsauce6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SacAsauce7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SacAsauce7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SolParquetReworkGrisBrunSmol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SolParquetReworkGrisBrunSmol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeDeDosBA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeDeDosBA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeDeDosNA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeDeDosNA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeDjembeD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeDjembeD .png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeDjembeG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeDjembeG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bananas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13081.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reset" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeViolonPause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeViolonPause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeDjembePause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeDjembePause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeCymbalePause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeCymbalePause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeViolonActif1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeViolonActif1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SingeViolonActif2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SingeViolonActif2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

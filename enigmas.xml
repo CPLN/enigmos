@@ -28,6 +28,10 @@
     <answer>oiseaux</answer>
     <hint>C'est un animal.</hint>
   </enigma>
+  <enigma title="Jeu du sac">
+    <answer>67197120</answer>
+    <hint>les lettres sont inutiles car C'est plus pratique avec un sac</hint>
+</enigma>
   <enigma title="Puzzle">
     <answer>jongleur</answer>
     <hint>Remettez les pièces à leur place.</hint>
@@ -41,6 +45,10 @@
   <enigma title="Où est la réponse ?">
     <answer>là-bas</answer>
     <hint>je t'ai dis là-bas, enfin !</hint>
+  </enigma>
+  <enigma title="Les 3 singes">
+    <answer>Bananas</answer>
+    <hint>Chaque boutons active/désactive l'état d'un singe, essaye de les activer tous en même temps</hint>
   </enigma>
   <enigma title="Couche Couleur">
     <answer>troller</answer>
@@ -61,6 +69,11 @@
   <enigma title="Tape-taupe">
     <answer>Souris</answer>
     <hint>Cliquez sur les souris qui apparaissent, ne pas cliquez sur les chats</hint>
+  </enigma>
+  <enigma title="Hugo von Hofmannsthal">
+    <answer>illuminati</answer>
+    <hint>“Il faut cacher la profondeur. Où ça ? A la surface.” 
+    -Hugo von Hofmannsthal </hint>
   </enigma>
   <enigma title="Chop' les poissons">
     <answer>Dru</answer>
@@ -178,6 +191,14 @@
     <answer>9.</answer>
     <hint>Passez par les 9 points en 4 traits</hint>
   </enigma>
+  <enigma title="Devine l'animal !">
+    <answer>éléphant</answer>
+    <hint>L'ombre d'un doute</hint>
+  </enigma>
+  <enigma title="Pile ou face">
+    <answer>pile poil</answer>
+    <hint>1er partie :Choisi t'as combinaison de 3 (Pile ou face).  2ème partie: Les carrées de couleur t'indique les éléments gagnants de ta combinaison</hint>
+  </enigma>
   <enigma title="Boite noire">
     <answer>skate</answer>
     <hint>Touver les lettres corresondantes aux chiffres et mettez les dans le bon ordre (A=1,B=2,...)</hint>
@@ -189,5 +210,9 @@
   <enigma title="Compteur">
     <answer>temps</answer>
     <hint>Presser sur la barre espace quand vous pensez avoir atteint le temps défini</hint>
+  </enigma>
+  <enigma title="Mémorise">
+    <answer>we</answer>
+    <hint>Mémorisez le chiffre</hint>
   </enigma>
 </enigmas>

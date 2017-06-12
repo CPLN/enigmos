@@ -76,7 +76,7 @@ namespace Cpln.Enigmos.Enigmas
             pbxTutoriel.BackColor = Color.Transparent;
             pbxPlayer.Location = new Point(pbxGround.Width / 2 - pbxPlayer.Width / 2, pbxGround.Top - pbxPlayer.Height);
             pbxPlayer.BackColor = Color.Transparent;
-            pbxPlayer.Width = Properties.Resources.pj1.Width;//reset la taille du player
+            pbxPlayer.Width = Properties.Resources.pj1.Width;//btnReset la taille du player
 
         }
 
@@ -84,7 +84,7 @@ namespace Cpln.Enigmos.Enigmas
         {
             pbxGround.BackColor = Color.Black;
             Timer.Stop();
-            pbxPlayer.Width = Properties.Resources.pj1.Width;//reset la taille du player
+            pbxPlayer.Width = Properties.Resources.pj1.Width;//btnReset la taille du player
         }
 
         private void OnButtonClick(object sender, EventArgs e)
@@ -213,7 +213,7 @@ namespace Cpln.Enigmos.Enigmas
                     {
                         pbxPlayer.Left += WIDTH_PUNCH;//modifi sa hitbox (problème winForm)
                     }
-                    pbxPlayer.Width = Properties.Resources.pj1.Width;//reset la taille du player
+                    pbxPlayer.Width = Properties.Resources.pj1.Width;//btnReset la taille du player
                     bGodMod = false;// remet le joueur en mode vulnérable
                     iTimerPunch = 0;
                     bPunch = false;//permet de ne plus rentrer dans cette boucle
