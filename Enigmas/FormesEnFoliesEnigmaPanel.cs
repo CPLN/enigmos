@@ -21,6 +21,7 @@ namespace Cpln.Enigmos.Enigmas
 
         Label lblFormeCouleur = new Label();
         Label lblTime = new Label();
+        Label lblReponse = new Label();
 
         List<Panel> lstForme = new List<Panel>(); // Création d'une liste qui contiendra tous les panels (formes)
 
@@ -45,11 +46,17 @@ namespace Cpln.Enigmos.Enigmas
             lblTime.Size = new Size(100, 100);
             lblTime.Font = new Font("Arial", 30 , FontStyle.Bold);
 
-            Timer1.Interval = 1000; // 1 milliseconde
+            lblReponse.Text = "réponse est la couleur qui revient le plus souvent sur les formes";
+            lblTime.Size = new Size(6000,50);
+            lblReponse.Font = new Font("Arial", 14, FontStyle.Bold);
+            lblReponse.Location = new Point(100, 200);
+            lblReponse.BackColor = Color.Blue;
+
+            Timer1.Interval = 1000; // 1000 millisecondes = 1 seconde
             Timer1.Tick += new EventHandler(Timer_Tick);
             Timer1.Enabled = true;
 
-            Timer2.Interval = 500;
+            Timer2.Interval = 1000;
             Timer2.Tick += new EventHandler(Timer2_Tick);
             
 
@@ -81,7 +88,12 @@ namespace Cpln.Enigmos.Enigmas
             AjoutPanelRectangle(120, 210, 350, 350, Color.Green, pnlRectangle2);
         }
 
-        //Timer qui va afficher les 2 premières formes automatiquement
+        /// <summary>
+        /// Timer qui va faire défiler les 2 premières formes.
+        /// Il va être relancé à chaque erreur.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
             if(iCompteur <= 0)
@@ -111,27 +123,37 @@ namespace Cpln.Enigmos.Enigmas
 
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            if(iTimer2<=10)
+            if(iDecompteTimer >= 1)
             {
-                Controls.Add(lblTime);
-                lblTime.Text = Convert.ToString(iDecompteTimer);
+                if (iTimer2 <= 10)
+                {
+                    Controls.Add(lblTime);
+                    lblTime.Text = Convert.ToString(iDecompteTimer);
+                }
+                else
+                {
+                    Timer2.Stop();
+                    iTimer2 = 0;
+
+                }
+
+                iDecompteTimer--;
+                iTimer2++;
             }
             else
             {
-                Timer2.Stop();
-                iTimer2 = 0;
-
+                iDecompteTimer = 10;
+                iCompteur = 0;
+                Timer1.Start();
             }
-
-            iDecompteTimer--;
-            iTimer2++;
+            
         }
 
         //Evènement lorsqu'il y a un clic sur un bouton
         private void ClicSurBoutonDifferent(object sender, EventArgs e)
         {
             int iTailleListe = lstForme.Capacity;
-            if (iCompteur <= iTailleListe)
+            if (iCompteur < iTailleListe)
             {
                 if (lblFormeCouleur.Text == "Forme ?" || iCompteur == 2)
                 {
@@ -141,6 +163,7 @@ namespace Cpln.Enigmos.Enigmas
                     {
                         Controls.Remove(lstForme[iCompteur - 1]);
                         iCompteur = 0;
+                        iDecompteTimer = 10;
                         Timer1.Start();
                     }
                     else
@@ -158,6 +181,7 @@ namespace Cpln.Enigmos.Enigmas
                     {
                         Controls.Remove(lstForme[iCompteur - 1]);
                         iCompteur = 0;
+                        iDecompteTimer = 10;
                         Timer1.Start();
                     }
                     else
@@ -168,6 +192,15 @@ namespace Cpln.Enigmos.Enigmas
                     }
                 }
 
+            }
+            else
+            {
+                Controls.Remove(lstForme[iCompteur - 1]);
+                Controls.Remove(lblFormeCouleur);
+                Controls.Remove(lblTime);
+                //Timer1.Enabled = false;
+                Timer2.Enabled = false;
+                Controls.Add(lblReponse);
             }
                
         }
@@ -189,6 +222,7 @@ namespace Cpln.Enigmos.Enigmas
                 {
                     Controls.Remove(lstForme[iCompteur - 1]);
                     iCompteur = 0;
+                    iDecompteTimer = 10;
                     Timer1.Start();
                 }
             }
@@ -206,6 +240,7 @@ namespace Cpln.Enigmos.Enigmas
                 {
                     Controls.Remove(lstForme[iCompteur - 1]);
                     iCompteur = 0;
+                    iDecompteTimer = 10;
                     Timer1.Start();
                 }
             }
