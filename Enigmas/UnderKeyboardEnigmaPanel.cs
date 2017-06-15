@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
-    
+
     class UnderKeyboardEnigmaPanel : EnigmaPanel
     {
         private List<Touche> listeTouche; // Contient la liste de Touche définitive
@@ -33,10 +33,10 @@ namespace Cpln.Enigmos.Enigmas
         {
             iLocX = iLocalisationX;
             iLocY = iLocalisationY;
-            for (int i = 0; i <= 25; i++) 
+            for (int i = 0; i <= 25; i++)
             {
                 iLocX += iWidth;
-                if (i % 7 == 0) 
+                if (i % 7 == 0)
                 {
                     // Ces deux commandes nous permettes de faire un "Retour à la ligne" avec les touches
                     iLocX = iLocalisationX;
@@ -62,9 +62,9 @@ namespace Cpln.Enigmos.Enigmas
             Bitmap BackImage = new Bitmap(Properties.Resources.UnderImage, 50, 50);
             BackgroundImage = BackImage;
             // UnderImage crée une PictureBox avec l'image qui est sous le clavier 
-            PictureBox UnderImage = new PictureBox() {Size = new Size(490, 280), Image = Properties.Resources.UnderImage,SizeMode = PictureBoxSizeMode.StretchImage, Location = new Point(150, 220) };
+            PictureBox UnderImage = new PictureBox() { Size = new Size(490, 280), Image = Properties.Resources.UnderImage, SizeMode = PictureBoxSizeMode.StretchImage, Location = new Point(150, 220) };
             // CoinG et CoinD crée une PictureBoxx qui iPlace une image dans les coin du clavier où il n'y a pas de touche pour combler les trous
-            PictureBox CoinG = new PictureBox() { Size = new Size(50,50), Image = Properties.Resources.UnderImage, SizeMode = PictureBoxSizeMode.StretchImage, Location = new Point(160, 440) };
+            PictureBox CoinG = new PictureBox() { Size = new Size(50, 50), Image = Properties.Resources.UnderImage, SizeMode = PictureBoxSizeMode.StretchImage, Location = new Point(160, 440) };
             PictureBox CoinD = new PictureBox() { Size = new Size(50, 50), Image = Properties.Resources.UnderImage, SizeMode = PictureBoxSizeMode.StretchImage, Location = new Point(580, 440) };
             Controls.Add(CoinG);
             Controls.Add(CoinD);
@@ -96,7 +96,7 @@ namespace Cpln.Enigmos.Enigmas
             caractere.Add('E');
             caractere.Add('S');
 
-            lblPresser = new Label() { Text = "PRESSER", Location = new Point(315, 60), TextAlign = ContentAlignment.MiddleCenter, Font = new Font("Arial", 22), Width = 160, Height = 45};
+            lblPresser = new Label() { Text = "PRESSER", Location = new Point(315, 60), TextAlign = ContentAlignment.MiddleCenter, Font = new Font("Arial", 22), Width = 160, Height = 45 };
             Controls.Add(lblPresser);
 
             // boucle qui va ajouter dans le tableau toutetouches toute les lettre de l'alphabet
@@ -136,7 +136,7 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         public override void Unload()
         {
-            foreach(Touche touche in listeTouche)
+            foreach (Touche touche in listeTouche)
             {
                 Controls.Remove(touche);
             }
