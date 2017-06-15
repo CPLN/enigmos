@@ -17,7 +17,7 @@ namespace Cpln.Enigmos
         /// <returns>L'énigme à afficher</returns>
         public static Enigma DebugEnigma()
         {
-            return new Enigma(new UnderKeyboardEnigmaPanel(), "Hugo von Hofmannsthal");
+            return new Enigma(new FormesEnFoliesEnigmaPanel(), "Formes en folies");
         }
 
         /// <summary>
