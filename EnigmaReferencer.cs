@@ -66,6 +66,7 @@ namespace Cpln.Enigmos
             enigmas.Add(new Enigma(new RectangleEnigmaPanel(), "Trouve le rectangle"));
             enigmas.Add(new Enigma(new ReflexeEnigmaPanel(), "Reflexe"));
             enigmas.Add(new Enigma(new SeptDifferencesEnigmaPanel(), "Le jeu des 7 différences"));
+            enigmas.Add(new Enigma(new SingesEnigmaPanel(), "Les 3 singes"));
             enigmas.Add(new Enigma(new SimpleEnigmaPanel(), "C'est simple"));
             enigmas.Add(new Enigma(new SimplePuzzleEnigmaPanel(), "Puzzle"));
             enigmas.Add(new Enigma(new TapeTaupeEnigmaPanel(), "Tape-taupe"));
