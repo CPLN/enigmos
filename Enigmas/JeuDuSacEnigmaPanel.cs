@@ -130,6 +130,13 @@ namespace Cpln.Enigmos.Enigmas
             //on demarre le timer d'animation du joueur sur un keypress
         }
 
+        public override void Unload()
+        {
+            timer1.Stop();
+            timerSpriteEnnemi.Stop();
+            timerSpriteJoueur.Stop();
+        }
+
         #region Animation_Et_Sprite
         /// <summary>
         /// permet de determiner quel set de sprite l'ennemi va utiliser dans ses animations
