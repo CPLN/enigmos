@@ -126,6 +126,10 @@ namespace Cpln.Enigmos.Enigmas
             interactions[5][0] = Interaction.DESACTIVER;
             interactions[5][1] = Interaction.DESACTIVER;
             interactions[5][2] = Interaction.DESACTIVER;
+
+            // Timer
+            tChrono.Tick += new EventHandler(TimerEventProcessor);
+            tChrono.Interval = 500;
         }
 
         //Evènement sur click des pbx.
@@ -183,8 +187,6 @@ namespace Cpln.Enigmos.Enigmas
         /// </summary>
         public override void Load()
         {
-            tChrono.Tick += new EventHandler(TimerEventProcessor);
-            tChrono.Interval = 500;
             tChrono.Start();
             TimerEventProcessor(null, null); //Evite la latence entre le moment ou le bouton est pressé et le moment ou le singe s'actionne
         }
