@@ -499,6 +499,9 @@
   <data name="nailCorrected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nailCorrected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="UnderImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UnderImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Fantome2Avance1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fantome2Avance1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -558,6 +561,7 @@
   </data>
   <data name="SolParquetReworkGrisBrunSmol" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SolParquetReworkGrisBrunSmol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SingeDeDosBA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SingeDeDosBA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

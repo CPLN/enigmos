@@ -47,7 +47,7 @@
     <hint>je t'ai dis là-bas, enfin !</hint>
   </enigma>
   <enigma title="Les 3 singes">
-    <answer>Bananas</answer>
+    <answer>BANANA</answer>
     <hint>Chaque boutons active/désactive l'état d'un singe, essaye de les activer tous en même temps</hint>
   </enigma>
   <enigma title="Couche Couleur">
@@ -69,6 +69,11 @@
   <enigma title="Tape-taupe">
     <answer>Souris</answer>
     <hint>Cliquez sur les souris qui apparaissent, ne pas cliquez sur les chats</hint>
+  </enigma>
+  <enigma title="Hugo von Hofmannsthal">
+    <answer>illuminati</answer>
+    <hint>“Il faut cacher la profondeur. Où ça ? A la surface.” 
+    -Hugo von Hofmannsthal </hint>
   </enigma>
   <enigma title="Chop' les poissons">
     <answer>Dru</answer>
@@ -141,6 +146,10 @@
   <enigma title="Reflexe">
     <answer>Bon réflexe</answer>
     <hint>Recliquer sur le bouton commencer au dernier moment</hint>
+  </enigma>
+  <enigma title="Formes en folies">
+    <answer>Bleu</answer>
+    <hint>La forme ou la couleur est elle différente de la précédente ?</hint>
   </enigma>
   <enigma title="Jeu de mot">
     <answer>citron vert</answer>

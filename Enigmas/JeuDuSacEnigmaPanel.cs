@@ -16,7 +16,7 @@ namespace Cpln.Enigmos.Enigmas
         PictureBox[] aPBGhostEnnemi = new PictureBox[5];//la on stock l'image des ennemis
         PictureBox[] aPBPapier = new PictureBox[7];//et celui là les papiers à récupérer
         PictureBox pbJoueur = new PictureBox();
-        PictureBox pbGhostJoueur = new PictureBox();    
+        PictureBox pbGhostJoueur = new PictureBox();
         List<List<string>> listCoordMur = new List<List<string>>();//et toutes les informations individuelles des murs sont stockées ici
         List<List<string>> listCoordEnnemis = new List<List<string>>();
         List<List<string>> listCoordPapier = new List<List<string>>();
@@ -32,13 +32,13 @@ namespace Cpln.Enigmos.Enigmas
         bool[] aBetatTouche = new bool[4] { false, false, false, false };//stock l'état des touches "W,A,S,D" false indiquant qu'elles sont relâchées
         Keys[] aKey = new Keys[4] { Keys.W, Keys.A, Keys.S, Keys.D };
 
-        int iTimerSpriteEnnemiState=0;
+        int iTimerSpriteEnnemiState = 0;
         int[] aEtatSpriteEnnemi = new int[5] { 2, 0, 0, 2, 2 };//ici on va stocker quel rangée de sprites l'ennemi utilise
         int EtatSpriteJoueur = 0;
         int iTimerSpriteJoueur = 0;
         //ici on stock tout les sprites ennemis.
         Image[,] aSpriteEnnemiType1 = new Image[4, 3] { {Properties.Resources.Fantome1Avance1,Properties.Resources.Fantome1Avance2,Properties.Resources.Fantome1Avance3 },
-                                                        {Properties.Resources.Fantome1Recul1,Properties.Resources.Fantome1Recul2,Properties.Resources.Fantome1Recul3 },                                                           
+                                                        {Properties.Resources.Fantome1Recul1,Properties.Resources.Fantome1Recul2,Properties.Resources.Fantome1Recul3 },
                                                         {Properties.Resources.Fantome1Droite1,Properties.Resources.Fantome1Droite2,Properties.Resources.Fantome1Droite3 },
                                                         {Properties.Resources.Fantome1Gauche1,Properties.Resources.Fantome1Gauche2,Properties.Resources.Fantome1Gauche3 }};
 
@@ -47,7 +47,7 @@ namespace Cpln.Enigmos.Enigmas
                                                         {Properties.Resources.Fantome2Droite1,Properties.Resources.Fantome2Droite2,Properties.Resources.Fantome2Droite3 },
                                                         {Properties.Resources.Fantome2Gauche1,Properties.Resources.Fantome2Gauche2,Properties.Resources.Fantome2Gauche3 }};
         //là les sprites des sacs
-        Image[] aSpriteSac = new Image[7] {Properties.Resources.SacAsauce1,Properties.Resources.SacAsauce2, Properties.Resources.SacAsauce3, Properties.Resources.SacAsauce4, Properties.Resources.SacAsauce5, Properties.Resources.SacAsauce6, Properties.Resources.SacAsauce7};
+        Image[] aSpriteSac = new Image[7] { Properties.Resources.SacAsauce1, Properties.Resources.SacAsauce2, Properties.Resources.SacAsauce3, Properties.Resources.SacAsauce4, Properties.Resources.SacAsauce5, Properties.Resources.SacAsauce6, Properties.Resources.SacAsauce7 };
         //ici on stock les sprites du joueur
         Image[,] aSpriteJoueur = new Image[4, 3] { {Properties.Resources.LorieAvance1,Properties.Resources.LorieAvance2,Properties.Resources.LorieAvance3 },
                                                         {Properties.Resources.LorieRecul1,Properties.Resources.LorieRecul2,Properties.Resources.LorieRecul3 },
@@ -66,7 +66,7 @@ namespace Cpln.Enigmos.Enigmas
         }
 
         public override void Load()
-        {         
+        {
             listCoordMur = RemplissageDeCord(Properties.Resources.Murcoord, listCoordMur);
             listCoordEnnemis = RemplissageDeCord(Properties.Resources.EnnemisCoord, listCoordEnnemis);
             listCoordPapier = RemplissageDeCord(Properties.Resources.papierCoord, listCoordPapier);
@@ -84,7 +84,7 @@ namespace Cpln.Enigmos.Enigmas
 
             pbGhostJoueur.Size = new System.Drawing.Size(29, 32);
             pbGhostJoueur.Location = new System.Drawing.Point(95, 228);
-           //pbJoueur.BackColor = Color.Crimson; //utile pour afficher la hitbox pour le débuggage
+            //pbJoueur.BackColor = Color.Crimson; //utile pour afficher la hitbox pour le débuggage
             pbJoueur.Visible = false;
             pbGhostJoueur.Image = aSpriteJoueur[EtatSpriteJoueur, 1];
             pbGhostJoueur.BackColor = Color.Transparent;
@@ -95,7 +95,7 @@ namespace Cpln.Enigmos.Enigmas
             aPBMurs = RemplissageProprietePictureBox(aPBMurs, listCoordMur);
             foreach (PictureBox mur in aPBMurs)
             { Controls.Add(mur); }
-           
+
             //ici on initialise les ennemis et on lie leurs "ghost"
             aPBEnnemis = RemplissageProprietePictureBox(aPBEnnemis, listCoordEnnemis);
             connexionSpriteHitboxEnnemi();
@@ -103,7 +103,7 @@ namespace Cpln.Enigmos.Enigmas
             foreach (PictureBox ennemi in aPBEnnemis)
             {
                 Image[,] aSpriteEnnemi = SelectionSet(iEnnemis);
-                aPBGhostEnnemi[iEnnemis].Image = aSpriteEnnemi[aEtatSpriteEnnemi[iEnnemis], 1];               
+                aPBGhostEnnemi[iEnnemis].Image = aSpriteEnnemi[aEtatSpriteEnnemi[iEnnemis], 1];
                 Controls.Add(ennemi);
                 Controls.Add(aPBGhostEnnemi[iEnnemis]);
                 iEnnemis++;
@@ -130,7 +130,7 @@ namespace Cpln.Enigmos.Enigmas
             //on demarre le timer d'animation du joueur sur un keypress
         }
 
-#region Animation_Et_Sprite
+        #region Animation_Et_Sprite
         /// <summary>
         /// permet de determiner quel set de sprite l'ennemi va utiliser dans ses animations
         /// </summary>
@@ -152,7 +152,7 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         private void timerSpriteEnnemi_Tick(object sender, EventArgs e)
         {
-            int iEnnemis = 0;           
+            int iEnnemis = 0;
             //on va parcourir tous les ennemis et leurs assigner la rangée de sprites indiquée par le tableau "aEtatSpriteEnnemi"
             //le ItimerSprite va nous servir à savoir quelle séquence afficher, 0,1 ou 2        
             foreach (PictureBox ennemi in aPBEnnemis)
@@ -161,7 +161,7 @@ namespace Cpln.Enigmos.Enigmas
                 aPBGhostEnnemi[iEnnemis].Image = aSpriteEnnemi[aEtatSpriteEnnemi[iEnnemis], iTimerSpriteEnnemiState];
                 iEnnemis++;
             }
-            iTimerSpriteEnnemiState= AnimationFlow(iTimerSpriteEnnemiState);
+            iTimerSpriteEnnemiState = AnimationFlow(iTimerSpriteEnnemiState);
         }
         /// <summary>
         /// indique quel séquence d'animation afficher. l'ordre des séquences est 0,1,2 
@@ -188,14 +188,14 @@ namespace Cpln.Enigmos.Enigmas
             iTimerSpriteJoueur = AnimationFlow(iTimerSpriteJoueur);
             foreach (bool betat in aBetatTouche)
             {
-                if(betat)
+                if (betat)
                 { iNbToucheDown++; }
             }
             if (iNbToucheDown == 0)
             {
                 pbGhostJoueur.Image = aSpriteJoueur[EtatSpriteJoueur, 1];//on régle le sprite sur la position normal
                 timerSpriteJoueur.Stop();//et on arrête le timer d'animation si aucune touche n'est préssée
-            }       
+            }
         }
         public override void ReleaseKey(object sender, KeyEventArgs e)
         {
@@ -207,10 +207,10 @@ namespace Cpln.Enigmos.Enigmas
                 iChercheTouche++;
             }
         }
-#endregion
+        #endregion
         private void timer1_Tick(object sender, EventArgs e)
-        {          
-            Int32[,] aIlimitesEnnemis = new Int32[5, 2] { { 65, 185 }, { 100, 390 }, { 128, 305 }, { 124, 270 },  { 283, 380 } };//tableau qui contient les coordonées des limites des routines de déplacement des ennemis 
+        {
+            Int32[,] aIlimitesEnnemis = new Int32[5, 2] { { 65, 185 }, { 100, 390 }, { 128, 305 }, { 124, 270 }, { 283, 380 } };//tableau qui contient les coordonées des limites des routines de déplacement des ennemis 
             Point[,] AdDeplacementEnnemis = new Point[5, 2] {
                                                              {new Point(aPBEnnemis[0].Location.X + 2, aPBEnnemis[0].Location.Y), new Point(aPBEnnemis[0].Location.X - 2, aPBEnnemis[0].Location.Y) },
                                                              {new Point(aPBEnnemis[1].Location.X, aPBEnnemis[1].Location.Y+2), new Point(aPBEnnemis[1].Location.X, aPBEnnemis[1].Location.Y-2) },
@@ -522,7 +522,7 @@ namespace Cpln.Enigmos.Enigmas
                 Entite.Width = Convert.ToInt32(listePropriete[iCpt][0]);
                 Entite.Height = Convert.ToInt32(listePropriete[iCpt][1]);
                 Entite.Location = new System.Drawing.Point(Convert.ToInt32(listePropriete[iCpt][2]), Convert.ToInt32(listePropriete[iCpt][3]));
-                if (listePropriete[iCpt][4] == "Black" || listePropriete[iCpt][4]== "Transparent") //à gauche couleur des murs et à droite les ennemis
+                if (listePropriete[iCpt][4] == "Black" || listePropriete[iCpt][4] == "Transparent") //à gauche couleur des murs et à droite les ennemis
                 { Entite.BackColor = System.Drawing.Color.FromName(listePropriete[iCpt][4]); }
                 iCpt++;
             }
