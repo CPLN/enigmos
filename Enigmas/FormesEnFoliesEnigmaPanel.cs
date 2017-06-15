@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Cpln.Enigmos.Enigmas
 {
-    public class FormesEnFoliesEnigmaPanel : EnigmaPanel 
+    public class FormesEnFoliesEnigmaPanel : EnigmaPanel
     {
         // Tous les compteurs
         int iDecompteTimer = 10; // Variable qui fera office de chrono 
@@ -32,8 +32,8 @@ namespace Cpln.Enigmos.Enigmas
         Button btnIdentique = new Button(); // Création du bouton identique
 
         // Les panels carré
-        Panel pnlCarre1 = new Panel(); 
-        Panel pnlCarre2 = new Panel(); 
+        Panel pnlCarre1 = new Panel();
+        Panel pnlCarre2 = new Panel();
         Panel pnlCarre3 = new Panel();
         Panel pnlCarre4 = new Panel();
         Panel pnlCarre5 = new Panel();
@@ -66,11 +66,11 @@ namespace Cpln.Enigmos.Enigmas
 
             Timer2.Interval = 1000;
             Timer2.Tick += new EventHandler(Timer2_Tick);
-            
+
             Triangle triangle = new Triangle(100, 50); // Création du panel qui sera un triangle, avec une base de 100 et un sommet à 50 (en haut milieu du panel)
             triangle.Location = new Point(360, 350);
             AjoutDansListe(triangle);
-            
+
             ellipse1.Location = new Point(300, 300);
             ellipse1.Size = new Size(220, 220);
             AjoutDansListe(ellipse1);
@@ -86,8 +86,8 @@ namespace Cpln.Enigmos.Enigmas
             AjoutPanelCarre(100, 360, 350, Color.Green, pnlCarre1);
             AjoutPanelRectangle(120, 210, 300, 350, Color.Blue, pnlRectangle3);
             AjoutPanelCarre(100, 360, 350, Color.Blue, pnlCarre2);
-            AjoutPanelRectangle(120, 210, 300, 350, Color.Yellow,pnlRectangle1);
-            AjoutPanelCarre(100, 360, 350, Color.Blue,pnlCarre3);
+            AjoutPanelRectangle(120, 210, 300, 350, Color.Yellow, pnlRectangle1);
+            AjoutPanelCarre(100, 360, 350, Color.Blue, pnlCarre3);
             AjoutPanelCarre(100, 360, 350, Color.Yellow, pnlCarre4);
             AjoutPanelRectangle(120, 210, 300, 350, Color.Green, pnlRectangle2);
             AjoutPanelCarre(100, 360, 350, Color.Blue, pnlCarre5);
@@ -103,7 +103,7 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if(iCompteur <= 0)
+            if (iCompteur <= 0)
             {
                 //Affiche la première forme
                 Controls.Add(lstForme[iCompteur]);
@@ -115,7 +115,7 @@ namespace Cpln.Enigmos.Enigmas
                 //Ajoute la 2ème forme
                 Controls.Add(lstForme[iCompteur]);
                 //Supprime la 1ère forme
-                Controls.Remove(lstForme[iCompteur -1]);
+                Controls.Remove(lstForme[iCompteur - 1]);
                 //Ajoute le label forme en dessus des boutons
                 Controls.Add(lblFormeCouleur);
                 lblFormeCouleur.Text = "Forme ?";
@@ -126,7 +126,7 @@ namespace Cpln.Enigmos.Enigmas
                 Timer2.Enabled = true;
                 Timer2.Start();
                 //Arrête le timer après avoir afficher les 2 premières formes
-                Timer1.Stop();    
+                Timer1.Stop();
             }
 
         }
@@ -138,7 +138,7 @@ namespace Cpln.Enigmos.Enigmas
         /// <param name="e"></param>
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            if(iDecompteTimer >= 1)
+            if (iDecompteTimer >= 1)
             {
                 if (iCptTimer2 <= 10)
                 {
@@ -162,7 +162,7 @@ namespace Cpln.Enigmos.Enigmas
                 iCptTimer2 = 0;
                 Timer1.Start();
             }
-            
+
         }
 
         /// <summary>
@@ -231,7 +231,7 @@ namespace Cpln.Enigmos.Enigmas
                 btnIdentique.Enabled = false;
                 Controls.Add(lblReponse);
             }
-               
+
         }
 
         /// <summary>
@@ -244,7 +244,7 @@ namespace Cpln.Enigmos.Enigmas
         private void ClicSurBoutonIdentique(object sender, EventArgs e)
         {
             int iTailleListe = lstForme.Capacity;
-            if (iCompteur < iTailleListe -4)
+            if (iCompteur < iTailleListe - 4)
             {
                 if (lblFormeCouleur.Text == "Forme ?" || iCompteur == 2)
                 {
@@ -316,7 +316,7 @@ namespace Cpln.Enigmos.Enigmas
             panel.Size = new Size(cote, cote);
             panel.Location = new Point(positionX, positionY);
             AjoutDansListe(panel);
-            
+
             return panel;
         }
 

@@ -44,10 +44,11 @@ namespace Cpln.Enigmos
             //enigmas.Add(new Enigma(new DevineAnimalEnigmaPanel(), "Devine l'animal !")); À rajouter lorsque les bugs seront réglés.
             enigmas.Add(new Enigma(new DingbatEnigmaPanel(), "Jeu de mot"));
             enigmas.Add(new Enigma(new FruitsEnigmaPanel(), "Calcul"));
+            //enigmas.Add(new Enigma(new FormesEnFoliesEnigmaPanel(), "Formes en folies")); À rajouter lorsque les bugs seront réglés.
             enigmas.Add(new Enigma(new HazardEnigmaPanel(), "Hazard"));
             enigmas.Add(new Enigma(new HiddenCharacterEnigmalPanel(), "Caractère caché"));
             enigmas.Add(new Enigma(new InvisibleAnwerEnigmaPanel(), "Invisible Answer"));
-            // enigmas.Add(new Enigma(new JeuDuSacEnigmaPanel(), "Jeu du sac")); À rajouter lorsque les bugs seront réglés.
+            //enigmas.Add(new Enigma(new JeuDuSacEnigmaPanel(), "Jeu du sac")); À rajouter lorsque les bugs seront réglés.
             enigmas.Add(new Enigma(new LettreHaute(), "Quelle est la plus haute ?"));
             enigmas.Add(new Enigma(new MemoireDesChiffresEnigmaPanel(), "Souviens toi"));
             //enigmas.Add(new Enigma(new MemorisationChiffreEnigmaPanel(), "Mémorise")); À rajouter lorsque les bugs seront réglés.
