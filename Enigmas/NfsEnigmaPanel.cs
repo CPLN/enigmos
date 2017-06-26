@@ -36,6 +36,15 @@ namespace Cpln.Enigmos.Enigmas
             Controls.Add(pbxVoiture);
       
         }
+       public override void Load()
+        {
+            pbxVoiture.Location = new Point(1, 300);
+            iX = pbxVoiture.Left;
+            pbxVoiture.Click += new EventHandler(ClickOnCar);
+            Controls.Add(pbxVoiture);
+            pbxVoiture.Enabled = true;
+        }
+        
         private void ClickOnCar(object sender, EventArgs e)
         {
             pbxVoiture.Location = new Point(iX+=10,300);
